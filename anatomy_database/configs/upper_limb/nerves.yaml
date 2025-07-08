@@ -1,0 +1,52 @@
+---
+# nerves.yaml defines nerve nodes for the anatomical graph database.
+
+# Each nerve node has the following fields:
+#   id (node id): Unique identifier for the nerve, used as a key node in the database.
+#   name (property): Human-readable name of the nerve.
+#   derivations (property): List of spinal nerve roots contributing to this nerve.
+#   type (property): Functional types of the nerve (e.g., motor, sensory).
+#   pathway (property): Description of the anatomical path the nerve takes.
+#   clinical_significance (property): Clinical notes relevant to injury or dysfunction.
+#   innervates (relationships): List of node IDs referencing muscle nodes that the nerve innervates.
+
+nerves:
+  - id: median
+    name: Median Nerve
+    derivations: [C5, C6, C7, C8, T1]
+    type: [motor, sensory]
+    pathway: Travels with brachial artery, passes through cubital fossa, enters forearm between heads of pronator teres, runs through carpal tunnel into hand.
+    clinical_significance: Compression in carpal tunnel causes carpal tunnel syndrome; weakness in thumb opposition and forearm pronation.
+    innervates: [pronator_teres, flexor_digitorum_superficialis]
+
+  - id: ulnar
+    name: Ulnar Nerve
+    derivations: [C8, T1]
+    type: [motor, sensory]
+    pathway: Passes posterior to medial epicondyle of humerus, continues along ulnar side of forearm into hand.
+    clinical_significance: Injury at elbow or wrist can cause "claw hand" and sensory loss in medial hand.
+    innervates: [flexor_carpi_ulnaris, adductor_pollicis, interossei_dorsal, interossei_palmar, lumbricals_3_4]
+
+  - id: axillary
+    name: Axillary Nerve
+    derivations: [C5, C6]
+    type: [motor, sensory]
+    pathway: Exits axilla through quadrangular space with posterior circumflex humeral artery, wraps around surgical neck of humerus.
+    clinical_significance: Injury can occur with shoulder dislocation or humeral surgical neck fracture, causing deltoid paralysis and sensory loss over deltoid.
+    innervates: [deltoid_anterior, deltoid_middle, deltoid_posterior]
+
+  - id: suprascapular
+    name: Suprascapular Nerve
+    derivations: [C5, C6]
+    type: [motor]
+    pathway: Passes through suprascapular notch under the superior transverse scapular ligament to supply supraspinatus and infraspinatus.
+    clinical_significance: Compression at the notch can cause weakness in shoulder abduction and external rotation.
+    innervates: [supraspinatus, infraspinatus]
+
+  - id: long_thoracic
+    name: Long Thoracic Nerve
+    derivations: [C5, C6, C7]
+    type: [motor]
+    pathway: Descends along lateral thoracic wall, superficial to serratus anterior.
+    clinical_significance: Injury leads to winged scapula due to paralysis of serratus anterior.
+    innervates: [serratus_anterior]

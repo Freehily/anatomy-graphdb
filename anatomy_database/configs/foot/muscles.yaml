@@ -1,0 +1,17 @@
+muscles:
+  - id: fm01
+    name: Flexor Digitorum Brevis
+    group: Plantar Foot (1st layer)
+    order: Foot
+    origin: Medial calcaneal tuberosity
+    insertion: Middle phalanges of toes 2-5
+    innervation: fn01
+    arteries: [fa01, fa02]
+    tendons: ft01
+    ligaments: fl01
+    actions:
+      - Flexes lateral toes
+    antagonists:
+      - fm02
+
+

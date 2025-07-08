@@ -1,0 +1,88 @@
+---
+#   id (node): Unique identifier for the bone, used as a key node in the database.
+#   name: Human-readable name of the bone node.
+#   region: Anatomical region where the bone is located; useful for categorization.
+#   attachments (relationships): List of node IDs corresponding to attachment_point nodes defined in attachment_points.yaml, representing the specific anatomical landmarks where muscles attach.# bones.yaml defines bone nodes for the anatomical graph database.
+bones:
+  - id: scapula
+    name: Scapula
+    region: Shoulder Girdle
+    attachments: [
+      coracoid_process,
+      supraglenoid_tubercle,
+      infraglenoid_tubercle,
+      spine_of_scapula,
+      acromion,
+      glenoid_cavity,
+      supraspinous_fossa,
+      infraspinous_fossa,
+      subscapular_fossa,
+      medial_border_scapula,
+      lateral_border_scapula
+    ]
+
+  - id: clavicle
+    name: Clavicle
+    region: Shoulder Girdle
+    attachments: [
+      sternal_end,
+      acromial_end,
+      medial_clavicle
+    ]
+
+  - id: humerus
+    name: Humerus
+    region: Upper Arm
+    attachments: [
+      head_of_humerus,
+      greater_tubercle,
+      lesser_tubercle,
+      intertubercular_groove,
+      deltoid_tuberosity,
+      medial_epicondyle,
+      lateral_epicondyle,
+      lateral_supracondylar_ridge,
+      above_radial_groove,
+      below_radial_groove,
+      intertubercular_sulcus
+    ]
+
+  - id: radius
+    name: Radius
+    region: Forearm
+    attachments: [
+      head_of_radius,
+      radial_tuberosity,
+      styloid_process_of_radius,
+      ulnar_notch,
+      midshaft_radius,
+      proximal_radius
+    ]
+
+  - id: ulna
+    name: Ulna
+    region: Forearm
+    attachments: [
+      olecranon_process,
+      coronoid_process,
+      ulnar_tuberosity,
+      styloid_process_of_ulna,
+      radial_notch
+    ]
+
+  - id: hand
+    name: Hand
+    region: Distal Upper Limb
+    attachments: [
+      base_of_5th_metacarpal,
+      proximal_phalanges_2_3_4,
+      proximal_phalanges_2_4_5,
+      medial_side_proximal_phalanx_thumb,
+      extensor_expansions_2_5,
+      extensor_expansions_4_5
+    ]
+
+  - id: fascia
+    name: Fascia
+    region: Connective Tissue
+    attachments: [bicipital_aponeurosis]

@@ -1,0 +1,95 @@
+---
+# muscles_heads.yaml defines muscle head nodes for the graph database.
+
+# Each muscle head node contains:
+#   id (node id): Unique identifier for the muscle head
+#   name (property): Human-readable name for clarity
+#   origin (relationships): List of attachment_point node IDs
+#   innervation (relationships): Nerve node IDs
+#   arteries (relationships): Artery node IDs
+
+muscle_heads:
+
+  - id: biceps_brachii_short
+    name: Biceps Brachii (Short Head)
+    origin: [coracoid_process]
+    innervation: [musculocutaneous]
+    arteries: [brachial_artery]
+
+  - id: biceps_brachii_long
+    name: Biceps Brachii (Long Head)
+    origin: [supraglenoid_tuberosity]
+    innervation: [musculocutaneous]
+    arteries: [brachial_artery]
+
+  - id: triceps_brachii_long
+    name: Triceps Brachii (Long Head)
+    origin: [infraglenoid_tubercle]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery, posterior_circumflex_humeral_artery]
+
+  - id: triceps_brachii_lateral
+    name: Triceps Brachii (Lateral Head)
+    origin: [above_radial_groove]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery]
+
+  - id: triceps_brachii_medial
+    name: Triceps Brachii (Medial Head)
+    origin: [below_radial_groove]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery]
+
+  - id: deltoid_anterior
+    name: Deltoid (Anterior Head)
+    origin: [clavicle]
+    innervation: [axillary]
+    arteries: [thoracoacromial_artery]
+
+  - id: deltoid_middle
+    name: Deltoid (Middle Head)
+    origin: [acromion]
+    innervation: [axillary]
+    arteries: [posterior_circumflex_humeral_artery]
+
+  - id: deltoid_posterior
+    name: Deltoid (Posterior Head)
+    origin: [spine_of_scapula]
+    innervation: [axillary]
+    arteries: [posterior_circumflex_humeral_artery]
+
+  - id: pectoralis_major_clavicular
+    name: Pectoralis Major (Clavicular Head)
+    origin: [medial_clavicle]
+    innervation: [lateral_pectoral_nerve]
+    arteries: [thoracoacromial_artery]
+
+  - id: pectoralis_major_sternocostal
+    name: Pectoralis Major (Sternocostal Head)
+    origin: [sternum, costal_cartilages_1_6]
+    innervation: [medial_pectoral_nerve]
+    arteries: [thoracoacromial_artery]
+
+  - id: supraspinatus
+    name: Supraspinatus
+    origin: [supraspinous_fossa]
+    innervation: [suprascapular]
+    arteries: [suprascapular_artery]
+
+  - id: infraspinatus
+    name: Infraspinatus
+    origin: [infraspinous_fossa]
+    innervation: [suprascapular]
+    arteries: [suprascapular_artery]
+
+  - id: teres_minor
+    name: Teres Minor
+    origin: [lateral_border_scapula]
+    innervation: [axillary]
+    arteries: [circumflex_scapular_artery]
+
+  - id: subscapularis
+    name: Subscapularis
+    origin: [subscapular_fossa]
+    innervation: [upper_subscapular_nerve, lower_subscapular_nerve]
+    arteries: [subscapular_artery]

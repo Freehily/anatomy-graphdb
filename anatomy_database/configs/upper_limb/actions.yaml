@@ -1,0 +1,124 @@
+---
+# actions.yaml defines movement/action nodes for the anatomical graph database.
+
+# Each action node has the following fields:
+#   id (node id): Unique identifier for the action, used as a key node in the database.
+#   name (property): Human-readable name of the action/movement.
+#   joint (property): The anatomical joint where the action occurs.
+#   type (property): Type of movement (e.g., flexion, extension, adduction).
+#   primary_movers (relationships): List of muscle node IDs that primarily generate the movement.
+
+actions:
+  - id: elbow_flexion
+    name: Elbow Flexion
+    joint: elbow
+    type: flexion
+    primary_movers: [biceps_brachii_short, biceps_brachii_long, brachialis, brachioradialis, pronator_teres]
+
+  - id: shoulder_flexion
+    name: Shoulder Flexion
+    joint: shoulder
+    type: flexion
+    primary_movers: [biceps_brachii_short, biceps_brachii_long, deltoid_anterior, pectoralis_major_clavicular]
+
+  - id: forearm_supination
+    name: Forearm Supination
+    joint: radioulnar
+    type: supination
+    primary_movers: [biceps_brachii_short, biceps_brachii_long, supinator]
+
+  - id: elbow_extension
+    name: Elbow Extension
+    joint: elbow
+    type: extension
+    primary_movers: [triceps_brachii_long, triceps_brachii_lateral, triceps_brachii_medial]
+
+  - id: shoulder_extension
+    name: Shoulder Extension
+    joint: shoulder
+    type: extension
+    primary_movers: [triceps_brachii_long, deltoid_posterior, latissimus_dorsi]
+
+  - id: shoulder_adduction
+    name: Shoulder Adduction
+    joint: shoulder
+    type: adduction
+    primary_movers: [triceps_brachii_long, pectoralis_major_sternocostal, latissimus_dorsi]
+
+  - id: shoulder_abduction
+    name: Shoulder Abduction
+    joint: shoulder
+    type: abduction
+    primary_movers: [deltoid_middle, supraspinatus]
+
+  - id: shoulder_medial_rotation
+    name: Shoulder Medial Rotation
+    joint: shoulder
+    type: medial_rotation
+    primary_movers: [subscapularis, pectoralis_major_clavicular, latissimus_dorsi]
+
+  - id: shoulder_lateral_rotation
+    name: Shoulder Lateral Rotation
+    joint: shoulder
+    type: lateral_rotation
+    primary_movers: [infraspinatus, teres_minor]
+
+  - id: wrist_flexion
+    name: Wrist Flexion
+    joint: wrist
+    type: flexion
+    primary_movers: [flexor_carpi_ulnaris, flexor_digitorum_superficialis]
+
+  - id: wrist_extension
+    name: Wrist Extension
+    joint: wrist
+    type: extension
+    primary_movers: [extensor_digitorum]
+
+  - id: wrist_adduction
+    name: Wrist Adduction
+    joint: wrist
+    type: adduction
+    primary_movers: [flexor_carpi_ulnaris]
+
+  - id: finger_flexion
+    name: Finger Flexion
+    joint: metacarpophalangeal, interphalangeal
+    type: flexion
+    primary_movers: [flexor_digitorum_superficialis]
+
+  - id: finger_extension
+    name: Finger Extension
+    joint: metacarpophalangeal, interphalangeal
+    type: extension
+    primary_movers: [extensor_digitorum]
+
+  - id: finger_abduction
+    name: Finger Abduction
+    joint: metacarpophalangeal
+    type: abduction
+    primary_movers: [interossei_dorsal]
+
+  - id: finger_adduction
+    name: Finger Adduction
+    joint: metacarpophalangeal
+    type: adduction
+    primary_movers: [interossei_palmar]
+
+  - id: thumb_adduction
+    name: Thumb Adduction
+    joint: carpometacarpal
+    type: adduction
+    primary_movers: [adductor_pollicis]
+
+  - id: mcp_flexion
+    name: MCP Flexion
+    joint: metacarpophalangeal
+    type: flexion
+    primary_movers: [lumbricals_3_4]
+
+  - id: pip_dip_extension
+    name: PIP/DIP Extension
+    joint: interphalangeal
+    type: extension
+    primary_movers: [lumbricals_3_4]
