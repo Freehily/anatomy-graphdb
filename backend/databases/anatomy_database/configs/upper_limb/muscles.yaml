@@ -9,10 +9,9 @@
 #   heads (relationships): List of muscle_head node IDs
 #   insertion (relationships): List of attachment_point node IDs
 #   actions (relationships): List of action node IDs this muscle performs
-#   antagonists (relationships): List of opposing muscle IDs
+#   antagonists (relationships): List of opposing muscle or muscle_head node IDs
 
 muscles:
-
   - id: biceps_brachii
     name: Biceps Brachii
     group: Biceps Brachii
@@ -45,7 +44,7 @@ muscles:
     group: Forearm Flexors
     order: Forearm
     heads: []
-    insertion: [styloid_process_radius]
+    insertion: [styloid_process_of_radius]
     actions: [elbow_flexion]
     antagonists: [triceps_brachii]
 
@@ -63,7 +62,7 @@ muscles:
     group: Chest Muscles
     order: Shoulder
     heads: [pectoralis_major_clavicular, pectoralis_major_sternocostal]
-    insertion: [greater_tubercle_humerus]
+    insertion: [greater_tubercle]
     actions: [shoulder_flexion, shoulder_adduction, shoulder_medial_rotation]
     antagonists: [deltoid_posterior, latissimus_dorsi]
 
@@ -72,7 +71,7 @@ muscles:
     group: Back Muscles
     order: Shoulder
     heads: []
-    insertion: [intertubercular_sulcus_humerus]
+    insertion: [intertubercular_sulcus]
     actions: [shoulder_extension, shoulder_adduction, shoulder_medial_rotation]
     antagonists: [deltoid_anterior, pectoralis_major]
 
@@ -81,7 +80,7 @@ muscles:
     group: Rotator Cuff
     order: Shoulder
     heads: [supraspinatus, infraspinatus, teres_minor, subscapularis]
-    insertion: [greater_tubercle_humerus, lesser_tubercle_humerus]
+    insertion: [greater_tubercle, lesser_tubercle]
     actions: [shoulder_stabilization, shoulder_rotation]
     antagonists: []
 
@@ -101,7 +100,7 @@ muscles:
     heads: []
     insertion: [proximal_radius]
     actions: [forearm_supination]
-    antagonists: [pronator_teres, pronator_quadratus]
+    antagonists: [pronator_teres]
 
   - id: flexor_digitorum_superficialis
     name: Flexor Digitorum Superficialis
@@ -119,7 +118,7 @@ muscles:
     heads: []
     insertion: [extensor_expansions_2_5]
     actions: [finger_extension, wrist_extension]
-    antagonists: [flexor_digitorum_superficialis, flexor_digitorum_profundus]
+    antagonists: [flexor_digitorum_superficialis]
 
   - id: serratus_anterior
     name: Serratus Anterior

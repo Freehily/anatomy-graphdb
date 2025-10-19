@@ -6,7 +6,7 @@
 #   name (property): Human-readable name of the action/movement.
 #   joint (property): The anatomical joint where the action occurs.
 #   type (property): Type of movement (e.g., flexion, extension, adduction).
-#   primary_movers (relationships): List of muscle node IDs that primarily generate the movement.
+#   primary_movers (relationships): List of muscle or muscle_head node IDs that primarily generate the movement.
 
 actions:
   - id: elbow_flexion

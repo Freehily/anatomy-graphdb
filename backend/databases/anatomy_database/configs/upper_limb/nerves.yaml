@@ -8,7 +8,7 @@
 #   type (property): Functional types of the nerve (e.g., motor, sensory).
 #   pathway (property): Description of the anatomical path the nerve takes.
 #   clinical_significance (property): Clinical notes relevant to injury or dysfunction.
-#   innervates (relationships): List of node IDs referencing muscle nodes that the nerve innervates.
+#   innervates (relationships): List of node IDs referencing muscle or muscle_head nodes that the nerve innervates.
 
 nerves:
   - id: median
@@ -42,6 +42,54 @@ nerves:
     pathway: Passes through suprascapular notch under the superior transverse scapular ligament to supply supraspinatus and infraspinatus.
     clinical_significance: Compression at the notch can cause weakness in shoulder abduction and external rotation.
     innervates: [supraspinatus, infraspinatus]
+
+  - id: musculocutaneous
+    name: Musculocutaneous Nerve
+    derivations: [C5, C6, C7]
+    type: [motor, sensory]
+    pathway: Pierces coracobrachialis, travels between biceps brachii and brachialis, continues as lateral cutaneous nerve of the forearm.
+    clinical_significance: Injury results in weakened elbow flexion and forearm supination with sensory loss along the lateral forearm.
+    innervates: [biceps_brachii_short, biceps_brachii_long, brachialis]
+
+  - id: radial_nerve
+    name: Radial Nerve
+    derivations: [C5, C6, C7, C8, T1]
+    type: [motor, sensory]
+    pathway: Runs in radial groove of humerus, traverses lateral intermuscular septum, divides into superficial and deep branches near lateral epicondyle.
+    clinical_significance: Injury in the radial groove causes wrist drop and sensory loss over dorsum of hand.
+    innervates: [triceps_brachii_long, triceps_brachii_lateral, triceps_brachii_medial, brachioradialis, supinator, extensor_digitorum]
+
+  - id: lateral_pectoral_nerve
+    name: Lateral Pectoral Nerve
+    derivations: [C5, C6, C7]
+    type: [motor]
+    pathway: Arises from lateral cord of brachial plexus, passes medially to pierce clavipectoral fascia reaching pectoralis major.
+    clinical_significance: Lesion reduces shoulder flexion and adduction strength from the clavicular head of pectoralis major.
+    innervates: [pectoralis_major_clavicular]
+
+  - id: medial_pectoral_nerve
+    name: Medial Pectoral Nerve
+    derivations: [C8, T1]
+    type: [motor]
+    pathway: Originates from medial cord, pierces pectoralis minor to reach and supply pectoralis major.
+    clinical_significance: Injury weakens scapular depression and shoulder adduction contributed by pectoralis major and minor.
+    innervates: [pectoralis_major_sternocostal]
+
+  - id: upper_subscapular_nerve
+    name: Upper Subscapular Nerve
+    derivations: [C5, C6]
+    type: [motor]
+    pathway: Branches from posterior cord, enters proximal subscapularis on its anterior surface.
+    clinical_significance: Injury decreases initial shoulder medial rotation strength.
+    innervates: [subscapularis]
+
+  - id: lower_subscapular_nerve
+    name: Lower Subscapular Nerve
+    derivations: [C5, C6]
+    type: [motor]
+    pathway: Branches from posterior cord, descends along the subscapularis to innervate its inferior portion and teres major.
+    clinical_significance: Damage impairs shoulder medial rotation and adduction from subscapularis and teres major.
+    innervates: [subscapularis]
 
   - id: long_thoracic
     name: Long Thoracic Nerve

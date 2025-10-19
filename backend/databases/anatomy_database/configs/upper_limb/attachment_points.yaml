@@ -11,8 +11,8 @@ attachment_points:
     name: Coracoid Process
     bone: scapula
 
-  - id: supraglenoid_tuberosity
-    name: Supraglenoid Tuberosity
+  - id: supraglenoid_tubercle
+    name: Supraglenoid Tubercle
     bone: scapula
 
   - id: infraglenoid_tubercle
@@ -62,6 +62,18 @@ attachment_points:
   - id: medial_clavicle
     name: Medial Clavicle
     bone: clavicle
+
+  - id: lateral_clavicle
+    name: Lateral Clavicle
+    bone: clavicle
+
+  - id: sternum_body
+    name: Body of Sternum
+    bone: sternum
+
+  - id: costal_cartilages_1_6
+    name: Costal Cartilages 1-6
+    bone: thoracic_cage
 
   - id: head_of_humerus
     name: Head of Humerus
@@ -150,6 +162,18 @@ attachment_points:
   - id: radial_notch
     name: Radial Notch
     bone: ulna
+
+  - id: pisiform
+    name: Pisiform
+    bone: hand
+
+  - id: hamate
+    name: Hamate
+    bone: hand
+
+  - id: middle_phalanges_2_5
+    name: Middle Phalanges of Digits 2-5
+    bone: hand
 
   - id: base_of_5th_metacarpal
     name: Base of 5th Metacarpal

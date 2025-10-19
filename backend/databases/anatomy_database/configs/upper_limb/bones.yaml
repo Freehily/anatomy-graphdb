@@ -3,6 +3,7 @@
 #   name: Human-readable name of the bone node.
 #   region: Anatomical region where the bone is located; useful for categorization.
 #   attachments (relationships): List of node IDs corresponding to attachment_point nodes defined in attachment_points.yaml, representing the specific anatomical landmarks where muscles attach.# bones.yaml defines bone nodes for the anatomical graph database.
+
 bones:
   - id: scapula
     name: Scapula
@@ -27,7 +28,8 @@ bones:
     attachments: [
       sternal_end,
       acromial_end,
-      medial_clavicle
+      medial_clavicle,
+      lateral_clavicle
     ]
 
   - id: humerus
@@ -74,12 +76,29 @@ bones:
     name: Hand
     region: Distal Upper Limb
     attachments: [
+      pisiform,
+      hamate,
       base_of_5th_metacarpal,
+      middle_phalanges_2_5,
       proximal_phalanges_2_3_4,
       proximal_phalanges_2_4_5,
       medial_side_proximal_phalanx_thumb,
       extensor_expansions_2_5,
       extensor_expansions_4_5
+    ]
+
+  - id: sternum
+    name: Sternum
+    region: Thorax
+    attachments: [
+      sternum_body
+    ]
+
+  - id: thoracic_cage
+    name: Thoracic Cage
+    region: Thorax
+    attachments: [
+      costal_cartilages_1_6
     ]
 
   - id: fascia

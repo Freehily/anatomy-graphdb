@@ -9,7 +9,6 @@
 #   arteries (relationships): Artery node IDs
 
 muscle_heads:
-
   - id: biceps_brachii_short
     name: Biceps Brachii (Short Head)
     origin: [coracoid_process]
@@ -18,7 +17,7 @@ muscle_heads:
 
   - id: biceps_brachii_long
     name: Biceps Brachii (Long Head)
-    origin: [supraglenoid_tuberosity]
+    origin: [supraglenoid_tubercle]
     innervation: [musculocutaneous]
     arteries: [brachial_artery]
 
@@ -42,7 +41,7 @@ muscle_heads:
 
   - id: deltoid_anterior
     name: Deltoid (Anterior Head)
-    origin: [clavicle]
+    origin: [lateral_clavicle]
     innervation: [axillary]
     arteries: [thoracoacromial_artery]
 
@@ -66,7 +65,7 @@ muscle_heads:
 
   - id: pectoralis_major_sternocostal
     name: Pectoralis Major (Sternocostal Head)
-    origin: [sternum, costal_cartilages_1_6]
+    origin: [sternum_body, costal_cartilages_1_6]
     innervation: [medial_pectoral_nerve]
     arteries: [thoracoacromial_artery]
 
