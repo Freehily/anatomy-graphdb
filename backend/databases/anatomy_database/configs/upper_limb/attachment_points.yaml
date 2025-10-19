@@ -51,6 +51,10 @@ attachment_points:
     name: Lateral Border of Scapula
     bone: scapula
 
+  - id: inferior_angle_scapula
+    name: Inferior Angle of Scapula
+    bone: scapula
+
   - id: sternal_end
     name: Sternal End
     bone: clavicle
@@ -91,6 +95,10 @@ attachment_points:
     name: Intertubercular Groove
     bone: humerus
 
+  - id: medial_lip_intertubercular_sulcus
+    name: Medial Lip of Intertubercular Sulcus
+    bone: humerus
+
   - id: deltoid_tuberosity
     name: Deltoid Tuberosity
     bone: humerus
@@ -105,6 +113,10 @@ attachment_points:
 
   - id: lateral_supracondylar_ridge
     name: Lateral Supracondylar Ridge
+    bone: humerus
+
+  - id: midshaft_humerus_medial
+    name: Medial Midshaft of Humerus
     bone: humerus
 
   - id: intertubercular_sulcus
@@ -127,6 +139,14 @@ attachment_points:
     name: Radial Tuberosity
     bone: radius
 
+  - id: anterior_radius
+    name: Anterior Surface of Radius
+    bone: radius
+
+  - id: posterior_radius
+    name: Posterior Surface of Radius
+    bone: radius
+
   - id: styloid_process_of_radius
     name: Styloid Process of Radius
     bone: radius
@@ -141,6 +161,10 @@ attachment_points:
 
   - id: proximal_radius
     name: Proximal Radius
+    bone: radius
+
+  - id: distal_radius_anterior
+    name: Distal Anterior Radius
     bone: radius
 
   - id: olecranon_process
@@ -163,6 +187,22 @@ attachment_points:
     name: Radial Notch
     bone: ulna
 
+  - id: posterior_border_ulna
+    name: Posterior Border of Ulna
+    bone: ulna
+
+  - id: posterior_ulna
+    name: Posterior Surface of Ulna
+    bone: ulna
+
+  - id: proximal_ulna
+    name: Proximal Ulna
+    bone: ulna
+
+  - id: distal_ulna_anterior
+    name: Distal Anterior Ulna
+    bone: ulna
+
   - id: pisiform
     name: Pisiform
     bone: hand
@@ -179,6 +219,18 @@ attachment_points:
     name: Base of 5th Metacarpal
     bone: hand
 
+  - id: base_of_1st_metacarpal
+    name: Base of 1st Metacarpal
+    bone: hand
+
+  - id: base_of_2nd_metacarpal
+    name: Base of 2nd Metacarpal
+    bone: hand
+
+  - id: base_of_3rd_metacarpal
+    name: Base of 3rd Metacarpal
+    bone: hand
+
   - id: proximal_phalanges_2_3_4
     name: Proximal Phalanges of Digits 2-4
     bone: hand
@@ -191,6 +243,14 @@ attachment_points:
     name: Medial Side of Proximal Phalanx of Thumb
     bone: hand
 
+  - id: lateral_side_proximal_phalanx_thumb
+    name: Lateral Side of Proximal Phalanx of Thumb
+    bone: hand
+
+  - id: proximal_phalanx_thumb_dorsal
+    name: Dorsal Surface of Proximal Phalanx of Thumb
+    bone: hand
+
   - id: extensor_expansions_2_5
     name: Extensor Expansions of Digits 2-5
     bone: hand
@@ -199,6 +259,82 @@ attachment_points:
     name: Extensor Expansions of Digits 4 and 5
     bone: hand
 
+  - id: extensor_expansion_2
+    name: Extensor Expansion of Digit 2
+    bone: hand
+
+  - id: extensor_expansion_5
+    name: Extensor Expansion of Digit 5
+    bone: hand
+
+  - id: distal_phalanges_2_5
+    name: Distal Phalanges of Digits 2-5
+    bone: hand
+
+  - id: distal_phalanx_thumb
+    name: Distal Phalanx of Thumb
+    bone: hand
+
+  - id: lateral_1st_metacarpal
+    name: Lateral Surface of 1st Metacarpal
+    bone: hand
+
+  - id: medial_5th_metacarpal
+    name: Medial Surface of 5th Metacarpal
+    bone: hand
+
+  - id: proximal_phalanx_5_medial
+    name: Medial Side of Proximal Phalanx of Digit 5
+    bone: hand
+
+  - id: proximal_phalanx_5_palmar
+    name: Palmar Surface of Proximal Phalanx of Digit 5
+    bone: hand
+
+  - id: scaphoid_tubercle
+    name: Tubercle of Scaphoid
+    bone: hand
+
+  - id: trapezium_tubercle
+    name: Tubercle of Trapezium
+    bone: hand
+
+  - id: hook_of_hamate
+    name: Hook of Hamate
+    bone: hand
+
   - id: bicipital_aponeurosis
     name: Bicipital Aponeurosis
     bone: fascia
+
+  - id: palmar_aponeurosis
+    name: Palmar Aponeurosis
+    bone: fascia
+
+  - id: flexor_retinaculum
+    name: Flexor Retinaculum
+    bone: fascia
+
+  - id: interosseous_membrane
+    name: Interosseous Membrane
+    bone: interosseous_membrane
+
+  - id: distal_radius_ulnar_notch
+    name: Distal Radius Ulnar Notch
+    bone: radius
+
+  - id: fdp_tendon_digit2
+    name: Flexor Digitorum Profundus Tendon Digit 2
+    bone: tendons
+
+  - id: fdp_tendon_digit3
+    name: Flexor Digitorum Profundus Tendon Digit 3
+    bone: tendons
+
+  - id: fdp_tendon_digit4
+    name: Flexor Digitorum Profundus Tendon Digit 4
+    bone: tendons
+
+  - id: fdp_tendon_digit5
+    name: Flexor Digitorum Profundus Tendon Digit 5
+    bone: tendons

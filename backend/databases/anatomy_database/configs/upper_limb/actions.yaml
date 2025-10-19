@@ -19,7 +19,7 @@ actions:
     name: Shoulder Flexion
     joint: shoulder
     type: flexion
-    primary_movers: [biceps_brachii_short, biceps_brachii_long, deltoid_anterior, pectoralis_major_clavicular]
+    primary_movers: [biceps_brachii_short, biceps_brachii_long, deltoid_anterior, pectoralis_major_clavicular, coracobrachialis_head]
 
   - id: forearm_supination
     name: Forearm Supination
@@ -27,23 +27,29 @@ actions:
     type: supination
     primary_movers: [biceps_brachii_short, biceps_brachii_long, supinator]
 
+  - id: forearm_pronation
+    name: Forearm Pronation
+    joint: radioulnar
+    type: pronation
+    primary_movers: [pronator_teres, pronator_quadratus_head]
+
   - id: elbow_extension
     name: Elbow Extension
     joint: elbow
     type: extension
-    primary_movers: [triceps_brachii_long, triceps_brachii_lateral, triceps_brachii_medial]
+    primary_movers: [triceps_brachii_long, triceps_brachii_lateral, triceps_brachii_medial, anconeus_head]
 
   - id: shoulder_extension
     name: Shoulder Extension
     joint: shoulder
     type: extension
-    primary_movers: [triceps_brachii_long, deltoid_posterior, latissimus_dorsi]
+    primary_movers: [triceps_brachii_long, deltoid_posterior, latissimus_dorsi, teres_major_head]
 
   - id: shoulder_adduction
     name: Shoulder Adduction
     joint: shoulder
     type: adduction
-    primary_movers: [triceps_brachii_long, pectoralis_major_sternocostal, latissimus_dorsi]
+    primary_movers: [triceps_brachii_long, pectoralis_major_sternocostal, latissimus_dorsi, teres_major_head, coracobrachialis_head]
 
   - id: shoulder_abduction
     name: Shoulder Abduction
@@ -67,37 +73,43 @@ actions:
     name: Wrist Flexion
     joint: wrist
     type: flexion
-    primary_movers: [flexor_carpi_ulnaris, flexor_digitorum_superficialis]
+    primary_movers: [flexor_carpi_ulnaris, flexor_carpi_radialis_head, palmaris_longus_head, flexor_digitorum_superficialis, flexor_digitorum_profundus]
 
   - id: wrist_extension
     name: Wrist Extension
     joint: wrist
     type: extension
-    primary_movers: [extensor_digitorum]
+    primary_movers: [extensor_digitorum, extensor_carpi_radialis_longus_head, extensor_carpi_radialis_brevis_head, extensor_carpi_ulnaris_head]
 
   - id: wrist_adduction
     name: Wrist Adduction
     joint: wrist
     type: adduction
-    primary_movers: [flexor_carpi_ulnaris]
+    primary_movers: [flexor_carpi_ulnaris, extensor_carpi_ulnaris_head]
+
+  - id: wrist_abduction
+    name: Wrist Abduction
+    joint: wrist
+    type: abduction
+    primary_movers: [flexor_carpi_radialis_head, extensor_carpi_radialis_longus_head, extensor_carpi_radialis_brevis_head]
 
   - id: finger_flexion
     name: Finger Flexion
     joint: metacarpophalangeal, interphalangeal
     type: flexion
-    primary_movers: [flexor_digitorum_superficialis]
+    primary_movers: [flexor_digitorum_superficialis, flexor_digitorum_profundus, flexor_digiti_minimi_brevis_head]
 
   - id: finger_extension
     name: Finger Extension
     joint: metacarpophalangeal, interphalangeal
     type: extension
-    primary_movers: [extensor_digitorum]
+    primary_movers: [extensor_digitorum, extensor_digiti_minimi_head, extensor_indicis_head]
 
   - id: finger_abduction
     name: Finger Abduction
     joint: metacarpophalangeal
     type: abduction
-    primary_movers: [interossei_dorsal]
+    primary_movers: [interossei_dorsal, abductor_digiti_minimi_head]
 
   - id: finger_adduction
     name: Finger Adduction
@@ -111,14 +123,44 @@ actions:
     type: adduction
     primary_movers: [adductor_pollicis]
 
+  - id: thumb_abduction
+    name: Thumb Abduction
+    joint: carpometacarpal
+    type: abduction
+    primary_movers: [abductor_pollicis_longus_head, abductor_pollicis_brevis_head]
+
+  - id: thumb_flexion
+    name: Thumb Flexion
+    joint: metacarpophalangeal, interphalangeal
+    type: flexion
+    primary_movers: [flexor_pollicis_longus_head, flexor_pollicis_brevis_head]
+
+  - id: thumb_extension
+    name: Thumb Extension
+    joint: metacarpophalangeal, interphalangeal
+    type: extension
+    primary_movers: [extensor_pollicis_longus_head, extensor_pollicis_brevis_head]
+
+  - id: thumb_opposition
+    name: Thumb Opposition
+    joint: carpometacarpal
+    type: opposition
+    primary_movers: [opponens_pollicis_head]
+
   - id: mcp_flexion
     name: MCP Flexion
     joint: metacarpophalangeal
     type: flexion
-    primary_movers: [lumbricals_3_4]
+    primary_movers: [lumbricals_1_2, lumbricals_3_4]
 
   - id: pip_dip_extension
     name: PIP/DIP Extension
     joint: interphalangeal
     type: extension
-    primary_movers: [lumbricals_3_4]
+    primary_movers: [lumbricals_1_2, lumbricals_3_4]
+
+  - id: little_finger_opposition
+    name: Little Finger Opposition
+    joint: carpometacarpal
+    type: opposition
+    primary_movers: [opponens_digiti_minimi_head]

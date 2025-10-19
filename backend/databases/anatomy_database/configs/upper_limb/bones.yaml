@@ -19,7 +19,8 @@ bones:
       infraspinous_fossa,
       subscapular_fossa,
       medial_border_scapula,
-      lateral_border_scapula
+      lateral_border_scapula,
+      inferior_angle_scapula
     ]
 
   - id: clavicle
@@ -40,10 +41,12 @@ bones:
       greater_tubercle,
       lesser_tubercle,
       intertubercular_groove,
+      medial_lip_intertubercular_sulcus,
       deltoid_tuberosity,
       medial_epicondyle,
       lateral_epicondyle,
       lateral_supracondylar_ridge,
+      midshaft_humerus_medial,
       above_radial_groove,
       below_radial_groove,
       intertubercular_sulcus
@@ -55,8 +58,12 @@ bones:
     attachments: [
       head_of_radius,
       radial_tuberosity,
+      anterior_radius,
+      posterior_radius,
       styloid_process_of_radius,
       ulnar_notch,
+      distal_radius_anterior,
+      distal_radius_ulnar_notch,
       midshaft_radius,
       proximal_radius
     ]
@@ -69,7 +76,11 @@ bones:
       coronoid_process,
       ulnar_tuberosity,
       styloid_process_of_ulna,
-      radial_notch
+      radial_notch,
+      posterior_border_ulna,
+      posterior_ulna,
+      proximal_ulna,
+      distal_ulna_anterior
     ]
 
   - id: hand
@@ -78,13 +89,29 @@ bones:
     attachments: [
       pisiform,
       hamate,
+      base_of_1st_metacarpal,
+      base_of_2nd_metacarpal,
+      base_of_3rd_metacarpal,
       base_of_5th_metacarpal,
       middle_phalanges_2_5,
       proximal_phalanges_2_3_4,
       proximal_phalanges_2_4_5,
       medial_side_proximal_phalanx_thumb,
+      lateral_side_proximal_phalanx_thumb,
+      proximal_phalanx_thumb_dorsal,
+      distal_phalanges_2_5,
+      distal_phalanx_thumb,
+      lateral_1st_metacarpal,
+      medial_5th_metacarpal,
+      proximal_phalanx_5_medial,
+      proximal_phalanx_5_palmar,
+      scaphoid_tubercle,
+      trapezium_tubercle,
+      hook_of_hamate,
       extensor_expansions_2_5,
-      extensor_expansions_4_5
+      extensor_expansions_4_5,
+      extensor_expansion_2,
+      extensor_expansion_5
     ]
 
   - id: sternum
@@ -104,4 +131,23 @@ bones:
   - id: fascia
     name: Fascia
     region: Connective Tissue
-    attachments: [bicipital_aponeurosis]
+    attachments: [
+      bicipital_aponeurosis,
+      palmar_aponeurosis,
+      flexor_retinaculum
+    ]
+
+  - id: interosseous_membrane
+    name: Interosseous Membrane
+    region: Forearm Connective Tissue
+    attachments: [interosseous_membrane]
+
+  - id: tendons
+    name: Tendons
+    region: Upper Limb Tendons
+    attachments: [
+      fdp_tendon_digit2,
+      fdp_tendon_digit3,
+      fdp_tendon_digit4,
+      fdp_tendon_digit5
+    ]
