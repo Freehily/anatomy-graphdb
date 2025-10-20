@@ -1,0 +1,47 @@
+---
+# attachment_points.yaml catalogs abdominal wall landmarks and fascial sites.
+
+attachment_points:
+  - id: costal_margins_5_12
+    name: Costal Margins of Ribs 5-12
+    bone: thoracic_ribs
+
+  - id: xiphoid_process
+    name: Xiphoid Process
+    bone: sternum
+
+  - id: linea_alba
+    name: Linea Alba
+    bone: fascia
+
+  - id: iliac_crest_anterior
+    name: Iliac Crest (Anterior Portion)
+    bone: pelvis
+
+  - id: anterior_superior_iliac_spine
+    name: Anterior Superior Iliac Spine
+    bone: pelvis
+
+  - id: pubic_crest
+    name: Pubic Crest
+    bone: pelvis
+
+  - id: pubic_tubercle
+    name: Pubic Tubercle
+    bone: pelvis
+
+  - id: inguinal_ligament
+    name: Inguinal Ligament
+    bone: ligaments
+
+  - id: thoracolumbar_fascia_abdominal
+    name: Thoracolumbar Fascia
+    bone: fascia
+
+  - id: rectus_sheath
+    name: Rectus Sheath
+    bone: fascia
+
+  - id: pubic_symphyseal_surface
+    name: Pubic Symphyseal Surface
+    bone: pelvis

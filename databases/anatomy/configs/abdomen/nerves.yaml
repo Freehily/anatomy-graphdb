@@ -1,0 +1,27 @@
+---
+# nerves.yaml details nerves of abdominal wall used in this region.
+
+nerves:
+  - id: thoracoabdominal_nerves
+    name: Thoracoabdominal Nerves (T7-T12)
+    derivations: [T7, T8, T9, T10, T11, T12]
+    type: [motor, sensory]
+    pathway: Continuations of intercostal nerves running between internal oblique and transversus abdominis to supply abdominal wall.
+    clinical_significance: Injury weakens abdominal wall, predisposing to hernias.
+    innervates: [rectus_abdominis_head, external_oblique_head, internal_oblique_head, transversus_abdominis_head]
+
+  - id: iliohypogastric_nerve
+    name: Iliohypogastric Nerve
+    derivations: [L1]
+    type: [motor, sensory]
+    pathway: Emanates from lumbar plexus, traverses abdominal wall between internal oblique and transversus abdominis.
+    clinical_significance: Damage during lower abdominal incisions causes suprapubic numbness and muscular weakness.
+    innervates: [transversus_abdominis_head]
+
+  - id: ilioinguinal_nerve
+    name: Ilioinguinal Nerve
+    derivations: [L1]
+    type: [motor, sensory]
+    pathway: Runs through inguinal canal to supply lower abdominal wall and groin.
+    clinical_significance: Entrapment causes groin pain; contributes to cremasteric reflex.
+    innervates: [internal_oblique_head]

@@ -38,6 +38,10 @@ Use the dedicated validators to check referential integrity:
   ```
   python stronger/databases/anatomy/scripts/validate_foot.py
   ```
+- Abdomen:
+  ```
+  python stronger/databases/anatomy/scripts/validate_abdomen.py
+  ```
 
 Each script loads the region-specific YAML files and verifies that every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs.
 
@@ -90,6 +94,12 @@ Each script loads the region-specific YAML files and verifies that every attachm
    python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region foot
    ```
    writes to `data/neo4j/foot` by default.
+
+   Abdomen data:
+   ```
+   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region abdomen
+   ```
+   writes to `data/neo4j/abdomen` by default.
 
 2. Import into a local Neo4j instance (example commands):
    ```
