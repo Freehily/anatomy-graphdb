@@ -1,75 +1,74 @@
 arteries:
-  - id: axillary_artery
-    name: Axillary Artery
-    branches_from: subclavian_artery
-    supplies: []
-
-  - id: brachial_artery
-    name: Brachial Artery
-    branches_from: axillary_artery
-    supplies: [biceps_brachii_short, biceps_brachii_long, brachialis, coracobrachialis_head]
-
-  - id: deep_brachial_artery
-    name: Deep Brachial Artery
-    branches_from: brachial_artery
-    supplies: [triceps_brachii_lateral, triceps_brachii_medial, triceps_brachii_long, anconeus_head]
-
-  - id: posterior_circumflex_humeral_artery
-    name: Posterior Circumflex Humeral Artery
-    branches_from: axillary_artery
-    supplies: [triceps_brachii_long, deltoid_middle, deltoid_posterior]
-
-  - id: thoracoacromial_artery
-    name: Thoracoacromial Artery
-    branches_from: axillary_artery
-    supplies: [deltoid_anterior, pectoralis_major_clavicular, pectoralis_major_sternocostal]
-
-  - id: suprascapular_artery
-    name: Suprascapular Artery
-    branches_from: subclavian_artery
-    supplies: [supraspinatus, infraspinatus]
-
-  - id: circumflex_scapular_artery
-    name: Circumflex Scapular Artery
-    branches_from: subscapular_artery
-    supplies: [teres_minor]
-
-  - id: subscapular_artery
-    name: Subscapular Artery
-    branches_from: axillary_artery
-    supplies: [subscapularis, teres_major_head]
-
-  - id: ulnar_artery
-    name: Ulnar Artery
-    branches_from: brachial_artery
-    supplies: [flexor_carpi_ulnaris, flexor_carpi_radialis_head, palmaris_longus_head, flexor_digitorum_profundus_medial, interossei_dorsal, interossei_palmar, lumbrical_3_head, lumbrical_4_head, adductor_pollicis, abductor_digiti_minimi_head, flexor_digiti_minimi_brevis_head, opponens_digiti_minimi_head]
-
-  - id: lateral_thoracic_artery
-    name: Lateral Thoracic Artery
-    branches_from: axillary_artery
-    supplies: [serratus_anterior]
-
-  - id: common_interosseous_artery
-    name: Common Interosseous Artery
-    branches_from: ulnar_artery
-    supplies: []
-
-  - id: anterior_interosseous_artery
-    name: Anterior Interosseous Artery
-    branches_from: common_interosseous_artery
-    supplies: [flexor_digitorum_profundus_medial, flexor_digitorum_profundus_lateral, flexor_pollicis_longus_head, pronator_quadratus_head]
-
-  - id: posterior_interosseous_artery
-    name: Posterior Interosseous Artery
-    branches_from: common_interosseous_artery
-    supplies: [extensor_digiti_minimi_head, extensor_carpi_ulnaris_head, abductor_pollicis_longus_head, extensor_pollicis_brevis_head, extensor_pollicis_longus_head, extensor_indicis_head]
-
-  - id: radial_artery
-    name: Radial Artery
-    branches_from: brachial_artery
-    supplies: [extensor_carpi_radialis_longus_head, extensor_carpi_radialis_brevis_head, abductor_pollicis_brevis_head, opponens_pollicis_head, abductor_pollicis_longus_head]
-
-  - id: superficial_palmar_arch
-    name: Superficial Palmar Arch
-    branches_from: ulnar_artery
-    supplies: [flexor_pollicis_brevis_head, lumbrical_1_head, lumbrical_2_head]
+- id: deep_brachial_artery
+  name: Deep Brachial Artery
+  branches_from: brachial_artery
+  supplies:
+  - triceps_brachii_lateral
+  - triceps_brachii_medial
+  - triceps_brachii_long
+  - anconeus_head
+- id: posterior_circumflex_humeral_artery
+  name: Posterior Circumflex Humeral Artery
+  branches_from: axillary_artery
+  supplies:
+  - triceps_brachii_long
+  - deltoid_middle
+  - deltoid_posterior
+- id: thoracoacromial_artery
+  name: Thoracoacromial Artery
+  branches_from: axillary_artery
+  supplies:
+  - deltoid_anterior
+  - pectoralis_major_clavicular
+  - pectoralis_major_sternocostal
+- id: suprascapular_artery
+  name: Suprascapular Artery
+  branches_from: subclavian_artery
+  supplies:
+  - supraspinatus
+  - infraspinatus
+- id: circumflex_scapular_artery
+  name: Circumflex Scapular Artery
+  branches_from: subscapular_artery
+  supplies:
+  - teres_minor
+- id: subscapular_artery
+  name: Subscapular Artery
+  branches_from: axillary_artery
+  supplies:
+  - subscapularis
+  - teres_major_head
+- id: lateral_thoracic_artery
+  name: Lateral Thoracic Artery
+  branches_from: axillary_artery
+  supplies:
+  - serratus_anterior
+- id: common_interosseous_artery
+  name: Common Interosseous Artery
+  branches_from: ulnar_artery
+  supplies: []
+- id: anterior_interosseous_artery
+  name: Anterior Interosseous Artery
+  branches_from: common_interosseous_artery
+  supplies:
+  - flexor_digitorum_profundus_medial
+  - flexor_digitorum_profundus_lateral
+  - flexor_pollicis_longus_head
+  - pronator_quadratus_head
+- id: posterior_interosseous_artery
+  name: Posterior Interosseous Artery
+  branches_from: common_interosseous_artery
+  supplies:
+  - extensor_digiti_minimi_head
+  - extensor_carpi_ulnaris_head
+  - abductor_pollicis_longus_head
+  - extensor_pollicis_brevis_head
+  - extensor_pollicis_longus_head
+  - extensor_indicis_head
+- id: superficial_palmar_arch
+  name: Superficial Palmar Arch
+  branches_from: ulnar_artery
+  supplies:
+  - flexor_pollicis_brevis_head
+  - lumbrical_1_head
+  - lumbrical_2_head

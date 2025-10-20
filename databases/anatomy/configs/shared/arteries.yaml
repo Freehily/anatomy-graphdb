@@ -1,0 +1,128 @@
+---
+# arteries.yaml consolidates major axial arteries shared across multiple regions.
+
+arteries:
+  - id: aorta
+    name: Aorta
+    branches_from: heart
+    supplies: []
+
+  - id: thoracic_aorta
+    name: Thoracic Aorta
+    branches_from: aorta
+    supplies: []
+
+  - id: abdominal_aorta
+    name: Abdominal Aorta
+    branches_from: aorta
+    supplies: []
+
+  - id: subclavian_artery
+    name: Subclavian Artery
+    branches_from: aorta
+    supplies: []
+
+  - id: axillary_artery
+    name: Axillary Artery
+    branches_from: subclavian_artery
+    supplies: []
+
+  - id: brachial_artery
+    name: Brachial Artery
+    branches_from: axillary_artery
+    supplies:
+      - biceps_brachii_short
+      - biceps_brachii_long
+      - brachialis
+      - coracobrachialis_head
+
+  - id: radial_artery
+    name: Radial Artery
+    branches_from: brachial_artery
+    supplies:
+      - extensor_carpi_radialis_longus_head
+      - extensor_carpi_radialis_brevis_head
+      - abductor_pollicis_brevis_head
+      - opponens_pollicis_head
+      - abductor_pollicis_longus_head
+
+  - id: ulnar_artery
+    name: Ulnar Artery
+    branches_from: brachial_artery
+    supplies:
+      - flexor_carpi_ulnaris
+      - flexor_carpi_radialis_head
+      - palmaris_longus_head
+      - flexor_digitorum_profundus_medial
+      - interossei_dorsal
+      - interossei_palmar
+      - lumbrical_3_head
+      - lumbrical_4_head
+      - adductor_pollicis
+      - abductor_digiti_minimi_head
+      - flexor_digiti_minimi_brevis_head
+      - opponens_digiti_minimi_head
+
+  - id: common_carotid_artery
+    name: Common Carotid Artery
+    branches_from: aorta
+    supplies: []
+
+  - id: external_carotid_artery
+    name: External Carotid Artery
+    branches_from: common_carotid_artery
+    supplies: []
+
+  - id: internal_thoracic_artery
+    name: Internal Thoracic Artery
+    branches_from: subclavian_artery
+    supplies:
+      - transversus_thoracis
+
+  - id: superior_thyroid_artery
+    name: Superior Thyroid Artery
+    branches_from: external_carotid_artery
+    supplies:
+      - sternocleidomastoid_sternal_head
+      - sternocleidomastoid_clavicular_head
+      - sternohyoid_head
+      - thyrohyoid_head
+      - omohyoid_superior_head
+
+  - id: inferior_thyroid_artery
+    name: Inferior Thyroid Artery
+    branches_from: thyrocervical_trunk
+    supplies:
+      - sternothyroid_head
+
+  - id: common_iliac_artery
+    name: Common Iliac Artery
+    branches_from: aorta
+    supplies: []
+
+  - id: internal_iliac_artery
+    name: Internal Iliac Artery
+    branches_from: common_iliac_artery
+    supplies: []
+
+  - id: external_iliac_artery
+    name: External Iliac Artery
+    branches_from: common_iliac_artery
+    supplies: []
+
+  - id: popliteal_artery
+    name: Popliteal Artery
+    branches_from: femoral_artery
+    supplies:
+      - plantaris_head
+
+  - id: posterior_tibial_artery
+    name: Posterior Tibial Artery
+    branches_from: popliteal_artery
+    supplies:
+      - gastrocnemius_medial_head
+      - gastrocnemius_lateral_head
+      - soleus_head
+      - tibialis_posterior_head
+      - flexor_digitorum_longus_head
+      - flexor_hallucis_longus_head

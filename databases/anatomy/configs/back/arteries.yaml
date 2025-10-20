@@ -1,73 +1,50 @@
----
-# arteries.yaml lists arterial supply for back musculature.
-
 arteries:
-  - id: aorta
-    name: Aorta
-    branches_from: heart
-    supplies: []
-
-  - id: subclavian_artery
-    name: Subclavian Artery
-    branches_from: aorta
-    supplies: []
-
-  - id: abdominal_aorta
-    name: Abdominal Aorta
-    branches_from: aorta
-    supplies: []
-
-  - id: common_carotid_artery
-    name: Common Carotid Artery
-    branches_from: aorta
-    supplies: []
-
-  - id: external_carotid_artery
-    name: External Carotid Artery
-    branches_from: common_carotid_artery
-    supplies: []
-
-  - id: transverse_cervical_artery
-    name: Transverse Cervical Artery
-    branches_from: subclavian_artery
-    supplies: [trapezius_upper_head, trapezius_middle_head, trapezius_lower_head]
-
-  - id: dorsal_scapular_artery
-    name: Dorsal Scapular Artery
-    branches_from: subclavian_artery
-    supplies: [levator_scapulae_head, rhomboid_minor_head, rhomboid_major_head]
-
-  - id: thoracodorsal_artery
-    name: Thoracodorsal Artery
-    branches_from: subscapular_artery
-    supplies: [latissimus_dorsi_head]
-
-  - id: subscapular_artery
-    name: Subscapular Artery
-    branches_from: axillary_artery
-    supplies: []
-
-  - id: axillary_artery
-    name: Axillary Artery
-    branches_from: subclavian_artery
-    supplies: []
-
-  - id: posterior_intercostal_arteries
-    name: Posterior Intercostal Arteries
-    branches_from: aorta
-    supplies: [serratus_posterior_superior_back_head, serratus_posterior_inferior_back_head]
-
-  - id: lumbar_arteries
-    name: Lumbar Arteries
-    branches_from: abdominal_aorta
-    supplies: [erector_spinae_spinalis, erector_spinae_longissimus, erector_spinae_iliocostalis, multifidus_head]
-
-  - id: occipital_artery
-    name: Occipital Artery
-    branches_from: external_carotid_artery
-    supplies: [semispinalis_capitis_head, splenius_capitis_head]
-
-  - id: deep_cervical_artery
-    name: Deep Cervical Artery
-    branches_from: subclavian_artery
-    supplies: [semispinalis_cervicis_head, splenius_cervicis_head]
+- id: transverse_cervical_artery
+  name: Transverse Cervical Artery
+  branches_from: subclavian_artery
+  supplies:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+- id: dorsal_scapular_artery
+  name: Dorsal Scapular Artery
+  branches_from: subclavian_artery
+  supplies:
+  - levator_scapulae_head
+  - rhomboid_minor_head
+  - rhomboid_major_head
+- id: thoracodorsal_artery
+  name: Thoracodorsal Artery
+  branches_from: subscapular_artery
+  supplies:
+  - latissimus_dorsi_head
+- id: subscapular_artery
+  name: Subscapular Artery
+  branches_from: axillary_artery
+  supplies: []
+- id: posterior_intercostal_arteries
+  name: Posterior Intercostal Arteries
+  branches_from: aorta
+  supplies:
+  - serratus_posterior_superior_back_head
+  - serratus_posterior_inferior_back_head
+- id: lumbar_arteries
+  name: Lumbar Arteries
+  branches_from: abdominal_aorta
+  supplies:
+  - erector_spinae_spinalis
+  - erector_spinae_longissimus
+  - erector_spinae_iliocostalis
+  - multifidus_head
+- id: occipital_artery
+  name: Occipital Artery
+  branches_from: external_carotid_artery
+  supplies:
+  - semispinalis_capitis_head
+  - splenius_capitis_head
+- id: deep_cervical_artery
+  name: Deep Cervical Artery
+  branches_from: subclavian_artery
+  supplies:
+  - semispinalis_cervicis_head
+  - splenius_cervicis_head
