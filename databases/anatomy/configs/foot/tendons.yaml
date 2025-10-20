@@ -1,0 +1,21 @@
+---
+# tendons.yaml enumerates major tendons crossing the ankle and plantar foot.
+
+tendons:
+  - id: flexor_digitorum_longus_tendons
+    name: Flexor Digitorum Longus Tendons
+    origin_muscles: [flexor_digitorum_longus]
+    insertion: [tendons_flexor_digitorum_longus_2_5]
+    notes: Tendons passing through the tarsal tunnel to insert on distal phalanges 2-5 with aid from quadratus plantae.
+
+  - id: flexor_digitorum_brevis_slips
+    name: Flexor Digitorum Brevis Slips
+    origin_muscles: [flexor_digitorum_brevis]
+    insertion: [middle_phalanges_2_5]
+    notes: Tendinous slips divide for profundus tendons and insert onto middle phalanges.
+
+  - id: abductor_hallucis_tendon
+    name: Abductor Hallucis Tendon
+    origin_muscles: [abductor_hallucis]
+    insertion: [medial_tubercle_proximal_phalanx_hallux]
+    notes: Medial border tendon assisting hallux abduction and arch support.

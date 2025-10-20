@@ -1,0 +1,13 @@
+---
+# ligaments.yaml highlights fascial specialisations within the abdominal wall.
+
+ligaments:
+  - id: inguinal_ligament_band
+    name: Inguinal Ligament
+    attachments: [anterior_superior_iliac_spine, pubic_tubercle]
+    notes: Thickened inferior edge of external oblique aponeurosis forming the inguinal canal floor.
+
+  - id: linea_alba_fusion
+    name: Linea Alba
+    attachments: [xiphoid_process, pubic_symphyseal_surface]
+    notes: Midline fibrous raphe receiving aponeuroses of abdominal wall muscles.

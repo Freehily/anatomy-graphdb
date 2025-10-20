@@ -1,0 +1,21 @@
+---
+# tendons.yaml captures major upper limb tendons linking muscles to bony landmarks.
+
+tendons:
+  - id: long_head_biceps_tendon
+    name: Long Head of Biceps Tendon
+    origin_muscles: [biceps_brachii]
+    insertion: [supraglenoid_tubercle, radial_tuberosity]
+    pathway: Travels intra-articularly across the glenohumeral joint and within the intertubercular sulcus sheath.
+
+  - id: common_flexor_tendon
+    name: Common Flexor Tendon
+    origin_muscles: [flexor_carpi_ulnaris, flexor_carpi_radialis_head, palmaris_longus_head, pronator_teres]
+    insertion: [medial_epicondyle]
+    notes: Shared proximal tendon for superficial anterior forearm muscles.
+
+  - id: triceps_common_tendon
+    name: Triceps Common Tendon
+    origin_muscles: [triceps_brachii]
+    insertion: [olecranon_process]
+    notes: Distal convergence of triceps heads inserting onto the ulna.

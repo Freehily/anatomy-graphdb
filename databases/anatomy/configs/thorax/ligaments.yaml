@@ -1,0 +1,14 @@
+ligaments:
+- id: radiate_sternocostal_ligament
+  name: Radiate Sternocostal Ligaments
+  attachments:
+  - sternal_body
+  - costal_cartilages_1_7_anterior
+  notes: Reinforce anterior sternocostal joints for ribs 2-7.
+- id: costotransverse_ligament
+  name: Costotransverse Ligament
+  attachments:
+  - transverse_processes_T1_T12
+  - ribs_1_11_superior_border
+  notes: Binds rib tubercles to vertebral transverse processes, stabilising the costotransverse
+    joint.

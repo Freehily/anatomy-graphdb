@@ -1,0 +1,9 @@
+---
+# tendons.yaml captures key tendinous expansions of posterior back muscles.
+
+tendons:
+  - id: erector_spinae_common_tendon
+    name: Erector Spinae Common Tendon
+    origin_muscles: [erector_spinae_longissimus, erector_spinae_iliocostalis]
+    insertion: [sacral_crest, thoracolumbar_fascia_back, iliac_crest_back]
+    notes: Broad aponeurosis anchoring erector spinae to sacrum and posterior iliac crest.

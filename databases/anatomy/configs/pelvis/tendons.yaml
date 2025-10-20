@@ -1,0 +1,4 @@
+---
+# tendons.yaml is reserved for pelvic tendinous structures (currently none explicitly modelled).
+
+tendons: []

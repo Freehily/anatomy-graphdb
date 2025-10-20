@@ -1,0 +1,15 @@
+---
+# tendons.yaml records notable tendons traversing the hand.
+
+tendons:
+  - id: flexor_digitorum_profundus_tendons
+    name: Flexor Digitorum Profundus Tendons
+    origin_muscles: [flexor_digitorum_profundus]
+    insertion: [extensor_expansion_2, extensor_expansion_3, extensor_expansion_4, extensor_expansion_5]
+    notes: Tendons entering the carpal tunnel to reach distal phalanges, sharing sheaths with superficialis slips.
+
+  - id: extensor_digitorum_tendons
+    name: Extensor Digitorum Tendons
+    origin_muscles: [extensor_digitorum]
+    insertion: [extensor_expansion_2, extensor_expansion_3, extensor_expansion_4, extensor_expansion_5]
+    notes: Pass beneath the extensor retinaculum to form dorsal digital expansions.
