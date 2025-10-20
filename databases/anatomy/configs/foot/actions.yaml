@@ -1,0 +1,51 @@
+---
+# actions.yaml defines intrinsic foot movements involving new muscles.
+
+actions:
+  - id: toe_abduction_hallux
+    name: Hallux Abduction
+    joint: metatarsophalangeal_1
+    type: abduction
+    primary_movers: [abductor_hallucis]
+
+  - id: toe_flexion_digits_2_5
+    name: Toe Flexion (Digits 2-5)
+    joint: interphalangeal_2_5
+    type: flexion
+    primary_movers: [flexor_digitorum_brevis]
+
+  - id: toe_abduction_digit5
+    name: Little Toe Abduction
+    joint: metatarsophalangeal_5
+    type: abduction
+    primary_movers: [abductor_digiti_minimi]
+
+  - id: toe_flexion_digits_2_5_assist
+    name: Toe Flexion Assistance (Digits 2-5)
+    joint: interphalangeal_2_5
+    type: flexion
+    primary_movers: [quadratus_plantae]
+
+  - id: toe_flexion_mtp_2
+    name: Toe Flexion MTP2 with IP Extension
+    joint: metatarsophalangeal_2
+    type: flexion
+    primary_movers: [lumbrical_1]
+
+  - id: toe_flexion_mtp_3_5
+    name: Toe Flexion MTP3-5 with IP Extension
+    joint: metatarsophalangeal_3_5
+    type: flexion
+    primary_movers: [lumbricals_2_4]
+
+  - id: toe_extension_ip_2
+    name: Toe Extension IP2
+    joint: interphalangeal_2
+    type: extension
+    primary_movers: [lumbrical_1]
+
+  - id: toe_extension_ip_3_5
+    name: Toe Extension IP3-5
+    joint: interphalangeal_3_5
+    type: extension
+    primary_movers: [lumbricals_2_4]
