@@ -1,0 +1,102 @@
+---
+# muscles.yaml enumerates key head and neck muscles.
+
+muscles:
+  - id: sternocleidomastoid
+    name: Sternocleidomastoid
+    group: Superficial Neck Muscles
+    order: Neck
+    heads: [sternocleidomastoid_sternal_head, sternocleidomastoid_clavicular_head]
+    insertion: [mastoid_process, superior_nuchal_line]
+    actions: [neck_flexion, neck_lateral_flexion, head_rotation]
+    antagonists: []
+
+  - id: digastric
+    name: Digastric
+    group: Suprahyoid Muscles
+    order: Suprahyoid
+    heads: [digastric_anterior_belly, digastric_posterior_belly]
+    insertion: [hyoid_body]
+    actions: [hyoid_elevation, jaw_depression]
+    antagonists: []
+
+  - id: mylohyoid
+    name: Mylohyoid
+    group: Suprahyoid Muscles
+    order: Suprahyoid
+    heads: [mylohyoid_head]
+    insertion: [mylohyoid_raphe, hyoid_body]
+    actions: [hyoid_elevation, floor_of_mouth_elevation]
+    antagonists: []
+
+  - id: stylohyoid
+    name: Stylohyoid
+    group: Suprahyoid Muscles
+    order: Suprahyoid
+    heads: [stylohyoid_head]
+    insertion: [hyoid_body]
+    actions: [hyoid_elevation]
+    antagonists: []
+
+  - id: geniohyoid
+    name: Geniohyoid
+    group: Suprahyoid Muscles
+    order: Suprahyoid
+    heads: [geniohyoid_head]
+    insertion: [hyoid_body]
+    actions: [hyoid_elevation, jaw_retraction]
+    antagonists: []
+
+  - id: sternohyoid
+    name: Sternohyoid
+    group: Infrahyoid Muscles
+    order: Infrahyoid
+    heads: [sternohyoid_head]
+    insertion: [hyoid_body]
+    actions: [hyoid_depression]
+    antagonists: []
+
+  - id: sternothyroid
+    name: Sternothyroid
+    group: Infrahyoid Muscles
+    order: Infrahyoid
+    heads: [sternothyroid_head]
+    insertion: [thyroid_cartilage_lamina]
+    actions: [larynx_depression]
+    antagonists: []
+
+  - id: thyrohyoid
+    name: Thyrohyoid
+    group: Infrahyoid Muscles
+    order: Infrahyoid
+    heads: [thyrohyoid_head]
+    insertion: [hyoid_body]
+    actions: [hyoid_depression, larynx_elevation]
+    antagonists: []
+
+  - id: omohyoid
+    name: Omohyoid
+    group: Infrahyoid Muscles
+    order: Infrahyoid
+    heads: [omohyoid_inferior_head, omohyoid_superior_head]
+    insertion: [hyoid_body]
+    actions: [hyoid_depression, cervical_fascia_tension]
+    antagonists: []
+
+  - id: suprahyoid_group
+    name: Suprahyoid Functional Group
+    group: Functional Groups
+    order: Suprahyoid
+    heads: []
+    insertion: [hyoid_body]
+    actions: [hyoid_elevation, floor_of_mouth_elevation]
+    antagonists: []
+
+  - id: infrahyoid_group
+    name: Infrahyoid Functional Group
+    group: Functional Groups
+    order: Infrahyoid
+    heads: []
+    insertion: [hyoid_body]
+    actions: [hyoid_depression, larynx_depression]
+    antagonists: []
