@@ -1,0 +1,33 @@
+---
+# connections.yaml highlights key hand articulations and fascial tunnels.
+
+connections:
+  - id: carpal_tunnel
+    name: Carpal Tunnel
+    type: fibro-osseous_tunnel
+    structures: [flexor_retinaculum, carpal_scaphoid, carpal_trapezium, carpal_hamate, carpal_pisiform]
+    notes: Formed by carpal bones and flexor retinaculum; transmits median nerve and flexor tendons.
+
+  - id: guyon_canal
+    name: Guyon's Canal
+    type: fibro-osseous_tunnel
+    structures: [pisiform, hook_of_hamate, flexor_retinaculum]
+    notes: Ulnar nerve and artery traverse canal between pisiform and hamate hook.
+
+  - id: extensor_retinaculum_sheath
+    name: Extensor Retinaculum Sheaths
+    type: fascial_connection
+    structures: [extensor_retinaculum, metacarpals]
+    notes: Compartments stabilize extensor tendons along dorsal wrist.
+
+  - id: carpometacarpal_joints
+    name: Carpometacarpal Joints
+    type: synovial
+    structures: [carpal_trapezium, carpal_hamate, metacarpal_1, metacarpal_2, metacarpal_3, metacarpal_4, metacarpal_5]
+    notes: Saddle joint for thumb (CMC1) and plane joints for digits 2-5.
+
+  - id: metacarpophalangeal_aponeurosis
+    name: Metacarpophalangeal Aponeurosis
+    type: fascial_connection
+    structures: [extensor_expansion, phalanges_proximal, metacarpals]
+    notes: Extensor hood connects extensor tendons with intrinsic muscles to coordinate finger extension.
