@@ -1,0 +1,48 @@
+---
+# muscles.yaml enumerates pelvic floor and perineal muscles.
+
+muscles:
+  - id: levator_ani
+    name: Levator Ani
+    group: Pelvic Floor Muscles
+    order: Pelvis
+    heads: [levator_ani_pubococcygeus_head, levator_ani_iliococcygeus_head, levator_ani_puborectalis_head]
+    insertion: [anococcygeal_body, perineal_body, coccyx_tip, pelvic_fascia]
+    actions: [pelvic_floor_support, pelvic_floor_elevation, continence_assistance]
+    antagonists: []
+
+  - id: coccygeus
+    name: Coccygeus
+    group: Pelvic Floor Muscles
+    order: Pelvis
+    heads: [coccygeus_head]
+    insertion: [sacral_coccygeal_margin, coccyx_tip]
+    actions: [pelvic_floor_support]
+    antagonists: []
+
+  - id: deep_transverse_perineal
+    name: Deep Transverse Perineal
+    group: Urogenital Diaphragm Muscles
+    order: Pelvis
+    heads: [deep_transverse_perineal_head]
+    insertion: [perineal_body]
+    actions: [perineal_body_stabilization, continence_assistance]
+    antagonists: []
+
+  - id: external_urethral_sphincter
+    name: External Urethral Sphincter
+    group: Urogenital Diaphragm Muscles
+    order: Pelvis
+    heads: [external_urethral_sphincter_head]
+    insertion: [perineal_body, pelvic_fascia]
+    actions: [urinary_continence]
+    antagonists: []
+
+  - id: pelvic_floor_group
+    name: Pelvic Floor Functional Group
+    group: Functional Groups
+    order: Pelvis
+    heads: []
+    insertion: [pelvic_fascia]
+    actions: [pelvic_floor_support, continence_assistance]
+    antagonists: []

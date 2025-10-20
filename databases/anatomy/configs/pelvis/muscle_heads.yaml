@@ -1,0 +1,39 @@
+---
+# muscle_heads.yaml defines pelvic muscle components with origins, innervations, and arterial supply.
+
+muscle_heads:
+  - id: levator_ani_pubococcygeus_head
+    name: Levator Ani (Pubococcygeus)
+    origin: [pubic_body, tendinous_arch_levator_ani]
+    innervation: [nerve_to_levator_ani]
+    arteries: [inferior_gluteal_artery, internal_pudendal_artery]
+
+  - id: levator_ani_iliococcygeus_head
+    name: Levator Ani (Iliococcygeus)
+    origin: [tendinous_arch_levator_ani, ischial_spine]
+    innervation: [nerve_to_levator_ani]
+    arteries: [inferior_gluteal_artery, internal_pudendal_artery]
+
+  - id: levator_ani_puborectalis_head
+    name: Levator Ani (Puborectalis)
+    origin: [pubic_body]
+    innervation: [nerve_to_levator_ani]
+    arteries: [internal_pudendal_artery]
+
+  - id: coccygeus_head
+    name: Coccygeus
+    origin: [ischial_spine]
+    innervation: [nerve_to_coccygeus]
+    arteries: [inferior_gluteal_artery]
+
+  - id: deep_transverse_perineal_head
+    name: Deep Transverse Perineal
+    origin: [pubic_inferior_ram]
+    innervation: [pudendal_nerve]
+    arteries: [internal_pudendal_artery]
+
+  - id: external_urethral_sphincter_head
+    name: External Urethral Sphincter
+    origin: [pubic_inferior_ram, pelvic_fascia]
+    innervation: [pudendal_nerve]
+    arteries: [internal_pudendal_artery]

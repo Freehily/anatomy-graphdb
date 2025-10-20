@@ -1,0 +1,43 @@
+---
+# bones.yaml captures pelvic skeletal structures referenced by muscle attachments.
+
+bones:
+  - id: pelvis
+    name: Pelvis
+    region: Pelvic Girdle
+    attachments: [
+      iliac_crest,
+      anterior_superior_iliac_spine,
+      anterior_inferior_iliac_spine,
+      posterior_superior_iliac_spine,
+      arcuate_line,
+      pubic_crest,
+      pubic_tubercle,
+      pubic_body,
+      pubic_inferior_ram,
+      ischial_spine,
+      ischial_tuberosity,
+      obturator_membrane_internal_surface,
+      tendinous_arch_levator_ani,
+      obturator_canal
+    ]
+
+  - id: sacrum
+    name: Sacrum
+    region: Pelvis
+    attachments: [sacral_promontory, sacral_coccygeal_margin]
+
+  - id: coccyx
+    name: Coccyx
+    region: Pelvis
+    attachments: [coccyx_tip]
+
+  - id: pelvic_floor
+    name: Pelvic Floor
+    region: Connective Tissue
+    attachments: [anococcygeal_body, perineal_body]
+
+  - id: fascia
+    name: Pelvic Fascia
+    region: Connective Tissue
+    attachments: [pelvic_fascia]

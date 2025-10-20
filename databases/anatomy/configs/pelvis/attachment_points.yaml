@@ -1,0 +1,84 @@
+---
+# attachment_points.yaml lists pelvic landmarks used as origins or insertions.
+
+attachment_points:
+  - id: iliac_crest
+    name: Iliac Crest
+    bone: pelvis
+
+  - id: anterior_superior_iliac_spine
+    name: Anterior Superior Iliac Spine
+    bone: pelvis
+
+  - id: anterior_inferior_iliac_spine
+    name: Anterior Inferior Iliac Spine
+    bone: pelvis
+
+  - id: posterior_superior_iliac_spine
+    name: Posterior Superior Iliac Spine
+    bone: pelvis
+
+  - id: arcuate_line
+    name: Arcuate Line of Ilium
+    bone: pelvis
+
+  - id: pubic_crest
+    name: Pubic Crest
+    bone: pelvis
+
+  - id: pubic_tubercle
+    name: Pubic Tubercle
+    bone: pelvis
+
+  - id: pubic_body
+    name: Body of Pubis
+    bone: pelvis
+
+  - id: pubic_inferior_ram
+    name: Inferior Pubic Ramus
+    bone: pelvis
+
+  - id: ischial_spine
+    name: Ischial Spine
+    bone: pelvis
+
+  - id: ischial_tuberosity
+    name: Ischial Tuberosity
+    bone: pelvis
+
+  - id: obturator_membrane_internal_surface
+    name: Internal Surface of Obturator Membrane
+    bone: pelvis
+
+  - id: tendinous_arch_levator_ani
+    name: Tendinous Arch of Levator Ani
+    bone: pelvis
+
+  - id: sacral_promontory
+    name: Sacral Promontory
+    bone: sacrum
+
+  - id: sacral_coccygeal_margin
+    name: Sacrococcygeal Margin
+    bone: sacrum
+
+  - id: coccyx_tip
+    name: Tip of Coccyx
+    bone: coccyx
+
+  - id: anococcygeal_body
+    name: Anococcygeal Body
+    bone: pelvic_floor
+
+  - id: perineal_body
+    name: Perineal Body
+    bone: pelvic_floor
+
+  - id: pelvic_fascia
+    name: Pelvic Fascia
+    bone: fascia
+
+  - id: obturator_canal
+    name: Obturator Canal Margin
+    bone: pelvis
+

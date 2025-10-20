@@ -1,0 +1,33 @@
+---
+# actions.yaml defines pelvic floor and perineal movements.
+
+actions:
+  - id: pelvic_floor_support
+    name: Pelvic Floor Support
+    joint: pelvic_floor
+    type: support
+    primary_movers: [levator_ani, coccygeus, pelvic_floor_group]
+
+  - id: pelvic_floor_elevation
+    name: Pelvic Floor Elevation
+    joint: pelvic_floor
+    type: elevation
+    primary_movers: [levator_ani]
+
+  - id: continence_assistance
+    name: Continence Assistance
+    joint: urogenital
+    type: compression
+    primary_movers: [levator_ani, deep_transverse_perineal, external_urethral_sphincter, pelvic_floor_group]
+
+  - id: perineal_body_stabilization
+    name: Perineal Body Stabilization
+    joint: perineum
+    type: stabilization
+    primary_movers: [deep_transverse_perineal, levator_ani]
+
+  - id: urinary_continence
+    name: Urinary Continence
+    joint: urogenital
+    type: sphincter_control
+    primary_movers: [external_urethral_sphincter]
