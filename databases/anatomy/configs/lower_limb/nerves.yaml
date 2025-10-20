@@ -1,0 +1,95 @@
+---
+# nerves.yaml lists major neural structures supplying the lower limb.
+
+nerves:
+  - id: femoral_nerve
+    name: Femoral Nerve
+    derivations: [L2, L3, L4]
+    type: [motor, sensory]
+    pathway: Passes beneath inguinal ligament lateral to femoral artery, divides in femoral triangle.
+    clinical_significance: Lesions reduce knee extension strength and diminish anterior thigh sensation.
+    innervates: [rectus_femoris_head, vastus_lateralis_head, vastus_medialis_head, vastus_intermedius_head, sartorius_head, pectineus_head]
+
+  - id: superior_gluteal_nerve
+    name: Superior Gluteal Nerve
+    derivations: [L4, L5, S1]
+    type: [motor]
+    pathway: Exits pelvis via greater sciatic foramen above piriformis to supply lateral hip.
+    clinical_significance: Injury causes Trendelenburg gait from hip abductor weakness.
+    innervates: [gluteus_medius_head, gluteus_minimus_head, tensor_fasciae_latae_head]
+
+  - id: inferior_gluteal_nerve
+    name: Inferior Gluteal Nerve
+    derivations: [L5, S1, S2]
+    type: [motor]
+    pathway: Leaves pelvis via greater sciatic foramen below piriformis to enter gluteus maximus.
+    clinical_significance: Injury impairs rising from seated position due to hip extension weakness.
+    innervates: [gluteus_maximus_head]
+
+  - id: nerve_to_piriformis
+    name: Nerve to Piriformis
+    derivations: [S1, S2]
+    type: [motor]
+    pathway: Courses directly through greater sciatic foramen to piriformis.
+    clinical_significance: Entrapment may mimic radiculopathy with buttock pain.
+    innervates: [piriformis_head]
+
+  - id: obturator_nerve
+    name: Obturator Nerve
+    derivations: [L2, L3, L4]
+    type: [motor, sensory]
+    pathway: Travels through obturator canal to medial thigh.
+    clinical_significance: Pelvic surgeries risk injury leading to adductor weakness and medial thigh numbness.
+    innervates: [adductor_longus_head, adductor_brevis_head, adductor_magnus_adductor_head, gracilis_head]
+
+  - id: sciatic_nerve
+    name: Sciatic Nerve
+    derivations: [L4, L5, S1, S2, S3]
+    type: [motor, sensory]
+    pathway: Exits greater sciatic foramen, descends posterior thigh before dividing into tibial and common fibular branches.
+    clinical_significance: Compression produces sciatica with posterior thigh and leg pain.
+    innervates: [biceps_femoris_long_head, semitendinosus_head, semimembranosus_head, adductor_magnus_hamstring_head]
+
+  - id: tibial_nerve
+    name: Tibial Nerve
+    derivations: [L4, L5, S1, S2, S3]
+    type: [motor, sensory]
+    pathway: Runs through popliteal fossa and deep posterior leg to tarsal tunnel.
+    clinical_significance: Injury weakens plantarflexion and toe flexion, producing calcaneal gait.
+    innervates: [
+      biceps_femoris_long_head,
+      semitendinosus_head,
+      semimembranosus_head,
+      adductor_magnus_hamstring_head,
+      gastrocnemius_medial_head,
+      gastrocnemius_lateral_head,
+      soleus_head,
+      plantaris_head,
+      tibialis_posterior_head,
+      flexor_digitorum_longus_head,
+      flexor_hallucis_longus_head
+    ]
+
+  - id: common_fibular_nerve
+    name: Common Fibular Nerve
+    derivations: [L4, L5, S1, S2]
+    type: [motor, sensory]
+    pathway: Splits from sciatic nerve in popliteal fossa, wraps around neck of fibula.
+    clinical_significance: Fibular neck fractures can injure the nerve causing foot drop.
+    innervates: [biceps_femoris_short_head]
+
+  - id: deep_fibular_nerve
+    name: Deep Fibular Nerve
+    derivations: [L4, L5, S1]
+    type: [motor, sensory]
+    pathway: Courses with anterior tibial artery in anterior compartment of leg.
+    clinical_significance: Entrapment results in weakness of dorsiflexion and web space numbness.
+    innervates: [tibialis_anterior_head, extensor_digitorum_longus_head, extensor_hallucis_longus_head]
+
+  - id: superficial_fibular_nerve
+    name: Superficial Fibular Nerve
+    derivations: [L5, S1, S2]
+    type: [motor, sensory]
+    pathway: Descends between fibularis muscles before becoming cutaneous on dorsum of foot.
+    clinical_significance: Injury impairs ankle eversion and sensation over lateral dorsum of foot.
+    innervates: [fibularis_longus_head, fibularis_brevis_head]

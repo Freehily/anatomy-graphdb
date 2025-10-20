@@ -4,17 +4,22 @@ This package contains YAML configs that describe anatomical structures, a valida
 
 ## Validation
 
-```
-python stronger/databases/anatomy/scripts/validate_upper_limb.py
-```
+Use the dedicated validators to check referential integrity:
 
-The script checks referential integrity across bones, attachment points, muscles, muscle heads, nerves, arteries, and actions. A non-zero exit code highlights missing or misspelled IDs.
+- Upper limb:
+  ```
+  python stronger/databases/anatomy/scripts/validate_upper_limb.py
+  ```
+- Thorax:
+  ```
+  python stronger/databases/anatomy/scripts/validate_thorax.py
+  ```
+- Lower limb:
+  ```
+  python stronger/databases/anatomy/scripts/validate_lower_limb.py
+  ```
 
-Thorax data can be validated with:
-
-```
-python stronger/databases/anatomy/scripts/validate_thorax.py
-```
+Each script loads the region-specific YAML files and verifies that every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs.
 
 ## Neo4j Export Workflow
 
@@ -29,6 +34,12 @@ python stronger/databases/anatomy/scripts/validate_thorax.py
    python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region thorax
    ```
    which writes to `data/neo4j/thorax` unless a custom directory is provided.
+
+   Lower limb data follows the same pattern:
+   ```
+   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region lower_limb
+   ```
+   generating CSVs under `data/neo4j/lower_limb` by default.
 
 2. Import into a local Neo4j instance (example commands):
    ```
