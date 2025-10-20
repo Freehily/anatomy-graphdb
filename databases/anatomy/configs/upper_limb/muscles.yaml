@@ -90,7 +90,7 @@ muscles:
     order: Shoulder
     heads: []
     insertion: [intertubercular_sulcus]
-    actions: [shoulder_extension, shoulder_adduction, shoulder_medial_rotation]
+    actions: [shoulder_extension, shoulder_adduction, shoulder_medial_rotation, scapula_depression]
     antagonists: [deltoid_anterior, pectoralis_major]
 
   - id: teres_major
