@@ -1,0 +1,73 @@
+postures:
+  - id: standing
+    name: Standing
+  - id: staggered_stance
+    name: Staggered Stance
+  - id: split_squat
+    name: Split Squat
+  - id: single_leg_standing
+    name: Single Leg Standing
+  - id: single_leg_standing_bent_knee
+    name: Single Leg Standing (Bent Knee)
+  - id: single_leg_supported
+    name: Single Leg Supported
+  - id: walking
+    name: Walking
+  - id: running
+    name: Running
+  - id: march
+    name: March
+  - id: toe_balance
+    name: Toe Balance
+  - id: bridge
+    name: Bridge
+  - id: single_leg_bridge
+    name: Single Leg Bridge
+  - id: supine
+    name: Supine
+  - id: prone
+    name: Prone
+  - id: quadruped
+    name: Quadruped
+  - id: knee_hover_quadruped
+    name: Knee Hover Quadruped
+  - id: knee_supported
+    name: Knee Supported
+  - id: half_kneeling
+    name: Half Kneeling
+  - id: tall_kneeling
+    name: Tall Kneeling
+  - id: kneeling
+    name: Kneeling
+  - id: knee_over_toe_split_squat
+    name: Knee Over Toe Split Squat
+  - id: isometric_split_squat
+    name: Isometric Split Squat
+  - id: seated
+    name: Seated
+  - id: seated_floor
+    name: Seated Floor
+  - id: shin_box_seated
+    name: Shin Box Seated
+  - id: 90_90_seated
+    name: 90/90 Seated
+  - id: v_sit_seated
+    name: V Sit Seated
+  - id: l_sit
+    name: L Sit
+  - id: tuck_l_sit
+    name: Tuck L Sit
+  - id: hanging
+    name: Hanging
+  - id: inverted
+    name: Inverted
+  - id: horse_stance
+    name: Horse Stance
+  - id: side_lying
+    name: Side Lying
+  - id: side_plank
+    name: Side Plank
+  - id: wall_sit
+    name: Wall Sit
+  - id: other
+    name: Other

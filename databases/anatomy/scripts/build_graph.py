@@ -16,7 +16,7 @@ import csv
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence
+from typing import Dict, Iterable, List, Sequence, Set
 
 from stronger.databases.anatomy.loader import AnatomyConfigError, AnatomyLoader, AnatomyRegion
 from stronger.databases.anatomy.neo4j_artifacts import (
@@ -26,6 +26,13 @@ from stronger.databases.anatomy.neo4j_artifacts import (
     build_all_artifacts,
     build_node_payloads,
     build_relationship_payloads,
+)
+from stronger.databases.exercises.loader import ExerciseConfigError, ExerciseLoader
+from stronger.databases.exercises.neo4j_artifacts import (
+    build_node_artifacts as build_exercise_node_artifacts,
+    build_relationship_artifacts as build_exercise_relationship_artifacts,
+    build_node_payloads as build_exercise_node_payloads,
+    build_relationship_payloads as build_exercise_relationship_payloads,
 )
 
 
@@ -206,8 +213,10 @@ def write_artifact(artifact: CsvArtifact, base_dir: Path) -> Path:
     return target
 
 
-def export_csv(region: AnatomyRegion, output_dir: Path) -> None:
+def export_csv(region: AnatomyRegion, output_dir: Path, extra_artifacts: List[CsvArtifact] | None = None) -> None:
     artifacts = build_all_artifacts(region)
+    if extra_artifacts:
+        artifacts.extend(extra_artifacts)
     for artifact in artifacts:
         write_artifact(artifact, output_dir)
     print(f"CSV export complete. {len(artifacts)} files written to {output_dir.resolve()}")
@@ -218,7 +227,12 @@ def _chunk(sequence: Sequence, size: int = 500) -> Iterable[Sequence]:
         yield sequence[idx : idx + size]
 
 
-def ingest_via_neo4j(region: AnatomyRegion, args: argparse.Namespace) -> None:
+def ingest_via_neo4j(
+    region: AnatomyRegion,
+    args: argparse.Namespace,
+    extra_nodes: List[NodePayload] | None = None,
+    extra_relationships: List[RelationshipPayload] | None = None,
+) -> None:
     try:
         from neo4j import GraphDatabase
     except ImportError as exc:  # pragma: no cover - optional dependency
@@ -235,6 +249,11 @@ def ingest_via_neo4j(region: AnatomyRegion, args: argparse.Namespace) -> None:
 
     node_payloads = build_node_payloads(region)
     relationship_payloads = build_relationship_payloads(region)
+
+    if extra_nodes:
+        node_payloads.extend(extra_nodes)
+    if extra_relationships:
+        relationship_payloads.extend(extra_relationships)
 
     def _sanitize_props(props: Dict[str, object]) -> Dict[str, object]:
         return {key: value for key, value in props.items() if value not in (None, "", [])}
@@ -353,6 +372,19 @@ def build_parser() -> argparse.ArgumentParser:
         default=500,
         help="Number of records per write transaction when ingesting via bolt.",
     )
+    parser.add_argument(
+        "--include-exercises",
+        dest="include_exercises",
+        action="store_true",
+        default=True,
+        help="Include exercise templates/variants/equipment in the export (default: True).",
+    )
+    parser.add_argument(
+        "--no-exercises",
+        dest="include_exercises",
+        action="store_false",
+        help="Skip exercise data entirely.",
+    )
 
     return parser
 
@@ -367,10 +399,35 @@ def main(argv: Sequence[str] | None = None) -> int:
         list_regions(loader)
         return 0
 
+    region_arg = args.region.strip()
+    if region_arg.lower() == "all":
+        target_regions = loader.available_regions()
+    else:
+        target_regions = [value.strip() for value in region_arg.split(",") if value.strip()]
+
+    if not target_regions:
+        parser.error("No region specified.")
+
     try:
-        region = loader.load_region(args.region)
+        if len(target_regions) == 1:
+            region = loader.load_region(target_regions[0])
+        else:
+            region = loader.load_regions(target_regions)
     except AnatomyConfigError as exc:
         parser.error(str(exc))
+
+    exercise_loader: ExerciseLoader | None = None
+    exercise_csv_artifacts: List[CsvArtifact] = []
+    exercise_node_payloads: List[NodePayload] = []
+    exercise_relationship_payloads: List[RelationshipPayload] = []
+
+    muscle_labels: Dict[str, str] = {}
+    if "muscles" in region.sections:
+        for item in region.require("muscles").items:
+            muscle_labels[item["id"]] = "Muscle"
+    if "muscle_heads" in region.sections:
+        for item in region.require("muscle_heads").items:
+            muscle_labels[item["id"]] = "MuscleHead"
 
     if args.validate:
         failures = validate_region(region)
@@ -381,14 +438,48 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         print("Validation passed.")
 
+    if args.include_exercises:
+        try:
+            exercise_loader = ExerciseLoader()
+            exercise_loader.load()
+        except ExerciseConfigError as exc:
+            parser.error(str(exc))
+
+        if args.validate and exercise_loader:
+            exercise_errors = exercise_loader.validate()
+            if exercise_errors:
+                print("Exercise validation failed:")
+                for error in exercise_errors:
+                    print(f"  - {error}")
+                return 1
+            print("Exercise validation passed.")
+
+        if exercise_loader:
+            try:
+                exercise_csv_artifacts.extend(build_exercise_node_artifacts(exercise_loader))
+                exercise_csv_artifacts.extend(
+                    build_exercise_relationship_artifacts(exercise_loader, muscle_labels)
+                )
+                exercise_node_payloads = build_exercise_node_payloads(exercise_loader)
+                exercise_relationship_payloads = build_exercise_relationship_payloads(
+                    exercise_loader, muscle_labels
+                )
+            except ValueError as exc:
+                parser.error(str(exc))
+
     if args.mode == "csv":
         if args.output.is_dir():
             output_dir = args.output / region.region
         else:
             output_dir = args.output
-        export_csv(region, output_dir)
+        export_csv(region, output_dir, exercise_csv_artifacts)
     else:
-        ingest_via_neo4j(region, args)
+        ingest_via_neo4j(
+            region,
+            args,
+            extra_nodes=exercise_node_payloads,
+            extra_relationships=exercise_relationship_payloads,
+        )
 
     return 0
 

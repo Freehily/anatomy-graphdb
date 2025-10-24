@@ -47,7 +47,15 @@ Each script loads the region-specific YAML files and verifies that every attachm
 
 ## Neo4j Export Workflow
 
-1. Generate artifacts with the unified graph builder:
+1. (Optional) Refresh the exercise configs from the raw CSV:
+   ```
+   poetry run python stronger/databases/exercises/scripts/build_dataset.py
+   poetry run python stronger/databases/exercises/scripts/validate_configs.py
+   ```
+   Skip this step if you have already generated the YAML files under
+   `stronger/databases/exercises/configs/`.
+
+2. Generate artifacts with the unified graph builder (anatomy + exercises by default):
    ```
    # CSV export (default mode)
    python stronger/databases/anatomy/scripts/build_graph.py --region upper_limb --output data/neo4j
@@ -65,6 +73,10 @@ Each script loads the region-specific YAML files and verifies that every attachm
 
    Add `--validate` to either command to enforce referential checks before exporting, and `--list-regions`
    to discover available directories under `configs/`.
+
+   Exercise data is included automatically. Use `--no-exercises` if you only want the anatomy graph, or set
+   `--region all` / pass a comma-separated list (e.g., `--region upper_limb,lower_limb`) to aggregate multiple
+   anatomy folders into a single export so every exercise → muscle link can resolve in one pass.
 
 2. Import into a local Neo4j instance (example commands):
    ```

@@ -1,0 +1,10 @@
+limb_cadence:
+  - id: continuous
+    name: Continuous
+    description: Repetitions cycle without alternating sides.
+    aliases: ["Continuous"]
+
+  - id: alternating
+    name: Alternating
+    description: Sides alternate between reps.
+    aliases: ["Alternating"]

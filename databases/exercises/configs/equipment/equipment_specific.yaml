@@ -1,0 +1,419 @@
+equipment:
+
+  # --- Free Weights and Odd Objects ---
+  - id: ab_wheel
+    name: Ab Wheel
+    parent_id: conditioning_tool
+    aliases: []
+
+  - id: barbell
+    name: Barbell
+    parent_id: free_weight
+    aliases: []
+
+  - id: battle_ropes
+    name: Battle Ropes
+    parent_id: conditioning_tool
+    aliases: ["Ropes"]
+
+  - id: bench_decline
+    name: Bench (Decline)
+    parent_id: bench
+    aliases: []
+
+  - id: bench_flat
+    name: Bench (Flat)
+    parent_id: bench
+    aliases: ["Flat Bench"]
+
+  - id: bench_incline
+    name: Bench (Incline)
+    parent_id: bench
+    aliases: ["Incline Bench"]
+
+  - id: bodyweight
+    name: Bodyweight
+    parent_id: free_weight
+    aliases: ["No Equipment"]
+
+  - id: bulgarian_bag
+    name: Bulgarian Bag
+    parent_id: free_weight
+    aliases: []
+
+  - id: cable
+    name: Cable
+    parent_id: machine
+    aliases: ["Cable Station", "Pulley Station"]
+
+  - id: climbing_rope
+    name: Climbing Rope
+    parent_id: conditioning_tool
+    aliases: ["Rope Climb"]
+
+  - id: clubbell
+    name: Clubbell
+    parent_id: free_weight
+    aliases: ["Steel Club"]
+
+  - id: dumbbell
+    name: Dumbbell
+    parent_id: free_weight
+    aliases: []
+
+  - id: ez_bar
+    name: EZ Bar
+    parent_id: barbell_variant
+    aliases: ["Curl Bar", "Cambered EZ Bar"]
+
+  - id: gravity_boots
+    name: Gravity Boots
+    parent_id: wearable
+    aliases: ["Inversion Boots"]
+
+  - id: gymnastic_rings
+    name: Gymnastic Rings
+    parent_id: rack
+    aliases: ["Rings"]
+
+  - id: heavy_sandbag
+    name: Heavy Sandbag
+    parent_id: free_weight
+    aliases: ["Strongman Sandbag"]
+
+  - id: indian_club
+    name: Indian Club
+    parent_id: free_weight
+    aliases: ["Wooden Club"]
+
+  - id: kettlebell
+    name: Kettlebell
+    parent_id: free_weight
+    aliases: []
+
+  - id: landmine
+    name: Landmine
+    parent_id: barbell_variant
+    aliases: ["Landmine Base", "Torsonator"]
+
+  - id: macebell
+    name: Macebell
+    parent_id: free_weight
+    aliases: ["Steel Mace", "Gada"]
+
+  - id: medicine_ball
+    name: Medicine Ball
+    parent_id: free_weight
+    aliases: ["Med Ball"]
+
+  - id: miniband
+    name: Miniband
+    parent_id: load_modifier
+    aliases: ["Hip Circle", "Mini Band"]
+
+  - id: parallette_bars
+    name: Parallette Bars
+    parent_id: balance_tool
+    aliases: ["Parallettes"]
+
+  - id: plyo_box
+    name: Plyo Box
+    parent_id: conditioning_tool
+    aliases: ["Box Jump Box"]
+
+  - id: pull_up_bar
+    name: Pull Up Bar
+    parent_id: rack
+    aliases: ["Chin-Up Bar"]
+
+  - id: resistance_band
+    name: Resistance Band
+    parent_id: load_modifier
+    aliases: ["Band"]
+
+  - id: sandbag
+    name: Sandbag
+    parent_id: free_weight
+    aliases: []
+
+  - id: slam_ball
+    name: Slam Ball
+    parent_id: conditioning_tool
+    aliases: ["Dead Ball"]
+
+  - id: slant_board
+    name: Slant Board
+    parent_id: balance_tool
+    aliases: ["Wedge Board"]
+
+  - id: sled
+    name: Sled
+    parent_id: conditioning_tool
+    aliases: ["Prowler"]
+
+  - id: sledge_hammer
+    name: Sledge Hammer
+    parent_id: free_weight
+    aliases: ["Hammer"]
+
+  - id: sliders
+    name: Sliders
+    parent_id: conditioning_tool
+    aliases: ["Gliders", "Core Sliders"]
+
+  - id: stability_ball
+    name: Stability Ball
+    parent_id: balance_tool
+    aliases: ["Swiss Ball", "Physio Ball"]
+
+  - id: superband
+    name: Superband
+    parent_id: load_modifier
+    aliases: ["Monster Band", "Pull-Up Assist Band"]
+
+  - id: suspension_trainer
+    name: Suspension Trainer
+    parent_id: balance_tool
+    aliases: ["TRX", "Suspension Straps"]
+
+  - id: tire
+    name: Tire
+    parent_id: strongman
+    aliases: ["Tractor Tire"]
+
+  - id: trap_bar
+    name: Trap Bar
+    parent_id: barbell_variant
+    aliases: ["Hex Bar"]
+
+  - id: wall_ball
+    name: Wall Ball
+    parent_id: conditioning_tool
+    aliases: ["Med Ball (Wall)"]
+
+  - id: weight_plate
+    name: Weight Plate
+    parent_id: load_modifier
+    aliases: ["Plates"]
+
+  # --- Racks, Rigs, Benches ---
+  - id: power_rack
+    name: Power Rack
+    parent_id: rack
+    aliases: ["Squat Rack", "Half Rack"]
+  - id: smith_machine
+    name: Smith Machine
+    parent_id: machine
+    aliases: []
+  - id: preacher_bench
+    name: Preacher Bench
+    parent_id: bench
+    aliases: ["Curl Bench"]
+  - id: roman_chair
+    name: Roman Chair / Hyperextension
+    parent_id: bench
+    aliases: ["Back Extension Bench"]
+  - id: glute_ham_developer
+    name: Glute-Ham Developer (GHD)
+    parent_id: bench
+    aliases: ["GHD"]
+
+  # --- Bar Variants ---
+  - id: safety_squat_bar
+    name: Safety Squat Bar
+    parent_id: barbell_variant
+    aliases: ["SSB"]
+  - id: swiss_bar
+    name: Swiss / Multi-Grip Bar
+    parent_id: barbell_variant
+    aliases: ["Football Bar", "Neutral Grip Bar"]
+  - id: cambered_bar
+    name: Cambered Bar
+    parent_id: barbell_variant
+    aliases: []
+  - id: buffalo_bar
+    name: Buffalo Bar
+    parent_id: barbell_variant
+    aliases: ["Bow Bar"]
+  - id: axle_bar
+    name: Axle Bar (Thick Bar)
+    parent_id: barbell_variant
+    aliases: ["Fat Bar"]
+
+  # --- Lower-Body Machines ---
+  - id: leg_press
+    name: Leg Press
+    parent_id: machine
+    aliases: []
+  - id: hack_squat
+    name: Hack Squat
+    parent_id: machine
+    aliases: []
+  - id: belt_squat
+    name: Belt Squat
+    parent_id: machine
+    aliases: []
+  - id: leg_extension
+    name: Leg Extension
+    parent_id: machine
+    aliases: ["Knee Extension"]
+  - id: hamstring_curl_seated
+    name: Seated Hamstring Curl
+    parent_id: machine
+    aliases: []
+  - id: hamstring_curl_lying
+    name: Lying Hamstring Curl
+    parent_id: machine
+    aliases: []
+  - id: calf_raise_standing
+    name: Standing Calf Raise
+    parent_id: machine
+    aliases: []
+  - id: calf_raise_seated
+    name: Seated Calf Raise
+    parent_id: machine
+    aliases: []
+
+  # --- Upper-Body Machines ---
+  - id: lat_pulldown
+    name: Lat Pulldown
+    parent_id: machine
+    aliases: []
+  - id: cable_crossover
+    name: Cable Crossover Station
+    parent_id: machine
+    aliases: ["Dual Adjustable Pulley"]
+  - id: seated_row_machine
+    name: Seated Row (Machine)
+    parent_id: machine
+    aliases: []
+  - id: pec_deck
+    name: Pec Deck / Chest Fly Machine
+    parent_id: machine
+    aliases: ["Machine Fly"]
+  - id: chest_press_machine
+    name: Chest Press (Machine)
+    parent_id: machine
+    aliases: []
+  - id: shoulder_press_machine
+    name: Shoulder Press (Machine)
+    parent_id: machine
+    aliases: []
+  - id: assisted_dip_pullup
+    name: Assisted Dip/Pull-Up
+    parent_id: machine
+    aliases: ["Gravitron"]
+
+  # --- Conditioning Machines ---
+  - id: treadmill
+    name: Treadmill
+    parent_id: cardio_machine
+    aliases: []
+  - id: rower
+    name: Rowing Ergometer
+    parent_id: cardio_machine
+    aliases: ["RowErg", "Concept2 Rower"]
+  - id: air_bike
+    name: Air Bike
+    parent_id: cardio_machine
+    aliases: ["Assault Bike", "Fan Bike", "Airdyne"]
+  - id: ski_erg
+    name: SkiErg
+    parent_id: cardio_machine
+    aliases: []
+  - id: stair_climber
+    name: Stair Climber
+    parent_id: cardio_machine
+    aliases: ["StairMill", "Stepper"]
+  - id: elliptical
+    name: Elliptical
+    parent_id: cardio_machine
+    aliases: ["Cross Trainer"]
+  - id: versa_climber
+    name: VersaClimber
+    parent_id: cardio_machine
+    aliases: []
+
+  # --- Strongman Implements ---
+  - id: yoke
+    name: Yoke
+    parent_id: strongman
+    aliases: []
+  - id: farmers_handles
+    name: Farmer's Handles
+    parent_id: strongman
+    aliases: ["Farmers Walk Handles"]
+  - id: log_bar
+    name: Strongman Log
+    parent_id: strongman
+    aliases: ["Log Press"]
+  - id: atlas_stone
+    name: Atlas Stone
+    parent_id: strongman
+    aliases: []
+  - id: hussafell_stone
+    name: Husafell Stone
+    parent_id: strongman
+    aliases: ["Húsafell"]
+
+  # --- Balance / Mobility Tools ---
+  - id: bosu_ball
+    name: BOSU Ball
+    parent_id: balance_tool
+    aliases: []
+  - id: balance_board
+    name: Balance/Wobble Board
+    parent_id: balance_tool
+    aliases: ["Wobble Board"]
+  - id: agility_ladder
+    name: Agility Ladder
+    parent_id: agility_tool
+    aliases: []
+  - id: step_platform
+    name: Step Platform
+    parent_id: conditioning_tool
+    aliases: ["Aerobic Step"]
+
+  # --- Wearables / Load Modifiers ---
+  - id: weighted_vest
+    name: Weighted Vest
+    parent_id: wearable
+    aliases: []
+  - id: dip_belt
+    name: Dip Belt
+    parent_id: wearable
+    aliases: ["Weight Belt for Dips/Pull-ups"]
+  - id: lifting_chains
+    name: Lifting Chains
+    parent_id: load_modifier
+    aliases: ["Chains"]
+  - id: ankle_weights
+    name: Ankle Weights
+    parent_id: wearable
+    aliases: []
+
+  # --- Cable Attachments (treat as subtype) ---
+  - id: cable_attachment_triceps_rope
+    name: Cable Attachment - Triceps Rope
+    parent_id: cable_attachment
+    aliases: ["Rope Attachment"]
+  - id: cable_attachment_straight_bar
+    name: Cable Attachment - Straight Bar
+    parent_id: cable_attachment
+    aliases: []
+  - id: cable_attachment_vbar
+    name: Cable Attachment - V-Bar
+    parent_id: cable_attachment
+    aliases: ["Close-Grip Row Handle"]
+  - id: cable_attachment_d_handle
+    name: Cable Attachment - Single D-Handle
+    parent_id: cable_attachment
+    aliases: ["D-Handle"]
+  - id: cable_attachment_lat_bar
+    name: Cable Attachment - Lat Bar (Wide)
+    parent_id: cable_attachment
+    aliases: ["Lat Pulldown Bar"]
+  - id: cable_attachment_ankle_cuff
+    name: Cable Attachment - Ankle Cuff
+    parent_id: cable_attachment
+    aliases: ["Ankle Strap"]

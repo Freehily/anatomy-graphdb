@@ -119,11 +119,11 @@ class AnatomyLoader:
 
             if include_shared and shared_path.exists():
                 data = _load_yaml(shared_path)
-                shared_payload = list(data.get(section, []) or [])
+                shared_payload = self._filter_items_for_region(list(data.get(section, []) or []), region)
 
             if region_path.exists():
                 data = _load_yaml(region_path)
-                region_payload = list(data.get(section, []) or [])
+                region_payload = self._filter_items_for_region(list(data.get(section, []) or []), region)
             elif not shared_payload:
                 # No region- or shared-level file for a section listed in the index.
                 raise AnatomyConfigError(
@@ -134,6 +134,53 @@ class AnatomyLoader:
             sections[section] = SectionData(name=section, items=items)
 
         return AnatomyRegion(region=region, sections=sections)
+
+    def load_regions(self, regions: Sequence[str], include_shared: bool = True) -> AnatomyRegion:
+        if not regions:
+            raise AnatomyConfigError("No regions provided.")
+        combined: Dict[str, Dict[str, dict]] = {}
+        normalized_regions = []
+        for region_name in regions:
+            region_name = region_name.strip()
+            if not region_name:
+                continue
+            normalized_regions.append(region_name)
+            region_data = self.load_region(region_name, include_shared=include_shared)
+            for section, section_data in region_data.sections.items():
+                bucket = combined.setdefault(section, {})
+                for item in section_data.items:
+                    item_id = item.get("id")
+                    if not item_id:
+                        continue
+                    bucket.setdefault(item_id, item)
+        if not normalized_regions:
+            raise AnatomyConfigError("No valid regions provided.")
+        merged_sections = {
+            name: SectionData(name=name, items=list(items.values()))
+            for name, items in combined.items()
+        }
+        merged_name = "all" if len(normalized_regions) > 1 else normalized_regions[0]
+        return AnatomyRegion(region=merged_name, sections=merged_sections)
+
+    def _filter_items_for_region(self, items: List[dict], region: str) -> List[dict]:
+        filtered: List[dict] = []
+        region_lower = region.lower()
+        for item in items:
+            allowed_regions = [value.lower() for value in item.get("regions", []) or []]
+            excluded_regions = [value.lower() for value in item.get("exclude_regions", []) or []]
+            include = True
+            if allowed_regions:
+                if region_lower not in allowed_regions and "all" not in allowed_regions and "global" not in allowed_regions:
+                    include = False
+            if include and excluded_regions:
+                if region_lower in excluded_regions:
+                    include = False
+            if include:
+                cleaned = dict(item)
+                cleaned.pop("regions", None)
+                cleaned.pop("exclude_regions", None)
+                filtered.append(cleaned)
+        return filtered
 
 
 def load_region(region: str, *, root: Optional[Path] = None, include_shared: bool = True) -> AnatomyRegion:

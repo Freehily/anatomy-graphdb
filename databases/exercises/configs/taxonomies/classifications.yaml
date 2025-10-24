@@ -1,0 +1,58 @@
+classifications:
+  - id: animal_flow
+    name: Animal Flow
+  - id: balance
+    name: Balance
+  - id: ballistics
+    name: Ballistics
+  - id: bodybuilding
+    name: Bodybuilding
+  - id: calisthenics
+    name: Calisthenics
+  - id: grinds
+    name: Grinds
+  - id: mobility
+    name: Mobility
+  - id: olympic_weightlifting
+    name: Olympic Weightlifting
+  - id: plyometric
+    name: Plyometric
+  - id: postural
+    name: Postural
+  - id: powerlifting
+    name: Powerlifting
+  - id: hypertrophy
+    name: Hypertrophy
+  - id: strength_endurance
+    name: Strength & Endurance
+  - id: functional_training
+    name: Functional Training
+  - id: hiit
+    name: High-Intensity Interval Training (HIIT)
+  - id: endurance_training
+    name: Endurance Training
+  - id: strongman
+    name: Strongman/Strongwoman
+  - id: gymnastics_skills
+    name: Gymnastics Skills
+  - id: speed_agility_quickness
+    name: Speed/Agility/Quickness (SAQ)
+  - id: loaded_carries
+    name: Loaded Carries
+  - id: isometrics
+    name: Isometrics
+  - id: complexes
+    name: Complexes & Chains
+  - id: metabolic_conditioning
+    name: Metabolic Conditioning (MetCon)
+  - id: mixed_modal_conditioning
+    name: Mixed-Modal Conditioning
+  - id: rehab_corrective
+    name: Rehabilitation/Corrective
+  - id: barre_pilates_yoga
+    name: Barre/Pilates/Yoga
+  - id: conditioning_circuits
+    name: Circuits (AMRAP/EMOM/For Time)
+  - id: unsorted
+    name: Unsorted*
+    aliases: ["Unsorted*"]

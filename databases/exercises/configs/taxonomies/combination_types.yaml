@@ -1,0 +1,10 @@
+combination_types:
+  - id: single_exercise
+    name: Single Exercise
+    description: One standalone movement pattern with no chained components.
+    aliases: ["Single Exercise"]
+
+  - id: combo_exercise
+    name: Combination Exercise
+    description: Blends multiple movements or phases into a continuous sequence.
+    aliases: ["Combo Exercise"]

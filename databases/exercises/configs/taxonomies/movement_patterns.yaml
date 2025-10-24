@@ -1,0 +1,84 @@
+movement_patterns:
+  - id: ankle_dorsiflexion
+    name: Ankle Dorsiflexion
+  - id: ankle_plantar_flexion
+    name: Ankle Plantar Flexion
+  - id: anti_extension
+    name: Anti-Extension
+  - id: anti_flexion
+    name: Anti-Flexion
+  - id: anti_lateral_flexion
+    name: Anti-Lateral Flexion
+  - id: anti_rotational
+    name: Anti-Rotational
+  - id: elbow_extension
+    name: Elbow Extension
+  - id: elbow_flexion
+    name: Elbow Flexion
+  - id: hip_abduction
+    name: Hip Abduction
+  - id: hip_adduction
+    name: Hip Adduction
+  - id: hip_dominant
+    name: Hip Dominant
+  - id: hip_extension
+    name: Hip Extension
+  - id: hip_external_rotation
+    name: Hip External Rotation
+  - id: hip_flexion
+    name: Hip Flexion
+  - id: hip_hinge
+    name: Hip Hinge
+  - id: hip_internal_rotation
+    name: Hip Internal Rotation
+  - id: horizontal_adduction
+    name: Horizontal Adduction
+  - id: horizontal_pull
+    name: Horizontal Pull
+  - id: horizontal_push
+    name: Horizontal Push
+  - id: isometric_hold
+    name: Isometric Hold
+  - id: knee_dominant
+    name: Knee Dominant
+  - id: lateral_flexion
+    name: Lateral Flexion
+  - id: lateral_locomotion
+    name: Lateral Locomotion
+  - id: loaded_carry
+    name: Loaded Carry
+  - id: locomotion
+    name: Locomotion
+  - id: other
+    name: Other
+  - id: rotational
+    name: Rotational
+  - id: scapular_elevation
+    name: Scapular Elevation
+  - id: shoulder_abduction
+    name: Shoulder Abduction
+  - id: shoulder_external_rotation
+    name: Shoulder External Rotation
+  - id: shoulder_flexion
+    name: Shoulder Flexion
+  - id: shoulder_internal_rotation
+    name: Shoulder Internal Rotation
+  - id: shoulder_scapular_plane_elevation
+    name: Shoulder Scapular Plane Elevation
+  - id: spinal_extension
+    name: Spinal Extension
+  - id: spinal_flexion
+    name: Spinal Flexion
+  - id: spinal_rotational
+    name: Spinal Rotational
+  - id: unsorted
+    name: Unsorted*
+    aliases: ["Unsorted*"]
+  - id: vertical_pull
+    name: Vertical Pull
+  - id: vertical_push
+    name: Vertical Push
+  - id: wrist_extension
+    name: Wrist Extension
+  - id: wrist_flexion
+    name: Wrist Flexion

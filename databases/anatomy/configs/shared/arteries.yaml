@@ -2,6 +2,10 @@
 # arteries.yaml consolidates major axial arteries shared across multiple regions.
 
 arteries:
+  - id: heart
+    name: Heart
+    supplies: []
+
   - id: aorta
     name: Aorta
     branches_from: heart
@@ -78,6 +82,7 @@ arteries:
     branches_from: subclavian_artery
     supplies:
       - transversus_thoracis
+    regions: [thorax]
 
   - id: superior_thyroid_artery
     name: Superior Thyroid Artery
@@ -88,12 +93,20 @@ arteries:
       - sternohyoid_head
       - thyrohyoid_head
       - omohyoid_superior_head
+    regions: [head_and_neck]
 
   - id: inferior_thyroid_artery
     name: Inferior Thyroid Artery
     branches_from: thyrocervical_trunk
     supplies:
       - sternothyroid_head
+    regions: [head_and_neck]
+
+  - id: thyrocervical_trunk
+    name: Thyrocervical Trunk
+    branches_from: subclavian_artery
+    supplies: []
+    regions: [head_and_neck]
 
   - id: common_iliac_artery
     name: Common Iliac Artery
@@ -115,6 +128,7 @@ arteries:
     branches_from: femoral_artery
     supplies:
       - plantaris_head
+    regions: [lower_limb, foot]
 
   - id: posterior_tibial_artery
     name: Posterior Tibial Artery
@@ -126,3 +140,4 @@ arteries:
       - tibialis_posterior_head
       - flexor_digitorum_longus_head
       - flexor_hallucis_longus_head
+    regions: [lower_limb, foot]

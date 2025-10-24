@@ -1,0 +1,20 @@
+body_regions:
+  - id: upper_body
+    name: Upper Body
+    description: Shoulder girdle, arms, chest, and upper back emphasis.
+    aliases: ["Upper Body"]
+
+  - id: lower_body
+    name: Lower Body
+    description: Hips, thighs, knees, ankles, and feet emphasis.
+    aliases: ["Lower Body"]
+
+  - id: core
+    name: Core
+    description: Torso-focused work (abdominals, obliques, spinal stabilizers).
+    aliases: ["Core"]
+
+  - id: full_body
+    name: Full Body
+    description: Integrates both upper- and lower-body movement patterns.
+    aliases: ["Full Body"]
