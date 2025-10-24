@@ -47,59 +47,24 @@ Each script loads the region-specific YAML files and verifies that every attachm
 
 ## Neo4j Export Workflow
 
-1. Generate CSV artifacts:
+1. Generate artifacts with the unified graph builder:
+   ```
+   # CSV export (default mode)
+   python stronger/databases/anatomy/scripts/build_graph.py --region upper_limb --output data/neo4j
+
+   # Direct Bolt ingestion (requires `pip install neo4j`)
+   python stronger/databases/anatomy/scripts/build_graph.py --region upper_limb --mode bolt \
+       --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
+   ```
+
+   The legacy exporter still works and now delegates to the shared loader:
    ```
    python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region upper_limb
    ```
-   By default, files land in `data/neo4j/upper_limb`. Use `--output <dir>` to override.
+   Output defaults to `data/neo4j/<region>` unless `--output` is provided.
 
-   Thorax data can be exported by swapping the region flag:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region thorax
-   ```
-   which writes to `data/neo4j/thorax` unless a custom directory is provided.
-
-   Lower limb data follows the same pattern:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region lower_limb
-   ```
-   generating CSVs under `data/neo4j/lower_limb` by default.
-
-   Back data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region back
-   ```
-   writes to `data/neo4j/back` unless another directory is supplied.
-
-   Pelvis data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region pelvis
-   ```
-   writes to `data/neo4j/pelvis` by default.
-
-   Head and neck data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region head_and_neck
-   ```
-   writes to `data/neo4j/head_and_neck` by default.
-
-   Hand data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region hand
-   ```
-   writes to `data/neo4j/hand` by default.
-
-   Foot data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region foot
-   ```
-   writes to `data/neo4j/foot` by default.
-
-   Abdomen data:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region abdomen
-   ```
-   writes to `data/neo4j/abdomen` by default.
+   Add `--validate` to either command to enforce referential checks before exporting, and `--list-regions`
+   to discover available directories under `configs/`.
 
 2. Import into a local Neo4j instance (example commands):
    ```

@@ -1,0 +1,12 @@
+boneId:ID(Bone),name,region:STRING
+scapula,Scapula,Shoulder Girdle
+clavicle,Clavicle,Shoulder Girdle
+humerus,Humerus,Upper Arm
+radius,Radius,Forearm
+ulna,Ulna,Forearm
+hand,Hand,Distal Upper Limb
+sternum,Sternum,Thorax
+thoracic_cage,Thoracic Cage,Thorax
+fascia,Fascia,Connective Tissue
+interosseous_membrane,Interosseous Membrane,Forearm Connective Tissue
+tendons,Tendons,Upper Limb Tendons

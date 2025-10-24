@@ -1,0 +1,27 @@
+actionId:ID(Action),name,joint,movement_type
+elbow_flexion,Elbow Flexion,elbow,flexion
+shoulder_flexion,Shoulder Flexion,shoulder,flexion
+forearm_supination,Forearm Supination,radioulnar,supination
+forearm_pronation,Forearm Pronation,radioulnar,pronation
+elbow_extension,Elbow Extension,elbow,extension
+shoulder_extension,Shoulder Extension,shoulder,extension
+shoulder_adduction,Shoulder Adduction,shoulder,adduction
+shoulder_abduction,Shoulder Abduction,shoulder,abduction
+shoulder_medial_rotation,Shoulder Medial Rotation,shoulder,medial_rotation
+shoulder_lateral_rotation,Shoulder Lateral Rotation,shoulder,lateral_rotation
+wrist_flexion,Wrist Flexion,wrist,flexion
+wrist_extension,Wrist Extension,wrist,extension
+wrist_adduction,Wrist Adduction,wrist,adduction
+wrist_abduction,Wrist Abduction,wrist,abduction
+finger_flexion,Finger Flexion,"metacarpophalangeal, interphalangeal",flexion
+finger_extension,Finger Extension,"metacarpophalangeal, interphalangeal",extension
+finger_abduction,Finger Abduction,metacarpophalangeal,abduction
+finger_adduction,Finger Adduction,metacarpophalangeal,adduction
+thumb_adduction,Thumb Adduction,carpometacarpal,adduction
+thumb_abduction,Thumb Abduction,carpometacarpal,abduction
+thumb_flexion,Thumb Flexion,"metacarpophalangeal, interphalangeal",flexion
+thumb_extension,Thumb Extension,"metacarpophalangeal, interphalangeal",extension
+thumb_opposition,Thumb Opposition,carpometacarpal,opposition
+mcp_flexion,MCP Flexion,metacarpophalangeal,flexion
+pip_dip_extension,PIP/DIP Extension,interphalangeal,extension
+little_finger_opposition,Little Finger Opposition,carpometacarpal,opposition
