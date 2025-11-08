@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Convert the raw exercise CSV into normalized YAML configs that match the new
 folder structure (`configs/index.yaml`).
@@ -15,9 +14,10 @@ import csv
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Mapping, MutableMapping, Sequence
+from typing import Dict, List, Mapping, MutableMapping, Sequence
 
 import yaml
+
 from stronger.databases.anatomy.loader import AnatomyLoader
 
 CUSTOM_ALIAS_TARGETS: Dict[str, List[str]] = {

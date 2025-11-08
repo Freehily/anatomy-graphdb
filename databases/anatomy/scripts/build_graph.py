@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Unified CLI for turning anatomy YAML configs into a Neo4j graph.
 
@@ -16,9 +15,13 @@ import csv
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence, Set
+from typing import Dict, Iterable, List, Sequence
 
-from stronger.databases.anatomy.loader import AnatomyConfigError, AnatomyLoader, AnatomyRegion
+from stronger.databases.anatomy.loader import (
+    AnatomyConfigError,
+    AnatomyLoader,
+    AnatomyRegion,
+)
 from stronger.databases.anatomy.neo4j_artifacts import (
     CsvArtifact,
     NodePayload,
@@ -30,8 +33,14 @@ from stronger.databases.anatomy.neo4j_artifacts import (
 from stronger.databases.exercises.loader import ExerciseConfigError, ExerciseLoader
 from stronger.databases.exercises.neo4j_artifacts import (
     build_node_artifacts as build_exercise_node_artifacts,
-    build_relationship_artifacts as build_exercise_relationship_artifacts,
+)
+from stronger.databases.exercises.neo4j_artifacts import (
     build_node_payloads as build_exercise_node_payloads,
+)
+from stronger.databases.exercises.neo4j_artifacts import (
+    build_relationship_artifacts as build_exercise_relationship_artifacts,
+)
+from stronger.databases.exercises.neo4j_artifacts import (
     build_relationship_payloads as build_exercise_relationship_payloads,
 )
 

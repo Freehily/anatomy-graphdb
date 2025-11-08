@@ -125,6 +125,21 @@ def build_node_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
     ]
 
 
+def _partition_contractiles(
+    targets: Sequence[str],
+    muscle_ids: set[str],
+    muscle_head_ids: set[str],
+) -> tuple[List[str], List[str]]:
+    muscle_targets: List[str] = []
+    head_targets: List[str] = []
+    for target_id in targets:
+        if target_id in muscle_ids:
+            muscle_targets.append(target_id)
+        elif target_id in muscle_head_ids:
+            head_targets.append(target_id)
+    return muscle_targets, head_targets
+
+
 def build_relationship_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
     attachment_points = region.require("attachment_points").items
     bones = region.require("bones").items
@@ -138,7 +153,107 @@ def build_relationship_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
     muscle_ids = {item["id"] for item in muscles}
     muscle_head_ids = {item["id"] for item in muscle_heads}
     artery_ids = {item["id"] for item in arteries}
-    contractile_ids = muscle_ids | muscle_head_ids
+
+    antagonist_muscle_rows: List[Dict[str, str]] = []
+    antagonist_head_rows: List[Dict[str, str]] = []
+    nerve_muscle_rows: List[Dict[str, str]] = []
+    nerve_head_rows: List[Dict[str, str]] = []
+    artery_muscle_rows: List[Dict[str, str]] = []
+    artery_head_rows: List[Dict[str, str]] = []
+    action_muscle_rows: List[Dict[str, str]] = []
+    action_head_rows: List[Dict[str, str]] = []
+
+    for muscle in muscles:
+        muscle_targets, head_targets = _partition_contractiles(
+            muscle.get("antagonists", []),
+            muscle_ids,
+            muscle_head_ids,
+        )
+        for target_id in muscle_targets:
+            antagonist_muscle_rows.append(
+                {
+                    ":START_ID(Muscle)": muscle["id"],
+                    ":END_ID(Muscle)": target_id,
+                    ":TYPE": "ANTAGONIST",
+                }
+            )
+        for target_id in head_targets:
+            antagonist_head_rows.append(
+                {
+                    ":START_ID(Muscle)": muscle["id"],
+                    ":END_ID(MuscleHead)": target_id,
+                    ":TYPE": "ANTAGONIST",
+                }
+            )
+
+    for nerve in nerves:
+        muscle_targets, head_targets = _partition_contractiles(
+            nerve.get("innervates", []),
+            muscle_ids,
+            muscle_head_ids,
+        )
+        for target_id in muscle_targets:
+            nerve_muscle_rows.append(
+                {
+                    ":START_ID(Nerve)": nerve["id"],
+                    ":END_ID(Muscle)": target_id,
+                    ":TYPE": "INNERVATES",
+                }
+            )
+        for target_id in head_targets:
+            nerve_head_rows.append(
+                {
+                    ":START_ID(Nerve)": nerve["id"],
+                    ":END_ID(MuscleHead)": target_id,
+                    ":TYPE": "INNERVATES",
+                }
+            )
+
+    for artery in arteries:
+        muscle_targets, head_targets = _partition_contractiles(
+            artery.get("supplies", []),
+            muscle_ids,
+            muscle_head_ids,
+        )
+        for target_id in muscle_targets:
+            artery_muscle_rows.append(
+                {
+                    ":START_ID(Artery)": artery["id"],
+                    ":END_ID(Muscle)": target_id,
+                    ":TYPE": "SUPPLIES",
+                }
+            )
+        for target_id in head_targets:
+            artery_head_rows.append(
+                {
+                    ":START_ID(Artery)": artery["id"],
+                    ":END_ID(MuscleHead)": target_id,
+                    ":TYPE": "SUPPLIES",
+                }
+            )
+
+    for action in actions:
+        muscle_targets, head_targets = _partition_contractiles(
+            action.get("primary_movers", []),
+            muscle_ids,
+            muscle_head_ids,
+        )
+        for target_id in muscle_targets:
+            action_muscle_rows.append(
+                {
+                    ":START_ID(Action)": action["id"],
+                    ":END_ID(Muscle)": target_id,
+                    ":TYPE": "PRIMARY_MOVER",
+                }
+            )
+        for target_id in head_targets:
+            action_head_rows.append(
+                {
+                    ":START_ID(Action)": action["id"],
+                    ":END_ID(MuscleHead)": target_id,
+                    ":TYPE": "PRIMARY_MOVER",
+                }
+            )
 
     return [
         CsvArtifact(
@@ -184,18 +299,14 @@ def build_relationship_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
             ),
         ),
         CsvArtifact(
-            filename="rels_muscle_antagonist.csv",
-            headers=[":START_ID(Muscle)", ":END_ID", ":TYPE"],
-            rows=list(
-                {
-                    ":START_ID(Muscle)": muscle["id"],
-                    ":END_ID": antagonist_id,
-                    ":TYPE": "ANTAGONIST",
-                }
-                for muscle in muscles
-                for antagonist_id in muscle.get("antagonists", [])
-                if antagonist_id in contractile_ids
-            ),
+            filename="rels_muscle_antagonist_muscle.csv",
+            headers=[":START_ID(Muscle)", ":END_ID(Muscle)", ":TYPE"],
+            rows=antagonist_muscle_rows,
+        ),
+        CsvArtifact(
+            filename="rels_muscle_antagonist_head.csv",
+            headers=[":START_ID(Muscle)", ":END_ID(MuscleHead)", ":TYPE"],
+            rows=antagonist_head_rows,
         ),
         CsvArtifact(
             filename="rels_head_origin.csv",
@@ -238,32 +349,24 @@ def build_relationship_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
             ),
         ),
         CsvArtifact(
-            filename="rels_nerve_targets.csv",
-            headers=[":START_ID(Nerve)", ":END_ID", ":TYPE"],
-            rows=list(
-                {
-                    ":START_ID(Nerve)": nerve["id"],
-                    ":END_ID": target_id,
-                    ":TYPE": "INNERVATES",
-                }
-                for nerve in nerves
-                for target_id in nerve.get("innervates", [])
-                if target_id in contractile_ids
-            ),
+            filename="rels_nerve_targets_muscle.csv",
+            headers=[":START_ID(Nerve)", ":END_ID(Muscle)", ":TYPE"],
+            rows=nerve_muscle_rows,
         ),
         CsvArtifact(
-            filename="rels_artery_supplies.csv",
-            headers=[":START_ID(Artery)", ":END_ID", ":TYPE"],
-            rows=list(
-                {
-                    ":START_ID(Artery)": artery["id"],
-                    ":END_ID": target_id,
-                    ":TYPE": "SUPPLIES",
-                }
-                for artery in arteries
-                for target_id in artery.get("supplies", [])
-                if target_id in contractile_ids
-            ),
+            filename="rels_nerve_targets_head.csv",
+            headers=[":START_ID(Nerve)", ":END_ID(MuscleHead)", ":TYPE"],
+            rows=nerve_head_rows,
+        ),
+        CsvArtifact(
+            filename="rels_artery_supplies_muscle.csv",
+            headers=[":START_ID(Artery)", ":END_ID(Muscle)", ":TYPE"],
+            rows=artery_muscle_rows,
+        ),
+        CsvArtifact(
+            filename="rels_artery_supplies_head.csv",
+            headers=[":START_ID(Artery)", ":END_ID(MuscleHead)", ":TYPE"],
+            rows=artery_head_rows,
         ),
         CsvArtifact(
             filename="rels_artery_branches.csv",
@@ -279,18 +382,14 @@ def build_relationship_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
             ),
         ),
         CsvArtifact(
-            filename="rels_action_primary.csv",
-            headers=[":START_ID(Action)", ":END_ID", ":TYPE"],
-            rows=list(
-                {
-                    ":START_ID(Action)": action["id"],
-                    ":END_ID": mover_id,
-                    ":TYPE": "PRIMARY_MOVER",
-                }
-                for action in actions
-                for mover_id in action.get("primary_movers", [])
-                if mover_id in contractile_ids
-            ),
+            filename="rels_action_primary_muscle.csv",
+            headers=[":START_ID(Action)", ":END_ID(Muscle)", ":TYPE"],
+            rows=action_muscle_rows,
+        ),
+        CsvArtifact(
+            filename="rels_action_primary_head.csv",
+            headers=[":START_ID(Action)", ":END_ID(MuscleHead)", ":TYPE"],
+            rows=action_head_rows,
         ),
     ]
 

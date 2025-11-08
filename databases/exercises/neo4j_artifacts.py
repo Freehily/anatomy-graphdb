@@ -162,26 +162,26 @@ def build_relationship_artifacts(
         )
     )
 
-    for role, filename, rel_type in [
-        ("prime", "rels_exercise_primary_target.csv", "PRIMARY_TARGET"),
-        ("secondary", "rels_exercise_secondary_target.csv", "SECONDARY_TARGET"),
-        ("tertiary", "rels_exercise_tertiary_target.csv", "TERTIARY_TARGET"),
+    for role, slug, rel_type in [
+        ("prime", "primary", "PRIMARY_TARGET"),
+        ("secondary", "secondary", "SECONDARY_TARGET"),
+        ("tertiary", "tertiary", "TERTIARY_TARGET"),
     ]:
-        artifacts.append(
-            CsvArtifact(
-                filename=filename,
-                headers=[":START_ID(Exercise)", ":END_ID(Muscle)", ":TYPE"],
-                rows=list(
-                    _muscle_relationship_rows(
-                        loader.exercise_variants,
-                        role,
-                        rel_type,
-                        loader.muscle_aliases,
-                        anatomy_labels,
-                    )
-                ),
-            )
+        buckets = _partition_muscle_relationship_rows(
+            loader.exercise_variants,
+            role,
+            rel_type,
+            loader.muscle_aliases,
+            anatomy_labels,
         )
+        for label, suffix in (("Muscle", "muscle"), ("MuscleHead", "muscle_head")):
+            artifacts.append(
+                CsvArtifact(
+                    filename=f"rels_exercise_{slug}_target_{suffix}.csv",
+                    headers=[":START_ID(Exercise)", f":END_ID({label})", ":TYPE"],
+                    rows=buckets.get(label, []),
+                )
+            )
 
     artifacts.append(
         CsvArtifact(
@@ -411,19 +411,23 @@ def _equipment_relationship_payloads(
             )
 
 
-def _muscle_relationship_rows(
+def _partition_muscle_relationship_rows(
     variants: Iterable[ExerciseVariant],
     role: str,
     rel_type: str,
     alias_map: Dict[str, List[Dict[str, str]]],
     anatomy_labels: Dict[str, str],
-) -> Iterable[Dict[str, str]]:
+) -> Dict[str, List[Dict[str, str]]]:
+    buckets: Dict[str, List[Dict[str, str]]] = {}
     for anatomy_id, label, variant_id in _resolved_muscle_targets(variants, role, alias_map, anatomy_labels):
-        yield {
+        field = f":END_ID({label})"
+        row = {
             ":START_ID(Exercise)": variant_id,
-            ":END_ID(Muscle)": anatomy_id,
+            field: anatomy_id,
             ":TYPE": rel_type,
         }
+        buckets.setdefault(label, []).append(row)
+    return buckets
 
 
 def _resolved_muscle_targets(

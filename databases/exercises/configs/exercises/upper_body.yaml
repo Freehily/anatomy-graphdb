@@ -15870,46 +15870,6 @@ exercises:
   media:
     short_demo: Video Demonstration
     long_demo: null
-- id: double_kettlebell_bottoms_up_seesaw_overhead_press
-  name: Double Kettlebell Bottoms Up Seesaw Overhead Press
-  template: double_kettlebell_bottoms_up_seesaw_overhead_press
-  level: intermediate
-  body_region: upper_body
-  force_type: push
-  mechanics: compound
-  laterality: unilateral
-  classification: unsorted
-  posture: standing
-  combination_type: single_exercise
-  load_position: overhead
-  grip: bottoms_up
-  limb_usage:
-    arms:
-      mode: double_arm
-      cadence: alternating
-    legs:
-      cadence: continuous
-      foot_elevation: no_elevation
-  movement_patterns:
-  - vertical_push
-  planes_of_motion:
-  - sagittal_plane
-  target_muscle_group: shoulders
-  muscles:
-    prime:
-    - anterior_deltoids
-    secondary:
-    - triceps_brachii
-    tertiary: []
-  equipment:
-    primary:
-    - kettlebell
-    secondary: []
-    primary_count: 2
-    secondary_count: 0
-  media:
-    short_demo: Video Demonstration
-    long_demo: null
 - id: double_kettlebell_bottoms_up_seesaw_sots_press
   name: Double Kettlebell Bottoms Up Seesaw Sots Press
   template: double_kettlebell_bottoms_up_seesaw_sots_press
@@ -17673,46 +17633,6 @@ exercises:
   mechanics: compound
   laterality: unilateral
   classification: unsorted
-  posture: standing
-  combination_type: single_exercise
-  load_position: overhead
-  grip: pronated
-  limb_usage:
-    arms:
-      mode: double_arm
-      cadence: alternating
-    legs:
-      cadence: continuous
-      foot_elevation: no_elevation
-  movement_patterns:
-  - vertical_push
-  planes_of_motion:
-  - sagittal_plane
-  target_muscle_group: shoulders
-  muscles:
-    prime:
-    - anterior_deltoids
-    secondary:
-    - triceps_brachii
-    tertiary: []
-  equipment:
-    primary:
-    - kettlebell
-    secondary: []
-    primary_count: 2
-    secondary_count: 0
-  media:
-    short_demo: Video Demonstration
-    long_demo: Video Explanation
-- id: double_kettlebell_seesaw_overhead_press
-  name: Double Kettlebell Seesaw Overhead Press
-  template: double_kettlebell_seesaw_overhead_press
-  level: beginner
-  body_region: upper_body
-  force_type: push
-  mechanics: compound
-  laterality: unilateral
-  classification: bodybuilding
   posture: standing
   combination_type: single_exercise
   load_position: overhead

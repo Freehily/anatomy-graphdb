@@ -65,20 +65,16 @@ Each script loads the region-specific YAML files and verifies that every attachm
        --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
    ```
 
-   The legacy exporter still works and now delegates to the shared loader:
-   ```
-   python stronger/databases/anatomy/scripts/export_upper_limb_neo4j.py --region upper_limb
-   ```
    Output defaults to `data/neo4j/<region>` unless `--output` is provided.
 
-   Add `--validate` to either command to enforce referential checks before exporting, and `--list-regions`
+   Add `--validate` to enforce referential checks before exporting, and `--list-regions`
    to discover available directories under `configs/`.
 
    Exercise data is included automatically. Use `--no-exercises` if you only want the anatomy graph, or set
    `--region all` / pass a comma-separated list (e.g., `--region upper_limb,lower_limb`) to aggregate multiple
    anatomy folders into a single export so every exercise → muscle link can resolve in one pass.
 
-2. Import into a local Neo4j instance (example commands):
+3. Import into a local Neo4j instance (example commands):
    ```
    neo4j-admin database import full upper_limb \
      --nodes=data/neo4j/upper_limb/nodes_bones.csv \
@@ -91,17 +87,24 @@ Each script loads the region-specific YAML files and verifies that every attachm
      --relationships=data/neo4j/upper_limb/rels_bone_attachment.csv \
      --relationships=data/neo4j/upper_limb/rels_muscle_head.csv \
      --relationships=data/neo4j/upper_limb/rels_muscle_insertion.csv \
-     --relationships=data/neo4j/upper_limb/rels_muscle_antagonist.csv \
+     --relationships=data/neo4j/upper_limb/rels_muscle_antagonist_muscle.csv \
+     --relationships=data/neo4j/upper_limb/rels_muscle_antagonist_head.csv \
      --relationships=data/neo4j/upper_limb/rels_head_origin.csv \
      --relationships=data/neo4j/upper_limb/rels_head_innervation.csv \
      --relationships=data/neo4j/upper_limb/rels_head_artery.csv \
-     --relationships=data/neo4j/upper_limb/rels_nerve_targets.csv \
-     --relationships=data/neo4j/upper_limb/rels_artery_supplies.csv \
+     --relationships=data/neo4j/upper_limb/rels_nerve_targets_muscle.csv \
+     --relationships=data/neo4j/upper_limb/rels_nerve_targets_head.csv \
+     --relationships=data/neo4j/upper_limb/rels_artery_supplies_muscle.csv \
+     --relationships=data/neo4j/upper_limb/rels_artery_supplies_head.csv \
      --relationships=data/neo4j/upper_limb/rels_artery_branches.csv \
-     --relationships=data/neo4j/upper_limb/rels_action_primary.csv
+     --relationships=data/neo4j/upper_limb/rels_action_primary_muscle.csv \
+     --relationships=data/neo4j/upper_limb/rels_action_primary_head.csv
    ```
 
-3. Start Neo4j and run sanity checks. Example Cypher:
+   You can also use the repository helper (`scripts/import_neo4j.sh`) which wraps `neo4j-admin database import full`
+   via Docker Compose and feeds it all of the CSV artifacts for a given region.
+
+4. Start Neo4j and run sanity checks. Example Cypher:
    ```
    MATCH (m:Muscle {id: 'flexor_digitorum_profundus'})-[:INSERTS_AT]->(ap)
    RETURN m.name, ap.name;
