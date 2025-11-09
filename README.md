@@ -6,10 +6,12 @@ This repository is the canonical source of truth for the Stronger anatomy and ex
 
 - `stronger/databases/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions. Includes validators, SVG references, and Neo4j exporters.
 - `stronger/databases/exercises` – taxonomy definitions, canonical exercise templates, and the CSV→YAML converter for training movements.
+- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries.
+- `stronger/api` – a thin FastAPI layer that exposes the domain objects over HTTP for prototyping or lightweight consumers.
 - `stronger/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
 - `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
 
-No web server code lives here anymore—treat this as the domain+data module that other services depend on.
+This repository remains the canonical domain+data module; the bundled API is optional and intentionally thin so other services can import and run it without copying code.
 
 ## Getting started
 
@@ -58,6 +60,23 @@ scripts/refresh_neo4j.sh REGION=upper_limb
 ```
 
 Artifacts land in `data/neo4j/<region>`, databases in `neo4j-data/`, and logs in `neo4j-logs/`. Adjust `DB_NAME`, `CONTAINER_NAME`, or ports at the top of the `Makefile`.
+
+### Run the optional API
+
+Install the API dependency group and boot uvicorn:
+
+```bash
+poetry install --with api
+poetry run uvicorn stronger.api:app --reload
+```
+
+Endpoints:
+
+- `GET /anatomy/regions` – list available regions on disk.
+- `GET /anatomy/regions/{region}` – return the full typed model (bones, muscles, etc.).
+- `GET /anatomy/regions/{region}/sections/{section}` – fetch a single section such as `muscles` or `arteries`.
+
+Each endpoint accepts `?include_shared=false` to exclude shared definitions.
 
 ### Tests
 
