@@ -176,3 +176,7 @@ cython_debug/
 /playarea
 
 /data
+
+neo4j-data/
+
+neo4j-logs/

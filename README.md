@@ -1,42 +1,81 @@
-# stronger
+# stronger domain graph
 
-## FastAPI Exercise API
+This repository is the canonical source of truth for the Stronger anatomy and exercise datasets plus the tooling that turns them into a Neo4j property graph. The upcoming API and frontend repos will import the Python package published here or consume the exported CSV artifacts.
 
-Run the read-only API that serves the exercise dataset:
+## What lives here
+
+- `stronger/databases/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions. Includes validators, SVG references, and Neo4j exporters.
+- `stronger/databases/exercises` – taxonomy definitions, canonical exercise templates, and the CSV→YAML converter for training movements.
+- `stronger/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
+- `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
+
+No web server code lives here anymore—treat this as the domain+data module that other services depend on.
+
+## Getting started
 
 ```bash
 poetry install
-poetry run uvicorn stronger.api.main:app --reload
 ```
 
-Available routes:
+All commands below assume the virtual environment created by Poetry.
 
-- `GET /health` – lightweight readiness probe.
-- `GET /exercises` – list exercises with optional `search`, `body_region`, `template`, `limit`, and `offset` filters.
-- `GET /exercises/{exercise_id}` – fetch a specific exercise record (e.g., `ab_wheel_kneeling_rollout`).
+### Refresh exercise configs
 
-The API uses the existing YAML configs under `stronger/databases/exercises/configs/`, so refresh those via the loaders before starting the server if you need the latest data.
+If you have an updated `data/exercise_data_raw.csv`, rebuild the YAML configs:
 
-## Neo4j via Docker
+```bash
+poetry run python stronger/databases/exercises/scripts/build_dataset.py --csv data/exercise_data_raw.csv
+poetry run python stronger/databases/exercises/scripts/validate_configs.py
+```
 
-1. Export the anatomy/exercise graph to CSV (example for upper limb):
-   ```bash
-   poetry run python stronger/databases/anatomy/scripts/build_graph.py \
-     --region upper_limb --output data/neo4j --validate
-   ```
-2. Import the CSVs into a Neo4j database using the helper (run once per region/database):
-   ```bash
-   chmod +x scripts/import_neo4j.sh
-   scripts/import_neo4j.sh upper_limb stronger_dev
-   ```
-   - The script wraps `neo4j-admin database import full` via Docker Compose and reads from `data/neo4j/<region>`.
-   - Override credentials by exporting `NEO4J_AUTH=user/password` (defaults to `neo4j/stronger`), add flags such as `--verbose`, and pick database names that only contain letters, digits, dots, or dashes (e.g., `stronger-dev`).
-   - Make sure your user can talk to Docker (run `sudo usermod -aG docker $USER` and re-login or prefix the script with `sudo`).
-3. Start the database:
-   ```bash
-   docker compose -f docker-compose.neo4j.yml up neo4j
-   ```
-   Access the browser at http://localhost:7474 and connect over Bolt on `bolt://localhost:7687`.
-4. After the initial import, apply the constraints listed in `stronger/databases/anatomy/README.md` so future ingests stay idempotent.
+### Build/validate the anatomy graph
 
-Use `docker compose -f docker-compose.neo4j.yml down` to stop the container, and rerun `scripts/import_neo4j.sh` whenever you regenerate the CSV artifacts.
+Export anatomy (and, by default, exercise) data for one or more regions:
+
+```bash
+poetry run python stronger/databases/anatomy/scripts/build_graph.py \
+  --region upper_limb \
+  --output data/neo4j \
+  --validate
+```
+
+Flags worth knowing:
+
+- `--region all` or `--region upper_limb,lower_limb` to stitch multiple regions together.
+- `--no-exercises` if you only need the anatomy portion.
+- `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`).
+
+### End-to-end Neo4j workflow
+
+The Makefile wraps the full export → import → run loop:
+
+```bash
+# Export CSVs, import them with neo4j-admin, and boot a dockerized instance
+make neo4j-refresh REGION=all
+
+# Or run the helper script (accepts the same flags as make)
+scripts/refresh_neo4j.sh REGION=upper_limb
+```
+
+Artifacts land in `data/neo4j/<region>`, databases in `neo4j-data/`, and logs in `neo4j-logs/`. Adjust `DB_NAME`, `CONTAINER_NAME`, or ports at the top of the `Makefile`.
+
+### Tests
+
+```bash
+poetry run pytest
+```
+
+The test suite exercises the unified graph builder via subprocess to ensure CSV generation keeps working.
+
+## Consuming this repo from the API/frontend
+
+The future API repo can either:
+
+1. Declare a dependency on this package (e.g., via a git reference) and call into `stronger.databases.*` to fetch normalized data at runtime, **or**
+2. Pull the exported CSV artifacts from `data/neo4j/<region>` and hydrate its own backing store.
+
+The frontend repo would typically talk to the API, but it can also source static metadata (taxonomies, exercise templates) by reading the YAML configs here if needed.
+
+## FAQ: Do we need SQLAlchemy-style tables?
+
+No. The graph layer is modeled as dataclasses/YAML (see `ExerciseLoader`, `AnatomyLoader`, etc.) and ultimately materializes into Neo4j nodes/relationships. If you want strongly-typed helpers, prefer lightweight dataclasses or Pydantic models within this repo and keep relational ORMs such as SQLAlchemy inside the API service where a relational database actually exists.
