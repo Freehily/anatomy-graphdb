@@ -84,6 +84,12 @@ Endpoints:
 
 Anatomy endpoints accept `?include_shared=false` to exclude shared definitions.
 
+### Muscle SVG assets
+
+- Raw vendor art lives under `svgs/svg_front_muscles` and `svgs/svg_rear_muscles`.
+- Run `poetry run python scripts/normalize_svgs.py` to copy/rename everything into `svgs/muscles/<muscle_id>/<view>.svg` and emit `svgs/manifest.json`.
+- The manifest is keyed by anatomy ID and records the relative path, source filename, and optional variant (e.g., `rectus_abdominis` has both `front.svg` and `front_lower.svg`). This lets the API or frontend inject artwork without guessing filenames.
+
 ### Tests
 
 ```bash
