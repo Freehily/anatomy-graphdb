@@ -1,0 +1,45 @@
+---
+# connections.yaml outlines key articulations and fascial continuities within the thorax.
+
+connections:
+  - id: sternocostal_synchondrosis_rib1
+    name: Sternocostal Synchondrosis (Rib 1)
+    type: synchondrosis
+    structures: [manubrium, costal_cartilages_1_7_anterior]
+    notes: Rib 1 costal cartilage forms a firm synchondrosis with the manubrium.
+
+  - id: sternocostal_joints_ribs2_7
+    name: Sternocostal Joints (Ribs 2-7)
+    type: synovial_planar
+    structures: [sternal_body, costal_cartilages_1_7_anterior]
+    notes: Synovial joints reinforced by radiate sternocostal ligaments allowing slight gliding during breathing.
+
+  - id: costochondral_junctions
+    name: Costochondral Junctions
+    type: synchondrosis
+    structures: [thoracic_ribs, costal_cartilages]
+    notes: Hyaline cartilage junction between rib bones and their cartilages; relatively immobile.
+
+  - id: interchondral_joints_7_10
+    name: Interchondral Joints (Ribs 7-10)
+    type: synovial_planar
+    structures: [costal_cartilages_7_10_inner_surface]
+    notes: Permit movement of false ribs, aiding in bucket-handle breathing mechanics.
+
+  - id: costovertebral_joints
+    name: Costovertebral Joints
+    type: synovial
+    structures: [thoracic_vertebrae, thoracic_ribs]
+    notes: Head of each rib articulates with vertebral bodies and intervertebral discs.
+
+  - id: costotransverse_joints
+    name: Costotransverse Joints
+    type: synovial
+    structures: [thoracic_vertebrae, thoracic_ribs]
+    notes: Tubercle of rib articulates with transverse process of corresponding vertebra.
+
+  - id: diaphragm_central_tendon_pericardium
+    name: Diaphragm-Pericardium Continuity
+    type: fascial_connection
+    structures: [central_tendon_diaphragm]
+    notes: Fibrous pericardium fuses with central tendon providing cardiac anchoring during respiration.

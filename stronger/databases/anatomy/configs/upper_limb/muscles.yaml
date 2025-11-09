@@ -1,0 +1,382 @@
+---
+# muscles.yaml defines muscle nodes for the graph database.
+
+# Each muscle node has the following fields:
+#   id (node id): Unique identifier for the muscle (parent node for heads)
+#   name (property): Human-readable name of the muscle
+#   group (property): Functional or anatomical grouping
+#   order (property): General location (e.g. Upper Arm, Forearm)
+#   heads (relationships): List of muscle_head node IDs
+#   insertion (relationships): List of attachment_point node IDs
+#   actions (relationships): List of action node IDs this muscle performs
+#   antagonists (relationships): List of opposing muscle or muscle_head node IDs
+
+muscles:
+  - id: biceps_brachii
+    name: Biceps Brachii
+    group: Biceps Brachii
+    order: Upper Arm
+    heads: [biceps_brachii_short, biceps_brachii_long]
+    insertion: [radial_tuberosity, bicipital_aponeurosis]
+    actions: [elbow_flexion, shoulder_flexion, forearm_supination]
+    antagonists: [triceps_brachii]
+
+  - id: triceps_brachii
+    name: Triceps Brachii
+    group: Triceps Brachii
+    order: Upper Arm
+    heads: [triceps_brachii_long, triceps_brachii_lateral, triceps_brachii_medial]
+    insertion: [olecranon_process]
+    actions: [elbow_extension, shoulder_extension, shoulder_adduction]
+    antagonists: [biceps_brachii]
+
+  - id: anconeus
+    name: Anconeus
+    group: Elbow Extensors
+    order: Upper Arm
+    heads: [anconeus_head]
+    insertion: [olecranon_process]
+    actions: [elbow_extension]
+    antagonists: [biceps_brachii]
+
+  - id: brachialis
+    name: Brachialis
+    group: Elbow Flexors
+    order: Upper Arm
+    heads: []
+    insertion: [ulnar_tuberosity, coronoid_process]
+    actions: [elbow_flexion]
+    antagonists: [triceps_brachii]
+
+  - id: coracobrachialis
+    name: Coracobrachialis
+    group: Upper Arm Flexors
+    order: Upper Arm
+    heads: [coracobrachialis_head]
+    insertion: [midshaft_humerus_medial]
+    actions: [shoulder_flexion, shoulder_adduction]
+    antagonists: [latissimus_dorsi, deltoid_posterior]
+
+  - id: brachioradialis
+    name: Brachioradialis
+    group: Forearm Flexors
+    order: Forearm
+    heads: []
+    insertion: [styloid_process_of_radius]
+    actions: [elbow_flexion]
+    antagonists: [triceps_brachii]
+
+  - id: deltoid
+    name: Deltoid
+    group: Shoulder Muscles
+    order: Shoulder
+    heads: [deltoid_anterior, deltoid_middle, deltoid_posterior]
+    insertion: [deltoid_tuberosity]
+    actions: [shoulder_abduction, shoulder_flexion, shoulder_extension]
+    antagonists: [latissimus_dorsi, pectoralis_major]
+
+  - id: pectoralis_major
+    name: Pectoralis Major
+    group: Chest Muscles
+    order: Shoulder
+    heads: [pectoralis_major_clavicular, pectoralis_major_sternocostal]
+    insertion: [greater_tubercle]
+    actions: [shoulder_flexion, shoulder_adduction, shoulder_medial_rotation]
+    antagonists: [deltoid_posterior, latissimus_dorsi]
+
+  - id: latissimus_dorsi
+    name: Latissimus Dorsi
+    group: Back Muscles
+    order: Shoulder
+    heads: []
+    insertion: [intertubercular_sulcus]
+    actions: [shoulder_extension, shoulder_adduction, shoulder_medial_rotation, scapula_depression]
+    antagonists: [deltoid_anterior, pectoralis_major]
+
+  - id: teres_major
+    name: Teres Major
+    group: Shoulder Muscles
+    order: Shoulder
+    heads: [teres_major_head]
+    insertion: [medial_lip_intertubercular_sulcus]
+    actions: [shoulder_extension, shoulder_adduction, shoulder_medial_rotation]
+    antagonists: [deltoid_anterior]
+
+  - id: rotator_cuff
+    name: Rotator Cuff Group
+    group: Rotator Cuff
+    order: Shoulder
+    heads: [supraspinatus, infraspinatus, teres_minor, subscapularis]
+    insertion: [greater_tubercle, lesser_tubercle]
+    actions: [shoulder_stabilization, shoulder_rotation]
+    antagonists: []
+
+  - id: pronator_teres
+    name: Pronator Teres
+    group: Forearm Pronators
+    order: Forearm
+    heads: []
+    insertion: [midshaft_radius]
+    actions: [forearm_pronation, elbow_flexion]
+    antagonists: [supinator, biceps_brachii]
+
+  - id: flexor_carpi_radialis
+    name: Flexor Carpi Radialis
+    group: Forearm Flexors
+    order: Forearm
+    heads: [flexor_carpi_radialis_head]
+    insertion: [base_of_2nd_metacarpal, base_of_3rd_metacarpal]
+    actions: [wrist_flexion, wrist_abduction]
+    antagonists: [extensor_carpi_ulnaris]
+
+  - id: palmaris_longus
+    name: Palmaris Longus
+    group: Forearm Flexors
+    order: Forearm
+    heads: [palmaris_longus_head]
+    insertion: [palmar_aponeurosis]
+    actions: [wrist_flexion]
+    antagonists: [extensor_carpi_radialis_longus]
+
+  - id: supinator
+    name: Supinator
+    group: Forearm Supinators
+    order: Forearm
+    heads: []
+    insertion: [proximal_radius]
+    actions: [forearm_supination]
+    antagonists: [pronator_teres]
+
+  - id: flexor_digitorum_superficialis
+    name: Flexor Digitorum Superficialis
+    group: Forearm Flexors
+    order: Forearm
+    heads: []
+    insertion: [middle_phalanges_2_5]
+    actions: [finger_flexion, wrist_flexion]
+    antagonists: [extensor_digitorum]
+
+  - id: flexor_digitorum_profundus
+    name: Flexor Digitorum Profundus
+    group: Forearm Flexors
+    order: Forearm
+    heads: [flexor_digitorum_profundus_medial, flexor_digitorum_profundus_lateral]
+    insertion: [distal_phalanges_2_5]
+    actions: [finger_flexion, wrist_flexion]
+    antagonists: [extensor_digitorum]
+
+  - id: flexor_pollicis_longus
+    name: Flexor Pollicis Longus
+    group: Forearm Flexors
+    order: Forearm
+    heads: [flexor_pollicis_longus_head]
+    insertion: [distal_phalanx_thumb]
+    actions: [thumb_flexion]
+    antagonists: [extensor_pollicis_longus, extensor_pollicis_brevis]
+
+  - id: pronator_quadratus
+    name: Pronator Quadratus
+    group: Forearm Pronators
+    order: Forearm
+    heads: [pronator_quadratus_head]
+    insertion: [distal_radius_anterior]
+    actions: [forearm_pronation]
+    antagonists: [supinator]
+
+  - id: extensor_digitorum
+    name: Extensor Digitorum
+    group: Forearm Extensors
+    order: Forearm
+    heads: []
+    insertion: [extensor_expansions_2_5]
+    actions: [finger_extension, wrist_extension]
+    antagonists: [flexor_digitorum_superficialis]
+
+  - id: extensor_carpi_radialis_longus
+    name: Extensor Carpi Radialis Longus
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_carpi_radialis_longus_head]
+    insertion: [base_of_2nd_metacarpal]
+    actions: [wrist_extension, wrist_abduction]
+    antagonists: [flexor_carpi_ulnaris]
+
+  - id: extensor_carpi_radialis_brevis
+    name: Extensor Carpi Radialis Brevis
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_carpi_radialis_brevis_head]
+    insertion: [base_of_3rd_metacarpal]
+    actions: [wrist_extension, wrist_abduction]
+    antagonists: [flexor_carpi_ulnaris]
+
+  - id: extensor_digiti_minimi
+    name: Extensor Digiti Minimi
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_digiti_minimi_head]
+    insertion: [extensor_expansion_5]
+    actions: [finger_extension, wrist_extension]
+    antagonists: [flexor_digitorum_superficialis]
+
+  - id: extensor_carpi_ulnaris
+    name: Extensor Carpi Ulnaris
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_carpi_ulnaris_head]
+    insertion: [base_of_5th_metacarpal]
+    actions: [wrist_extension, wrist_adduction]
+    antagonists: [flexor_carpi_radialis]
+
+  - id: abductor_pollicis_longus
+    name: Abductor Pollicis Longus
+    group: Forearm Extensors
+    order: Forearm
+    heads: [abductor_pollicis_longus_head]
+    insertion: [base_of_1st_metacarpal]
+    actions: [thumb_abduction, thumb_extension]
+    antagonists: [adductor_pollicis]
+
+  - id: extensor_pollicis_brevis
+    name: Extensor Pollicis Brevis
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_pollicis_brevis_head]
+    insertion: [proximal_phalanx_thumb_dorsal]
+    actions: [thumb_extension]
+    antagonists: [flexor_pollicis_longus, flexor_pollicis_brevis]
+
+  - id: extensor_pollicis_longus
+    name: Extensor Pollicis Longus
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_pollicis_longus_head]
+    insertion: [distal_phalanx_thumb]
+    actions: [thumb_extension]
+    antagonists: [flexor_pollicis_longus]
+
+  - id: extensor_indicis
+    name: Extensor Indicis
+    group: Forearm Extensors
+    order: Forearm
+    heads: [extensor_indicis_head]
+    insertion: [extensor_expansion_2]
+    actions: [finger_extension]
+    antagonists: [flexor_digitorum_profundus]
+
+  - id: serratus_anterior
+    name: Serratus Anterior
+    group: Shoulder Stabilizers
+    order: Thorax
+    heads: []
+    insertion: [medial_border_scapula]
+    actions: [scapula_protraction, scapula_upward_rotation]
+    antagonists: []
+
+  - id: flexor_carpi_ulnaris
+    name: Flexor Carpi Ulnaris
+    group: Forearm Flexors
+    order: Forearm
+    heads: []
+    insertion: [pisiform, hamate, base_of_5th_metacarpal]
+    actions: [wrist_flexion, wrist_adduction]
+    antagonists: []
+
+  - id: adductor_pollicis
+    name: Adductor Pollicis
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: []
+    insertion: [medial_side_proximal_phalanx_thumb]
+    actions: [thumb_adduction]
+    antagonists: []
+
+  - id: abductor_pollicis_brevis
+    name: Abductor Pollicis Brevis
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [abductor_pollicis_brevis_head]
+    insertion: [lateral_side_proximal_phalanx_thumb]
+    actions: [thumb_abduction]
+    antagonists: [adductor_pollicis]
+
+  - id: flexor_pollicis_brevis
+    name: Flexor Pollicis Brevis
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [flexor_pollicis_brevis_head]
+    insertion: [lateral_side_proximal_phalanx_thumb]
+    actions: [thumb_flexion]
+    antagonists: [extensor_pollicis_longus, extensor_pollicis_brevis]
+
+  - id: opponens_pollicis
+    name: Opponens Pollicis
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [opponens_pollicis_head]
+    insertion: [lateral_1st_metacarpal]
+    actions: [thumb_opposition]
+    antagonists: []
+
+  - id: interossei_dorsal
+    name: Dorsal Interossei
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: []
+    insertion: [proximal_phalanges_2_3_4]
+    actions: [finger_abduction]
+    antagonists: []
+
+  - id: interossei_palmar
+    name: Palmar Interossei
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: []
+    insertion: [proximal_phalanges_2_4_5]
+    actions: [finger_adduction]
+    antagonists: []
+
+  - id: lumbricals_1_2
+    name: Lumbricals 1 and 2
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [lumbrical_1_head, lumbrical_2_head]
+    insertion: [extensor_expansions_2_5]
+    actions: [mcp_flexion, pip_dip_extension]
+    antagonists: []
+
+  - id: lumbricals_3_4
+    name: Lumbricals 3 and 4
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [lumbrical_3_head, lumbrical_4_head]
+    insertion: [extensor_expansions_4_5]
+    actions: [mcp_flexion, pip_dip_extension]
+    antagonists: []
+
+  - id: abductor_digiti_minimi
+    name: Abductor Digiti Minimi
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [abductor_digiti_minimi_head]
+    insertion: [proximal_phalanx_5_medial]
+    actions: [finger_abduction]
+    antagonists: [interossei_palmar]
+
+  - id: flexor_digiti_minimi_brevis
+    name: Flexor Digiti Minimi Brevis
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [flexor_digiti_minimi_brevis_head]
+    insertion: [proximal_phalanx_5_palmar]
+    actions: [finger_flexion]
+    antagonists: [extensor_digitorum]
+
+  - id: opponens_digiti_minimi
+    name: Opponens Digiti Minimi
+    group: Intrinsic Hand Muscles
+    order: Hand
+    heads: [opponens_digiti_minimi_head]
+    insertion: [medial_5th_metacarpal]
+    actions: [little_finger_opposition]
+    antagonists: []

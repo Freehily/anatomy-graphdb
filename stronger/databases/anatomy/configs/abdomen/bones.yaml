@@ -1,0 +1,28 @@
+---
+# bones.yaml defines skeletal and fascial structures referenced by abdominal muscles.
+
+bones:
+  - id: thoracic_ribs
+    name: Ribs 5-12
+    region: Thorax
+    attachments: [costal_margins_5_12]
+
+  - id: sternum
+    name: Sternum
+    region: Thorax
+    attachments: [xiphoid_process]
+
+  - id: pelvis
+    name: Pelvis
+    region: Pelvic Girdle
+    attachments: [iliac_crest_anterior, anterior_superior_iliac_spine, pubic_crest, pubic_tubercle, pubic_symphyseal_surface]
+
+  - id: fascia
+    name: Abdominal Fascia
+    region: Connective Tissue
+    attachments: [linea_alba, thoracolumbar_fascia_abdominal, rectus_sheath]
+
+  - id: ligaments
+    name: Ligaments
+    region: Connective Tissue
+    attachments: [inguinal_ligament]

@@ -1,0 +1,39 @@
+---
+# muscle_heads.yaml defines intrinsic foot muscle components with origins.
+
+muscle_heads:
+  - id: abductor_hallucis_head
+    name: Abductor Hallucis
+    origin: [calcaneal_tuberosity_medial_process, plantar_aponeurosis]
+    innervation: [medial_plantar_nerve]
+    arteries: [medial_plantar_artery]
+
+  - id: flexor_digitorum_brevis_head
+    name: Flexor Digitorum Brevis
+    origin: [calcaneal_tuberosity_medial_process, plantar_aponeurosis]
+    innervation: [medial_plantar_nerve]
+    arteries: [medial_plantar_artery]
+
+  - id: abductor_digiti_minimi_head
+    name: Abductor Digiti Minimi
+    origin: [calcaneal_tuberosity_lateral_process, plantar_aponeurosis]
+    innervation: [lateral_plantar_nerve]
+    arteries: [lateral_plantar_artery]
+
+  - id: quadratus_plantae_head
+    name: Quadratus Plantae
+    origin: [calcaneal_tuberosity_medial_process, calcaneal_tuberosity_lateral_process]
+    innervation: [lateral_plantar_nerve]
+    arteries: [lateral_plantar_artery]
+
+  - id: lumbrical_1_head
+    name: Lumbrical 1
+    origin: [tendons_flexor_digitorum_longus_digital_slips]
+    innervation: [medial_plantar_nerve]
+    arteries: [medial_plantar_artery]
+
+  - id: lumbrical_2_4_head
+    name: Lumbricals 2-4
+    origin: [tendons_flexor_digitorum_longus_2_5]
+    innervation: [lateral_plantar_nerve]
+    arteries: [lateral_plantar_artery]

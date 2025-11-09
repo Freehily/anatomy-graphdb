@@ -1,0 +1,70 @@
+load_positions:
+  - id: no_load
+    name: No Load
+    description: Bodyweight-only or unloaded variation.
+    aliases: ["No Load"]
+
+  - id: overhead
+    name: Overhead
+    description: Load finishes stacked above the head (presses, snatches).
+    aliases: ["Overhead"]
+
+  - id: above_chest
+    name: Above Chest
+    description: Load finishes above chest height but below lockout (e.g., partial press).
+    aliases: ["Above Chest"]
+
+  - id: front_rack
+    name: Front Rack
+    description: Load rests across the anterior shoulders/clavicles.
+    aliases: ["Front Rack"]
+
+  - id: back_rack
+    name: Back Rack
+    description: Load rests across the posterior shoulders/traps.
+    aliases: ["Back Rack"]
+
+  - id: shoulder
+    name: Shoulder Carry
+    description: Load rests on one or both shoulders.
+    aliases: ["Shoulder"]
+
+  - id: bear_hug
+    name: Bear Hug
+    description: Load hugged against torso with arms encircling.
+    aliases: ["Bear Hug"]
+
+  - id: zercher
+    name: Zercher
+    description: Load held in elbow crooks against torso.
+    aliases: ["Zercher"]
+
+  - id: suitcase
+    name: Suitcase
+    description: Load carried alongside body like a suitcase.
+    aliases: ["Suitcase"]
+
+  - id: hip_crease
+    name: Hip Crease
+    description: Load rests in hip crease (good mornings, hip hinge variations).
+    aliases: ["Hip Crease"]
+
+  - id: low_hold
+    name: Low Hold
+    description: Load remains below the waist (e.g., farmer carry).
+    aliases: ["Low Hold"]
+
+  - id: lateral
+    name: Lateral Hold
+    description: Load held slightly off to the side at midline.
+    aliases: ["Lateral"]
+
+  - id: behind_back
+    name: Behind Back
+    description: Load held or pinned behind the body.
+    aliases: ["Behind Back"]
+
+  - id: other
+    name: Other / Specialty
+    description: Catch-all for unique load placements.
+    aliases: ["Other", "Order"]

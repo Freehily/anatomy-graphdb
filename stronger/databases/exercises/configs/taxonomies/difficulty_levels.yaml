@@ -1,0 +1,17 @@
+difficulty_levels:
+  - id: beginner
+    name: Beginner
+    description: Suitable for new trainees learning technique and basic control.
+    aliases: ["Beginner", "Novice"]
+  - id: intermediate
+    name: Intermediate
+    description: Requires baseline strength and motor control; progression of foundational skills.
+    aliases: ["Intermediate"]
+  - id: advanced
+    name: Advanced
+    description: Demands high skill, coordination, or load capacity.
+    aliases: ["Advanced"]
+  - id: elite
+    name: Elite
+    description: For highly trained individuals or athletes; maximal effort or complex coordination.
+    aliases: ["Expert", "Master", "Grand Master", "Legendary"]

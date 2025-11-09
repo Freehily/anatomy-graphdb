@@ -1,0 +1,29 @@
+arteries:
+- id: facial_artery
+  name: Facial Artery
+  branches_from: external_carotid_artery
+  supplies:
+  - digastric_anterior_belly
+  - mylohyoid_head
+  - stylohyoid_head
+- id: occipital_artery
+  name: Occipital Artery
+  branches_from: external_carotid_artery
+  supplies:
+  - sternocleidomastoid_sternal_head
+  - sternocleidomastoid_clavicular_head
+  - digastric_posterior_belly
+- id: lingual_artery
+  name: Lingual Artery
+  branches_from: external_carotid_artery
+  supplies:
+  - geniohyoid_head
+- id: thyrocervical_trunk
+  name: Thyrocervical Trunk
+  branches_from: subclavian_artery
+  supplies: []
+- id: transverse_cervical_artery
+  name: Transverse Cervical Artery
+  branches_from: thyrocervical_trunk
+  supplies:
+  - omohyoid_inferior_head

@@ -1,0 +1,83 @@
+---
+# attachment_points.yaml enumerates cranial and cervical landmarks for head and neck muscles.
+
+attachment_points:
+  - id: external_occipital_protuberance
+    name: External Occipital Protuberance
+    bone: skull
+
+  - id: superior_nuchal_line
+    name: Superior Nuchal Line
+    bone: skull
+
+  - id: mastoid_process
+    name: Mastoid Process
+    bone: skull
+
+  - id: mastoid_notch
+    name: Mastoid Notch
+    bone: skull
+
+  - id: styloid_process
+    name: Styloid Process
+    bone: skull
+
+  - id: mandibular_body
+    name: Body of Mandible
+    bone: mandible
+
+  - id: mandibular_angle
+    name: Angle of Mandible
+    bone: mandible
+
+  - id: digastric_fossa
+    name: Digastric Fossa of Mandible
+    bone: mandible
+
+  - id: mylohyoid_line
+    name: Mylohyoid Line of Mandible
+    bone: mandible
+
+  - id: inferior_mental_spine
+    name: Inferior Mental Spine
+    bone: mandible
+
+  - id: hyoid_body
+    name: Body of Hyoid
+    bone: hyoid
+
+  - id: greater_horn_hyoid
+    name: Greater Horn of Hyoid
+    bone: hyoid
+
+  - id: lesser_horn_hyoid
+    name: Lesser Horn of Hyoid
+    bone: hyoid
+
+  - id: thyroid_cartilage_lamina
+    name: Lamina of Thyroid Cartilage
+    bone: laryngeal_cartilage
+
+  - id: manubrium
+    name: Manubrium of Sternum
+    bone: sternum
+
+  - id: medial_clavicle
+    name: Medial Clavicle
+    bone: clavicle
+
+  - id: superior_border_scapula
+    name: Superior Border of Scapula
+    bone: scapula
+
+  - id: intermediate_tendon_omohyoid
+    name: Intermediate Tendon of Omohyoid
+    bone: tendons
+
+  - id: mylohyoid_raphe
+    name: Mylohyoid Raphe
+    bone: fascia
+
+  - id: pretracheal_fascia
+    name: Pretracheal Fascia
+    bone: fascia

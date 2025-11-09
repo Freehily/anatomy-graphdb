@@ -1,0 +1,33 @@
+muscle_groups:
+  - id: abdominals
+    name: Abdominals
+  - id: abductors
+    name: Abductors
+  - id: adductors
+    name: Adductors
+  - id: back
+    name: Back
+  - id: biceps
+    name: Biceps
+  - id: calves
+    name: Calves
+  - id: chest
+    name: Chest
+  - id: forearms
+    name: Forearms
+  - id: glutes
+    name: Glutes
+  - id: hamstrings
+    name: Hamstrings
+  - id: hip_flexors
+    name: Hip Flexors
+  - id: quadriceps
+    name: Quadriceps
+  - id: shins
+    name: Shins
+  - id: shoulders
+    name: Shoulders
+  - id: trapezius
+    name: Trapezius
+  - id: triceps
+    name: Triceps

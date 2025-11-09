@@ -1,0 +1,75 @@
+---
+# muscles.yaml enumerates intrinsic hand muscles defined in this region.
+
+muscles:
+  - id: palmaris_brevis
+    name: Palmaris Brevis
+    group: Hypothenar Muscles
+    order: Hand
+    heads: [palmaris_brevis_head]
+    insertion: [palmar_aponeurosis]
+    actions: [skin_tension_hypothenar]
+    antagonists: []
+
+  - id: dorsal_interosseous_1
+    name: First Dorsal Interosseous
+    group: Dorsal Interossei
+    order: Hand
+    heads: [dorsal_interosseous_1_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_2]
+    actions: [finger_abduction_index]
+    antagonists: []
+
+  - id: dorsal_interosseous_2
+    name: Second Dorsal Interosseous
+    group: Dorsal Interossei
+    order: Hand
+    heads: [dorsal_interosseous_2_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_3]
+    actions: [finger_abduction_middle]
+    antagonists: []
+
+  - id: dorsal_interosseous_3
+    name: Third Dorsal Interosseous
+    group: Dorsal Interossei
+    order: Hand
+    heads: [dorsal_interosseous_3_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_3]
+    actions: [finger_abduction_middle]
+    antagonists: []
+
+  - id: dorsal_interosseous_4
+    name: Fourth Dorsal Interosseous
+    group: Dorsal Interossei
+    order: Hand
+    heads: [dorsal_interosseous_4_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_4]
+    actions: [finger_abduction_ring]
+    antagonists: []
+
+  - id: palmar_interosseous_1
+    name: First Palmar Interosseous
+    group: Palmar Interossei
+    order: Hand
+    heads: [palmar_interosseous_1_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_2]
+    actions: [finger_adduction_index]
+    antagonists: []
+
+  - id: palmar_interosseous_2
+    name: Second Palmar Interosseous
+    group: Palmar Interossei
+    order: Hand
+    heads: [palmar_interosseous_2_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_4]
+    actions: [finger_adduction_ring]
+    antagonists: []
+
+  - id: palmar_interosseous_3
+    name: Third Palmar Interosseous
+    group: Palmar Interossei
+    order: Hand
+    heads: [palmar_interosseous_3_head]
+    insertion: [proximal_phalanges_2_5_palmar, extensor_expansion_5]
+    actions: [finger_adduction_little]
+    antagonists: []

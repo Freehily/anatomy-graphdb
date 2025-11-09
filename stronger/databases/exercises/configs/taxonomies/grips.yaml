@@ -1,0 +1,56 @@
+grips:
+  - id: pronated
+    name: Pronated
+    description: Overhand grip with palms facing away.
+  - id: supinated
+    name: Supinated
+    description: Underhand grip with palms facing toward the body.
+  - id: neutral
+    name: Neutral
+    description: Palms face each other or in a hammer orientation.
+  - id: mixed_grip
+    name: Mixed Grip
+    description: One hand pronated, the other supinated.
+  - id: flat_palm
+    name: Flat Palm
+    description: Open-hand pressure against floor, wall, or apparatus.
+  - id: flat_fingertip
+    name: Fingertip
+    description: Fingertips provide contact (planche work, handstands).
+    aliases: ["Fingertip"]
+  - id: false_grip
+    name: False Grip
+    description: Thumb over bar/ring rather than wrapped under.
+  - id: crush_grip
+    name: Crush Grip
+    description: Hands squeeze implement between palms (med ball, plate).
+  - id: goblet
+    name: Goblet Grip
+    description: Hands cup a single bell at chest height.
+  - id: bottoms_up
+    name: Bottoms-Up
+    description: Kettlebell inverted with bell above handle.
+  - id: bottoms_up_horn_grip
+    name: Bottoms-Up Horn
+    description: Kettlebell held by horns while inverted.
+  - id: horn_grip
+    name: Horn Grip
+    description: Hands grasp kettlebell horns upright.
+  - id: waiter_hold
+    name: Waiter Hold
+    description: Palm faces up supporting load like a tray.
+  - id: hand_assisted
+    name: Hand Assisted
+    description: Non-working hand aids the primary limb.
+  - id: head_supported
+    name: Head Supported
+    description: Head or forearms supported (e.g., bench) to stabilize.
+  - id: forearm
+    name: Forearm Support
+    description: Load braced along forearms (e.g., Zercher carry setup).
+  - id: no_grip
+    name: No Grip
+    description: No hands or gripping required.
+  - id: other
+    name: Other
+    description: Specialty grips not otherwise categorized.

@@ -1,0 +1,19 @@
+planes:
+  - id: sagittal_plane
+    name: Sagittal Plane
+    description: Divides the body into left and right halves; flexion/extension dominate.
+    aliases: ["Sagittal Plane"]
+
+  - id: frontal_plane
+    name: Frontal (Coronal) Plane
+    description: Divides front/back halves; abduction/adduction dominate.
+    aliases: ["Frontal Plane", "Frontal (Coronal) Plane"]
+
+  - id: transverse_plane
+    name: Transverse (Horizontal) Plane
+    description: Divides upper/lower halves; rotation/twisting dominate.
+    aliases: ["Transverse Plane", "Transverse (Horizontal) Plane"]
+
+  - id: multiplanar
+    name: Multiplanar
+    description: Blends actions across multiple planes.

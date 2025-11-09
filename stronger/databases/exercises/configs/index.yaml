@@ -1,0 +1,32 @@
+---
+taxonomies:
+  classifications: taxonomies/classifications.yaml
+  difficulty_levels: taxonomies/difficulty_levels.yaml
+  energy_systems: taxonomies/energy_systems.yaml
+  force_types: taxonomies/force_types.yaml
+  laterality: taxonomies/laterality.yaml
+  mechanics: taxonomies/mechanics.yaml
+  movement_patterns: taxonomies/movement_patterns.yaml
+  planes: taxonomies/planes.yaml
+  body_regions: taxonomies/body_regions.yaml
+  postures: taxonomies/postures.yaml
+  grips: taxonomies/grips.yaml
+  load_positions: taxonomies/load_positions.yaml
+  arm_usage: taxonomies/arm_usage.yaml
+  limb_cadence: taxonomies/limb_cadence.yaml
+  combination_types: taxonomies/combination_types.yaml
+  foot_elevations: taxonomies/foot_elevations.yaml
+equipment:
+  categories: equipment/equipment_categories.yaml
+  items: equipment/equipment_specific.yaml
+muscle_groups:
+  definitions: muscle_groups/groups.yaml
+anatomy_aliases:
+  muscles: anatomy/muscle_aliases.yaml
+exercises:
+  templates: exercises/templates.yaml
+  variants:
+    - exercises/core.yaml
+    - exercises/lower_body.yaml
+    - exercises/upper_body.yaml
+    - exercises/full_body.yaml

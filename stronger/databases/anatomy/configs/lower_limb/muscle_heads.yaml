@@ -1,0 +1,195 @@
+---
+# muscle_heads.yaml defines lower limb muscle components with origin, innervation, and arterial supply.
+
+muscle_heads:
+  - id: gluteus_maximus_head
+    name: Gluteus Maximus
+    origin: [gluteal_surface_ilium, dorsal_surface_sacrum]
+    innervation: [inferior_gluteal_nerve]
+    arteries: [inferior_gluteal_artery]
+
+  - id: gluteus_medius_head
+    name: Gluteus Medius
+    origin: [gluteal_surface_ilium]
+    innervation: [superior_gluteal_nerve]
+    arteries: [superior_gluteal_artery]
+
+  - id: gluteus_minimus_head
+    name: Gluteus Minimus
+    origin: [gluteal_surface_ilium]
+    innervation: [superior_gluteal_nerve]
+    arteries: [superior_gluteal_artery]
+
+  - id: tensor_fasciae_latae_head
+    name: Tensor Fasciae Latae
+    origin: [anterior_superior_iliac_spine, iliac_crest]
+    innervation: [superior_gluteal_nerve]
+    arteries: [lateral_circumflex_femoral_artery]
+
+  - id: piriformis_head
+    name: Piriformis
+    origin: [dorsal_surface_sacrum]
+    innervation: [nerve_to_piriformis]
+    arteries: [superior_gluteal_artery]
+
+  - id: rectus_femoris_head
+    name: Rectus Femoris
+    origin: [anterior_inferior_iliac_spine]
+    innervation: [femoral_nerve]
+    arteries: [femoral_artery]
+
+  - id: vastus_lateralis_head
+    name: Vastus Lateralis
+    origin: [greater_trochanter, linea_aspera]
+    innervation: [femoral_nerve]
+    arteries: [lateral_circumflex_femoral_artery]
+
+  - id: vastus_medialis_head
+    name: Vastus Medialis
+    origin: [linea_aspera]
+    innervation: [femoral_nerve]
+    arteries: [femoral_artery]
+
+  - id: vastus_intermedius_head
+    name: Vastus Intermedius
+    origin: [anterior_femoral_shaft]
+    innervation: [femoral_nerve]
+    arteries: [femoral_artery]
+
+  - id: sartorius_head
+    name: Sartorius
+    origin: [anterior_superior_iliac_spine]
+    innervation: [femoral_nerve]
+    arteries: [femoral_artery]
+
+  - id: pectineus_head
+    name: Pectineus
+    origin: [pectineal_line_pubis]
+    innervation: [femoral_nerve]
+    arteries: [obturator_artery]
+
+  - id: adductor_longus_head
+    name: Adductor Longus
+    origin: [pubic_body]
+    innervation: [obturator_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: adductor_brevis_head
+    name: Adductor Brevis
+    origin: [pubic_inferior_ram]
+    innervation: [obturator_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: adductor_magnus_adductor_head
+    name: Adductor Magnus (Adductor Part)
+    origin: [pubic_inferior_ram, ischial_tuberosity]
+    innervation: [obturator_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: adductor_magnus_hamstring_head
+    name: Adductor Magnus (Hamstring Part)
+    origin: [ischial_tuberosity]
+    innervation: [tibial_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: gracilis_head
+    name: Gracilis
+    origin: [pubic_body, pubic_inferior_ram]
+    innervation: [obturator_nerve]
+    arteries: [obturator_artery]
+
+  - id: biceps_femoris_long_head
+    name: Biceps Femoris (Long Head)
+    origin: [ischial_tuberosity]
+    innervation: [tibial_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: biceps_femoris_short_head
+    name: Biceps Femoris (Short Head)
+    origin: [linea_aspera]
+    innervation: [common_fibular_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: semitendinosus_head
+    name: Semitendinosus
+    origin: [ischial_tuberosity]
+    innervation: [tibial_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: semimembranosus_head
+    name: Semimembranosus
+    origin: [ischial_tuberosity]
+    innervation: [tibial_nerve]
+    arteries: [deep_femoral_artery]
+
+  - id: gastrocnemius_medial_head
+    name: Gastrocnemius (Medial Head)
+    origin: [medial_femoral_condyle]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: gastrocnemius_lateral_head
+    name: Gastrocnemius (Lateral Head)
+    origin: [lateral_femoral_condyle]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: soleus_head
+    name: Soleus
+    origin: [soleal_line, head_of_fibula]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: plantaris_head
+    name: Plantaris
+    origin: [lateral_femoral_condyle]
+    innervation: [tibial_nerve]
+    arteries: [popliteal_artery]
+
+  - id: tibialis_anterior_head
+    name: Tibialis Anterior
+    origin: [lateral_tibial_condyle, tibial_shaft_medial]
+    innervation: [deep_fibular_nerve]
+    arteries: [anterior_tibial_artery]
+
+  - id: extensor_digitorum_longus_head
+    name: Extensor Digitorum Longus
+    origin: [lateral_tibial_condyle, fibular_shaft]
+    innervation: [deep_fibular_nerve]
+    arteries: [anterior_tibial_artery]
+
+  - id: extensor_hallucis_longus_head
+    name: Extensor Hallucis Longus
+    origin: [fibular_shaft]
+    innervation: [deep_fibular_nerve]
+    arteries: [anterior_tibial_artery]
+
+  - id: tibialis_posterior_head
+    name: Tibialis Posterior
+    origin: [tibial_shaft_medial, fibular_shaft]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: flexor_digitorum_longus_head
+    name: Flexor Digitorum Longus
+    origin: [tibial_shaft_medial]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: flexor_hallucis_longus_head
+    name: Flexor Hallucis Longus
+    origin: [fibular_shaft]
+    innervation: [tibial_nerve]
+    arteries: [posterior_tibial_artery]
+
+  - id: fibularis_longus_head
+    name: Fibularis Longus
+    origin: [head_of_fibula, fibular_shaft]
+    innervation: [superficial_fibular_nerve]
+    arteries: [fibular_artery]
+
+  - id: fibularis_brevis_head
+    name: Fibularis Brevis
+    origin: [fibular_shaft]
+    innervation: [superficial_fibular_nerve]
+    arteries: [fibular_artery]

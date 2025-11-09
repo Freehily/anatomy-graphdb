@@ -1,0 +1,21 @@
+laterality:
+  - id: bilateral
+    name: Bilateral
+    description: Both sides of the body act simultaneously.
+    aliases: ["Bilateral"]
+  - id: unilateral
+    name: Unilateral
+    description: One side of the body performs the movement independently.
+    aliases: ["Unilateral"]
+  - id: alternating
+    name: Alternating
+    description: Movement alternates sides rhythmically.
+    aliases: ["Alternating"]
+  - id: contralateral
+    name: Contralateral
+    description: Opposite limbs move in coordination (e.g., crawl pattern).
+    aliases: ["Contralateral"]
+  - id: ipsilateral
+    name: Ipsilateral
+    description: Same-side limbs move together.
+    aliases: ["Ipsilateral"]

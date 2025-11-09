@@ -1,0 +1,13 @@
+---
+# arteries.yaml lists arterial branches emphasized for intrinsic hand supply.
+
+arteries:
+  - id: superficial_palmar_arch
+    name: Superficial Palmar Arch
+    branches_from: ulnar_artery
+    supplies: [palmaris_brevis_head, palmar_interosseous_1_head, palmar_interosseous_2_head, palmar_interosseous_3_head]
+
+  - id: deep_palmar_arch
+    name: Deep Palmar Arch
+    branches_from: radial_artery
+    supplies: [dorsal_interosseous_1_head, dorsal_interosseous_2_head, dorsal_interosseous_3_head, dorsal_interosseous_4_head]

@@ -1,0 +1,11 @@
+---
+# nerves.yaml captures nerve branches highlighted in hand region.
+
+nerves:
+  - id: superficial_branch_ulnar
+    name: Superficial Branch of Ulnar Nerve
+    derivations: [C8, T1]
+    type: [motor, sensory]
+    pathway: Emerges in Guyon's canal, traveling superficial to supply palmaris brevis and medial palmar skin.
+    clinical_significance: Compression causes sensory loss over medial palm and hypothenar region; motor deficit limited to palmaris brevis.
+    innervates: [palmaris_brevis_head]

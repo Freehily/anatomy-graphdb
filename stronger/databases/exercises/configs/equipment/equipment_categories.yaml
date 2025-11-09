@@ -1,0 +1,52 @@
+equipment_categories:
+  - id: free_weight
+    name: Free Weights & Odd Objects
+    description: Equipment that moves freely through space and is not mechanically guided.
+
+  - id: rack
+    name: Racks & Rigs
+    description: Fixed structures used for barbell support, bodyweight work, or attachments.
+
+  - id: bench
+    name: Benches & Support Apparatus
+    description: Benches, chairs, or supports used for seated or supported exercises.
+
+  - id: barbell_variant
+    name: Barbell Variants
+    description: Specialty bars that alter grip or load distribution compared to a standard barbell.
+
+  - id: machine
+    name: Selectorized & Plate-Loaded Machines
+    description: Mechanically guided machines for resistance training.
+
+  - id: cardio_machine
+    name: Cardio & Conditioning Machines
+    description: Aerobic and energy-system training devices.
+
+  - id: strongman
+    name: Strongman Implements
+    description: Unconventional loading tools for strength and power events.
+
+  - id: balance_tool
+    name: Balance & Stability Tools
+    description: Implements for proprioception, balance, and control.
+
+  - id: agility_tool
+    name: Agility & Speed Tools
+    description: Equipment for coordination, footwork, and reaction drills.
+
+  - id: conditioning_tool
+    name: Conditioning & Circuit Tools
+    description: Miscellaneous implements for circuits and aerobic training.
+
+  - id: wearable
+    name: Wearables & Load Accessories
+    description: Items worn on the body to add or assist resistance.
+
+  - id: load_modifier
+    name: Load Modifiers
+    description: Accessories that modify loading characteristics (chains, bands).
+
+  - id: cable_attachment
+    name: Cable Attachments
+    description: Handles or implements attached to cables for targeted movements.

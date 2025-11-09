@@ -1,0 +1,27 @@
+---
+# nerves.yaml lists sacral plexus branches supplying pelvic muscles.
+
+nerves:
+  - id: nerve_to_levator_ani
+    name: Nerve to Levator Ani
+    derivations: [S3, S4]
+    type: [motor]
+    pathway: Branch of sacral plexus coursing on pelvic floor to levator ani.
+    clinical_significance: Damage leads to pelvic floor weakness and incontinence.
+    innervates: [levator_ani_pubococcygeus_head, levator_ani_iliococcygeus_head, levator_ani_puborectalis_head]
+
+  - id: nerve_to_coccygeus
+    name: Nerve to Coccygeus
+    derivations: [S4, S5]
+    type: [motor]
+    pathway: Runs along pelvic surface of sacrospinous ligament to coccygeus.
+    clinical_significance: Rarely injured; palsy may cause pelvic floor laxity.
+    innervates: [coccygeus_head]
+
+  - id: pudendal_nerve
+    name: Pudendal Nerve
+    derivations: [S2, S3, S4]
+    type: [motor, sensory]
+    pathway: Leaves pelvis via greater sciatic foramen, wraps around sacrospinous ligament, enters perineum through lesser sciatic foramen and pudendal canal.
+    clinical_significance: Pudendal nerve entrapment results in perineal pain and sphincter dysfunction.
+    innervates: [deep_transverse_perineal_head, external_urethral_sphincter_head, levator_ani_puborectalis_head]

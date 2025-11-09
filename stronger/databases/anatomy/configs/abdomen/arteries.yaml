@@ -1,0 +1,23 @@
+---
+# arteries.yaml lists major abdominal wall arteries referenced here.
+
+arteries:
+  - id: superior_epigastric_artery
+    name: Superior Epigastric Artery
+    branches_from: internal_thoracic_artery
+    supplies: [rectus_abdominis_head]
+
+  - id: inferior_epigastric_artery
+    name: Inferior Epigastric Artery
+    branches_from: external_iliac_artery
+    supplies: [rectus_abdominis_head, internal_oblique_head, transversus_abdominis_head]
+
+  - id: lower_posterior_intercostal_arteries
+    name: Lower Posterior Intercostal Arteries (T7-T11)
+    branches_from: thoracic_aorta
+    supplies: [external_oblique_head]
+
+  - id: deep_circumflex_iliac_artery
+    name: Deep Circumflex Iliac Artery
+    branches_from: external_iliac_artery
+    supplies: [internal_oblique_head, transversus_abdominis_head]

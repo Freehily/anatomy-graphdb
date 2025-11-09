@@ -1,0 +1,256 @@
+---
+# muscles_heads.yaml defines muscle head nodes for the graph database.
+
+# Each muscle head node contains:
+#   id (node id): Unique identifier for the muscle head
+#   name (property): Human-readable name for clarity
+#   origin (relationships): List of attachment_point node IDs
+#   innervation (relationships): Nerve node IDs
+#   arteries (relationships): Artery node IDs
+
+muscle_heads:
+  - id: biceps_brachii_short
+    name: Biceps Brachii (Short Head)
+    origin: [coracoid_process]
+    innervation: [musculocutaneous]
+    arteries: [brachial_artery]
+
+  - id: biceps_brachii_long
+    name: Biceps Brachii (Long Head)
+    origin: [supraglenoid_tubercle]
+    innervation: [musculocutaneous]
+    arteries: [brachial_artery]
+
+  - id: triceps_brachii_long
+    name: Triceps Brachii (Long Head)
+    origin: [infraglenoid_tubercle]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery, posterior_circumflex_humeral_artery]
+
+  - id: triceps_brachii_lateral
+    name: Triceps Brachii (Lateral Head)
+    origin: [above_radial_groove]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery]
+
+  - id: triceps_brachii_medial
+    name: Triceps Brachii (Medial Head)
+    origin: [below_radial_groove]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery]
+
+  - id: deltoid_anterior
+    name: Deltoid (Anterior Head)
+    origin: [lateral_clavicle]
+    innervation: [axillary]
+    arteries: [thoracoacromial_artery]
+
+  - id: deltoid_middle
+    name: Deltoid (Middle Head)
+    origin: [acromion]
+    innervation: [axillary]
+    arteries: [posterior_circumflex_humeral_artery]
+
+  - id: deltoid_posterior
+    name: Deltoid (Posterior Head)
+    origin: [spine_of_scapula]
+    innervation: [axillary]
+    arteries: [posterior_circumflex_humeral_artery]
+
+  - id: pectoralis_major_clavicular
+    name: Pectoralis Major (Clavicular Head)
+    origin: [medial_clavicle]
+    innervation: [lateral_pectoral_nerve]
+    arteries: [thoracoacromial_artery]
+
+  - id: pectoralis_major_sternocostal
+    name: Pectoralis Major (Sternocostal Head)
+    origin: [sternum_body, costal_cartilages_1_6]
+    innervation: [medial_pectoral_nerve]
+    arteries: [thoracoacromial_artery]
+
+  - id: supraspinatus
+    name: Supraspinatus
+    origin: [supraspinous_fossa]
+    innervation: [suprascapular]
+    arteries: [suprascapular_artery]
+
+  - id: infraspinatus
+    name: Infraspinatus
+    origin: [infraspinous_fossa]
+    innervation: [suprascapular]
+    arteries: [suprascapular_artery]
+
+  - id: teres_minor
+    name: Teres Minor
+    origin: [lateral_border_scapula]
+    innervation: [axillary]
+    arteries: [circumflex_scapular_artery]
+
+  - id: subscapularis
+    name: Subscapularis
+    origin: [subscapular_fossa]
+    innervation: [upper_subscapular_nerve, lower_subscapular_nerve]
+    arteries: [subscapular_artery]
+
+  - id: coracobrachialis_head
+    name: Coracobrachialis
+    origin: [coracoid_process]
+    innervation: [musculocutaneous]
+    arteries: [brachial_artery]
+
+  - id: teres_major_head
+    name: Teres Major
+    origin: [inferior_angle_scapula]
+    innervation: [lower_subscapular_nerve]
+    arteries: [subscapular_artery]
+
+  - id: anconeus_head
+    name: Anconeus
+    origin: [lateral_epicondyle]
+    innervation: [radial_nerve]
+    arteries: [deep_brachial_artery]
+
+  - id: flexor_carpi_radialis_head
+    name: Flexor Carpi Radialis
+    origin: [medial_epicondyle]
+    innervation: [median]
+    arteries: [ulnar_artery]
+
+  - id: palmaris_longus_head
+    name: Palmaris Longus
+    origin: [medial_epicondyle]
+    innervation: [median]
+    arteries: [ulnar_artery]
+
+  - id: flexor_digitorum_profundus_medial
+    name: Flexor Digitorum Profundus (Medial Part)
+    origin: [proximal_ulna, interosseous_membrane]
+    innervation: [ulnar]
+    arteries: [anterior_interosseous_artery]
+
+  - id: flexor_digitorum_profundus_lateral
+    name: Flexor Digitorum Profundus (Lateral Part)
+    origin: [proximal_ulna, interosseous_membrane]
+    innervation: [anterior_interosseous_nerve]
+    arteries: [anterior_interosseous_artery]
+
+  - id: flexor_pollicis_longus_head
+    name: Flexor Pollicis Longus
+    origin: [anterior_radius, interosseous_membrane]
+    innervation: [anterior_interosseous_nerve]
+    arteries: [anterior_interosseous_artery]
+
+  - id: pronator_quadratus_head
+    name: Pronator Quadratus
+    origin: [distal_ulna_anterior, interosseous_membrane]
+    innervation: [anterior_interosseous_nerve]
+    arteries: [anterior_interosseous_artery]
+
+  - id: extensor_carpi_radialis_longus_head
+    name: Extensor Carpi Radialis Longus
+    origin: [lateral_supracondylar_ridge]
+    innervation: [radial_nerve]
+    arteries: [radial_artery]
+
+  - id: extensor_carpi_radialis_brevis_head
+    name: Extensor Carpi Radialis Brevis
+    origin: [lateral_epicondyle]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [radial_artery]
+
+  - id: extensor_digiti_minimi_head
+    name: Extensor Digiti Minimi
+    origin: [lateral_epicondyle]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: extensor_carpi_ulnaris_head
+    name: Extensor Carpi Ulnaris
+    origin: [lateral_epicondyle, posterior_border_ulna]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: abductor_pollicis_longus_head
+    name: Abductor Pollicis Longus
+    origin: [posterior_ulna, posterior_radius, interosseous_membrane]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: extensor_pollicis_brevis_head
+    name: Extensor Pollicis Brevis
+    origin: [posterior_radius, interosseous_membrane]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: extensor_pollicis_longus_head
+    name: Extensor Pollicis Longus
+    origin: [posterior_ulna, interosseous_membrane]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: extensor_indicis_head
+    name: Extensor Indicis
+    origin: [posterior_ulna, interosseous_membrane]
+    innervation: [posterior_interosseous_nerve]
+    arteries: [posterior_interosseous_artery]
+
+  - id: abductor_pollicis_brevis_head
+    name: Abductor Pollicis Brevis
+    origin: [scaphoid_tubercle, trapezium_tubercle, flexor_retinaculum]
+    innervation: [recurrent_branch_median]
+    arteries: [radial_artery]
+
+  - id: flexor_pollicis_brevis_head
+    name: Flexor Pollicis Brevis
+    origin: [flexor_retinaculum, trapezium_tubercle]
+    innervation: [recurrent_branch_median]
+    arteries: [superficial_palmar_arch]
+
+  - id: opponens_pollicis_head
+    name: Opponens Pollicis
+    origin: [flexor_retinaculum, trapezium_tubercle]
+    innervation: [recurrent_branch_median]
+    arteries: [radial_artery]
+
+  - id: lumbrical_1_head
+    name: Lumbrical 1
+    origin: [fdp_tendon_digit2]
+    innervation: [median]
+    arteries: [superficial_palmar_arch]
+
+  - id: lumbrical_2_head
+    name: Lumbrical 2
+    origin: [fdp_tendon_digit3]
+    innervation: [median]
+    arteries: [superficial_palmar_arch]
+
+  - id: lumbrical_3_head
+    name: Lumbrical 3
+    origin: [fdp_tendon_digit3, fdp_tendon_digit4]
+    innervation: [deep_branch_ulnar]
+    arteries: [ulnar_artery]
+
+  - id: lumbrical_4_head
+    name: Lumbrical 4
+    origin: [fdp_tendon_digit4, fdp_tendon_digit5]
+    innervation: [deep_branch_ulnar]
+    arteries: [ulnar_artery]
+
+  - id: abductor_digiti_minimi_head
+    name: Abductor Digiti Minimi
+    origin: [pisiform]
+    innervation: [deep_branch_ulnar]
+    arteries: [ulnar_artery]
+
+  - id: flexor_digiti_minimi_brevis_head
+    name: Flexor Digiti Minimi Brevis
+    origin: [hook_of_hamate, flexor_retinaculum]
+    innervation: [deep_branch_ulnar]
+    arteries: [ulnar_artery]
+
+  - id: opponens_digiti_minimi_head
+    name: Opponens Digiti Minimi
+    origin: [hook_of_hamate, flexor_retinaculum]
+    innervation: [deep_branch_ulnar]
+    arteries: [ulnar_artery]

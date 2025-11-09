@@ -1,0 +1,51 @@
+---
+# muscle_heads.yaml defines intrinsic hand muscle components.
+
+muscle_heads:
+  - id: palmaris_brevis_head
+    name: Palmaris Brevis
+    origin: [palmar_aponeurosis, flexor_retinaculum]
+    innervation: [superficial_branch_ulnar]
+    arteries: [superficial_palmar_arch]
+
+  - id: dorsal_interosseous_1_head
+    name: First Dorsal Interosseous
+    origin: [metacarpal_shaft_dorsal_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: dorsal_interosseous_2_head
+    name: Second Dorsal Interosseous
+    origin: [metacarpal_shaft_dorsal_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: dorsal_interosseous_3_head
+    name: Third Dorsal Interosseous
+    origin: [metacarpal_shaft_dorsal_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: dorsal_interosseous_4_head
+    name: Fourth Dorsal Interosseous
+    origin: [metacarpal_shaft_dorsal_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: palmar_interosseous_1_head
+    name: First Palmar Interosseous
+    origin: [metacarpal_shaft_palmar_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: palmar_interosseous_2_head
+    name: Second Palmar Interosseous
+    origin: [metacarpal_shaft_palmar_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]
+
+  - id: palmar_interosseous_3_head
+    name: Third Palmar Interosseous
+    origin: [metacarpal_shaft_palmar_2_to_5]
+    innervation: [deep_branch_ulnar]
+    arteries: [deep_palmar_arch]

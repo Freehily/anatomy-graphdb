@@ -1,0 +1,17 @@
+force_types:
+  - id: push
+    name: Push
+    description: Force applied away from the body or into an object.
+    aliases: ["Push"]
+  - id: pull
+    name: Pull
+    description: Force draws load toward the body.
+    aliases: ["Pull"]
+  - id: push_pull
+    name: Push & Pull
+    description: Alternates or combines pushing and pulling actions.
+    aliases: ["Push & Pull"]
+  - id: other
+    name: Other / Rotational
+    description: Force application does not fit push/pull conventions.
+    aliases: ["Other", "Unsorted*"]

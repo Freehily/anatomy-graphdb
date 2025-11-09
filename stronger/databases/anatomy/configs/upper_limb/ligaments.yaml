@@ -1,0 +1,23 @@
+---
+# ligaments.yaml lists key upper limb ligaments tying scapula, clavicle, humerus, and forearm bones.
+
+ligaments:
+  - id: coracoclavicular_ligament
+    name: Coracoclavicular Ligament
+    attachments: [coracoid_process, acromial_end]
+    notes: Includes conoid and trapezoid components stabilising the acromioclavicular joint.
+
+  - id: superior_glenohumeral_ligament
+    name: Superior Glenohumeral Ligament
+    attachments: [glenoid_cavity, lesser_tubercle]
+    notes: Reinforces the anterior superior portion of the glenohumeral capsule and supports the biceps long head tendon.
+
+  - id: ulnar_collateral_elbow_ligament
+    name: Ulnar Collateral Ligament of Elbow
+    attachments: [medial_epicondyle, coronoid_process]
+    notes: Medial stabiliser of the humeroulnar joint resisting valgus stress.
+
+  - id: annular_ligament_radius
+    name: Annular Ligament of Radius
+    attachments: [radial_notch, head_of_radius]
+    notes: Rings the radial head to maintain proximal radioulnar joint alignment during pronation-supination.

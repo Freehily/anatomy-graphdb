@@ -1,0 +1,25 @@
+foot_elevations:
+  - id: no_elevation
+    name: No Elevation
+    aliases: ["No Elevation"]
+  - id: feet_elevated
+    name: Feet Elevated
+    aliases: ["Feet Elevated"]
+  - id: foot_elevated
+    name: Foot Elevated (General)
+    aliases: ["Foot Elevated"]
+  - id: foot_elevated_front
+    name: Foot Elevated (Front)
+    aliases: ["Foot Elevated (Front)"]
+  - id: foot_elevated_rear
+    name: Foot Elevated (Rear)
+    aliases: ["Foot Elevated (Rear)"]
+  - id: foot_elevated_side
+    name: Foot Elevated (Side)
+    aliases: ["Foot Elevated (Side)", "Foot Elevated (Lateral)"]
+  - id: heels_elevated
+    name: Heels Elevated
+    aliases: ["Heels Elevated"]
+  - id: toes_elevated
+    name: Toes Elevated
+    aliases: ["Toes Elevated"]

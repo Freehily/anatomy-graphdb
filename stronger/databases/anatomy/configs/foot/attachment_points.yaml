@@ -1,0 +1,58 @@
+attachment_points:
+- id: calcaneal_tuberosity_medial_process
+  name: Medial Process of Calcaneal Tuberosity
+  bone: calcaneus
+- id: calcaneal_tuberosity_lateral_process
+  name: Lateral Process of Calcaneal Tuberosity
+  bone: calcaneus
+- id: plantar_aponeurosis
+  name: Plantar Aponeurosis
+  bone: fascia
+- id: middle_phalanges_2_5
+  name: Middle Phalanges of Digits 2-5
+  bone: phalanges_middle
+- id: medial_tubercle_1st_metatarsal
+  name: Medial Tubercle of 1st Metatarsal
+  bone: metatarsal_1
+- id: base_1st_metatarsal
+  name: Base of 1st Metatarsal
+  bone: metatarsal_1
+- id: base_5th_metatarsal
+  name: Base of 5th Metatarsal
+  bone: metatarsal_5
+- id: medial_tubercle_proximal_phalanx_hallux
+  name: Medial Tubercle of Proximal Phalanx of Hallux
+  bone: proximal_phalanx_hallux
+- id: lateral_tubercle_proximal_phalanx_hallux
+  name: Lateral Tubercle of Proximal Phalanx of Hallux
+  bone: proximal_phalanx_hallux
+- id: proximal_phalanges_2_5_medial
+  name: Medial Aspects of Proximal Phalanges 2-5
+  bone: phalanges_proximal
+- id: proximal_phalanges_3_5_lateral
+  name: Lateral Aspects of Proximal Phalanges 3-5
+  bone: phalanges_proximal
+- id: extensor_expansion_toe2
+  name: Extensor Expansion of Toe 2
+  bone: extensor_expansion
+- id: extensor_expansion_toe3
+  name: Extensor Expansion of Toe 3
+  bone: extensor_expansion
+- id: extensor_expansion_toe4
+  name: Extensor Expansion of Toe 4
+  bone: extensor_expansion
+- id: extensor_expansion_toe5
+  name: Extensor Expansion of Toe 5
+  bone: extensor_expansion
+- id: metatarsal_bases_2_4
+  name: Bases of Metatarsals 2-4
+  bone: metatarsals
+- id: metatarsal_heads_2_5
+  name: Heads of Metatarsals 2-5
+  bone: metatarsals
+- id: tendons_flexor_digitorum_longus_2_5
+  name: Flexor Digitorum Longus Tendons to Digits 2-5
+  bone: tendons
+- id: tendons_flexor_digitorum_longus_digital_slips
+  name: Medial Digital Slips of FDL Tendons
+  bone: tendons

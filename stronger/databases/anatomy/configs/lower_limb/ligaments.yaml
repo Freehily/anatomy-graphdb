@@ -1,0 +1,19 @@
+ligaments:
+- id: iliofemoral_ligament
+  name: Iliofemoral Ligament
+  attachments:
+  - anterior_inferior_iliac_spine
+  - intertrochanteric_line
+  notes: Y-shaped ligament resisting hip extension and external rotation.
+- id: pubofemoral_ligament
+  name: Pubofemoral Ligament
+  attachments:
+  - pubic_superior_ram
+  - lesser_trochanter
+  notes: Limits excessive hip abduction and extension.
+- id: patellar_ligament
+  name: Patellar Ligament
+  attachments:
+  - apex_of_patella
+  - tibial_tuberosity
+  notes: Distal continuation of the quadriceps tendon anchoring patella to tibia.

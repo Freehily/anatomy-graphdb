@@ -1,0 +1,9 @@
+---
+# tendons.yaml describes abdominal aponeurotic tendons connecting muscles to the pubis.
+
+tendons:
+  - id: conjoint_tendon
+    name: Conjoint Tendon
+    origin_muscles: [internal_oblique, transversus_abdominis]
+    insertion: [pubic_crest, pubic_tubercle]
+    notes: Combined aponeurotic insertion reinforcing the medial posterior wall of the inguinal canal.

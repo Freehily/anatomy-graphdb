@@ -1,0 +1,69 @@
+---
+# actions.yaml defines primary head and neck movements.
+
+actions:
+  - id: neck_flexion
+    name: Neck Flexion
+    joint: cervical_spine
+    type: flexion
+    primary_movers: [sternocleidomastoid]
+
+  - id: neck_lateral_flexion
+    name: Neck Lateral Flexion
+    joint: cervical_spine
+    type: lateral_flexion
+    primary_movers: [sternocleidomastoid]
+
+  - id: head_rotation
+    name: Head Rotation
+    joint: atlanto_axial
+    type: rotation
+    primary_movers: [sternocleidomastoid]
+
+  - id: hyoid_elevation
+    name: Hyoid Elevation
+    joint: hyoid
+    type: elevation
+    primary_movers: [digastric, mylohyoid, stylohyoid, geniohyoid, suprahyoid_group]
+
+  - id: hyoid_depression
+    name: Hyoid Depression
+    joint: hyoid
+    type: depression
+    primary_movers: [sternohyoid, omohyoid, thyrohyoid, infrahyoid_group]
+
+  - id: jaw_depression
+    name: Mandibular Depression
+    joint: temporomandibular
+    type: depression
+    primary_movers: [digastric, mylohyoid]
+
+  - id: jaw_retraction
+    name: Mandibular Retraction
+    joint: temporomandibular
+    type: retraction
+    primary_movers: [geniohyoid]
+
+  - id: larynx_elevation
+    name: Larynx Elevation
+    joint: laryngeal
+    type: elevation
+    primary_movers: [thyrohyoid]
+
+  - id: larynx_depression
+    name: Larynx Depression
+    joint: laryngeal
+    type: depression
+    primary_movers: [sternothyroid]
+
+  - id: floor_of_mouth_elevation
+    name: Floor of Mouth Elevation
+    joint: suprahyoid
+    type: elevation
+    primary_movers: [mylohyoid, suprahyoid_group]
+
+  - id: cervical_fascia_tension
+    name: Cervical Fascia Tension
+    joint: cervical_fascia
+    type: tension
+    primary_movers: [omohyoid]

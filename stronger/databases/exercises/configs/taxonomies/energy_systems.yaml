@@ -1,0 +1,13 @@
+energy_systems:
+  - id: atp_pc
+    name: ATP-PC (Phosphagen) System
+    description: Short-duration, high-intensity efforts (0–10s); immediate energy via stored phosphagens.
+  - id: glycolytic
+    name: Anaerobic Glycolytic System
+    description: Moderate-duration, high-intensity efforts (10–120s); uses glucose without oxygen.
+  - id: oxidative
+    name: Aerobic (Oxidative) System
+    description: Long-duration, low to moderate-intensity work; relies on oxygen metabolism.
+  - id: mixed
+    name: Mixed Energy System
+    description: Combination of energy systems; typical in functional or circuit-based training.

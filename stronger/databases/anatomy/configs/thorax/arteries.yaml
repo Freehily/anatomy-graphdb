@@ -1,0 +1,44 @@
+arteries:
+- id: posterior_intercostal_arteries
+  name: Posterior Intercostal Arteries
+  branches_from: thoracic_aorta
+  supplies:
+  - external_intercostals
+  - internal_intercostals
+  - innermost_intercostals
+  - subcostals
+  - serratus_posterior_superior
+  - serratus_posterior_inferior
+  - levatores_costarum
+- id: anterior_intercostal_arteries
+  name: Anterior Intercostal Arteries
+  branches_from: internal_thoracic_artery
+  supplies:
+  - external_intercostals
+  - internal_intercostals
+  - innermost_intercostals
+  - transversus_thoracis
+- id: musculophrenic_artery
+  name: Musculophrenic Artery
+  branches_from: internal_thoracic_artery
+  supplies:
+  - diaphragm_costal
+  - diaphragm_sternal
+- id: superior_phrenic_artery
+  name: Superior Phrenic Artery
+  branches_from: thoracic_aorta
+  supplies:
+  - diaphragm_costal
+  - diaphragm_lumbar
+- id: inferior_phrenic_artery
+  name: Inferior Phrenic Artery
+  branches_from: abdominal_aorta
+  supplies:
+  - diaphragm_lumbar
+- id: subcostal_artery
+  name: Subcostal Artery
+  branches_from: thoracic_aorta
+  supplies:
+  - serratus_posterior_inferior
+  - subcostals
+  - diaphragm_costal

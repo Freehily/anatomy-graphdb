@@ -1,0 +1,84 @@
+---
+# muscles.yaml enumerates thoracic wall and respiratory muscles.
+
+muscles:
+  - id: external_intercostals
+    name: External Intercostals
+    group: Thoracic Wall Muscles
+    order: Thorax
+    heads: [external_intercostals]
+    insertion: [ribs_1_11_superior_border]
+    actions: [rib_elevation, thoracic_inspiration]
+    antagonists: [internal_intercostals]
+
+  - id: internal_intercostals
+    name: Internal Intercostals
+    group: Thoracic Wall Muscles
+    order: Thorax
+    heads: [internal_intercostals]
+    insertion: [ribs_1_11_inferior_border]
+    actions: [rib_depression, forced_expiration]
+    antagonists: [external_intercostals]
+
+  - id: innermost_intercostals
+    name: Innermost Intercostals
+    group: Thoracic Wall Muscles
+    order: Thorax
+    heads: [innermost_intercostals]
+    insertion: [ribs_1_11_inferior_border]
+    actions: [rib_depression, forced_expiration]
+    antagonists: []
+
+  - id: subcostals
+    name: Subcostals
+    group: Thoracic Wall Muscles
+    order: Thorax
+    heads: [subcostals]
+    insertion: [ribs_7_10_internal_surface]
+    actions: [rib_depression, forced_expiration]
+    antagonists: []
+
+  - id: transversus_thoracis
+    name: Transversus Thoracis
+    group: Thoracic Wall Muscles
+    order: Thorax
+    heads: [transversus_thoracis]
+    insertion: [costal_cartilages_2_6_inner_surface]
+    actions: [rib_depression, forced_expiration]
+    antagonists: []
+
+  - id: serratus_posterior_superior
+    name: Serratus Posterior Superior
+    group: Accessory Breathing Muscles
+    order: Thorax
+    heads: [serratus_posterior_superior]
+    insertion: [ribs_2_5_superior_border]
+    actions: [rib_elevation, thoracic_inspiration]
+    antagonists: [serratus_posterior_inferior]
+
+  - id: serratus_posterior_inferior
+    name: Serratus Posterior Inferior
+    group: Accessory Breathing Muscles
+    order: Thorax
+    heads: [serratus_posterior_inferior]
+    insertion: [ribs_9_12_inferior_border]
+    actions: [rib_depression, forced_expiration]
+    antagonists: [serratus_posterior_superior]
+
+  - id: levatores_costarum
+    name: Levatores Costarum
+    group: Accessory Breathing Muscles
+    order: Thorax
+    heads: [levatores_costarum]
+    insertion: [rib_angles_lower]
+    actions: [rib_elevation, thoracic_rotation]
+    antagonists: []
+
+  - id: diaphragm
+    name: Diaphragm
+    group: Primary Respiratory Muscle
+    order: Thorax
+    heads: [diaphragm_sternal, diaphragm_costal, diaphragm_lumbar]
+    insertion: [central_tendon_diaphragm]
+    actions: [thoracic_inspiration, abdominal_compression]
+    antagonists: []

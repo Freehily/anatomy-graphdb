@@ -1,0 +1,60 @@
+bones:
+- id: calcaneus
+  name: Calcaneus
+  region: Foot
+  attachments:
+  - calcaneal_tuberosity_medial_process
+  - calcaneal_tuberosity_lateral_process
+- id: metatarsal_1
+  name: 1st Metatarsal
+  region: Foot
+  attachments:
+  - medial_tubercle_1st_metatarsal
+  - base_1st_metatarsal
+- id: metatarsal_5
+  name: 5th Metatarsal
+  region: Foot
+  attachments:
+  - base_5th_metatarsal
+- id: proximal_phalanx_hallux
+  name: Proximal Phalanx of Hallux
+  region: Foot
+  attachments:
+  - medial_tubercle_proximal_phalanx_hallux
+  - lateral_tubercle_proximal_phalanx_hallux
+- id: phalanges_proximal
+  name: Proximal Phalanges 2-5
+  region: Foot
+  attachments:
+  - proximal_phalanges_2_5_medial
+  - proximal_phalanges_3_5_lateral
+- id: phalanges_middle
+  name: Middle Phalanges 2-5
+  region: Foot
+  attachments:
+  - middle_phalanges_2_5
+- id: tendons
+  name: Tendons
+  region: Foot
+  attachments:
+  - tendons_flexor_digitorum_longus_2_5
+  - tendons_flexor_digitorum_longus_digital_slips
+- id: fascia
+  name: Plantar Fascia
+  region: Connective Tissue
+  attachments:
+  - plantar_aponeurosis
+- id: extensor_expansion
+  name: Extensor Expansion (Digits 2-5)
+  region: Foot
+  attachments:
+  - extensor_expansion_toe2
+  - extensor_expansion_toe3
+  - extensor_expansion_toe4
+  - extensor_expansion_toe5
+- id: metatarsals
+  name: Metatarsals 2-4
+  region: Foot
+  attachments:
+  - metatarsal_bases_2_4
+  - metatarsal_heads_2_5
