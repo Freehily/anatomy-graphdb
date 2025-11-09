@@ -50,8 +50,8 @@ class DomainEntity:
 
     id: str
     name: str
-    description: str | None = None
-    extra: Dict[str, Any] = field(default_factory=dict, repr=False)
+    description: str | None = field(default=None, kw_only=True)
+    extra: Dict[str, Any] = field(default_factory=dict, repr=False, kw_only=True)
 
 
 @dataclass(slots=True)

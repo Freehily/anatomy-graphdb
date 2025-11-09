@@ -75,8 +75,14 @@ Endpoints:
 - `GET /anatomy/regions` – list available regions on disk.
 - `GET /anatomy/regions/{region}` – return the full typed model (bones, muscles, etc.).
 - `GET /anatomy/regions/{region}/sections/{section}` – fetch a single section such as `muscles` or `arteries`.
+- `GET /exercises/taxonomies` – enumerate taxonomy keys (difficulty, mechanics, etc.) and inspect them via `/{key}`.
+- `GET /exercises/templates` – list base exercise templates and their variants.
+- `GET /exercises/variants?body_region=upper_body` – stream concrete exercise variants (optionally filter by region) or fetch one via `/variants/{exercise_id}`. Use `/variants/{exercise_id}/equipment` for a focused equipment payload.
+- `GET /exercises/equipment` (or `/equipment/{equipment_id}/variants`) – browse available implements and the exercises that use them.
+- `GET /exercises/muscle-groups` – list high-level buckets, `/muscle-groups/{group_id}/muscles` to see the contributing aliases, and `/muscle-groups/{group_id}/variants` to see the matching exercises. Prefer `/muscles/{alias}/variants` for alias-level drilldowns.
+- `GET /exercises/muscle-aliases` – expose supporting metadata for UI builders.
 
-Each endpoint accepts `?include_shared=false` to exclude shared definitions.
+Anatomy endpoints accept `?include_shared=false` to exclude shared definitions.
 
 ### Tests
 

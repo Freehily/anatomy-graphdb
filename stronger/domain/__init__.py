@@ -16,6 +16,17 @@ from .anatomy import (
     Action,
     build_anatomy_model,
 )
+from .exercises import (
+    ExerciseDataset,
+    ExerciseVariant,
+    ExerciseTemplate,
+    EquipmentItem,
+    Taxonomy,
+    TaxonomyEntry,
+    MuscleAlias,
+    MuscleAliasTarget,
+    build_exercise_dataset,
+)
 
 __all__ = [
     "Action",
@@ -27,4 +38,13 @@ __all__ = [
     "MuscleHead",
     "Nerve",
     "build_anatomy_model",
+    "ExerciseDataset",
+    "ExerciseVariant",
+    "ExerciseTemplate",
+    "EquipmentItem",
+    "Taxonomy",
+    "TaxonomyEntry",
+    "MuscleAlias",
+    "MuscleAliasTarget",
+    "build_exercise_dataset",
 ]
