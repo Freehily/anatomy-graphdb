@@ -1,9 +1,0 @@
----
-# tendons.yaml documents shared tendinous structures of the thorax.
-
-tendons:
-  - id: diaphragm_central_tendon
-    name: Diaphragm Central Tendon
-    origin_muscles: [diaphragm]
-    insertion: [central_tendon_diaphragm]
-    notes: Aponeurotic centre where diaphragmatic muscle fibers converge.

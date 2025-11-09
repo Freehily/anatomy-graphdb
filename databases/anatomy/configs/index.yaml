@@ -1,8 +1,0 @@
----
-bones: bones.yaml
-attachment_points: attachment_points.yaml
-muscles: muscles.yaml
-muscle_heads: muscle_heads.yaml
-nerves: nerves.yaml
-arteries: arteries.yaml
-actions: actions.yaml
