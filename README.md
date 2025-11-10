@@ -1,4 +1,4 @@
-# stronger domain graph
+# Stronger Backend
 
 This repository is the canonical source of truth for the Stronger anatomy and exercise datasets plus the tooling that turns them into a Neo4j property graph. The upcoming API and frontend repos will import the Python package published here or consume the exported CSV artifacts.
 
@@ -98,15 +98,4 @@ poetry run pytest
 
 The test suite exercises the unified graph builder via subprocess to ensure CSV generation keeps working.
 
-## Consuming this repo from the API/frontend
 
-The future API repo can either:
-
-1. Declare a dependency on this package (e.g., via a git reference) and call into `stronger.databases.*` to fetch normalized data at runtime, **or**
-2. Pull the exported CSV artifacts from `data/neo4j/<region>` and hydrate its own backing store.
-
-The frontend repo would typically talk to the API, but it can also source static metadata (taxonomies, exercise templates) by reading the YAML configs here if needed.
-
-## FAQ: Do we need SQLAlchemy-style tables?
-
-No. The graph layer is modeled as dataclasses/YAML (see `ExerciseLoader`, `AnatomyLoader`, etc.) and ultimately materializes into Neo4j nodes/relationships. If you want strongly-typed helpers, prefer lightweight dataclasses or Pydantic models within this repo and keep relational ORMs such as SQLAlchemy inside the API service where a relational database actually exists.
