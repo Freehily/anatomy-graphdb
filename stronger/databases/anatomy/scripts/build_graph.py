@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -43,6 +44,38 @@ from stronger.databases.exercises.neo4j_artifacts import (
 from stronger.databases.exercises.neo4j_artifacts import (
     build_relationship_payloads as build_exercise_relationship_payloads,
 )
+
+
+def load_env_file(path: Path | None = None) -> None:
+    """
+    Populate os.environ with key/value pairs from a .env-style file if present.
+    Existing environment variables always win so callers can override secrets.
+    """
+
+    candidate = path or Path(".env")
+    if not candidate.exists():
+        return
+
+    try:
+        lines = candidate.read_text(encoding="utf-8").splitlines()
+    except OSError as exc:  # pragma: no cover - file system edge cases
+        print(f"Warning: unable to read {candidate}: {exc}", file=sys.stderr)
+        return
+
+    for raw_line in lines:
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+        if not key:
+            continue
+        if value and value[0] in {"'", '"'} and value[-1] == value[0]:
+            value = value[1:-1]
+        os.environ.setdefault(key, value)
 
 
 def list_regions(loader: AnatomyLoader) -> None:
@@ -360,14 +393,22 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--neo4j-uri",
-        default="bolt://localhost:7687",
+        default=os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
         help="Neo4j Bolt URI (bolt mode only).",
     )
-    parser.add_argument("--neo4j-user", help="Neo4j username (bolt mode).")
-    parser.add_argument("--neo4j-password", help="Neo4j password (bolt mode).")
+    parser.add_argument(
+        "--neo4j-user",
+        default=os.environ.get("NEO4J_USER"),
+        help="Neo4j username (bolt mode).",
+    )
+    parser.add_argument(
+        "--neo4j-password",
+        default=os.environ.get("NEO4J_PASSWORD"),
+        help="Neo4j password (bolt mode).",
+    )
     parser.add_argument(
         "--neo4j-database",
-        default=None,
+        default=os.environ.get("NEO4J_DB"),
         help="Neo4j database name (defaults to the server default).",
     )
     parser.add_argument(
@@ -399,6 +440,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    load_env_file()
     parser = build_parser()
     args = parser.parse_args(argv)
 
