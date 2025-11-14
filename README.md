@@ -97,9 +97,24 @@ poetry install --with api
 poetry run uvicorn stronger.api:app --reload
 ```
 
+The FastAPI service now queries Neo4j directly, so make sure the following
+environment variables (or a `.env` file at the repo root) point at your Aura
+instance before starting uvicorn:
+
+```dotenv
+NEO4J_URI=neo4j+s://<instance-id>.databases.neo4j.io
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=super-secret
+NEO4J_DB=neo4j  # optional, defaults to Aura's primary DB
+```
+
+Re-run `stronger/databases/anatomy/scripts/build_graph.py --mode bolt` after
+pulling these changes so the graph contains the new `region_slug`/`payload`
+properties and the extra exercise metadata the API expects.
+
 Endpoints:
 
-- `GET /anatomy/regions` – list available regions on disk.
+- `GET /anatomy/regions` – list available regions detected in Neo4j.
 - `GET /anatomy/regions/{region}` – return the full typed model (bones, muscles, etc.).
 - `GET /anatomy/regions/{region}/sections/{section}` – fetch a single section such as `muscles` or `arteries`.
 - `GET /exercises/taxonomies` – enumerate taxonomy keys (difficulty, mechanics, etc.) and inspect them via `/{key}`.

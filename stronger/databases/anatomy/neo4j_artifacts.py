@@ -9,7 +9,9 @@ disk or stream them directly into Neo4j.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, List, Sequence
+from typing import Dict, List, Mapping, Sequence
+
+import json
 
 from .loader import AnatomyRegion
 
@@ -25,6 +27,10 @@ def _join(values: Sequence[str]) -> str:
     return "|".join(str(v) for v in values) if values else ""
 
 
+def _dump_payload(payload: Mapping[str, object]) -> str:
+    return json.dumps(payload, separators=(",", ":"), sort_keys=True)
+
+
 def build_node_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
     attachment_points = region.require("attachment_points").items
     bones = region.require("bones").items
@@ -37,55 +43,85 @@ def build_node_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
     return [
         CsvArtifact(
             filename="nodes_bones.csv",
-            headers=["boneId:ID(Bone)", "name", "region:STRING"],
+            headers=["boneId:ID(Bone)", "name", "region:STRING", "region_slug", "payload"],
             rows=list(
                 {
                     "boneId:ID(Bone)": bone["id"],
                     "name": bone.get("name", ""),
                     "region:STRING": bone.get("region", region.region),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(bone),
                 }
                 for bone in bones
             ),
         ),
         CsvArtifact(
             filename="nodes_attachment_points.csv",
-            headers=["attachId:ID(AttachmentPoint)", "name", "structure:STRING"],
+            headers=[
+                "attachId:ID(AttachmentPoint)",
+                "name",
+                "structure:STRING",
+                "region_slug",
+                "payload",
+            ],
             rows=list(
                 {
                     "attachId:ID(AttachmentPoint)": ap["id"],
                     "name": ap.get("name", ""),
                     "structure:STRING": ap.get("bone", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(ap),
                 }
                 for ap in attachment_points
             ),
         ),
         CsvArtifact(
             filename="nodes_muscles.csv",
-            headers=["muscleId:ID(Muscle)", "name", "group", "order"],
+            headers=[
+                "muscleId:ID(Muscle)",
+                "name",
+                "group",
+                "order",
+                "region_slug",
+                "payload",
+            ],
             rows=list(
                 {
                     "muscleId:ID(Muscle)": muscle["id"],
                     "name": muscle.get("name", ""),
                     "group": muscle.get("group", ""),
                     "order": muscle.get("order", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(muscle),
                 }
                 for muscle in muscles
             ),
         ),
         CsvArtifact(
             filename="nodes_muscle_heads.csv",
-            headers=["headId:ID(MuscleHead)", "name"],
+            headers=["headId:ID(MuscleHead)", "name", "region_slug", "payload"],
             rows=list(
                 {
                     "headId:ID(MuscleHead)": head["id"],
                     "name": head.get("name", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(head),
                 }
                 for head in muscle_heads
             ),
         ),
         CsvArtifact(
             filename="nodes_nerves.csv",
-            headers=["nerveId:ID(Nerve)", "name", "derivations", "types", "pathway", "clinical"],
+            headers=[
+                "nerveId:ID(Nerve)",
+                "name",
+                "derivations",
+                "types",
+                "pathway",
+                "clinical",
+                "region_slug",
+                "payload",
+            ],
             rows=list(
                 {
                     "nerveId:ID(Nerve)": nerve["id"],
@@ -94,30 +130,43 @@ def build_node_artifacts(region: AnatomyRegion) -> List[CsvArtifact]:
                     "types": _join(nerve.get("type", [])),
                     "pathway": nerve.get("pathway", ""),
                     "clinical": nerve.get("clinical_significance", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(nerve),
                 }
                 for nerve in nerves
             ),
         ),
         CsvArtifact(
             filename="nodes_arteries.csv",
-            headers=["arteryId:ID(Artery)", "name"],
+            headers=["arteryId:ID(Artery)", "name", "region_slug", "payload"],
             rows=list(
                 {
                     "arteryId:ID(Artery)": artery["id"],
                     "name": artery.get("name", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(artery),
                 }
                 for artery in arteries
             ),
         ),
         CsvArtifact(
             filename="nodes_actions.csv",
-            headers=["actionId:ID(Action)", "name", "joint", "movement_type"],
+            headers=[
+                "actionId:ID(Action)",
+                "name",
+                "joint",
+                "movement_type",
+                "region_slug",
+                "payload",
+            ],
             rows=list(
                 {
                     "actionId:ID(Action)": action["id"],
                     "name": action.get("name", ""),
                     "joint": action.get("joint", ""),
                     "movement_type": action.get("type", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(action),
                 }
                 for action in actions
             ),
@@ -426,6 +475,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                 properties={
                     "name": bone.get("name", ""),
                     "region": bone.get("region", region.region),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(bone),
                 },
             )
         )
@@ -438,6 +489,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                 properties={
                     "name": ap.get("name", ""),
                     "structure": ap.get("bone", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(ap),
                 },
             )
         )
@@ -451,6 +504,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                     "name": muscle.get("name", ""),
                     "group": muscle.get("group", ""),
                     "order": muscle.get("order", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(muscle),
                 },
             )
         )
@@ -462,6 +517,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                 id=head["id"],
                 properties={
                     "name": head.get("name", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(head),
                 },
             )
         )
@@ -477,6 +534,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                     "types": nerve.get("type", []),
                     "pathway": nerve.get("pathway", ""),
                     "clinical": nerve.get("clinical_significance", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(nerve),
                 },
             )
         )
@@ -488,6 +547,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                 id=artery["id"],
                 properties={
                     "name": artery.get("name", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(artery),
                 },
             )
         )
@@ -501,6 +562,8 @@ def build_node_payloads(region: AnatomyRegion) -> List[NodePayload]:
                     "name": action.get("name", ""),
                     "joint": action.get("joint", ""),
                     "movement_type": action.get("type", ""),
+                    "region_slug": region.region,
+                    "payload": _dump_payload(action),
                 },
             )
         )

@@ -7,6 +7,7 @@ merged into Neo4j via the existing graph builder.
 
 from __future__ import annotations
 
+import json
 from typing import Dict, Iterable, List, Mapping, Sequence
 
 from stronger.databases.anatomy.neo4j_artifacts import CsvArtifact, NodePayload, RelationshipPayload
@@ -23,17 +24,60 @@ def _limb_value(entry: Dict[str, object], key: str) -> str | None:
     return value if isinstance(value, str) else None
 
 
+def _dump_payload(payload: Mapping[str, object]) -> str:
+    return json.dumps(payload, separators=(",", ":"), sort_keys=True)
+
+
+def _template_payload(entry) -> Mapping[str, object]:
+    return {
+        "id": entry.id,
+        "name": entry.name,
+        "aliases": list(entry.aliases or []),
+        "variants": list(entry.variants or []),
+    }
+
+
+def _variant_payload(variant: ExerciseVariant) -> Mapping[str, object]:
+    payload = dict(variant.raw)
+    payload.setdefault("id", variant.id)
+    payload.setdefault("name", variant.name)
+    payload.setdefault("template", variant.template)
+    payload.setdefault("body_region", variant.body_region)
+    return payload
+
+
+def _equipment_aliases(loader: ExerciseLoader, item_id: str, item_name: str) -> List[str]:
+    aliases: List[str] = []
+    for alias, canonical in loader.equipment_aliases.items():
+        if canonical != item_id:
+            continue
+        if alias == item_id or alias == item_name.lower():
+            continue
+        aliases.append(alias)
+    return aliases
+
+
+def _equipment_payload(item, loader: ExerciseLoader) -> Mapping[str, object]:
+    return {
+        "id": item.id,
+        "name": item.name,
+        "parent_id": item.parent_id,
+        "aliases": _equipment_aliases(loader, item.id, item.name),
+    }
+
+
 def build_node_artifacts(loader: ExerciseLoader) -> List[CsvArtifact]:
     artifacts: List[CsvArtifact] = []
 
     artifacts.append(
         CsvArtifact(
             filename="nodes_exercise_templates.csv",
-            headers=["templateId:ID(ExerciseTemplate)", "name"],
+            headers=["templateId:ID(ExerciseTemplate)", "name", "payload"],
             rows=[
                 {
                     "templateId:ID(ExerciseTemplate)": template.id,
                     "name": template.name,
+                    "payload": _dump_payload(_template_payload(template)),
                 }
                 for template in loader.templates.values()
             ],
@@ -66,6 +110,7 @@ def build_node_artifacts(loader: ExerciseLoader) -> List[CsvArtifact]:
                 "target_muscle_group",
                 "short_demo",
                 "long_demo",
+                "payload",
             ],
             rows=[
                 _exercise_row(variant)
@@ -77,12 +122,13 @@ def build_node_artifacts(loader: ExerciseLoader) -> List[CsvArtifact]:
     artifacts.append(
         CsvArtifact(
             filename="nodes_equipment.csv",
-            headers=["equipmentId:ID(Equipment)", "name", "category"],
+            headers=["equipmentId:ID(Equipment)", "name", "category", "payload"],
             rows=[
                 {
                     "equipmentId:ID(Equipment)": item.id,
                     "name": item.name,
                     "category": item.parent_id or "",
+                    "payload": _dump_payload(_equipment_payload(item, loader)),
                 }
                 for item in loader.equipment_items.values()
             ],
@@ -93,12 +139,15 @@ def build_node_artifacts(loader: ExerciseLoader) -> List[CsvArtifact]:
     artifacts.append(
         CsvArtifact(
             filename="nodes_movement_patterns.csv",
-            headers=["patternId:ID(MovementPattern)", "name", "description"],
+            headers=["patternId:ID(MovementPattern)", "name", "description", "payload"],
             rows=[
                 {
                     "patternId:ID(MovementPattern)": entry.id,
                     "name": entry.name,
                     "description": entry.description or "",
+                    "payload": _dump_payload(
+                        {"id": entry.id, "name": entry.name, "description": entry.description or ""}
+                    ),
                 }
                 for entry in sorted(movement_patterns.values(), key=lambda item: item.id)
             ],
@@ -109,15 +158,67 @@ def build_node_artifacts(loader: ExerciseLoader) -> List[CsvArtifact]:
     artifacts.append(
         CsvArtifact(
             filename="nodes_planes.csv",
-            headers=["planeId:ID(Plane)", "name", "description"],
+            headers=["planeId:ID(Plane)", "name", "description", "payload"],
             rows=[
                 {
                     "planeId:ID(Plane)": entry.id,
                     "name": entry.name,
                     "description": entry.description or "",
+                    "payload": _dump_payload(
+                        {"id": entry.id, "name": entry.name, "description": entry.description or ""}
+                    ),
                 }
                 for entry in sorted(planes.values(), key=lambda item: item.id)
             ],
+        )
+    )
+
+    taxonomy_rows: List[Dict[str, str]] = []
+    for key, entries in loader.taxonomies.items():
+        for entry in entries.values():
+            payload = {
+                "id": entry.id,
+                "name": entry.name,
+                "description": entry.description,
+                "aliases": list(entry.aliases or []),
+            }
+            taxonomy_rows.append(
+                {
+                    "taxonomyEntryId:ID(TaxonomyEntry)": f"{key}::{entry.id}",
+                    "taxonomy_key": key,
+                    "payload": _dump_payload(payload),
+                }
+            )
+    artifacts.append(
+        CsvArtifact(
+            filename="nodes_taxonomy_entries.csv",
+            headers=["taxonomyEntryId:ID(TaxonomyEntry)", "taxonomy_key", "payload"],
+            rows=taxonomy_rows,
+        )
+    )
+
+    alias_rows: List[Dict[str, str]] = []
+    for entry in loader.muscle_alias_entries:
+        alias = entry.get("alias") or entry.get("id")
+        if not alias:
+            continue
+        payload = {
+            "alias": alias,
+            "name": entry.get("name"),
+            "targets": entry.get("targets", []),
+        }
+        alias_rows.append(
+            {
+                "aliasId:ID(MuscleAlias)": str(alias),
+                "alias": str(alias),
+                "payload": _dump_payload(payload),
+            }
+        )
+    artifacts.append(
+        CsvArtifact(
+            filename="nodes_muscle_aliases.csv",
+            headers=["aliasId:ID(MuscleAlias)", "alias", "payload"],
+            rows=alias_rows,
         )
     )
 
@@ -210,7 +311,10 @@ def build_node_payloads(loader: ExerciseLoader) -> List[NodePayload]:
             NodePayload(
                 label="ExerciseTemplate",
                 id=template.id,
-                properties={"name": template.name},
+                properties={
+                    "name": template.name,
+                    "payload": _dump_payload(_template_payload(template)),
+                },
             )
         )
 
@@ -234,6 +338,7 @@ def build_node_payloads(loader: ExerciseLoader) -> List[NodePayload]:
                 properties={
                     "name": item.name,
                     "category": item.parent_id or "",
+                    "payload": _dump_payload(_equipment_payload(item, loader)),
                 },
             )
         )
@@ -247,6 +352,9 @@ def build_node_payloads(loader: ExerciseLoader) -> List[NodePayload]:
                 properties={
                     "name": entry.name,
                     "description": entry.description or "",
+                    "payload": _dump_payload(
+                        {"id": entry.id, "name": entry.name, "description": entry.description or ""}
+                    ),
                 },
             )
         )
@@ -260,6 +368,48 @@ def build_node_payloads(loader: ExerciseLoader) -> List[NodePayload]:
                 properties={
                     "name": entry.name,
                     "description": entry.description or "",
+                    "payload": _dump_payload(
+                        {"id": entry.id, "name": entry.name, "description": entry.description or ""}
+                    ),
+                },
+            )
+        )
+
+    for key, entries in loader.taxonomies.items():
+        for entry in entries.values():
+            payload = {
+                "id": entry.id,
+                "name": entry.name,
+                "description": entry.description,
+                "aliases": list(entry.aliases or []),
+            }
+            nodes.append(
+                NodePayload(
+                    label="TaxonomyEntry",
+                    id=f"{key}::{entry.id}",
+                    properties={
+                        "taxonomy_key": key,
+                        "payload": _dump_payload(payload),
+                    },
+                )
+            )
+
+    for entry in loader.muscle_alias_entries:
+        alias = entry.get("alias") or entry.get("id")
+        if not alias:
+            continue
+        payload = {
+            "alias": alias,
+            "name": entry.get("name"),
+            "targets": entry.get("targets", []),
+        }
+        nodes.append(
+            NodePayload(
+                label="MuscleAlias",
+                id=str(alias),
+                properties={
+                    "alias": str(alias),
+                    "payload": _dump_payload(payload),
                 },
             )
         )
@@ -350,7 +500,7 @@ def _exercise_row(variant: ExerciseVariant) -> Dict[str, str]:
     arms = limb_usage.get("arms", {}) if isinstance(limb_usage, Mapping) else {}
     legs = limb_usage.get("legs", {}) if isinstance(limb_usage, Mapping) else {}
 
-    return {
+    row = {
         "exerciseId:ID(Exercise)": variant.id,
         "name": variant.name,
         "templateId:STRING": variant.template,
@@ -374,6 +524,8 @@ def _exercise_row(variant: ExerciseVariant) -> Dict[str, str]:
         "short_demo": (raw.get("media", {}) or {}).get("short_demo", ""),
         "long_demo": (raw.get("media", {}) or {}).get("long_demo", ""),
     }
+    row["payload"] = _dump_payload(_variant_payload(variant))
+    return row
 
 
 def _equipment_relationship_rows(

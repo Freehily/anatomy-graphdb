@@ -12,8 +12,7 @@ from stronger.api.schemas.anatomy import (
     SectionResponse,
     RegionsResponse,
 )
-from stronger.api.services.anatomy import AnatomyService
-from stronger.databases.anatomy.loader import AnatomyConfigError
+from stronger.api.services.anatomy import AnatomyService, AnatomyServiceError
 
 router = APIRouter(prefix="/anatomy", tags=["anatomy"])
 
@@ -34,7 +33,7 @@ def read_region(
 ) -> AnatomyModelResponse:
     try:
         model = service.get_region(region, include_shared=include_shared)
-    except AnatomyConfigError as exc:
+    except AnatomyServiceError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     return AnatomyModelResponse.model_validate(model)
 
@@ -55,7 +54,7 @@ def read_section(
             section.value,
             include_shared=include_shared,
         )
-    except AnatomyConfigError as exc:
+    except AnatomyServiceError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     model_cls = SECTION_MODEL_MAP[section]

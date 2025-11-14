@@ -77,6 +77,7 @@ class ExerciseLoader:
         self.equipment_aliases: Dict[str, str] = {}
         self.exercise_variants: List[ExerciseVariant] = []
         self.muscle_aliases: Dict[str, List[Dict[str, str]]] = {}
+        self.muscle_alias_entries: List[Dict[str, object]] = []
 
     def load(self) -> None:
         self._load_taxonomies()
@@ -141,17 +142,20 @@ class ExerciseLoader:
         alias_config = self.index.get("anatomy_aliases", {}).get("muscles")
         if not alias_config:
             self.muscle_aliases = {}
+            self.muscle_alias_entries = []
             return
         path = self.root / alias_config
         data = _load_yaml(path)
         alias_map: Dict[str, List[Dict[str, str]]] = {}
-        for entry in data.get("muscles", []):
+        entries = data.get("muscles", []) or []
+        for entry in entries:
             alias = entry.get("alias") or entry.get("id")
             targets = entry.get("targets", [])
             if not alias or not targets:
                 continue
             alias_map[alias.lower()] = targets
         self.muscle_aliases = alias_map
+        self.muscle_alias_entries = entries
 
     def _load_templates(self) -> None:
         templates_path = self.root / self.index["exercises"]["templates"]
