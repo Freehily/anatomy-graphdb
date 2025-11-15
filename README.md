@@ -1,13 +1,13 @@
 # Stronger Backend
 
-This repository is the canonical source of truth for the Stronger anatomy and exercise datasets plus the tooling that turns them into a Neo4j property graph. The upcoming API and frontend repos will import the Python package published here or consume the exported CSV artifacts.
+This repository is the canonical source of truth for the Stronger anatomy dataset (served via Neo4j) and the exercise dataset that will power the relational training backend. The upcoming API and frontend repos will import the Python package published here or consume the exported CSV artifacts.
 
 ## What lives here
 
 - `stronger/databases/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions. Includes validators, SVG references, and Neo4j exporters.
-- `stronger/databases/exercises` – taxonomy definitions, canonical exercise templates, and the CSV→YAML converter for training movements.
-- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries.
-- `stronger/api` – a thin FastAPI layer that exposes the domain objects over HTTP for prototyping or lightweight consumers.
+- `stronger/databases/exercises` – taxonomy definitions, canonical exercise templates, and the CSV→YAML converter for training movements destined for the relational store.
+- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger/domain/anatomy`, exercise models in `stronger/domain/exercises`.
+- `stronger/api` – a thin FastAPI layer that exposes the anatomy graph over HTTP for prototyping or lightweight consumers.
 - `stronger/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
 - `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
 
@@ -32,7 +32,7 @@ poetry run python stronger/databases/exercises/scripts/validate_configs.py
 
 ### Build/validate the anatomy graph
 
-Export anatomy (and, by default, exercise) data for one or more regions:
+Export anatomy data for one or more regions:
 
 ```bash
 poetry run python stronger/databases/anatomy/scripts/build_graph.py \
@@ -44,8 +44,7 @@ poetry run python stronger/databases/anatomy/scripts/build_graph.py \
 Flags worth knowing:
 
 - `--region all` or `--region upper_limb,lower_limb` to stitch multiple regions together.
-- `--no-exercises` if you only need the anatomy portion.
-- `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`).
+- `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`). The script automatically loads a `.env` file at the repo root, so you can simply set `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`, and `NEO4J_DB` once and omit the flags.
 
 ### End-to-end Neo4j workflow
 
@@ -109,20 +108,15 @@ NEO4J_DB=neo4j  # optional, defaults to Aura's primary DB
 ```
 
 Re-run `stronger/databases/anatomy/scripts/build_graph.py --mode bolt` after
-pulling these changes so the graph contains the new `region_slug`/`payload`
-properties and the extra exercise metadata the API expects.
+pulling these changes so the graph contains the latest `region_slug`/`payload`
+properties the API expects. Because the CLI auto-loads `.env`, keeping Aura credentials in that file is enough for future refreshes.
 
 Endpoints:
 
 - `GET /anatomy/regions` – list available regions detected in Neo4j.
 - `GET /anatomy/regions/{region}` – return the full typed model (bones, muscles, etc.).
 - `GET /anatomy/regions/{region}/sections/{section}` – fetch a single section such as `muscles` or `arteries`.
-- `GET /exercises/taxonomies` – enumerate taxonomy keys (difficulty, mechanics, etc.) and inspect them via `/{key}`.
-- `GET /exercises/templates` – list base exercise templates and their variants.
-- `GET /exercises/variants?body_region=upper_body` – stream concrete exercise variants (optionally filter by region) or fetch one via `/variants/{exercise_id}`. Use `/variants/{exercise_id}/equipment` for a focused equipment payload.
-- `GET /exercises/equipment` (or `/equipment/{equipment_id}/variants`) – browse available implements and the exercises that use them.
-- `GET /exercises/muscle-groups` – list high-level buckets, `/muscle-groups/{group_id}/muscles` to see the contributing aliases, and `/muscle-groups/{group_id}/variants` to see the matching exercises. Prefer `/muscles/{alias}/variants` for alias-level drilldowns.
-- `GET /exercises/muscle-aliases` – expose supporting metadata for UI builders.
+- (Coming soon) Training/exercise endpoints will live in the relational service once that API is online.
 
 Anatomy endpoints accept `?include_shared=false` to exclude shared definitions.
 
@@ -132,10 +126,16 @@ Anatomy endpoints accept `?include_shared=false` to exclude shared definitions.
 - Run `poetry run python scripts/normalise_svgs.py` to copy/rename everything into `svgs/muscles/<muscle_id>/<view>.svg` and emit `svgs/manifest.json`.
 - The manifest is keyed by anatomy ID and records the relative path, source filename, and optional variant (e.g., `rectus_abdominis` has both `front.svg` and `front_lower.svg`). This lets the API or frontend inject artwork without guessing filenames.
 
+### Relational backend prep
+
+- Exercise configs remain in `stronger/databases/exercises`, and typed helpers now reside in `stronger/domain/exercises`. This keeps the dataset ready for a relational import pipeline (e.g., Postgres migrations/seeds).
+- The Neo4j graph, API services, and CLI have been trimmed to anatomy-only, so the upcoming relational service can own exercise endpoints without straddling two datastores.
+- Suggested next steps: finalise the relational schema, write loaders that map `ExerciseDataset` objects into tables, and stand up a new FastAPI module dedicated to the relational backend.
+
 ### Tests
 
 ```bash
 poetry run pytest
 ```
 
-The test suite exercises the unified graph builder via subprocess to ensure CSV generation keeps working.
+The test suite exercises the anatomy graph builder via subprocess to ensure CSV generation keeps working.

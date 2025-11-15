@@ -44,11 +44,6 @@ neo4j-import: neo4j-stop
 			--nodes=Nerve=/import/data/nodes_nerves.csv \
 			--nodes=Artery=/import/data/nodes_arteries.csv \
 			--nodes=Action=/import/data/nodes_actions.csv \
-			--nodes=Exercise=/import/data/nodes_exercises.csv \
-			--nodes=ExerciseTemplate=/import/data/nodes_exercise_templates.csv \
-			--nodes=Equipment=/import/data/nodes_equipment.csv \
-			--nodes=MovementPattern=/import/data/nodes_movement_patterns.csv \
-			--nodes=Plane=/import/data/nodes_planes.csv \
 			--relationships=/import/data/rels_bone_attachment.csv \
 			--relationships=/import/data/rels_muscle_head.csv \
 			--relationships=/import/data/rels_muscle_insertion.csv \
@@ -63,18 +58,7 @@ neo4j-import: neo4j-stop
 			--relationships=/import/data/rels_artery_supplies_head.csv \
 			--relationships=/import/data/rels_artery_branches.csv \
 			--relationships=/import/data/rels_action_primary_muscle.csv \
-			--relationships=/import/data/rels_action_primary_head.csv \
-			--relationships=/import/data/rels_exercise_primary_target_muscle.csv \
-			--relationships=/import/data/rels_exercise_primary_target_muscle_head.csv \
-			--relationships=/import/data/rels_exercise_secondary_target_muscle.csv \
-			--relationships=/import/data/rels_exercise_secondary_target_muscle_head.csv \
-			--relationships=/import/data/rels_exercise_tertiary_target_muscle.csv \
-			--relationships=/import/data/rels_exercise_tertiary_target_muscle_head.csv \
-			--relationships=/import/data/rels_exercise_movement_pattern.csv \
-			--relationships=/import/data/rels_exercise_plane.csv \
-			--relationships=/import/data/rels_exercise_uses_primary.csv \
-			--relationships=/import/data/rels_exercise_uses_secondary.csv \
-			--relationships=/import/data/rels_template_variants.csv
+			--relationships=/import/data/rels_action_primary_head.csv
 
 neo4j-run: neo4j-stop
 	$(DOCKER) run -d \

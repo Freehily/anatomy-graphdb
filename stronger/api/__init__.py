@@ -12,7 +12,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from stronger.api.routers.anatomy import router as anatomy_router
-from stronger.api.routers.exercises import router as exercises_router
 
 
 def _cors_origins() -> list[str]:
@@ -29,7 +28,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="Stronger Domain API",
         version="0.1.0",
-        description="Read-only endpoints that expose the curated anatomy and exercise datasets.",
+        description="Read-only endpoints that expose the curated anatomy dataset backed by Neo4j.",
     )
     app.add_middleware(
         CORSMiddleware,
@@ -38,7 +37,6 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     app.include_router(anatomy_router)
-    app.include_router(exercises_router)
     return app
 
 

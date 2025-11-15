@@ -31,19 +31,6 @@ from stronger.databases.anatomy.neo4j_artifacts import (
     build_node_payloads,
     build_relationship_payloads,
 )
-from stronger.databases.exercises.loader import ExerciseConfigError, ExerciseLoader
-from stronger.databases.exercises.neo4j_artifacts import (
-    build_node_artifacts as build_exercise_node_artifacts,
-)
-from stronger.databases.exercises.neo4j_artifacts import (
-    build_node_payloads as build_exercise_node_payloads,
-)
-from stronger.databases.exercises.neo4j_artifacts import (
-    build_relationship_artifacts as build_exercise_relationship_artifacts,
-)
-from stronger.databases.exercises.neo4j_artifacts import (
-    build_relationship_payloads as build_exercise_relationship_payloads,
-)
 
 
 def load_env_file(path: Path | None = None) -> None:
@@ -255,10 +242,8 @@ def write_artifact(artifact: CsvArtifact, base_dir: Path) -> Path:
     return target
 
 
-def export_csv(region: AnatomyRegion, output_dir: Path, extra_artifacts: List[CsvArtifact] | None = None) -> None:
+def export_csv(region: AnatomyRegion, output_dir: Path) -> None:
     artifacts = build_all_artifacts(region)
-    if extra_artifacts:
-        artifacts.extend(extra_artifacts)
     for artifact in artifacts:
         write_artifact(artifact, output_dir)
     print(f"CSV export complete. {len(artifacts)} files written to {output_dir.resolve()}")
@@ -272,8 +257,6 @@ def _chunk(sequence: Sequence, size: int = 500) -> Iterable[Sequence]:
 def ingest_via_neo4j(
     region: AnatomyRegion,
     args: argparse.Namespace,
-    extra_nodes: List[NodePayload] | None = None,
-    extra_relationships: List[RelationshipPayload] | None = None,
 ) -> None:
     try:
         from neo4j import GraphDatabase
@@ -291,11 +274,6 @@ def ingest_via_neo4j(
 
     node_payloads = build_node_payloads(region)
     relationship_payloads = build_relationship_payloads(region)
-
-    if extra_nodes:
-        node_payloads.extend(extra_nodes)
-    if extra_relationships:
-        relationship_payloads.extend(extra_relationships)
 
     def _sanitize_props(props: Dict[str, object]) -> Dict[str, object]:
         return {key: value for key, value in props.items() if value not in (None, "", [])}
@@ -422,19 +400,6 @@ def build_parser() -> argparse.ArgumentParser:
         default=500,
         help="Number of records per write transaction when ingesting via bolt.",
     )
-    parser.add_argument(
-        "--include-exercises",
-        dest="include_exercises",
-        action="store_true",
-        default=True,
-        help="Include exercise templates/variants/equipment in the export (default: True).",
-    )
-    parser.add_argument(
-        "--no-exercises",
-        dest="include_exercises",
-        action="store_false",
-        help="Skip exercise data entirely.",
-    )
 
     return parser
 
@@ -467,11 +432,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     except AnatomyConfigError as exc:
         parser.error(str(exc))
 
-    exercise_loader: ExerciseLoader | None = None
-    exercise_csv_artifacts: List[CsvArtifact] = []
-    exercise_node_payloads: List[NodePayload] = []
-    exercise_relationship_payloads: List[RelationshipPayload] = []
-
     muscle_labels: Dict[str, str] = {}
     if "muscles" in region.sections:
         for item in region.require("muscles").items:
@@ -489,48 +449,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         print("Validation passed.")
 
-    if args.include_exercises:
-        try:
-            exercise_loader = ExerciseLoader()
-            exercise_loader.load()
-        except ExerciseConfigError as exc:
-            parser.error(str(exc))
-
-        if args.validate and exercise_loader:
-            exercise_errors = exercise_loader.validate()
-            if exercise_errors:
-                print("Exercise validation failed:")
-                for error in exercise_errors:
-                    print(f"  - {error}")
-                return 1
-            print("Exercise validation passed.")
-
-        if exercise_loader:
-            try:
-                exercise_csv_artifacts.extend(build_exercise_node_artifacts(exercise_loader))
-                exercise_csv_artifacts.extend(
-                    build_exercise_relationship_artifacts(exercise_loader, muscle_labels)
-                )
-                exercise_node_payloads = build_exercise_node_payloads(exercise_loader)
-                exercise_relationship_payloads = build_exercise_relationship_payloads(
-                    exercise_loader, muscle_labels
-                )
-            except ValueError as exc:
-                parser.error(str(exc))
-
     if args.mode == "csv":
         if args.output.is_dir():
             output_dir = args.output / region.region
         else:
             output_dir = args.output
-        export_csv(region, output_dir, exercise_csv_artifacts)
+        export_csv(region, output_dir)
     else:
-        ingest_via_neo4j(
-            region,
-            args,
-            extra_nodes=exercise_node_payloads,
-            extra_relationships=exercise_relationship_payloads,
-        )
+        ingest_via_neo4j(region, args)
 
     return 0
 
