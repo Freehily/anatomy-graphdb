@@ -1,0 +1,70 @@
+muscle_groups:
+
+  entries:
+
+  # Upper Body
+  - slug: chest
+    name: Chest
+
+  - slug: shoulders
+    name: Shoulders
+
+  - slug: upper_back
+    name: Upper Back
+
+  - slug: lats
+    name: Lats
+
+  - slug: biceps
+    name: Biceps
+
+  - slug: triceps
+    name: Triceps
+
+  - slug: forearms
+    name: Forearms
+
+    # Core
+  - slug: abs
+    name: Abs
+
+  - slug: obliques
+    name: Obliques
+
+    # Lower Body
+  - slug: lower_back
+    name: Lower Back
+
+  - slug: quads
+    name: Quads
+
+  - slug: hamstrings
+    name: Hamstrings
+
+  - slug: glutes
+    name: Glutes
+
+  - slug: calves
+    name: Calves
+
+  - slug: hip_flexors
+    name: Hip Flexors
+
+  - slug: adductors
+    name: Adductors
+
+    # Full Body / Other
+  - slug: full_body
+    name: Full Body
+
+  - slug: grip
+    name: Grip
+
+  - slug: neck
+    name: Neck
+
+  - slug: pelvic_floor
+    name: Pelvis / Floor
+
+  - slug: respiratory
+    name: Respiratory / Breathing

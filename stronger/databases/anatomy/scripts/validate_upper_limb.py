@@ -28,7 +28,9 @@ class ValidationError:
         return f"[{self.section}] {self.context}: {values}"
 
 
-CONFIG_DIR = Path(__file__).resolve().parents[1] / "configs" / "upper_limb"
+CONFIG_DIR = (
+    Path(__file__).resolve().parents[4] / "config" / "anatomy" / "upper_limb"
+)
 FILES = {
     "attachment_points": "attachment_points.yaml",
     "bones": "bones.yaml",

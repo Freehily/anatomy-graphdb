@@ -1,17 +1,15 @@
 # Stronger Backend
 
-This repository is the canonical source of truth for the Stronger anatomy dataset (served via Neo4j) and the exercise dataset that will power the relational training backend. The upcoming API and frontend repos will import the Python package published here or consume the exported CSV artifacts.
+This repository is the canonical source of truth for the Stronger anatomy dataset (served via Neo4j). Downstream services import the Python package published here or consume the exported CSV artifacts.
 
 ## What lives here
 
-- `stronger/databases/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions. Includes validators, SVG references, and Neo4j exporters.
-- `stronger/databases/exercises` – taxonomy definitions, canonical exercise templates, and the CSV→YAML converter for training movements destined for the relational store.
-- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger/domain/anatomy`, exercise models in `stronger/domain/exercises`.
-- `stronger/api` – a thin FastAPI layer that exposes the anatomy graph over HTTP for prototyping or lightweight consumers.
+- `config/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions (plus shared lookups) consumed by the Neo4j builder.
+- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger/domain/anatomy`.
 - `stronger/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
 - `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
 
-This repository remains the canonical domain+data module; the bundled API is optional and intentionally thin so other services can import and run it without copying code.
+This repository remains the canonical domain+data module for anatomy.
 
 ## Getting started
 
@@ -20,15 +18,6 @@ poetry install
 ```
 
 All commands below assume the virtual environment created by Poetry.
-
-### Refresh exercise configs
-
-If you have an updated `data/exercise_data_raw.csv`, rebuild the YAML configs:
-
-```bash
-poetry run python stronger/databases/exercises/scripts/build_dataset.py --csv data/exercise_data_raw.csv
-poetry run python stronger/databases/exercises/scripts/validate_configs.py
-```
 
 ### Build/validate the anatomy graph
 
@@ -87,50 +76,11 @@ You can skip Docker entirely and push the graph into a free AuraDB instance with
 
 The script batches and upserts nodes/relationships via Bolt just like a local instance. `--wipe-database` clears the graph first so you always land in a known state, and `--validate` catches missing references before any writes. You can omit `--wipe-database` once Aura already has the graph and you only need incremental updates. Pass `--neo4j-uri/--neo4j-user/...` explicitly only when you want to override what’s in `.env`/your environment.
 
-### Run the optional API
-
-Install the API dependency group and boot uvicorn:
-
-```bash
-poetry install --with api
-poetry run uvicorn stronger.api:app --reload
-```
-
-The FastAPI service now queries Neo4j directly, so make sure the following
-environment variables (or a `.env` file at the repo root) point at your Aura
-instance before starting uvicorn:
-
-```dotenv
-NEO4J_URI=neo4j+s://<instance-id>.databases.neo4j.io
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=super-secret
-NEO4J_DB=neo4j  # optional, defaults to Aura's primary DB
-```
-
-Re-run `stronger/databases/anatomy/scripts/build_graph.py --mode bolt` after
-pulling these changes so the graph contains the latest `region_slug`/`payload`
-properties the API expects. Because the CLI auto-loads `.env`, keeping Aura credentials in that file is enough for future refreshes.
-
-Endpoints:
-
-- `GET /anatomy/regions` – list available regions detected in Neo4j.
-- `GET /anatomy/regions/{region}` – return the full typed model (bones, muscles, etc.).
-- `GET /anatomy/regions/{region}/sections/{section}` – fetch a single section such as `muscles` or `arteries`.
-- (Coming soon) Training/exercise endpoints will live in the relational service once that API is online.
-
-Anatomy endpoints accept `?include_shared=false` to exclude shared definitions.
-
 ### Muscle SVG assets
 
 - Raw vendor art lives under `svgs/svg_front_muscles` and `svgs/svg_rear_muscles`.
 - Run `poetry run python scripts/normalise_svgs.py` to copy/rename everything into `svgs/muscles/<muscle_id>/<view>.svg` and emit `svgs/manifest.json`.
 - The manifest is keyed by anatomy ID and records the relative path, source filename, and optional variant (e.g., `rectus_abdominis` has both `front.svg` and `front_lower.svg`). This lets the API or frontend inject artwork without guessing filenames.
-
-### Relational backend prep
-
-- Exercise configs remain in `stronger/databases/exercises`, and typed helpers now reside in `stronger/domain/exercises`. This keeps the dataset ready for a relational import pipeline (e.g., Postgres migrations/seeds).
-- The Neo4j graph, API services, and CLI have been trimmed to anatomy-only, so the upcoming relational service can own exercise endpoints without straddling two datastores.
-- Suggested next steps: finalise the relational schema, write loaders that map `ExerciseDataset` objects into tables, and stand up a new FastAPI module dedicated to the relational backend.
 
 ### Tests
 

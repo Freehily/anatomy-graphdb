@@ -4,10 +4,10 @@ Utilities for loading anatomy configuration data from YAML files.
 The loader understands the repository layout:
 
 ```
-configs/
+config
     index.yaml        # maps logical sections -> filenames
     <region>/*.yaml   # region-specific definitions
-    shared/*.yaml     # shared entities available to every region
+    global/*.yaml     # shared entities available to every region
 ```
 
 The goal is to provide a reusable API that returns a structured view of
@@ -23,7 +23,7 @@ from typing import Dict, Iterable, List, Mapping, MutableMapping, Optional, Sequ
 
 import yaml
 
-_DEFAULT_ROOT = Path(__file__).resolve().parent / "configs"
+_DEFAULT_ROOT = Path(__file__).resolve().parents[3] / "config"
 
 
 class AnatomyConfigError(RuntimeError):
@@ -88,6 +88,8 @@ class AnatomyLoader:
         self.root = root or _DEFAULT_ROOT
         if not self.root.exists():
             raise AnatomyConfigError(f"Configuration root '{self.root}' does not exist")
+        self.global_root = self.root / "global"
+        self._reserved_dirs = {"global", "body"}
         self._index = self._load_index()
 
     def _load_index(self) -> Mapping[str, str]:
@@ -98,9 +100,15 @@ class AnatomyLoader:
         return {str(section): str(filename) for section, filename in data.items()}
 
     def available_regions(self) -> Sequence[str]:
-        return sorted(
-            entry.name for entry in self.root.iterdir() if entry.is_dir() and entry.name not in {"shared"}
-        )
+        regions: List[str] = []
+        for entry in self.root.iterdir():
+            if not entry.is_dir():
+                continue
+            name = entry.name
+            if name in self._reserved_dirs:
+                continue
+            regions.append(name)
+        return sorted(regions)
 
     def load_region(self, region: str, include_shared: bool = True) -> AnatomyRegion:
         region_dir = self.root / region
@@ -108,7 +116,7 @@ class AnatomyLoader:
             raise AnatomyConfigError(f"Region '{region}' not found under {self.root}")
 
         sections: Dict[str, SectionData] = {}
-        shared_dir = self.root / "shared"
+        shared_dir = self.global_root
 
         for section, filename in self._index.items():
             region_path = region_dir / filename

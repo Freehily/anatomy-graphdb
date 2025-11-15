@@ -344,7 +344,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Load anatomy YAML configs and export to Neo4j artifacts or a live database."
     )
-    parser.add_argument("--region", "-r", default="upper_limb", help="Region to load (folder under configs/).")
+    parser.add_argument(
+        "--region",
+        "-r",
+        default="upper_limb",
+        help="Region to load (folder under config/anatomy/<region>).",
+    )
     parser.add_argument(
         "--output",
         "-o",
