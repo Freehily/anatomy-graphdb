@@ -1,5 +1,5 @@
 """
-Convert the raw exercise CSV into normalized YAML configs that match the new
+Convert the raw exercise CSV into normalised YAML configs that match the new
 folder structure (`configs/index.yaml`).
 
 Example:
@@ -82,7 +82,7 @@ def read_rows(csv_path: Path, limit: int | None) -> List[Mapping[str, str]]:
     return rows
 
 
-def normalize_value(value: str | None, mapping: Dict[str, str], *, default: str | None = None) -> str | None:
+def normalise_value(value: str | None, mapping: Dict[str, str], *, default: str | None = None) -> str | None:
     value = (value or "").strip()
     if not value:
         return default
@@ -156,7 +156,7 @@ def build_dataset(rows: Sequence[Mapping[str, str]], args: argparse.Namespace) -
 
         def map_value(key: str, mapping_name: str, default: str | None = None) -> str | None:
             mapping = taxonomy_maps[mapping_name]
-            return normalize_value(row.get(key), mapping, default=default)
+            return normalise_value(row.get(key), mapping, default=default)
 
         level = map_value("difficulty_level", "difficulty")
         body_region = map_value("body_region", "body_region")
@@ -179,7 +179,7 @@ def build_dataset(rows: Sequence[Mapping[str, str]], args: argparse.Namespace) -
                 raw_value = row.get(f"{prefix}_{idx}")
                 if not raw_value:
                     continue
-                mapped = normalize_value(raw_value, taxonomy_maps[mapping_name])
+                mapped = normalise_value(raw_value, taxonomy_maps[mapping_name])
                 if mapped:
                     values.append(mapped)
             return values
@@ -187,7 +187,7 @@ def build_dataset(rows: Sequence[Mapping[str, str]], args: argparse.Namespace) -
         movement_patterns = collect_patterns("movement_pattern", "movement_patterns")
         planes = collect_patterns("plane_of_motion", "planes")
 
-        def normalize_equipment(raw_value: str) -> str | None:
+        def normalise_equipment(raw_value: str) -> str | None:
             raw_value = (raw_value or "").strip()
             if not raw_value:
                 return None
@@ -197,13 +197,13 @@ def build_dataset(rows: Sequence[Mapping[str, str]], args: argparse.Namespace) -
             return slug
 
         primary_equipment = [
-            eq for eq in (normalize_equipment(value) for value in row["primary_equipment"].split("/")) if eq
+            eq for eq in (normalise_equipment(value) for value in row["primary_equipment"].split("/")) if eq
         ]
         secondary_equipment = [
-            eq for eq in (normalize_equipment(value) for value in row["secondary_equipment"].split("/")) if eq
+            eq for eq in (normalise_equipment(value) for value in row["secondary_equipment"].split("/")) if eq
         ]
 
-        target_group = normalize_value(row.get("target_muscle_group"), muscle_group_map)
+        target_group = normalise_value(row.get("target_muscle_group"), muscle_group_map)
 
         def capture_muscle(field: str) -> List[str]:
             value = (row.get(field) or "").strip()

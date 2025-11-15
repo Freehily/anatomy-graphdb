@@ -21,7 +21,7 @@ def _extra(payload: Mapping[str, Any], consumed: Sequence[str]) -> Dict[str, Any
     return {key: value for key, value in payload.items() if key not in consumed_keys}
 
 
-def _normalize_roles(payload: Mapping[str, Any]) -> Dict[str, List[str]]:
+def _normalise_roles(payload: Mapping[str, Any]) -> Dict[str, List[str]]:
     return {
         "prime": _as_list(payload.get("prime")),
         "secondary": _as_list(payload.get("secondary")),
@@ -29,7 +29,7 @@ def _normalize_roles(payload: Mapping[str, Any]) -> Dict[str, List[str]]:
     }
 
 
-def _normalize_equipment(payload: Mapping[str, Any]) -> Dict[str, Any]:
+def _normalise_equipment(payload: Mapping[str, Any]) -> Dict[str, Any]:
     return {
         "primary": _as_list(payload.get("primary")),
         "secondary": _as_list(payload.get("secondary")),
@@ -38,7 +38,7 @@ def _normalize_equipment(payload: Mapping[str, Any]) -> Dict[str, Any]:
     }
 
 
-def _normalize_media(payload: Mapping[str, Any]) -> Dict[str, Any]:
+def _normalise_media(payload: Mapping[str, Any]) -> Dict[str, Any]:
     return {
         "short_demo": payload.get("short_demo"),
         "long_demo": payload.get("long_demo"),
@@ -96,9 +96,9 @@ def _build_variant(payload: Mapping[str, Any]) -> Dict[str, Any]:
         "movement_patterns": _as_list(payload.get("movement_patterns")),
         "planes_of_motion": _as_list(payload.get("planes_of_motion")),
         "target_muscle_group": payload.get("target_muscle_group"),
-        "muscles": _normalize_roles(payload.get("muscles", {})),
-        "equipment": _normalize_equipment(payload.get("equipment", {})),
-        "media": _normalize_media(payload.get("media", {})),
+        "muscles": _normalise_roles(payload.get("muscles", {})),
+        "equipment": _normalise_equipment(payload.get("equipment", {})),
+        "media": _normalise_media(payload.get("media", {})),
         "extra": _extra(payload, consumed),
     }
 

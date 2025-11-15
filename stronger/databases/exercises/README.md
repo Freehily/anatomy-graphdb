@@ -29,7 +29,7 @@ Flags:
 
 Running the script will:
 
-- Parse the CSV, normalize every taxonomy reference via the YAML vocabularies,
+- Parse the CSV, normalise every taxonomy reference via the YAML vocabularies,
   and shard exercises into `core`, `upper_body`, `lower_body`, and `full_body`
   files.
 - Generate `exercises/templates.yaml` with template aliases + variant IDs.

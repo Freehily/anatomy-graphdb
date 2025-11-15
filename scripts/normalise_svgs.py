@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """
-Normalize legacy SVG muscle assets so their filenames line up with anatomy IDs.
+normalise legacy SVG muscle assets so their filenames line up with anatomy IDs.
 
 Usage:
-    poetry run python scripts/normalize_svgs.py
+    poetry run python scripts/normalise_svgs.py
 
 The script copies every SVG under `svgs/svg_{front,rear}_muscles/` into
 `svgs/muscles/<muscle_id>/<view>.svg` (optionally appending `_<variant>` when a
@@ -308,7 +308,7 @@ def _rel_path(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
 
 
-def normalize() -> Dict[str, List[Dict[str, str | None]]]:
+def normalise() -> Dict[str, List[Dict[str, str | None]]]:
     manifest: Dict[str, List[Dict[str, str | None]]] = {}
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
@@ -336,8 +336,8 @@ def normalize() -> Dict[str, List[Dict[str, str | None]]]:
 
 
 def ensure_complete(covered: Iterable[str]) -> None:
-    normalized = {_rel_path(LEGACY_DIR / path) for path in covered}
-    seen = normalized | set(IGNORED_FILES)
+    normalised = {_rel_path(LEGACY_DIR / path) for path in covered}
+    seen = normalised | set(IGNORED_FILES)
     actual = {
         _rel_path(path)
         for folder in ("svg_front_muscles", "svg_rear_muscles")
@@ -349,7 +349,7 @@ def ensure_complete(covered: Iterable[str]) -> None:
 
 
 def main() -> int:
-    manifest = normalize()
+    manifest = normalise()
     ensure_complete(entry.filename for entry in SOURCE_MAP)
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(f"Wrote {len(manifest)} muscle entries to {MANIFEST_PATH}")

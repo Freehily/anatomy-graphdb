@@ -139,12 +139,12 @@ class AnatomyLoader:
         if not regions:
             raise AnatomyConfigError("No regions provided.")
         combined: Dict[str, Dict[str, dict]] = {}
-        normalized_regions = []
+        normalised_regions = []
         for region_name in regions:
             region_name = region_name.strip()
             if not region_name:
                 continue
-            normalized_regions.append(region_name)
+            normalised_regions.append(region_name)
             region_data = self.load_region(region_name, include_shared=include_shared)
             for section, section_data in region_data.sections.items():
                 bucket = combined.setdefault(section, {})
@@ -153,13 +153,13 @@ class AnatomyLoader:
                     if not item_id:
                         continue
                     bucket.setdefault(item_id, item)
-        if not normalized_regions:
+        if not normalised_regions:
             raise AnatomyConfigError("No valid regions provided.")
         merged_sections = {
             name: SectionData(name=name, items=list(items.values()))
             for name, items in combined.items()
         }
-        merged_name = "all" if len(normalized_regions) > 1 else normalized_regions[0]
+        merged_name = "all" if len(normalised_regions) > 1 else normalised_regions[0]
         return AnatomyRegion(region=merged_name, sections=merged_sections)
 
     def _filter_items_for_region(self, items: List[dict], region: str) -> List[dict]:

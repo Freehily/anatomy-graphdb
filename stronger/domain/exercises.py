@@ -165,7 +165,7 @@ def _build_taxonomies(loader: ExerciseLoader) -> List[Taxonomy]:
             TaxonomyEntry(
                 **_common(entry.__dict__),
                 aliases=list(entry.aliases or []),
-                extra={},  # ExerciseLoader entries already normalized.
+                extra={},  # ExerciseLoader entries already normalised.
             )
             for entry in sorted(entries_source.values(), key=lambda item: item.id)
         ]
@@ -205,7 +205,7 @@ def _build_templates(loader: ExerciseLoader) -> List[ExerciseTemplate]:
     ]
 
 
-def _normalize_roles(payload: Mapping[str, Any]) -> MuscleRoles:
+def _normalise_roles(payload: Mapping[str, Any]) -> MuscleRoles:
     return MuscleRoles(
         prime=_as_list(payload.get("prime")),
         secondary=_as_list(payload.get("secondary")),
@@ -213,7 +213,7 @@ def _normalize_roles(payload: Mapping[str, Any]) -> MuscleRoles:
     )
 
 
-def _normalize_equipment(payload: Mapping[str, Any]) -> EquipmentSelection:
+def _normalise_equipment(payload: Mapping[str, Any]) -> EquipmentSelection:
     return EquipmentSelection(
         primary=_as_list(payload.get("primary")),
         secondary=_as_list(payload.get("secondary")),
@@ -222,7 +222,7 @@ def _normalize_equipment(payload: Mapping[str, Any]) -> EquipmentSelection:
     )
 
 
-def _normalize_media(payload: Mapping[str, Any]) -> MediaLinks:
+def _normalise_media(payload: Mapping[str, Any]) -> MediaLinks:
     return MediaLinks(
         short_demo=payload.get("short_demo"),
         long_demo=payload.get("long_demo"),
@@ -273,9 +273,9 @@ def _build_variant(entry: Mapping[str, Any]) -> ExerciseVariant:
         movement_patterns=_as_list(entry.get("movement_patterns")),
         planes_of_motion=_as_list(entry.get("planes_of_motion")),
         target_muscle_group=entry.get("target_muscle_group"),
-        muscles=_normalize_roles(entry.get("muscles", {})),
-        equipment=_normalize_equipment(entry.get("equipment", {})),
-        media=_normalize_media(entry.get("media", {})),
+        muscles=_normalise_roles(entry.get("muscles", {})),
+        equipment=_normalise_equipment(entry.get("equipment", {})),
+        media=_normalise_media(entry.get("media", {})),
         extra=extra,
     )
 

@@ -3,7 +3,7 @@ Loader and validator for the exercise configuration set.
 
 The loader understands `configs/index.yaml`, which enumerates every taxonomy,
 equipment file, template file, and region-sharded exercise file. Consumers can
-import this module to obtain normalized dictionaries or to run validation
+import this module to obtain normalised dictionaries or to run validation
 before exporting to Neo4j.
 """
 
