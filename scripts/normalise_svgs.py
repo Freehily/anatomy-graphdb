@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 normalise legacy SVG muscle assets so their filenames line up with anatomy IDs.
 

@@ -24,7 +24,7 @@ All commands below assume the virtual environment created by Poetry.
 Export anatomy data for one or more regions:
 
 ```bash
-poetry run python stronger/databases/anatomy/scripts/build_graph.py \
+poetry run stronger-anatomy \
   --region upper_limb \
   --output data/neo4j \
   --validate
@@ -34,6 +34,7 @@ Flags worth knowing:
 
 - `--region all` or `--region upper_limb,lower_limb` to stitch multiple regions together.
 - `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`). The script automatically loads a `.env` file at the repo root, so you can simply set `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`, and `NEO4J_DB` once and omit the flags.
+- `--validate-only` runs the referential checks without exporting or ingesting data.
 
 ### End-to-end Neo4j workflow
 
@@ -67,7 +68,7 @@ You can skip Docker entirely and push the graph into a free AuraDB instance with
 3. Run the builder in bolt mode:
 
     ```bash
-    poetry run python stronger/databases/anatomy/scripts/build_graph.py \
+    poetry run stronger-anatomy \
       --region all \
       --mode bolt \
       --wipe-database \

@@ -5,7 +5,7 @@ Downstream consumers should import dataclasses or factory helpers from here
 instead of reaching into the low-level loaders.
 """
 
-from .anatomy import (
+from .models import (
     AnatomyModel,
     AttachmentPoint,
     Bone,

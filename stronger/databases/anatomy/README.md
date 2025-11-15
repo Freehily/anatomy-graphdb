@@ -4,56 +4,23 @@ This package contains YAML configs that describe anatomical structures, a valida
 
 ## Validation
 
-Use the dedicated validators to check referential integrity:
+Use the unified CLI to check referential integrity for any region:
 
-- Upper limb:
-  ```
-  python stronger/databases/anatomy/scripts/validate_upper_limb.py
-  ```
-- Thorax:
-  ```
-  python stronger/databases/anatomy/scripts/validate_thorax.py
-  ```
-- Lower limb:
-  ```
-  python stronger/databases/anatomy/scripts/validate_lower_limb.py
-  ```
-- Back:
-  ```
-  python stronger/databases/anatomy/scripts/validate_back.py
-  ```
-- Pelvis:
-  ```
-  python stronger/databases/anatomy/scripts/validate_pelvis.py
-  ```
-- Head and neck:
-  ```
-  python stronger/databases/anatomy/scripts/validate_head_and_neck.py
-  ```
-- Hand:
-  ```
-  python stronger/databases/anatomy/scripts/validate_hand.py
-  ```
-- Foot:
-  ```
-  python stronger/databases/anatomy/scripts/validate_foot.py
-  ```
-- Abdomen:
-  ```
-  python stronger/databases/anatomy/scripts/validate_abdomen.py
-  ```
+```
+poetry run stronger-anatomy --region upper_limb --validate-only
+```
 
-Each script loads the region-specific YAML files and verifies that every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs.
+Pass a comma-separated list (`--region upper_limb,lower_limb`) or `--region all` to cover multiple regions. Add `--list-regions` to discover which directories under `config/anatomy/` are available. The validator loads all of the YAML files and ensures every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs so the command can run in CI.
 
 ## Neo4j Export Workflow
 
 1. Generate artifacts with the unified graph builder:
    ```
    # CSV export (default mode)
-   python stronger/databases/anatomy/scripts/build_graph.py --region upper_limb --output data/neo4j
+   poetry run stronger-anatomy --region upper_limb --output data/neo4j
 
-   # Direct Bolt ingestion (requires `pip install neo4j`)
-   python stronger/databases/anatomy/scripts/build_graph.py --region upper_limb --mode bolt \
+   # Direct Bolt ingestion (requires `neo4j` extras)
+   poetry run stronger-anatomy --region upper_limb --mode bolt \
        --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
    ```
 

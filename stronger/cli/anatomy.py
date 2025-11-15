@@ -370,6 +370,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Run referential integrity validation before executing the requested action.",
     )
     parser.add_argument(
+        "--validate-only",
+        action="store_true",
+        help="Only run validation and exit without exporting or ingesting data.",
+    )
+    parser.add_argument(
         "--list-regions",
         action="store_true",
         help="List discoverable regions and exit.",
@@ -445,7 +450,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         for item in region.require("muscle_heads").items:
             muscle_labels[item["id"]] = "MuscleHead"
 
-    if args.validate:
+    should_validate = args.validate or args.validate_only
+
+    if should_validate:
         failures = validate_region(region)
         if failures:
             print("Validation failed:")
@@ -453,6 +460,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                 print(f"  - {failure}")
             return 1
         print("Validation passed.")
+
+    if args.validate_only:
+        return 0
 
     if args.mode == "csv":
         if args.output.is_dir():
