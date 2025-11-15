@@ -5,8 +5,8 @@ This repository is the canonical source of truth for the Stronger anatomy datase
 ## What lives here
 
 - `config/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions (plus shared lookups) consumed by the Neo4j builder.
-- `stronger/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger/domain/anatomy`.
-- `stronger/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
+- `stronger_anatomy/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger_anatomy/domain/anatomy`.
+- `stronger_anatomy/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
 - `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
 
 This repository remains the canonical domain+data module for anatomy.

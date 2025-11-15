@@ -18,12 +18,12 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence
 
-from stronger.databases.anatomy.loader import (
+from stronger_anatomy.databases.anatomy.loader import (
     AnatomyConfigError,
     AnatomyLoader,
     AnatomyRegion,
 )
-from stronger.databases.anatomy.neo4j_artifacts import (
+from stronger_anatomy.databases.anatomy.neo4j_artifacts import (
     CsvArtifact,
     NodePayload,
     RelationshipPayload,

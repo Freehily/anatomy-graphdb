@@ -1,5 +1,5 @@
 """
-Typed domain models wrapping `stronger.databases.anatomy.loader`.
+Typed domain models wrapping `stronger_anatomy.databases.anatomy.loader`.
 
 The loader returns generic dictionaries, which is flexible but awkward for API
 consumers.  These dataclasses provide a stable API surface and keep any
@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Sequence, TypeVar
 
-from stronger.databases.anatomy.loader import AnatomyRegion, SectionData
+from stronger_anatomy.databases.anatomy.loader import AnatomyRegion, SectionData
 
 DomainEntityT = TypeVar("DomainEntityT", bound="DomainEntity")
 

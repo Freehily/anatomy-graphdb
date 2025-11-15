@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "stronger"
+name = "stronger-anatomy"
 version = "0.1.0"
 description = ""
 authors = ["Tom <tomrfreeman3@gmail.com>"]
 readme = "README.md"
-packages = [{include = "stronger"}]
+packages = [{include = "stronger_anatomy"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -17,7 +17,7 @@ ipykernel = "^6.29.5"
 pytest = "^8.4.1"
 
 [tool.poetry.scripts]
-stronger-anatomy = "stronger.cli.anatomy:main"
+stronger-anatomy = "stronger_anatomy.cli.anatomy:main"
 
 [build-system]
 requires = ["poetry-core"]
