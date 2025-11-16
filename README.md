@@ -1,4 +1,4 @@
-# Stronger Backend
+# Stronger Domain (Graph DB)
 
 This repository is the canonical source of truth for the Stronger anatomy dataset (served via Neo4j). Downstream services import the Python package published here or consume the exported CSV artifacts.
 
