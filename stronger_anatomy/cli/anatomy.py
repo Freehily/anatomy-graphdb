@@ -267,8 +267,8 @@ def ingest_via_neo4j(
 
     uri = args.neo4j_uri
     auth = None
-    if args.neo4j_user or args.neo4j_password:
-        auth = (args.neo4j_user or "", args.neo4j_password or "")
+    if args.neo4j_username or args.neo4j_password:
+        auth = (args.neo4j_username or "", args.neo4j_password or "")
 
     driver = GraphDatabase.driver(uri, auth=auth)
 
@@ -385,8 +385,8 @@ def build_parser() -> argparse.ArgumentParser:
         help="Neo4j Bolt URI (bolt mode only).",
     )
     parser.add_argument(
-        "--neo4j-user",
-        default=os.environ.get("NEO4J_USER"),
+        "--neo4j-username",
+        default=os.environ.get("NEO4J_USERNAME"),
         help="Neo4j username (bolt mode).",
     )
     parser.add_argument(
@@ -396,7 +396,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--neo4j-database",
-        default=os.environ.get("NEO4J_DB"),
+        default=os.environ.get("NEO4J_DATABASE"),
         help="Neo4j database name (defaults to the server default).",
     )
     parser.add_argument(

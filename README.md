@@ -33,7 +33,7 @@ poetry run stronger-anatomy \
 Flags worth knowing:
 
 - `--region all` or `--region upper_limb,lower_limb` to stitch multiple regions together.
-- `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`). The script automatically loads a `.env` file at the repo root, so you can simply set `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`, and `NEO4J_DB` once and omit the flags.
+- `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`). The script automatically loads a `.env` file at the repo root, so you can simply set `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, and `NEO4J_DATABASE` once and omit the flags.
 - `--validate-only` runs the referential checks without exporting or ingesting data.
 
 ### End-to-end Neo4j workflow
@@ -59,9 +59,9 @@ You can skip Docker entirely and push the graph into a free AuraDB instance with
 
     ```dotenv
     NEO4J_URI=neo4j+s://<instance-id>.databases.neo4j.io
-    NEO4J_USER=neo4j
+    NEO4J_USERNAME=neo4j
     NEO4J_PASSWORD=super-secret
-    NEO4J_DB=neo4j  # optional, defaults to Aura's primary DB
+    NEO4J_DATABASE=neo4j  # optional, defaults to Aura's primary DB
     ```
 
     Environment variables defined in your shell still win, so you can override anything temporarily without editing the file.
