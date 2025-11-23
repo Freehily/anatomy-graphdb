@@ -1,0 +1,99 @@
+muscles:
+- id: trapezius
+  name: Trapezius
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+  insertion:
+  - lateral_clavicle
+  - acromion_process
+  - spine_of_scapula
+  actions:
+  - scapula_elevation
+  - scapula_retraction
+  - scapula_depression
+  - scapula_upward_rotation
+  antagonists: []
+- id: levator_scapulae
+  name: Levator Scapulae
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - levator_scapulae_head
+  insertion:
+  - medial_border_scapula
+  - superior_angle_scapula
+  actions:
+  - scapula_elevation
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_minor
+  name: Rhomboid Minor
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_minor_head
+  insertion:
+  - medial_border_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_major
+  name: Rhomboid Major
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_major_head
+  insertion:
+  - medial_border_scapula
+  - inferior_angle_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: serratus_posterior_inferior_back
+  name: Serratus Posterior Inferior
+  group: Intermediate Back Muscles
+  order: Back
+  heads:
+  - serratus_posterior_inferior_back_head
+  insertion:
+  - ribs_9_12
+  actions:
+  - forced_expiration_assist
+  antagonists: []
+- id: pectoralis_major
+  name: Pectoralis Major
+  group: Chest Muscles
+  order: Shoulder
+  heads:
+  - pectoralis_major_clavicular
+  - pectoralis_major_sternocostal
+  insertion:
+  - greater_tubercle
+  actions:
+  - shoulder_flexion
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  antagonists:
+  - deltoid_posterior
+  - latissimus_dorsi
+- id: latissimus_dorsi
+  name: Latissimus Dorsi
+  group: Back Muscles
+  order: Shoulder
+  heads: []
+  insertion:
+  - intertubercular_sulcus
+  actions:
+  - shoulder_extension
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  - scapula_depression
+  antagonists:
+  - deltoid_anterior
+  - pectoralis_major

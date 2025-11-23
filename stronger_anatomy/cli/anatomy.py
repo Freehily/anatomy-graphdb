@@ -347,8 +347,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--region",
         "-r",
-        default="upper_limb",
-        help="Region to load (folder under config/anatomy/<region>).",
+        default="chest",
+        help="Muscle-group region to load (folder under config/<category>/<region>).",
     )
     parser.add_argument(
         "--output",

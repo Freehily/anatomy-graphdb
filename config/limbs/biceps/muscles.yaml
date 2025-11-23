@@ -1,0 +1,192 @@
+muscles:
+- id: trapezius
+  name: Trapezius
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+  insertion:
+  - lateral_clavicle
+  - acromion_process
+  - spine_of_scapula
+  actions:
+  - scapula_elevation
+  - scapula_retraction
+  - scapula_depression
+  - scapula_upward_rotation
+  antagonists: []
+- id: levator_scapulae
+  name: Levator Scapulae
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - levator_scapulae_head
+  insertion:
+  - medial_border_scapula
+  - superior_angle_scapula
+  actions:
+  - scapula_elevation
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_minor
+  name: Rhomboid Minor
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_minor_head
+  insertion:
+  - medial_border_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_major
+  name: Rhomboid Major
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_major_head
+  insertion:
+  - medial_border_scapula
+  - inferior_angle_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: serratus_posterior_inferior_back
+  name: Serratus Posterior Inferior
+  group: Intermediate Back Muscles
+  order: Back
+  heads:
+  - serratus_posterior_inferior_back_head
+  insertion:
+  - ribs_9_12
+  actions:
+  - forced_expiration_assist
+  antagonists: []
+- id: biceps_brachii
+  name: Biceps Brachii
+  group: Biceps Brachii
+  order: Upper Arm
+  heads:
+  - biceps_brachii_short
+  - biceps_brachii_long
+  insertion:
+  - radial_tuberosity
+  - bicipital_aponeurosis
+  actions:
+  - elbow_flexion
+  - shoulder_flexion
+  - forearm_supination
+  antagonists:
+  - triceps_brachii
+- id: triceps_brachii
+  name: Triceps Brachii
+  group: Triceps Brachii
+  order: Upper Arm
+  heads:
+  - triceps_brachii_long
+  - triceps_brachii_lateral
+  - triceps_brachii_medial
+  insertion:
+  - olecranon_process
+  actions:
+  - elbow_extension
+  - shoulder_extension
+  - shoulder_adduction
+  antagonists:
+  - biceps_brachii
+- id: brachialis
+  name: Brachialis
+  group: Elbow Flexors
+  order: Upper Arm
+  heads: []
+  insertion:
+  - ulnar_tuberosity
+  - coronoid_process
+  actions:
+  - elbow_flexion
+  antagonists:
+  - triceps_brachii
+- id: coracobrachialis
+  name: Coracobrachialis
+  group: Upper Arm Flexors
+  order: Upper Arm
+  heads:
+  - coracobrachialis_head
+  insertion:
+  - midshaft_humerus_medial
+  actions:
+  - shoulder_flexion
+  - shoulder_adduction
+  antagonists:
+  - latissimus_dorsi
+  - deltoid_posterior
+- id: brachioradialis
+  name: Brachioradialis
+  group: Forearm Flexors
+  order: Forearm
+  heads: []
+  insertion:
+  - styloid_process_of_radius
+  actions:
+  - elbow_flexion
+  antagonists:
+  - triceps_brachii
+- id: pectoralis_major
+  name: Pectoralis Major
+  group: Chest Muscles
+  order: Shoulder
+  heads:
+  - pectoralis_major_clavicular
+  - pectoralis_major_sternocostal
+  insertion:
+  - greater_tubercle
+  actions:
+  - shoulder_flexion
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  antagonists:
+  - deltoid_posterior
+  - latissimus_dorsi
+- id: latissimus_dorsi
+  name: Latissimus Dorsi
+  group: Back Muscles
+  order: Shoulder
+  heads: []
+  insertion:
+  - intertubercular_sulcus
+  actions:
+  - shoulder_extension
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  - scapula_depression
+  antagonists:
+  - deltoid_anterior
+  - pectoralis_major
+- id: pronator_teres
+  name: Pronator Teres
+  group: Forearm Pronators
+  order: Forearm
+  heads: []
+  insertion:
+  - midshaft_radius
+  actions:
+  - forearm_pronation
+  - elbow_flexion
+  antagonists:
+  - supinator
+  - biceps_brachii
+- id: supinator
+  name: Supinator
+  group: Forearm Supinators
+  order: Forearm
+  heads: []
+  insertion:
+  - proximal_radius
+  actions:
+  - forearm_supination
+  antagonists:
+  - pronator_teres

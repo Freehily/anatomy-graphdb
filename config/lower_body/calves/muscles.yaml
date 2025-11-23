@@ -1,0 +1,552 @@
+muscles:
+- id: abductor_hallucis
+  name: Abductor Hallucis
+  group: Plantar Foot (1st Layer)
+  order: Foot
+  heads:
+  - abductor_hallucis_head
+  insertion:
+  - medial_tubercle_proximal_phalanx_hallux
+  - medial_tubercle_1st_metatarsal
+  actions:
+  - toe_abduction_hallux
+  antagonists: []
+- id: flexor_digitorum_brevis
+  name: Flexor Digitorum Brevis
+  group: Plantar Foot (1st Layer)
+  order: Foot
+  heads:
+  - flexor_digitorum_brevis_head
+  insertion:
+  - middle_phalanges_2_5
+  actions:
+  - toe_flexion_digits_2_5
+  antagonists: []
+- id: abductor_digiti_minimi
+  name: Abductor Digiti Minimi
+  group: Plantar Foot (1st Layer)
+  order: Foot
+  heads:
+  - abductor_digiti_minimi_head
+  insertion:
+  - proximal_phalanges_3_5_lateral
+  - base_5th_metatarsal
+  actions:
+  - toe_abduction_digit5
+  antagonists: []
+- id: quadratus_plantae
+  name: Quadratus Plantae
+  group: Plantar Foot (2nd Layer)
+  order: Foot
+  heads:
+  - quadratus_plantae_head
+  insertion:
+  - tendons_flexor_digitorum_longus_2_5
+  actions:
+  - toe_flexion_digits_2_5_assist
+  antagonists: []
+- id: lumbrical_1
+  name: Lumbrical 1
+  group: Plantar Foot (2nd Layer)
+  order: Foot
+  heads:
+  - lumbrical_1_head
+  insertion:
+  - extensor_expansion_toe2
+  - proximal_phalanges_2_5_medial
+  actions:
+  - toe_flexion_mtp_2
+  - toe_extension_ip_2
+  antagonists: []
+- id: lumbricals_2_4
+  name: Lumbricals 2-4
+  group: Plantar Foot (2nd Layer)
+  order: Foot
+  heads:
+  - lumbrical_2_4_head
+  insertion:
+  - extensor_expansion_toe3
+  - extensor_expansion_toe4
+  - extensor_expansion_toe5
+  - proximal_phalanges_2_5_medial
+  actions:
+  - toe_flexion_mtp_3_5
+  - toe_extension_ip_3_5
+  antagonists: []
+- id: gluteus_maximus
+  name: Gluteus Maximus
+  group: Gluteal Muscles
+  order: Hip
+  heads:
+  - gluteus_maximus_head
+  insertion:
+  - gluteal_tuberosity
+  - iliotibial_tract
+  actions:
+  - hip_extension
+  - hip_lateral_rotation
+  antagonists:
+  - iliotibial_band_muscles
+  - hip_flexor_group
+- id: gluteus_medius
+  name: Gluteus Medius
+  group: Gluteal Muscles
+  order: Hip
+  heads:
+  - gluteus_medius_head
+  insertion:
+  - greater_trochanter
+  actions:
+  - hip_abduction
+  - hip_medial_rotation
+  antagonists:
+  - adductor_group
+- id: gluteus_minimus
+  name: Gluteus Minimus
+  group: Gluteal Muscles
+  order: Hip
+  heads:
+  - gluteus_minimus_head
+  insertion:
+  - greater_trochanter
+  actions:
+  - hip_abduction
+  - hip_medial_rotation
+  antagonists:
+  - adductor_group
+- id: tensor_fasciae_latae
+  name: Tensor Fasciae Latae
+  group: Gluteal Muscles
+  order: Hip
+  heads:
+  - tensor_fasciae_latae_head
+  insertion:
+  - iliotibial_tract
+  actions:
+  - hip_flexion
+  - hip_abduction
+  - hip_medial_rotation
+  antagonists:
+  - adductor_group
+  - gluteus_maximus
+- id: piriformis
+  name: Piriformis
+  group: Deep Lateral Rotators
+  order: Hip
+  heads:
+  - piriformis_head
+  insertion:
+  - greater_trochanter
+  actions:
+  - hip_lateral_rotation
+  - hip_abduction
+  antagonists:
+  - hip_medial_rotators
+- id: rectus_femoris
+  name: Rectus Femoris
+  group: Quadriceps
+  order: Thigh
+  heads:
+  - rectus_femoris_head
+  insertion:
+  - base_of_patella
+  - tibial_tuberosity
+  actions:
+  - hip_flexion
+  - knee_extension
+  antagonists:
+  - hamstring_group
+- id: vastus_lateralis
+  name: Vastus Lateralis
+  group: Quadriceps
+  order: Thigh
+  heads:
+  - vastus_lateralis_head
+  insertion:
+  - base_of_patella
+  - tibial_tuberosity
+  actions:
+  - knee_extension
+  antagonists:
+  - hamstring_group
+- id: vastus_medialis
+  name: Vastus Medialis
+  group: Quadriceps
+  order: Thigh
+  heads:
+  - vastus_medialis_head
+  insertion:
+  - base_of_patella
+  - tibial_tuberosity
+  actions:
+  - knee_extension
+  antagonists:
+  - hamstring_group
+- id: vastus_intermedius
+  name: Vastus Intermedius
+  group: Quadriceps
+  order: Thigh
+  heads:
+  - vastus_intermedius_head
+  insertion:
+  - base_of_patella
+  - tibial_tuberosity
+  actions:
+  - knee_extension
+  antagonists:
+  - hamstring_group
+- id: sartorius
+  name: Sartorius
+  group: Anterior Thigh Muscles
+  order: Thigh
+  heads:
+  - sartorius_head
+  insertion:
+  - pes_anserinus
+  actions:
+  - hip_flexion
+  - hip_lateral_rotation
+  - knee_flexion
+  antagonists:
+  - gluteus_maximus
+  - quadriceps_group
+- id: pectineus
+  name: Pectineus
+  group: Medial Thigh Muscles
+  order: Thigh
+  heads:
+  - pectineus_head
+  insertion:
+  - pectineal_line_femur
+  actions:
+  - hip_adduction
+  - hip_flexion
+  antagonists:
+  - gluteus_medius
+  - gluteus_minimus
+- id: adductor_longus
+  name: Adductor Longus
+  group: Medial Thigh Muscles
+  order: Thigh
+  heads:
+  - adductor_longus_head
+  insertion:
+  - linea_aspera
+  actions:
+  - hip_adduction
+  - hip_flexion
+  antagonists:
+  - gluteus_medius
+  - gluteus_minimus
+- id: adductor_brevis
+  name: Adductor Brevis
+  group: Medial Thigh Muscles
+  order: Thigh
+  heads:
+  - adductor_brevis_head
+  insertion:
+  - linea_aspera
+  actions:
+  - hip_adduction
+  antagonists:
+  - gluteus_medius
+  - gluteus_minimus
+- id: adductor_magnus
+  name: Adductor Magnus
+  group: Medial Thigh Muscles
+  order: Thigh
+  heads:
+  - adductor_magnus_adductor_head
+  - adductor_magnus_hamstring_head
+  insertion:
+  - linea_aspera
+  - adductor_tubercle
+  actions:
+  - hip_adduction
+  - hip_extension
+  antagonists:
+  - gluteus_medius
+  - gluteus_minimus
+  - hip_flexor_group
+- id: gracilis
+  name: Gracilis
+  group: Medial Thigh Muscles
+  order: Thigh
+  heads:
+  - gracilis_head
+  insertion:
+  - pes_anserinus
+  actions:
+  - hip_adduction
+  - knee_flexion
+  antagonists:
+  - gluteus_medius
+  - quadriceps_group
+- id: biceps_femoris
+  name: Biceps Femoris
+  group: Hamstring Muscles
+  order: Posterior Thigh
+  heads:
+  - biceps_femoris_long_head
+  - biceps_femoris_short_head
+  insertion:
+  - head_of_fibula
+  actions:
+  - hip_extension
+  - knee_flexion
+  - hip_lateral_rotation
+  antagonists:
+  - quadriceps_group
+  - hip_flexor_group
+- id: semitendinosus
+  name: Semitendinosus
+  group: Hamstring Muscles
+  order: Posterior Thigh
+  heads:
+  - semitendinosus_head
+  insertion:
+  - pes_anserinus
+  actions:
+  - hip_extension
+  - knee_flexion
+  antagonists:
+  - quadriceps_group
+- id: semimembranosus
+  name: Semimembranosus
+  group: Hamstring Muscles
+  order: Posterior Thigh
+  heads:
+  - semimembranosus_head
+  insertion:
+  - medial_tibial_condyle
+  actions:
+  - hip_extension
+  - knee_flexion
+  antagonists:
+  - quadriceps_group
+- id: gastrocnemius
+  name: Gastrocnemius
+  group: Posterior Leg Muscles
+  order: Leg
+  heads:
+  - gastrocnemius_medial_head
+  - gastrocnemius_lateral_head
+  insertion:
+  - calcaneal_tuberosity
+  actions:
+  - ankle_plantarflexion
+  - knee_flexion
+  antagonists:
+  - tibialis_anterior
+  - dorsiflexor_group
+- id: soleus
+  name: Soleus
+  group: Posterior Leg Muscles
+  order: Leg
+  heads:
+  - soleus_head
+  insertion:
+  - calcaneal_tuberosity
+  actions:
+  - ankle_plantarflexion
+  antagonists:
+  - tibialis_anterior
+- id: plantaris
+  name: Plantaris
+  group: Posterior Leg Muscles
+  order: Leg
+  heads:
+  - plantaris_head
+  insertion:
+  - calcaneal_tuberosity
+  actions:
+  - ankle_plantarflexion
+  antagonists:
+  - tibialis_anterior
+- id: tibialis_anterior
+  name: Tibialis Anterior
+  group: Anterior Leg Muscles
+  order: Leg
+  heads:
+  - tibialis_anterior_head
+  insertion:
+  - medial_cuneiform
+  - base_1st_metatarsal
+  actions:
+  - ankle_dorsiflexion
+  - ankle_inversion
+  antagonists:
+  - fibularis_longus
+  - fibularis_brevis
+  - gastrocnemius
+- id: extensor_digitorum_longus
+  name: Extensor Digitorum Longus
+  group: Anterior Leg Muscles
+  order: Leg
+  heads:
+  - extensor_digitorum_longus_head
+  insertion:
+  - metatarsal_heads_2_5
+  actions:
+  - ankle_dorsiflexion
+  - toe_extension
+  antagonists:
+  - flexor_digitorum_longus
+- id: extensor_hallucis_longus
+  name: Extensor Hallucis Longus
+  group: Anterior Leg Muscles
+  order: Leg
+  heads:
+  - extensor_hallucis_longus_head
+  insertion:
+  - distal_phalanx_hallux
+  actions:
+  - ankle_dorsiflexion
+  - toe_extension
+  antagonists:
+  - flexor_hallucis_longus
+- id: fibularis_longus
+  name: Fibularis Longus
+  group: Lateral Leg Muscles
+  order: Leg
+  heads:
+  - fibularis_longus_head
+  insertion:
+  - base_1st_metatarsal
+  - medial_cuneiform
+  actions:
+  - ankle_plantarflexion
+  - ankle_eversion
+  antagonists:
+  - tibialis_anterior
+  - tibialis_posterior
+- id: fibularis_brevis
+  name: Fibularis Brevis
+  group: Lateral Leg Muscles
+  order: Leg
+  heads:
+  - fibularis_brevis_head
+  insertion:
+  - base_5th_metatarsal
+  actions:
+  - ankle_plantarflexion
+  - ankle_eversion
+  antagonists:
+  - tibialis_anterior
+  - tibialis_posterior
+- id: tibialis_posterior
+  name: Tibialis Posterior
+  group: Deep Posterior Leg Muscles
+  order: Leg
+  heads:
+  - tibialis_posterior_head
+  insertion:
+  - navicular_tuberosity
+  - intermediate_cuneiform
+  - lateral_cuneiform
+  actions:
+  - ankle_plantarflexion
+  - ankle_inversion
+  antagonists:
+  - fibularis_longus
+  - fibularis_brevis
+- id: flexor_digitorum_longus
+  name: Flexor Digitorum Longus
+  group: Deep Posterior Leg Muscles
+  order: Leg
+  heads:
+  - flexor_digitorum_longus_head
+  insertion:
+  - proximal_phalanges_2_5_plantar
+  actions:
+  - ankle_plantarflexion
+  - toe_flexion
+  antagonists:
+  - extensor_digitorum_longus
+- id: flexor_hallucis_longus
+  name: Flexor Hallucis Longus
+  group: Deep Posterior Leg Muscles
+  order: Leg
+  heads:
+  - flexor_hallucis_longus_head
+  insertion:
+  - distal_phalanx_hallux
+  actions:
+  - ankle_plantarflexion
+  - toe_flexion
+  antagonists:
+  - extensor_hallucis_longus
+- id: iliotibial_band_muscles
+  name: Iliotibial Band Muscles (Functional Group)
+  group: Functional Groups
+  order: Hip
+  heads: []
+  insertion:
+  - iliotibial_tract
+  actions:
+  - hip_abduction
+  antagonists:
+  - adductor_group
+- id: hip_flexor_group
+  name: Hip Flexor Functional Group
+  group: Functional Groups
+  order: Hip
+  heads: []
+  insertion: []
+  actions:
+  - hip_flexion
+  antagonists:
+  - gluteus_maximus
+- id: adductor_group
+  name: Hip Adductor Functional Group
+  group: Functional Groups
+  order: Hip
+  heads: []
+  insertion: []
+  actions:
+  - hip_adduction
+  antagonists:
+  - gluteus_medius
+  - gluteus_minimus
+- id: hamstring_group
+  name: Hamstring Functional Group
+  group: Functional Groups
+  order: Posterior Thigh
+  heads: []
+  insertion: []
+  actions:
+  - hip_extension
+  - knee_flexion
+  antagonists:
+  - quadriceps_group
+- id: quadriceps_group
+  name: Quadriceps Functional Group
+  group: Functional Groups
+  order: Thigh
+  heads: []
+  insertion: []
+  actions:
+  - knee_extension
+  antagonists:
+  - hamstring_group
+- id: dorsiflexor_group
+  name: Dorsiflexor Functional Group
+  group: Functional Groups
+  order: Leg
+  heads: []
+  insertion: []
+  actions:
+  - ankle_dorsiflexion
+  antagonists:
+  - gastrocnemius
+  - soleus
+- id: hip_medial_rotators
+  name: Hip Medial Rotators
+  group: Functional Groups
+  order: Hip
+  heads: []
+  insertion: []
+  actions:
+  - hip_medial_rotation
+  antagonists:
+  - piriformis

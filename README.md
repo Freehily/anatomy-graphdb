@@ -4,7 +4,7 @@ This repository is the canonical source of truth for the Stronger anatomy datase
 
 ## What lives here
 
-- `config/anatomy` – region-sharded YAML describing bones, attachment points, muscles, nerves, arteries, and actions (plus shared lookups) consumed by the Neo4j builder.
+- `config/<category>/<muscle_group>` – muscle-group-scoped YAML describing bones, attachment points, muscles, nerves, arteries, and actions (plus shared lookups) consumed by the Neo4j builder. The muscle-group folders are now the canonical source.
 - `stronger_anatomy/domain` – dataclasses that offer a typed view of the YAML configs so downstream services can work with explicit models instead of dictionaries. Anatomy models live in `stronger_anatomy/domain/anatomy`.
 - `stronger_anatomy/databases/**/scripts` – CLIs for validating configs, regenerating derived files, and building CSV/Bolt payloads for Neo4j.
 - `data/neo4j/<region>` – generated artifacts ready for `neo4j-admin database import` (ignored by git).
@@ -25,14 +25,14 @@ Export anatomy data for one or more regions:
 
 ```bash
 poetry run stronger-anatomy \
-  --region upper_limb \
+  --region chest \
   --output data/neo4j \
   --validate
 ```
 
 Flags worth knowing:
 
-- `--region all` or `--region upper_limb,lower_limb` to stitch multiple regions together.
+- `--region all` or `--region chest,shoulders` to stitch multiple muscle groups together.
 - `--mode bolt` plus `--neo4j-uri/--neo4j-user/--neo4j-password` to ingest directly into a running database (requires the `neo4j` Python driver, already listed in `pyproject.toml`). The script automatically loads a `.env` file at the repo root, so you can simply set `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, and `NEO4J_DATABASE` once and omit the flags.
 - `--validate-only` runs the referential checks without exporting or ingesting data.
 
@@ -45,7 +45,7 @@ The Makefile wraps the full export → import → run loop:
 make neo4j-refresh REGION=all
 
 # Or run the helper script (accepts the same flags as make)
-scripts/refresh_neo4j.sh REGION=upper_limb
+scripts/refresh_neo4j.sh REGION=chest
 ```
 
 Artifacts land in `data/neo4j/<region>`, databases in `neo4j-data/`, and logs in `neo4j-logs/`. Adjust `DB_NAME`, `CONTAINER_NAME`, or ports at the top of the `Makefile`.

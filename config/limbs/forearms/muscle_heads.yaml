@@ -1,0 +1,327 @@
+muscle_heads:
+- id: trapezius_upper_head
+  name: Trapezius (Upper Fibers)
+  origin:
+  - external_occipital_protuberance
+  - ligamentum_nuchae
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: trapezius_middle_head
+  name: Trapezius (Middle Fibers)
+  origin:
+  - spinous_processes_C3_T12
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: trapezius_lower_head
+  name: Trapezius (Lower Fibers)
+  origin:
+  - spinous_processes_T7_L5
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: latissimus_dorsi_head
+  name: Latissimus Dorsi
+  origin:
+  - spinous_processes_T7_L5
+  - thoracolumbar_fascia_back
+  - iliac_crest_back
+  - ribs_9_12
+  innervation:
+  - thoracodorsal_nerve
+  arteries:
+  - thoracodorsal_artery
+- id: levator_scapulae_head
+  name: Levator Scapulae
+  origin:
+  - transverse_processes_C1_C4
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: rhomboid_minor_head
+  name: Rhomboid Minor
+  origin:
+  - spinous_processes_C3_T12
+  - ligamentum_nuchae
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: rhomboid_major_head
+  name: Rhomboid Major
+  origin:
+  - spinous_processes_T1_T12
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: serratus_posterior_inferior_back_head
+  name: Serratus Posterior Inferior
+  origin:
+  - spinous_processes_T7_L5
+  innervation:
+  - intercostal_nerves
+  arteries:
+  - posterior_intercostal_arteries
+- id: biceps_brachii_short
+  name: Biceps Brachii (Short Head)
+  origin:
+  - coracoid_process
+  innervation:
+  - musculocutaneous
+  arteries:
+  - brachial_artery
+- id: biceps_brachii_long
+  name: Biceps Brachii (Long Head)
+  origin:
+  - supraglenoid_tubercle
+  innervation:
+  - musculocutaneous
+  arteries:
+  - brachial_artery
+- id: triceps_brachii_long
+  name: Triceps Brachii (Long Head)
+  origin:
+  - infraglenoid_tubercle
+  innervation:
+  - radial_nerve
+  arteries:
+  - deep_brachial_artery
+  - posterior_circumflex_humeral_artery
+- id: triceps_brachii_lateral
+  name: Triceps Brachii (Lateral Head)
+  origin:
+  - above_radial_groove
+  innervation:
+  - radial_nerve
+  arteries:
+  - deep_brachial_artery
+- id: triceps_brachii_medial
+  name: Triceps Brachii (Medial Head)
+  origin:
+  - below_radial_groove
+  innervation:
+  - radial_nerve
+  arteries:
+  - deep_brachial_artery
+- id: deltoid_anterior
+  name: Deltoid (Anterior Head)
+  origin:
+  - lateral_clavicle
+  innervation:
+  - axillary
+  arteries:
+  - thoracoacromial_artery
+- id: deltoid_posterior
+  name: Deltoid (Posterior Head)
+  origin:
+  - spine_of_scapula
+  innervation:
+  - axillary
+  arteries:
+  - posterior_circumflex_humeral_artery
+- id: pectoralis_major_clavicular
+  name: Pectoralis Major (Clavicular Head)
+  origin:
+  - medial_clavicle
+  innervation:
+  - lateral_pectoral_nerve
+  arteries:
+  - thoracoacromial_artery
+- id: pectoralis_major_sternocostal
+  name: Pectoralis Major (Sternocostal Head)
+  origin:
+  - sternum_body
+  - costal_cartilages_1_6
+  innervation:
+  - medial_pectoral_nerve
+  arteries:
+  - thoracoacromial_artery
+- id: subscapularis
+  name: Subscapularis
+  origin:
+  - subscapular_fossa
+  innervation:
+  - upper_subscapular_nerve
+  - lower_subscapular_nerve
+  arteries:
+  - subscapular_artery
+- id: coracobrachialis_head
+  name: Coracobrachialis
+  origin:
+  - coracoid_process
+  innervation:
+  - musculocutaneous
+  arteries:
+  - brachial_artery
+- id: teres_major_head
+  name: Teres Major
+  origin:
+  - inferior_angle_scapula
+  innervation:
+  - lower_subscapular_nerve
+  arteries:
+  - subscapular_artery
+- id: anconeus_head
+  name: Anconeus
+  origin:
+  - lateral_epicondyle
+  innervation:
+  - radial_nerve
+  arteries:
+  - deep_brachial_artery
+- id: flexor_carpi_radialis_head
+  name: Flexor Carpi Radialis
+  origin:
+  - medial_epicondyle
+  innervation:
+  - median
+  arteries:
+  - ulnar_artery
+- id: palmaris_longus_head
+  name: Palmaris Longus
+  origin:
+  - medial_epicondyle
+  innervation:
+  - median
+  arteries:
+  - ulnar_artery
+- id: flexor_digitorum_profundus_medial
+  name: Flexor Digitorum Profundus (Medial Part)
+  origin:
+  - proximal_ulna
+  - interosseous_membrane
+  innervation:
+  - ulnar
+  arteries:
+  - anterior_interosseous_artery
+- id: flexor_digitorum_profundus_lateral
+  name: Flexor Digitorum Profundus (Lateral Part)
+  origin:
+  - proximal_ulna
+  - interosseous_membrane
+  innervation:
+  - anterior_interosseous_nerve
+  arteries:
+  - anterior_interosseous_artery
+- id: flexor_pollicis_longus_head
+  name: Flexor Pollicis Longus
+  origin:
+  - anterior_radius
+  - interosseous_membrane
+  innervation:
+  - anterior_interosseous_nerve
+  arteries:
+  - anterior_interosseous_artery
+- id: pronator_quadratus_head
+  name: Pronator Quadratus
+  origin:
+  - distal_ulna_anterior
+  - interosseous_membrane
+  innervation:
+  - anterior_interosseous_nerve
+  arteries:
+  - anterior_interosseous_artery
+- id: extensor_carpi_radialis_longus_head
+  name: Extensor Carpi Radialis Longus
+  origin:
+  - lateral_supracondylar_ridge
+  innervation:
+  - radial_nerve
+  arteries:
+  - radial_artery
+- id: extensor_carpi_radialis_brevis_head
+  name: Extensor Carpi Radialis Brevis
+  origin:
+  - lateral_epicondyle
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - radial_artery
+- id: extensor_digiti_minimi_head
+  name: Extensor Digiti Minimi
+  origin:
+  - lateral_epicondyle
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: extensor_carpi_ulnaris_head
+  name: Extensor Carpi Ulnaris
+  origin:
+  - lateral_epicondyle
+  - posterior_border_ulna
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: abductor_pollicis_longus_head
+  name: Abductor Pollicis Longus
+  origin:
+  - posterior_ulna
+  - posterior_radius
+  - interosseous_membrane
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: extensor_pollicis_brevis_head
+  name: Extensor Pollicis Brevis
+  origin:
+  - posterior_radius
+  - interosseous_membrane
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: extensor_pollicis_longus_head
+  name: Extensor Pollicis Longus
+  origin:
+  - posterior_ulna
+  - interosseous_membrane
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: extensor_indicis_head
+  name: Extensor Indicis
+  origin:
+  - posterior_ulna
+  - interosseous_membrane
+  innervation:
+  - posterior_interosseous_nerve
+  arteries:
+  - posterior_interosseous_artery
+- id: abductor_pollicis_brevis_head
+  name: Abductor Pollicis Brevis
+  origin:
+  - scaphoid_tubercle
+  - trapezium_tubercle
+  - flexor_retinaculum
+  innervation:
+  - recurrent_branch_median
+  arteries:
+  - radial_artery
+- id: flexor_pollicis_brevis_head
+  name: Flexor Pollicis Brevis
+  origin:
+  - flexor_retinaculum
+  - trapezium_tubercle
+  innervation:
+  - recurrent_branch_median
+  arteries:
+  - superficial_palmar_arch
+- id: flexor_digiti_minimi_brevis_head
+  name: Flexor Digiti Minimi Brevis
+  origin:
+  - hook_of_hamate
+  - flexor_retinaculum
+  innervation:
+  - deep_branch_ulnar
+  arteries:
+  - ulnar_artery

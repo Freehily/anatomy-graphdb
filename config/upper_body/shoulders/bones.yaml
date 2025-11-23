@@ -1,0 +1,71 @@
+bones:
+- id: thoracic_ribs
+  name: Ribs 5-12
+  region: Thorax
+  attachments: []
+- id: sternum
+  name: Sternum
+  region: Thorax
+  attachments: []
+- id: pelvis
+  name: Pelvis
+  region: Pelvic Girdle
+  attachments: []
+- id: fascia
+  name: Abdominal Fascia
+  region: Connective Tissue
+  attachments: []
+- id: ligaments
+  name: Ligaments
+  region: Connective Tissue
+  attachments: []
+- id: skull
+  name: Skull
+  region: Head
+  attachments:
+  - external_occipital_protuberance
+- id: cervical_vertebrae
+  name: Cervical Vertebrae
+  region: Spine
+  attachments:
+  - transverse_processes_C1_C4
+- id: thoracic_vertebrae
+  name: Thoracic Vertebrae
+  region: Spine
+  attachments:
+  - spinous_processes_C3_T12
+  - spinous_processes_T1_T12
+- id: thoracolumbar_spine
+  name: Thoracolumbar Spine
+  region: Spine
+  attachments:
+  - spinous_processes_T7_L5
+  - thoracolumbar_fascia_back
+- id: scapula
+  name: Scapula
+  region: Shoulder Girdle
+  attachments:
+  - superior_angle_scapula
+  - medial_border_scapula
+  - spine_of_scapula
+  - inferior_angle_scapula
+  - acromion_process
+- id: clavicle
+  name: Clavicle
+  region: Shoulder Girdle
+  attachments:
+  - lateral_clavicle
+- id: humerus
+  name: Humerus
+  region: Upper Arm
+  attachments:
+  - greater_tubercle
+  - lesser_tubercle
+  - medial_lip_intertubercular_sulcus
+  - deltoid_tuberosity
+  - intertubercular_sulcus
+- id: thoracic_cage
+  name: Thoracic Cage
+  region: Thorax
+  attachments:
+  - costal_cartilages_1_6

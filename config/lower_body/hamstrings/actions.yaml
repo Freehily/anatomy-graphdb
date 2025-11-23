@@ -1,0 +1,127 @@
+actions:
+- id: hip_flexion
+  name: Hip Flexion
+  joint: hip
+  type: flexion
+  primary_movers:
+  - tensor_fasciae_latae
+  - rectus_femoris
+  - sartorius
+  - pectineus
+  - adductor_longus
+  - hip_flexor_group
+- id: hip_extension
+  name: Hip Extension
+  joint: hip
+  type: extension
+  primary_movers:
+  - gluteus_maximus
+  - hamstring_group
+  - adductor_magnus
+- id: hip_abduction
+  name: Hip Abduction
+  joint: hip
+  type: abduction
+  primary_movers:
+  - gluteus_medius
+  - gluteus_minimus
+  - tensor_fasciae_latae
+- id: hip_adduction
+  name: Hip Adduction
+  joint: hip
+  type: adduction
+  primary_movers:
+  - adductor_longus
+  - adductor_brevis
+  - adductor_magnus
+  - gracilis
+  - adductor_group
+- id: hip_medial_rotation
+  name: Hip Medial Rotation
+  joint: hip
+  type: medial_rotation
+  primary_movers:
+  - gluteus_medius
+  - gluteus_minimus
+  - tensor_fasciae_latae
+  - hip_medial_rotators
+- id: hip_lateral_rotation
+  name: Hip Lateral Rotation
+  joint: hip
+  type: lateral_rotation
+  primary_movers:
+  - gluteus_maximus
+  - piriformis
+  - sartorius
+- id: knee_extension
+  name: Knee Extension
+  joint: knee
+  type: extension
+  primary_movers:
+  - rectus_femoris
+  - vastus_lateralis
+  - vastus_medialis
+  - vastus_intermedius
+  - quadriceps_group
+- id: knee_flexion
+  name: Knee Flexion
+  joint: knee
+  type: flexion
+  primary_movers:
+  - hamstring_group
+  - biceps_femoris
+  - semitendinosus
+  - semimembranosus
+  - gastrocnemius
+  - sartorius
+  - gracilis
+- id: ankle_dorsiflexion
+  name: Ankle Dorsiflexion
+  joint: ankle
+  type: dorsiflexion
+  primary_movers:
+  - tibialis_anterior
+  - extensor_digitorum_longus
+  - extensor_hallucis_longus
+  - dorsiflexor_group
+- id: ankle_plantarflexion
+  name: Ankle Plantarflexion
+  joint: ankle
+  type: plantarflexion
+  primary_movers:
+  - gastrocnemius
+  - soleus
+  - plantaris
+  - tibialis_posterior
+  - flexor_digitorum_longus
+  - flexor_hallucis_longus
+  - fibularis_longus
+  - fibularis_brevis
+- id: ankle_inversion
+  name: Ankle Inversion
+  joint: ankle
+  type: inversion
+  primary_movers:
+  - tibialis_anterior
+  - tibialis_posterior
+- id: ankle_eversion
+  name: Ankle Eversion
+  joint: ankle
+  type: eversion
+  primary_movers:
+  - fibularis_longus
+  - fibularis_brevis
+- id: toe_extension
+  name: Toe Extension
+  joint: metatarsophalangeal, interphalangeal
+  type: extension
+  primary_movers:
+  - extensor_digitorum_longus
+  - extensor_hallucis_longus
+- id: toe_flexion
+  name: Toe Flexion
+  joint: metatarsophalangeal, interphalangeal
+  type: flexion
+  primary_movers:
+  - flexor_digitorum_longus
+  - flexor_hallucis_longus

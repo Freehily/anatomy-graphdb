@@ -1,0 +1,154 @@
+attachment_points:
+- id: anterior_superior_iliac_spine
+  name: Anterior Superior Iliac Spine
+  bone: pelvis
+- id: calcaneal_tuberosity_medial_process
+  name: Medial Process of Calcaneal Tuberosity
+  bone: calcaneus
+- id: calcaneal_tuberosity_lateral_process
+  name: Lateral Process of Calcaneal Tuberosity
+  bone: calcaneus
+- id: plantar_aponeurosis
+  name: Plantar Aponeurosis
+  bone: fascia
+- id: middle_phalanges_2_5
+  name: Middle Phalanges of Digits 2-5
+  bone: phalanges_middle
+- id: medial_tubercle_1st_metatarsal
+  name: Medial Tubercle of 1st Metatarsal
+  bone: metatarsal_1
+- id: base_1st_metatarsal
+  name: Base of 1st Metatarsal
+  bone: metatarsal_1
+- id: base_5th_metatarsal
+  name: Base of 5th Metatarsal
+  bone: metatarsal_5
+- id: medial_tubercle_proximal_phalanx_hallux
+  name: Medial Tubercle of Proximal Phalanx of Hallux
+  bone: proximal_phalanx_hallux
+- id: proximal_phalanges_2_5_medial
+  name: Medial Aspects of Proximal Phalanges 2-5
+  bone: phalanges_proximal
+- id: proximal_phalanges_3_5_lateral
+  name: Lateral Aspects of Proximal Phalanges 3-5
+  bone: phalanges_proximal
+- id: extensor_expansion_toe2
+  name: Extensor Expansion of Toe 2
+  bone: extensor_expansion
+- id: extensor_expansion_toe3
+  name: Extensor Expansion of Toe 3
+  bone: extensor_expansion
+- id: extensor_expansion_toe4
+  name: Extensor Expansion of Toe 4
+  bone: extensor_expansion
+- id: extensor_expansion_toe5
+  name: Extensor Expansion of Toe 5
+  bone: extensor_expansion
+- id: metatarsal_heads_2_5
+  name: Heads of Metatarsals 2-5
+  bone: metatarsals
+- id: tendons_flexor_digitorum_longus_2_5
+  name: Flexor Digitorum Longus Tendons to Digits 2-5
+  bone: tendons
+- id: tendons_flexor_digitorum_longus_digital_slips
+  name: Medial Digital Slips of FDL Tendons
+  bone: tendons
+- id: anterior_inferior_iliac_spine
+  name: Anterior Inferior Iliac Spine
+  bone: pelvis
+- id: iliac_crest
+  name: Iliac Crest
+  bone: pelvis
+- id: gluteal_surface_ilium
+  name: Gluteal Surface of Ilium
+  bone: pelvis
+- id: dorsal_surface_sacrum
+  name: Dorsal Surface of Sacrum
+  bone: sacrum
+- id: ischial_tuberosity
+  name: Ischial Tuberosity
+  bone: pelvis
+- id: pubic_body
+  name: Body of Pubis
+  bone: pelvis
+- id: pubic_inferior_ram
+  name: Inferior Pubic Ramus
+  bone: pelvis
+- id: pectineal_line_pubis
+  name: Pectineal Line of Pubis
+  bone: pelvis
+- id: greater_trochanter
+  name: Greater Trochanter
+  bone: femur
+- id: gluteal_tuberosity
+  name: Gluteal Tuberosity
+  bone: femur
+- id: anterior_femoral_shaft
+  name: Anterior Shaft of Femur
+  bone: femur
+- id: pectineal_line_femur
+  name: Pectineal Line of Femur
+  bone: femur
+- id: linea_aspera
+  name: Linea Aspera
+  bone: femur
+- id: medial_femoral_condyle
+  name: Medial Femoral Condyle
+  bone: femur
+- id: lateral_femoral_condyle
+  name: Lateral Femoral Condyle
+  bone: femur
+- id: adductor_tubercle
+  name: Adductor Tubercle
+  bone: femur
+- id: base_of_patella
+  name: Base of Patella
+  bone: patella
+- id: tibial_tuberosity
+  name: Tibial Tuberosity
+  bone: tibia
+- id: medial_tibial_condyle
+  name: Medial Tibial Condyle
+  bone: tibia
+- id: lateral_tibial_condyle
+  name: Lateral Tibial Condyle
+  bone: tibia
+- id: pes_anserinus
+  name: Pes Anserinus
+  bone: tibia
+- id: tibial_shaft_medial
+  name: Medial Shaft of Tibia
+  bone: tibia
+- id: soleal_line
+  name: Soleal Line
+  bone: tibia
+- id: head_of_fibula
+  name: Head of Fibula
+  bone: fibula
+- id: fibular_shaft
+  name: Shaft of Fibula
+  bone: fibula
+- id: calcaneal_tuberosity
+  name: Calcaneal Tuberosity
+  bone: calcaneus
+- id: medial_cuneiform
+  name: Medial Cuneiform
+  bone: foot
+- id: intermediate_cuneiform
+  name: Intermediate Cuneiform
+  bone: foot
+- id: lateral_cuneiform
+  name: Lateral Cuneiform
+  bone: foot
+- id: navicular_tuberosity
+  name: Navicular Tuberosity
+  bone: foot
+- id: proximal_phalanges_2_5_plantar
+  name: Plantar Surfaces of Proximal Phalanges 2-5
+  bone: foot
+- id: distal_phalanx_hallux
+  name: Distal Phalanx of Hallux
+  bone: foot
+- id: iliotibial_tract
+  name: Iliotibial Tract
+  bone: fascia

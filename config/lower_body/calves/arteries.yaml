@@ -1,0 +1,108 @@
+arteries:
+- id: heart
+  name: Heart
+  supplies: []
+- id: aorta
+  name: Aorta
+  branches_from: heart
+  supplies: []
+- id: common_iliac_artery
+  name: Common Iliac Artery
+  branches_from: aorta
+  supplies: []
+- id: internal_iliac_artery
+  name: Internal Iliac Artery
+  branches_from: common_iliac_artery
+  supplies: []
+- id: external_iliac_artery
+  name: External Iliac Artery
+  branches_from: common_iliac_artery
+  supplies: []
+- id: popliteal_artery
+  name: Popliteal Artery
+  branches_from: femoral_artery
+  supplies:
+  - plantaris_head
+- id: posterior_tibial_artery
+  name: Posterior Tibial Artery
+  branches_from: popliteal_artery
+  supplies:
+  - gastrocnemius_medial_head
+  - gastrocnemius_lateral_head
+  - soleus_head
+  - tibialis_posterior_head
+  - flexor_digitorum_longus_head
+  - flexor_hallucis_longus_head
+- id: medial_plantar_artery
+  name: Medial Plantar Artery
+  branches_from: posterior_tibial_artery
+  supplies:
+  - abductor_hallucis_head
+  - flexor_digitorum_brevis_head
+  - lumbrical_1_head
+- id: lateral_plantar_artery
+  name: Lateral Plantar Artery
+  branches_from: posterior_tibial_artery
+  supplies:
+  - abductor_digiti_minimi_head
+  - quadratus_plantae_head
+  - lumbrical_2_4_head
+- id: superior_gluteal_artery
+  name: Superior Gluteal Artery
+  branches_from: internal_iliac_artery
+  supplies:
+  - gluteus_medius_head
+  - gluteus_minimus_head
+  - tensor_fasciae_latae_head
+  - piriformis_head
+- id: inferior_gluteal_artery
+  name: Inferior Gluteal Artery
+  branches_from: internal_iliac_artery
+  supplies:
+  - gluteus_maximus_head
+- id: obturator_artery
+  name: Obturator Artery
+  branches_from: internal_iliac_artery
+  supplies:
+  - pectineus_head
+  - gracilis_head
+- id: femoral_artery
+  name: Femoral Artery
+  branches_from: external_iliac_artery
+  supplies:
+  - rectus_femoris_head
+  - vastus_medialis_head
+  - vastus_intermedius_head
+  - sartorius_head
+- id: deep_femoral_artery
+  name: Deep Femoral Artery
+  branches_from: femoral_artery
+  supplies:
+  - adductor_longus_head
+  - adductor_brevis_head
+  - adductor_magnus_adductor_head
+  - adductor_magnus_hamstring_head
+  - biceps_femoris_long_head
+  - biceps_femoris_short_head
+  - semitendinosus_head
+  - semimembranosus_head
+- id: lateral_circumflex_femoral_artery
+  name: Lateral Circumflex Femoral Artery
+  branches_from: deep_femoral_artery
+  supplies:
+  - tensor_fasciae_latae_head
+  - rectus_femoris_head
+  - vastus_lateralis_head
+- id: anterior_tibial_artery
+  name: Anterior Tibial Artery
+  branches_from: popliteal_artery
+  supplies:
+  - tibialis_anterior_head
+  - extensor_digitorum_longus_head
+  - extensor_hallucis_longus_head
+- id: fibular_artery
+  name: Fibular (Peroneal) Artery
+  branches_from: posterior_tibial_artery
+  supplies:
+  - fibularis_longus_head
+  - fibularis_brevis_head

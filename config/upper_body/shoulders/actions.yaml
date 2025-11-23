@@ -1,0 +1,121 @@
+actions:
+- id: scapula_elevation
+  name: Scapula Elevation
+  joint: scapulothoracic
+  type: elevation
+  primary_movers:
+  - trapezius
+  - levator_scapulae
+- id: scapula_depression
+  name: Scapula Depression
+  joint: scapulothoracic
+  type: depression
+  primary_movers:
+  - trapezius
+  - latissimus_dorsi_head
+  - serratus_posterior_inferior_back
+- id: scapula_retraction
+  name: Scapula Retraction
+  joint: scapulothoracic
+  type: retraction
+  primary_movers:
+  - trapezius
+  - rhomboid_major
+  - rhomboid_minor
+- id: scapula_downward_rotation
+  name: Scapula Downward Rotation
+  joint: scapulothoracic
+  type: rotation
+  primary_movers:
+  - levator_scapulae
+  - rhomboid_major
+  - rhomboid_minor
+- id: scapula_upward_rotation
+  name: Scapula Upward Rotation
+  joint: scapulothoracic
+  type: rotation
+  primary_movers:
+  - trapezius
+- id: cervical_extension
+  name: Cervical Extension
+  joint: cervical_spine
+  type: extension
+  primary_movers:
+  - trapezius
+- id: forced_expiration_assist
+  name: Forced Expiration Assistance
+  joint: thoracic_cage
+  type: expiration
+  primary_movers:
+  - serratus_posterior_inferior_back
+- id: elbow_flexion
+  name: Elbow Flexion
+  joint: elbow
+  type: flexion
+  primary_movers:
+  - biceps_brachii_short
+  - biceps_brachii_long
+- id: shoulder_flexion
+  name: Shoulder Flexion
+  joint: shoulder
+  type: flexion
+  primary_movers:
+  - biceps_brachii_short
+  - biceps_brachii_long
+  - deltoid_anterior
+  - pectoralis_major_clavicular
+  - coracobrachialis_head
+- id: forearm_supination
+  name: Forearm Supination
+  joint: radioulnar
+  type: supination
+  primary_movers:
+  - biceps_brachii_short
+  - biceps_brachii_long
+- id: elbow_extension
+  name: Elbow Extension
+  joint: elbow
+  type: extension
+  primary_movers:
+  - triceps_brachii_long
+- id: shoulder_extension
+  name: Shoulder Extension
+  joint: shoulder
+  type: extension
+  primary_movers:
+  - triceps_brachii_long
+  - deltoid_posterior
+  - latissimus_dorsi
+  - teres_major_head
+- id: shoulder_adduction
+  name: Shoulder Adduction
+  joint: shoulder
+  type: adduction
+  primary_movers:
+  - triceps_brachii_long
+  - pectoralis_major_sternocostal
+  - latissimus_dorsi
+  - teres_major_head
+  - coracobrachialis_head
+- id: shoulder_abduction
+  name: Shoulder Abduction
+  joint: shoulder
+  type: abduction
+  primary_movers:
+  - deltoid_middle
+  - supraspinatus
+- id: shoulder_medial_rotation
+  name: Shoulder Medial Rotation
+  joint: shoulder
+  type: medial_rotation
+  primary_movers:
+  - subscapularis
+  - pectoralis_major_clavicular
+  - latissimus_dorsi
+- id: shoulder_lateral_rotation
+  name: Shoulder Lateral Rotation
+  joint: shoulder
+  type: lateral_rotation
+  primary_movers:
+  - infraspinatus
+  - teres_minor

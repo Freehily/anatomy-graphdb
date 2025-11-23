@@ -1,0 +1,141 @@
+bones:
+- id: thoracic_ribs
+  name: Ribs 5-12
+  region: Thorax
+  attachments: []
+- id: sternum
+  name: Sternum
+  region: Thorax
+  attachments: []
+- id: pelvis
+  name: Pelvis
+  region: Pelvic Girdle
+  attachments: []
+- id: fascia
+  name: Abdominal Fascia
+  region: Connective Tissue
+  attachments: []
+- id: ligaments
+  name: Ligaments
+  region: Connective Tissue
+  attachments: []
+- id: skull
+  name: Skull
+  region: Head
+  attachments:
+  - external_occipital_protuberance
+- id: cervical_vertebrae
+  name: Cervical Vertebrae
+  region: Spine
+  attachments:
+  - transverse_processes_C1_C4
+- id: thoracic_vertebrae
+  name: Thoracic Vertebrae
+  region: Spine
+  attachments:
+  - spinous_processes_C3_T12
+  - spinous_processes_T1_T12
+- id: thoracolumbar_spine
+  name: Thoracolumbar Spine
+  region: Spine
+  attachments:
+  - spinous_processes_T7_L5
+  - thoracolumbar_fascia_back
+- id: scapula
+  name: Scapula
+  region: Shoulder Girdle
+  attachments:
+  - superior_angle_scapula
+  - medial_border_scapula
+  - spine_of_scapula
+  - inferior_angle_scapula
+  - acromion_process
+- id: clavicle
+  name: Clavicle
+  region: Shoulder Girdle
+  attachments:
+  - lateral_clavicle
+- id: phalanges_middle
+  name: Middle Phalanges 2-5
+  region: Foot
+  attachments:
+  - middle_phalanges_2_5
+- id: extensor_expansion
+  name: Extensor Expansion (Digits 2-5)
+  region: Foot
+  attachments: []
+- id: carpal_hamate
+  name: Hamate
+  region: Carpus
+  attachments:
+  - hook_of_hamate
+- id: carpal_pisiform
+  name: Pisiform
+  region: Carpus
+  attachments:
+  - pisiform
+- id: humerus
+  name: Humerus
+  region: Upper Arm
+  attachments:
+  - greater_tubercle
+  - medial_epicondyle
+  - lateral_epicondyle
+  - lateral_supracondylar_ridge
+  - above_radial_groove
+  - below_radial_groove
+  - intertubercular_sulcus
+- id: radius
+  name: Radius
+  region: Forearm
+  attachments:
+  - radial_tuberosity
+  - anterior_radius
+  - posterior_radius
+  - styloid_process_of_radius
+  - distal_radius_anterior
+  - midshaft_radius
+  - proximal_radius
+- id: ulna
+  name: Ulna
+  region: Forearm
+  attachments:
+  - olecranon_process
+  - coronoid_process
+  - ulnar_tuberosity
+  - posterior_border_ulna
+  - posterior_ulna
+  - proximal_ulna
+  - distal_ulna_anterior
+- id: hand
+  name: Hand
+  region: Distal Upper Limb
+  attachments:
+  - pisiform
+  - hamate
+  - base_of_1st_metacarpal
+  - base_of_2nd_metacarpal
+  - base_of_3rd_metacarpal
+  - base_of_5th_metacarpal
+  - middle_phalanges_2_5
+  - medial_side_proximal_phalanx_thumb
+  - lateral_side_proximal_phalanx_thumb
+  - proximal_phalanx_thumb_dorsal
+  - distal_phalanges_2_5
+  - distal_phalanx_thumb
+  - scaphoid_tubercle
+  - trapezium_tubercle
+  - hook_of_hamate
+  - extensor_expansions_2_5
+  - extensor_expansion_2
+  - extensor_expansion_5
+- id: thoracic_cage
+  name: Thoracic Cage
+  region: Thorax
+  attachments:
+  - costal_cartilages_1_6
+- id: interosseous_membrane
+  name: Interosseous Membrane
+  region: Forearm Connective Tissue
+  attachments:
+  - interosseous_membrane

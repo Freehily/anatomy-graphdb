@@ -1,0 +1,154 @@
+muscles:
+- id: trapezius
+  name: Trapezius
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+  insertion:
+  - lateral_clavicle
+  - acromion_process
+  - spine_of_scapula
+  actions:
+  - scapula_elevation
+  - scapula_retraction
+  - scapula_depression
+  - scapula_upward_rotation
+  antagonists: []
+- id: levator_scapulae
+  name: Levator Scapulae
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - levator_scapulae_head
+  insertion:
+  - medial_border_scapula
+  - superior_angle_scapula
+  actions:
+  - scapula_elevation
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_minor
+  name: Rhomboid Minor
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_minor_head
+  insertion:
+  - medial_border_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: rhomboid_major
+  name: Rhomboid Major
+  group: Superficial Back Muscles
+  order: Back
+  heads:
+  - rhomboid_major_head
+  insertion:
+  - medial_border_scapula
+  - inferior_angle_scapula
+  actions:
+  - scapula_retraction
+  - scapula_downward_rotation
+  antagonists: []
+- id: serratus_posterior_inferior_back
+  name: Serratus Posterior Inferior
+  group: Intermediate Back Muscles
+  order: Back
+  heads:
+  - serratus_posterior_inferior_back_head
+  insertion:
+  - ribs_9_12
+  actions:
+  - forced_expiration_assist
+  antagonists: []
+- id: deltoid
+  name: Deltoid
+  group: Shoulder Muscles
+  order: Shoulder
+  heads:
+  - deltoid_anterior
+  - deltoid_middle
+  - deltoid_posterior
+  insertion:
+  - deltoid_tuberosity
+  actions:
+  - shoulder_abduction
+  - shoulder_flexion
+  - shoulder_extension
+  antagonists:
+  - latissimus_dorsi
+  - pectoralis_major
+- id: pectoralis_major
+  name: Pectoralis Major
+  group: Chest Muscles
+  order: Shoulder
+  heads:
+  - pectoralis_major_clavicular
+  - pectoralis_major_sternocostal
+  insertion:
+  - greater_tubercle
+  actions:
+  - shoulder_flexion
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  antagonists:
+  - deltoid_posterior
+  - latissimus_dorsi
+- id: latissimus_dorsi
+  name: Latissimus Dorsi
+  group: Back Muscles
+  order: Shoulder
+  heads: []
+  insertion:
+  - intertubercular_sulcus
+  actions:
+  - shoulder_extension
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  - scapula_depression
+  antagonists:
+  - deltoid_anterior
+  - pectoralis_major
+- id: teres_major
+  name: Teres Major
+  group: Shoulder Muscles
+  order: Shoulder
+  heads:
+  - teres_major_head
+  insertion:
+  - medial_lip_intertubercular_sulcus
+  actions:
+  - shoulder_extension
+  - shoulder_adduction
+  - shoulder_medial_rotation
+  antagonists:
+  - deltoid_anterior
+- id: rotator_cuff
+  name: Rotator Cuff Group
+  group: Rotator Cuff
+  order: Shoulder
+  heads:
+  - supraspinatus
+  - infraspinatus
+  - teres_minor
+  - subscapularis
+  insertion:
+  - greater_tubercle
+  - lesser_tubercle
+  actions: []
+  antagonists: []
+- id: serratus_anterior
+  name: Serratus Anterior
+  group: Shoulder Stabilizers
+  order: Thorax
+  heads: []
+  insertion:
+  - medial_border_scapula
+  actions:
+  - scapula_upward_rotation
+  antagonists: []

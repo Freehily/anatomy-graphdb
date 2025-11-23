@@ -1,0 +1,46 @@
+attachment_points:
+- id: external_occipital_protuberance
+  name: External Occipital Protuberance
+  bone: skull
+- id: ligamentum_nuchae
+  name: Ligamentum Nuchae
+  bone: ligaments
+- id: spinous_processes_C3_T12
+  name: Spinous Processes C3-T12
+  bone: thoracic_vertebrae
+- id: spinous_processes_T1_T12
+  name: Spinous Processes T1-T12
+  bone: thoracic_vertebrae
+- id: spinous_processes_T7_L5
+  name: Spinous Processes T7-L5
+  bone: thoracolumbar_spine
+- id: transverse_processes_C1_C4
+  name: Transverse Processes C1-C4
+  bone: cervical_vertebrae
+- id: ribs_9_12
+  name: Posterior Ribs 9-12
+  bone: thoracic_ribs
+- id: inferior_angle_scapula
+  name: Inferior Angle of Scapula
+  bone: scapula
+- id: superior_angle_scapula
+  name: Superior Angle of Scapula
+  bone: scapula
+- id: medial_border_scapula
+  name: Medial Border of Scapula
+  bone: scapula
+- id: spine_of_scapula
+  name: Spine of Scapula
+  bone: scapula
+- id: acromion_process
+  name: Acromion Process
+  bone: scapula
+- id: lateral_clavicle
+  name: Lateral Clavicle
+  bone: clavicle
+- id: iliac_crest_back
+  name: Iliac Crest (Posterior)
+  bone: pelvis
+- id: thoracolumbar_fascia_back
+  name: Thoracolumbar Fascia
+  bone: fascia

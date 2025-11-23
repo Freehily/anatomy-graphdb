@@ -1,0 +1,51 @@
+arteries:
+- id: heart
+  name: Heart
+  supplies: []
+- id: aorta
+  name: Aorta
+  branches_from: heart
+  supplies: []
+- id: thoracic_aorta
+  name: Thoracic Aorta
+  branches_from: aorta
+  supplies: []
+- id: subclavian_artery
+  name: Subclavian Artery
+  branches_from: aorta
+  supplies: []
+- id: common_iliac_artery
+  name: Common Iliac Artery
+  branches_from: aorta
+  supplies: []
+- id: external_iliac_artery
+  name: External Iliac Artery
+  branches_from: common_iliac_artery
+  supplies: []
+- id: superior_epigastric_artery
+  name: Superior Epigastric Artery
+  branches_from: internal_thoracic_artery
+  supplies:
+  - rectus_abdominis_head
+- id: inferior_epigastric_artery
+  name: Inferior Epigastric Artery
+  branches_from: external_iliac_artery
+  supplies:
+  - rectus_abdominis_head
+  - internal_oblique_head
+  - transversus_abdominis_head
+- id: lower_posterior_intercostal_arteries
+  name: Lower Posterior Intercostal Arteries (T7-T11)
+  branches_from: thoracic_aorta
+  supplies:
+  - external_oblique_head
+- id: deep_circumflex_iliac_artery
+  name: Deep Circumflex Iliac Artery
+  branches_from: external_iliac_artery
+  supplies:
+  - internal_oblique_head
+  - transversus_abdominis_head
+- id: internal_thoracic_artery
+  name: Internal Thoracic Artery
+  branches_from: subclavian_artery
+  supplies: []

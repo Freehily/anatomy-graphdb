@@ -1,0 +1,271 @@
+nerves:
+- id: spinal_accessory_nerve
+  name: Spinal Accessory Nerve (CN XI)
+  derivations:
+  - C1
+  - C2
+  - Cranial
+  type:
+  - motor
+  pathway: Exits jugular foramen, travels deep to trapezius along posterior triangle.
+  clinical_significance: Injury causes shoulder droop and weakened scapular elevation.
+  innervates:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+- id: dorsal_scapular_nerve
+  name: Dorsal Scapular Nerve
+  derivations:
+  - C4
+  - C5
+  type:
+  - motor
+  pathway: Pierces middle scalene, descends along medial scapular border.
+  clinical_significance: Lesions weaken scapular retraction and elevation.
+  innervates:
+  - levator_scapulae_head
+  - rhomboid_minor_head
+  - rhomboid_major_head
+- id: thoracodorsal_nerve
+  name: Thoracodorsal Nerve
+  derivations:
+  - C6
+  - C7
+  - C8
+  type:
+  - motor
+  pathway: Runs with thoracodorsal artery along posterior axillary wall to latissimus
+    dorsi.
+  clinical_significance: Damage during axillary surgery compromises shoulder extension
+    and adduction.
+  innervates:
+  - latissimus_dorsi_head
+- id: intercostal_nerves
+  name: Intercostal Nerves
+  derivations:
+  - T1
+  - T2
+  - T3
+  - T4
+  - T5
+  - T6
+  - T7
+  - T8
+  - T9
+  - T10
+  - T11
+  type:
+  - motor
+  - sensory
+  pathway: Travel within intercostal spaces beneath ribs, supplying thoracic wall
+    and overlying muscles.
+  clinical_significance: Entrapment causes segmental thoracic pain and breathing difficulty.
+  innervates:
+  - serratus_posterior_inferior_back_head
+- id: median
+  name: Median Nerve
+  derivations:
+  - C5
+  - C6
+  - C7
+  - C8
+  - T1
+  type:
+  - motor
+  - sensory
+  pathway: Travels with brachial artery, passes through cubital fossa, enters forearm
+    between heads of pronator teres, runs through carpal tunnel into hand.
+  clinical_significance: Compression in carpal tunnel causes carpal tunnel syndrome;
+    weakness in thumb opposition and forearm pronation.
+  innervates:
+  - pronator_teres
+  - flexor_digitorum_superficialis
+  - flexor_carpi_radialis_head
+  - palmaris_longus_head
+- id: ulnar
+  name: Ulnar Nerve
+  derivations:
+  - C8
+  - T1
+  type:
+  - motor
+  - sensory
+  pathway: Passes posterior to medial epicondyle of humerus, continues along ulnar
+    side of forearm into hand.
+  clinical_significance: Injury at elbow or wrist can cause "claw hand" and sensory
+    loss in medial hand.
+  innervates:
+  - flexor_carpi_ulnaris
+  - flexor_digitorum_profundus_medial
+  - adductor_pollicis
+- id: axillary
+  name: Axillary Nerve
+  derivations:
+  - C5
+  - C6
+  type:
+  - motor
+  - sensory
+  pathway: Exits axilla through quadrangular space with posterior circumflex humeral
+    artery, wraps around surgical neck of humerus.
+  clinical_significance: Injury can occur with shoulder dislocation or humeral surgical
+    neck fracture, causing deltoid paralysis and sensory loss over deltoid.
+  innervates:
+  - deltoid_anterior
+  - deltoid_posterior
+- id: musculocutaneous
+  name: Musculocutaneous Nerve
+  derivations:
+  - C5
+  - C6
+  - C7
+  type:
+  - motor
+  - sensory
+  pathway: Pierces coracobrachialis, travels between biceps brachii and brachialis,
+    continues as lateral cutaneous nerve of the forearm.
+  clinical_significance: Injury results in weakened elbow flexion and forearm supination
+    with sensory loss along the lateral forearm.
+  innervates:
+  - biceps_brachii_short
+  - biceps_brachii_long
+  - brachialis
+  - coracobrachialis_head
+- id: radial_nerve
+  name: Radial Nerve
+  derivations:
+  - C5
+  - C6
+  - C7
+  - C8
+  - T1
+  type:
+  - motor
+  - sensory
+  pathway: Runs in radial groove of humerus, traverses lateral intermuscular septum,
+    divides into superficial and deep branches near lateral epicondyle.
+  clinical_significance: Injury in the radial groove causes wrist drop and sensory
+    loss over dorsum of hand.
+  innervates:
+  - triceps_brachii_long
+  - triceps_brachii_lateral
+  - triceps_brachii_medial
+  - anconeus_head
+  - brachioradialis
+  - extensor_carpi_radialis_longus_head
+  - supinator
+  - extensor_digitorum
+- id: anterior_interosseous_nerve
+  name: Anterior Interosseous Nerve
+  derivations:
+  - C8
+  - T1
+  type:
+  - motor
+  pathway: Branch of the median nerve coursing along the anterior interosseous membrane
+    to the deep flexor compartment.
+  clinical_significance: Lesion produces pinch weakness (OK sign) due to loss of thumb
+    and index finger flexion.
+  innervates:
+  - flexor_digitorum_profundus_lateral
+  - flexor_pollicis_longus_head
+  - pronator_quadratus_head
+- id: posterior_interosseous_nerve
+  name: Posterior Interosseous Nerve
+  derivations:
+  - C7
+  - C8
+  type:
+  - motor
+  pathway: Deep branch of radial nerve passing through supinator to supply posterior
+    forearm extensors.
+  clinical_significance: Compression in the supinator (radial tunnel) causes finger
+    and thumb extension weakness without sensory loss.
+  innervates:
+  - extensor_carpi_radialis_brevis_head
+  - extensor_digiti_minimi_head
+  - extensor_carpi_ulnaris_head
+  - abductor_pollicis_longus_head
+  - extensor_pollicis_brevis_head
+  - extensor_pollicis_longus_head
+  - extensor_indicis_head
+- id: lateral_pectoral_nerve
+  name: Lateral Pectoral Nerve
+  derivations:
+  - C5
+  - C6
+  - C7
+  type:
+  - motor
+  pathway: Arises from lateral cord of brachial plexus, passes medially to pierce
+    clavipectoral fascia reaching pectoralis major.
+  clinical_significance: Lesion reduces shoulder flexion and adduction strength from
+    the clavicular head of pectoralis major.
+  innervates:
+  - pectoralis_major_clavicular
+- id: medial_pectoral_nerve
+  name: Medial Pectoral Nerve
+  derivations:
+  - C8
+  - T1
+  type:
+  - motor
+  pathway: Originates from medial cord, pierces pectoralis minor to reach and supply
+    pectoralis major.
+  clinical_significance: Injury weakens scapular depression and shoulder adduction
+    contributed by pectoralis major and minor.
+  innervates:
+  - pectoralis_major_sternocostal
+- id: upper_subscapular_nerve
+  name: Upper Subscapular Nerve
+  derivations:
+  - C5
+  - C6
+  type:
+  - motor
+  pathway: Branches from posterior cord, enters proximal subscapularis on its anterior
+    surface.
+  clinical_significance: Injury decreases initial shoulder medial rotation strength.
+  innervates:
+  - subscapularis
+- id: lower_subscapular_nerve
+  name: Lower Subscapular Nerve
+  derivations:
+  - C5
+  - C6
+  type:
+  - motor
+  pathway: Branches from posterior cord, descends along the subscapularis to innervate
+    its inferior portion and teres major.
+  clinical_significance: Damage impairs shoulder medial rotation and adduction from
+    subscapularis and teres major.
+  innervates:
+  - subscapularis
+  - teres_major_head
+- id: deep_branch_ulnar
+  name: Deep Branch of Ulnar Nerve
+  derivations:
+  - C8
+  - T1
+  type:
+  - motor
+  pathway: Passes through Guyon's canal, diving deep to supply most intrinsic hand
+    muscles.
+  clinical_significance: Compression in Guyon's canal causes weakness in interossei
+    and hypothenar muscles with sensory sparing.
+  innervates:
+  - flexor_digiti_minimi_brevis_head
+  - adductor_pollicis
+- id: recurrent_branch_median
+  name: Recurrent Branch of Median Nerve
+  derivations:
+  - C8
+  - T1
+  type:
+  - motor
+  pathway: Emerges after the carpal tunnel to supply thenar muscles.
+  clinical_significance: Injury during carpal tunnel release leads to loss of thumb
+    opposition and abduction.
+  innervates:
+  - abductor_pollicis_brevis_head
+  - flexor_pollicis_brevis_head

@@ -1,0 +1,81 @@
+arteries:
+- id: heart
+  name: Heart
+  supplies: []
+- id: aorta
+  name: Aorta
+  branches_from: heart
+  supplies: []
+- id: subclavian_artery
+  name: Subclavian Artery
+  branches_from: aorta
+  supplies: []
+- id: axillary_artery
+  name: Axillary Artery
+  branches_from: subclavian_artery
+  supplies: []
+- id: brachial_artery
+  name: Brachial Artery
+  branches_from: axillary_artery
+  supplies:
+  - biceps_brachii_short
+  - biceps_brachii_long
+  - coracobrachialis_head
+- id: transverse_cervical_artery
+  name: Transverse Cervical Artery
+  branches_from: subclavian_artery
+  supplies:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+- id: dorsal_scapular_artery
+  name: Dorsal Scapular Artery
+  branches_from: subclavian_artery
+  supplies:
+  - levator_scapulae_head
+  - rhomboid_minor_head
+  - rhomboid_major_head
+- id: thoracodorsal_artery
+  name: Thoracodorsal Artery
+  branches_from: subscapular_artery
+  supplies:
+  - latissimus_dorsi_head
+- id: subscapular_artery
+  name: Subscapular Artery
+  branches_from: axillary_artery
+  supplies: []
+- id: posterior_intercostal_arteries
+  name: Posterior Intercostal Arteries
+  branches_from: aorta
+  supplies:
+  - serratus_posterior_inferior_back_head
+- id: deep_brachial_artery
+  name: Deep Brachial Artery
+  branches_from: brachial_artery
+  supplies:
+  - triceps_brachii_long
+- id: posterior_circumflex_humeral_artery
+  name: Posterior Circumflex Humeral Artery
+  branches_from: axillary_artery
+  supplies:
+  - triceps_brachii_long
+  - deltoid_middle
+  - deltoid_posterior
+- id: thoracoacromial_artery
+  name: Thoracoacromial Artery
+  branches_from: axillary_artery
+  supplies:
+  - deltoid_anterior
+  - pectoralis_major_clavicular
+  - pectoralis_major_sternocostal
+- id: suprascapular_artery
+  name: Suprascapular Artery
+  branches_from: subclavian_artery
+  supplies:
+  - supraspinatus
+  - infraspinatus
+- id: circumflex_scapular_artery
+  name: Circumflex Scapular Artery
+  branches_from: subscapular_artery
+  supplies:
+  - teres_minor

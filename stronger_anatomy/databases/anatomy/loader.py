@@ -84,12 +84,15 @@ def _merge_items(primary: Iterable[dict], supplemental: Iterable[dict], key: str
 class AnatomyLoader:
     """Loads anatomy region data with optional shared definitions."""
 
-    def __init__(self, root: Optional[Path] = None) -> None:
+    def __init__(self, root: Optional[Path] = None, *, prefer_group_structure: bool = True) -> None:
         self.root = root or _DEFAULT_ROOT
         if not self.root.exists():
             raise AnatomyConfigError(f"Configuration root '{self.root}' does not exist")
         self.global_root = self.root / "global"
         self._reserved_dirs = {"global", "body"}
+        self.prefer_group_structure = prefer_group_structure
+        self._group_mapping = self._load_group_mapping() if prefer_group_structure else {}
+        self._region_paths = self._build_region_paths(self._group_mapping)
         self._index = self._load_index()
 
     def _load_index(self) -> Mapping[str, str]:
@@ -99,7 +102,42 @@ class AnatomyLoader:
         data = _load_yaml(index_path)
         return {str(section): str(filename) for section, filename in data.items()}
 
+    def _load_group_mapping(self) -> Dict[str, str]:
+        # Prefer the unified muscle_groups.yaml file (slug -> category).
+        mapping_paths = [
+            self.root / "body" / "muscle_groups.yaml",
+            self.root / "body" / "muscle_group_folders.yaml",
+        ]
+        mapping: Dict[str, str] = {}
+        for path in mapping_paths:
+            if not path.exists():
+                continue
+            data = _load_yaml(path)
+            key = "muscle_groups" if "muscle_groups" in data else "muscle_group_folders"
+            entries = data.get(key, {}).get("entries", [])
+            if not isinstance(entries, list):
+                continue
+            for entry in entries:
+                slug = entry.get("slug")
+                category = entry.get("category")
+                if slug and category:
+                    mapping[str(slug)] = str(category)
+            if mapping:
+                break
+        return mapping
+
+    def _build_region_paths(self, mapping: Mapping[str, str]) -> Dict[str, Path]:
+        region_paths: Dict[str, Path] = {}
+        for slug, category in mapping.items():
+            candidate = self.root / category / slug
+            if candidate.exists():
+                region_paths[slug] = candidate
+        return region_paths
+
     def available_regions(self) -> Sequence[str]:
+        if self._region_paths:
+            return sorted(self._region_paths.keys())
+
         regions: List[str] = []
         for entry in self.root.iterdir():
             if not entry.is_dir():
@@ -107,16 +145,21 @@ class AnatomyLoader:
             name = entry.name
             if name in self._reserved_dirs:
                 continue
-            regions.append(name)
+            has_section_files = any((entry / filename).exists() for filename in self._index.values())
+            if has_section_files:
+                regions.append(name)
         return sorted(regions)
 
     def load_region(self, region: str, include_shared: bool = True) -> AnatomyRegion:
-        region_dir = self.root / region
+        region_dir = self._region_paths.get(region, self.root / region)
         if not region_dir.exists():
             raise AnatomyConfigError(f"Region '{region}' not found under {self.root}")
 
         sections: Dict[str, SectionData] = {}
         shared_dir = self.global_root
+        use_shared = include_shared
+        if self._region_paths and region in self._region_paths:
+            use_shared = False
 
         for section, filename in self._index.items():
             region_path = region_dir / filename
@@ -125,7 +168,7 @@ class AnatomyLoader:
             region_payload = []
             shared_payload = []
 
-            if include_shared and shared_path.exists():
+            if use_shared and shared_path.exists():
                 data = _load_yaml(shared_path)
                 shared_payload = self._filter_items_for_region(list(data.get(section, []) or []), region)
 

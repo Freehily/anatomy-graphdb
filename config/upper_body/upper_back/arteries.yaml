@@ -1,0 +1,44 @@
+arteries:
+- id: heart
+  name: Heart
+  supplies: []
+- id: aorta
+  name: Aorta
+  branches_from: heart
+  supplies: []
+- id: subclavian_artery
+  name: Subclavian Artery
+  branches_from: aorta
+  supplies: []
+- id: axillary_artery
+  name: Axillary Artery
+  branches_from: subclavian_artery
+  supplies: []
+- id: transverse_cervical_artery
+  name: Transverse Cervical Artery
+  branches_from: subclavian_artery
+  supplies:
+  - trapezius_upper_head
+  - trapezius_middle_head
+  - trapezius_lower_head
+- id: dorsal_scapular_artery
+  name: Dorsal Scapular Artery
+  branches_from: subclavian_artery
+  supplies:
+  - levator_scapulae_head
+  - rhomboid_minor_head
+  - rhomboid_major_head
+- id: thoracodorsal_artery
+  name: Thoracodorsal Artery
+  branches_from: subscapular_artery
+  supplies:
+  - latissimus_dorsi_head
+- id: subscapular_artery
+  name: Subscapular Artery
+  branches_from: axillary_artery
+  supplies: []
+- id: posterior_intercostal_arteries
+  name: Posterior Intercostal Arteries
+  branches_from: aorta
+  supplies:
+  - serratus_posterior_inferior_back_head

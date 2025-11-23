@@ -7,57 +7,57 @@ This package contains YAML configs that describe anatomical structures, a valida
 Use the unified CLI to check referential integrity for any region:
 
 ```
-poetry run stronger-anatomy --region upper_limb --validate-only
+poetry run stronger-anatomy --region chest --validate-only
 ```
 
-Pass a comma-separated list (`--region upper_limb,lower_limb`) or `--region all` to cover multiple regions. Add `--list-regions` to discover which directories under `config/anatomy/` are available. The validator loads all of the YAML files and ensures every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs so the command can run in CI.
+Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to cover multiple muscle groups. Add `--list-regions` to discover which directories under `config/<category>/` are available. The validator loads all of the YAML files and ensures every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs so the command can run in CI.
 
 ## Neo4j Export Workflow
 
 1. Generate artifacts with the unified graph builder:
    ```
    # CSV export (default mode)
-   poetry run stronger-anatomy --region upper_limb --output data/neo4j
+   poetry run stronger-anatomy --region chest --output data/neo4j
 
    # Direct Bolt ingestion (requires `neo4j` extras)
-   poetry run stronger-anatomy --region upper_limb --mode bolt \
+   poetry run stronger-anatomy --region chest --mode bolt \
        --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
    ```
 
    Output defaults to `data/neo4j/<region>` unless `--output` is provided.
 
    Add `--validate` to enforce referential checks before exporting, and `--list-regions`
-   to discover available directories under `config/anatomy/<region>`. Set
-   `--region all` / pass a comma-separated list (e.g., `--region upper_limb,lower_limb`) to aggregate multiple
+   to discover available directories under `config/<category>/<region>`. Set
+   `--region all` / pass a comma-separated list (e.g., `--region chest,shoulders`) to aggregate multiple
    anatomy folders into a single export.
 
    The script automatically reads `.env` from the repo root (if present) and applies any `NEO4J_*` variables before parsing CLI flags, so stash your Aura/local credentials there to avoid repeating them.
 
 2. Import into a local Neo4j instance (example commands):
    ```
-   neo4j-admin database import full upper_limb \
-     --nodes=data/neo4j/upper_limb/nodes_bones.csv \
-     --nodes=data/neo4j/upper_limb/nodes_attachment_points.csv \
-     --nodes=data/neo4j/upper_limb/nodes_muscles.csv \
-     --nodes=data/neo4j/upper_limb/nodes_muscle_heads.csv \
-     --nodes=data/neo4j/upper_limb/nodes_nerves.csv \
-     --nodes=data/neo4j/upper_limb/nodes_arteries.csv \
-     --nodes=data/neo4j/upper_limb/nodes_actions.csv \
-     --relationships=data/neo4j/upper_limb/rels_bone_attachment.csv \
-     --relationships=data/neo4j/upper_limb/rels_muscle_head.csv \
-     --relationships=data/neo4j/upper_limb/rels_muscle_insertion.csv \
-     --relationships=data/neo4j/upper_limb/rels_muscle_antagonist_muscle.csv \
-     --relationships=data/neo4j/upper_limb/rels_muscle_antagonist_head.csv \
-     --relationships=data/neo4j/upper_limb/rels_head_origin.csv \
-     --relationships=data/neo4j/upper_limb/rels_head_innervation.csv \
-     --relationships=data/neo4j/upper_limb/rels_head_artery.csv \
-     --relationships=data/neo4j/upper_limb/rels_nerve_targets_muscle.csv \
-     --relationships=data/neo4j/upper_limb/rels_nerve_targets_head.csv \
-     --relationships=data/neo4j/upper_limb/rels_artery_supplies_muscle.csv \
-     --relationships=data/neo4j/upper_limb/rels_artery_supplies_head.csv \
-     --relationships=data/neo4j/upper_limb/rels_artery_branches.csv \
-     --relationships=data/neo4j/upper_limb/rels_action_primary_muscle.csv \
-     --relationships=data/neo4j/upper_limb/rels_action_primary_head.csv
+   neo4j-admin database import full chest \
+     --nodes=data/neo4j/chest/nodes_bones.csv \
+     --nodes=data/neo4j/chest/nodes_attachment_points.csv \
+     --nodes=data/neo4j/chest/nodes_muscles.csv \
+     --nodes=data/neo4j/chest/nodes_muscle_heads.csv \
+     --nodes=data/neo4j/chest/nodes_nerves.csv \
+     --nodes=data/neo4j/chest/nodes_arteries.csv \
+     --nodes=data/neo4j/chest/nodes_actions.csv \
+     --relationships=data/neo4j/chest/rels_bone_attachment.csv \
+     --relationships=data/neo4j/chest/rels_muscle_head.csv \
+     --relationships=data/neo4j/chest/rels_muscle_insertion.csv \
+     --relationships=data/neo4j/chest/rels_muscle_antagonist_muscle.csv \
+     --relationships=data/neo4j/chest/rels_muscle_antagonist_head.csv \
+     --relationships=data/neo4j/chest/rels_head_origin.csv \
+     --relationships=data/neo4j/chest/rels_head_innervation.csv \
+     --relationships=data/neo4j/chest/rels_head_artery.csv \
+     --relationships=data/neo4j/chest/rels_nerve_targets_muscle.csv \
+     --relationships=data/neo4j/chest/rels_nerve_targets_head.csv \
+     --relationships=data/neo4j/chest/rels_artery_supplies_muscle.csv \
+     --relationships=data/neo4j/chest/rels_artery_supplies_head.csv \
+     --relationships=data/neo4j/chest/rels_artery_branches.csv \
+     --relationships=data/neo4j/chest/rels_action_primary_muscle.csv \
+     --relationships=data/neo4j/chest/rels_action_primary_head.csv
    ```
 
    You can also use the repository helper (`scripts/import_neo4j.sh`) which wraps `neo4j-admin database import full`

@@ -1,0 +1,143 @@
+muscle_heads:
+- id: trapezius_upper_head
+  name: Trapezius (Upper Fibers)
+  origin:
+  - external_occipital_protuberance
+  - ligamentum_nuchae
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: trapezius_middle_head
+  name: Trapezius (Middle Fibers)
+  origin:
+  - spinous_processes_C3_T12
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: trapezius_lower_head
+  name: Trapezius (Lower Fibers)
+  origin:
+  - spinous_processes_T7_L5
+  innervation:
+  - spinal_accessory_nerve
+  arteries:
+  - transverse_cervical_artery
+- id: latissimus_dorsi_head
+  name: Latissimus Dorsi
+  origin:
+  - spinous_processes_T7_L5
+  - thoracolumbar_fascia_back
+  - iliac_crest_back
+  - ribs_9_12
+  innervation:
+  - thoracodorsal_nerve
+  arteries:
+  - thoracodorsal_artery
+- id: levator_scapulae_head
+  name: Levator Scapulae
+  origin:
+  - transverse_processes_C1_C4
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: rhomboid_minor_head
+  name: Rhomboid Minor
+  origin:
+  - spinous_processes_C3_T12
+  - ligamentum_nuchae
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: rhomboid_major_head
+  name: Rhomboid Major
+  origin:
+  - spinous_processes_T1_T12
+  innervation:
+  - dorsal_scapular_nerve
+  arteries:
+  - dorsal_scapular_artery
+- id: serratus_posterior_inferior_back_head
+  name: Serratus Posterior Inferior
+  origin:
+  - spinous_processes_T7_L5
+  innervation:
+  - intercostal_nerves
+  arteries:
+  - posterior_intercostal_arteries
+- id: erector_spinae_spinalis
+  name: Spinalis (Erector Spinae)
+  origin:
+  - spinous_processes_T7_L5
+  - thoracolumbar_fascia_back
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - lumbar_arteries
+- id: erector_spinae_longissimus
+  name: Longissimus (Erector Spinae)
+  origin:
+  - sacral_crest
+  - thoracolumbar_fascia_back
+  - iliac_crest_back
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - lumbar_arteries
+- id: erector_spinae_iliocostalis
+  name: Iliocostalis (Erector Spinae)
+  origin:
+  - thoracolumbar_fascia_back
+  - iliac_crest_back
+  - ribs_6_12
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - lumbar_arteries
+- id: multifidus_head
+  name: Multifidus
+  origin:
+  - sacral_crest
+  - transverse_processes_T1_T12
+  - transverse_processes_L1_L5
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - lumbar_arteries
+- id: semispinalis_capitis_head
+  name: Semispinalis Capitis
+  origin:
+  - transverse_processes_C1_C4
+  - transverse_processes_T1_T12
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - occipital_artery
+- id: semispinalis_cervicis_head
+  name: Semispinalis Cervicis
+  origin:
+  - transverse_processes_T1_T12
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - deep_cervical_artery
+- id: splenius_capitis_head
+  name: Splenius Capitis
+  origin:
+  - spinous_processes_C3_T12
+  - ligamentum_nuchae
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - occipital_artery
+- id: splenius_cervicis_head
+  name: Splenius Cervicis
+  origin:
+  - spinous_processes_T1_T12
+  innervation:
+  - posterior_primary_rami_spinal
+  arteries:
+  - deep_cervical_artery

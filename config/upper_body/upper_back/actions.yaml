@@ -1,0 +1,50 @@
+actions:
+- id: scapula_elevation
+  name: Scapula Elevation
+  joint: scapulothoracic
+  type: elevation
+  primary_movers:
+  - trapezius
+  - levator_scapulae
+- id: scapula_depression
+  name: Scapula Depression
+  joint: scapulothoracic
+  type: depression
+  primary_movers:
+  - trapezius
+  - latissimus_dorsi_head
+  - serratus_posterior_inferior_back
+- id: scapula_retraction
+  name: Scapula Retraction
+  joint: scapulothoracic
+  type: retraction
+  primary_movers:
+  - trapezius
+  - rhomboid_major
+  - rhomboid_minor
+- id: scapula_downward_rotation
+  name: Scapula Downward Rotation
+  joint: scapulothoracic
+  type: rotation
+  primary_movers:
+  - levator_scapulae
+  - rhomboid_major
+  - rhomboid_minor
+- id: scapula_upward_rotation
+  name: Scapula Upward Rotation
+  joint: scapulothoracic
+  type: rotation
+  primary_movers:
+  - trapezius
+- id: cervical_extension
+  name: Cervical Extension
+  joint: cervical_spine
+  type: extension
+  primary_movers:
+  - trapezius
+- id: forced_expiration_assist
+  name: Forced Expiration Assistance
+  joint: thoracic_cage
+  type: expiration
+  primary_movers:
+  - serratus_posterior_inferior_back
