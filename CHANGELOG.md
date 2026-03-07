@@ -1,10 +1,17 @@
 # Changelog
 
-All notable changes to `stronger-anatomy` will be documented in this file.
+All notable changes to `anatomy-graphdb` will be documented in this file.
 
 The format is inspired by Keep a Changelog and follows semantic versioning.
 
 ## [Unreleased]
+
+### Migration Notes
+- PyPI distribution name changed from `stronger-anatomy` to `anatomy-graphdb`.
+- Install commands should now use `pip install anatomy-graphdb` (or `pip install "anatomy-graphdb[neo4j]"`).
+- CLI command is now `anatomy-graphdb`.
+- Backward-compatibility alias `stronger-anatomy` is still provided for transition.
+- Python import namespace remains `stronger_anatomy` (no import-path migration required).
 
 ### Added
 - Top-level public package exports in `stronger_anatomy/__init__.py`.

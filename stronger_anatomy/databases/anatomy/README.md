@@ -7,7 +7,7 @@ This package contains YAML configs that describe anatomical structures, a valida
 Use the unified CLI to check referential integrity for any region:
 
 ```
-poetry run stronger-anatomy --region chest --validate-only
+poetry run anatomy-graphdb --region chest --validate-only
 ```
 
 Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to cover multiple muscle groups. Add `--list-regions` to discover which directories under `config/<category>/` are available. The validator loads all of the YAML files and ensures every attachment, muscle head, muscle, nerve, artery, and action reference resolves correctly. A non-zero exit code highlights missing or misspelled IDs so the command can run in CI.
@@ -17,10 +17,10 @@ Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to co
 1. Generate artifacts with the unified graph builder:
    ```
    # CSV export (default mode)
-   poetry run stronger-anatomy --region chest --output data/neo4j
+   poetry run anatomy-graphdb --region chest --output data/neo4j
 
    # Direct Bolt ingestion (requires `neo4j` extras)
-   poetry run stronger-anatomy --region chest --mode bolt \
+   poetry run anatomy-graphdb --region chest --mode bolt \
        --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
    ```
 

@@ -19,8 +19,8 @@ poetry install
 Useful commands:
 
 ```bash
-poetry run stronger-anatomy --list-regions
-poetry run stronger-anatomy --region chest --validate-only
+poetry run anatomy-graphdb --list-regions
+poetry run anatomy-graphdb --region chest --validate-only
 poetry run pytest
 ```
 
@@ -29,8 +29,8 @@ poetry run pytest
 1. Create a branch from `main`.
 2. Make focused changes (data, code, or docs).
 3. Validate affected regions:
-   - `poetry run stronger-anatomy --region <region> --validate-only`
-   - for broad changes: `poetry run stronger-anatomy --region all --validate-only`
+   - `poetry run anatomy-graphdb --region <region> --validate-only`
+   - for broad changes: `poetry run anatomy-graphdb --region all --validate-only`
 4. Run tests: `poetry run pytest`.
 5. Open a PR with:
    - summary of changes

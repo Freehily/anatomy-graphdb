@@ -33,9 +33,9 @@ jobs:
 
       - name: CLI smoke tests
         run: |
-          poetry run stronger-anatomy --list-regions
-          poetry run stronger-anatomy --region chest --validate-only
-          poetry run stronger-anatomy --export-catalog --region all --catalog-output /tmp/anatomy_catalog.json
+          poetry run anatomy-graphdb --list-regions
+          poetry run anatomy-graphdb --region chest --validate-only
+          poetry run anatomy-graphdb --export-catalog --region all --catalog-output /tmp/anatomy_catalog.json
 
   package:
     runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
           python -m venv /tmp/wheel-venv
           /tmp/wheel-venv/bin/pip install dist/*.whl
           /tmp/wheel-venv/bin/python -c "import stronger_anatomy; print(stronger_anatomy.__version__)"
-          /tmp/wheel-venv/bin/stronger-anatomy --list-regions
+          /tmp/wheel-venv/bin/anatomy-graphdb --list-regions
 
       - name: Verify sdist install
         run: |

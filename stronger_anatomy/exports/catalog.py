@@ -41,7 +41,7 @@ def _slugify(value: str) -> str:
 
 def _package_version() -> str:
     try:
-        return version("stronger-anatomy")
+        return version("anatomy-graphdb")
     except PackageNotFoundError:
         return "0.0.0+local"
 

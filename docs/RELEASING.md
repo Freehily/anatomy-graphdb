@@ -20,9 +20,9 @@
 
 ## Verify
 
-1. `pip install stronger-anatomy==X.Y.Z`
-2. `stronger-anatomy --list-regions`
-3. `stronger-anatomy --region chest --validate-only`
+1. `pip install anatomy-graphdb==X.Y.Z`
+2. `anatomy-graphdb --list-regions`
+3. `anatomy-graphdb --region chest --validate-only`
 
 ## Rollback
 

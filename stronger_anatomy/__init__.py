@@ -1,5 +1,5 @@
 """
-Public package API for stronger-anatomy.
+Public package API for anatomy-graphdb.
 
 Keep this surface stable across minor releases.
 """
@@ -22,7 +22,7 @@ from stronger_anatomy.domain import (
 from stronger_anatomy.exports import export_catalog, write_catalog_json
 
 try:
-    __version__ = version("stronger-anatomy")
+    __version__ = version("anatomy-graphdb")
 except PackageNotFoundError:
     __version__ = "0.0.0+local"
 

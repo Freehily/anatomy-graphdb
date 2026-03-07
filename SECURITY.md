@@ -32,4 +32,4 @@ You should receive an acknowledgment within 5 business days.
 - Keep Python dependencies up to date.
 - Run tests/validation before release:
   - `poetry run pytest`
-  - `poetry run stronger-anatomy --region all --validate-only`
+  - `poetry run anatomy-graphdb --region all --validate-only`

@@ -1,4 +1,4 @@
-# Stronger Anatomy (`stronger-anatomy`)
+# Stronger Anatomy (`anatomy-graphdb`)
 
 Canonical anatomy domain package for Stronger.
 
@@ -7,7 +7,7 @@ This repository provides:
 - structured YAML anatomy data in `config/`
 - typed Python loaders/models in `stronger_anatomy`
 - canonical catalog exports for downstream domains (`stronger_anatomy.exports`)
-- a CLI (`stronger-anatomy`) for validation and Neo4j export/ingestion
+- a CLI (`anatomy-graphdb`) for validation and Neo4j export/ingestion
 - packaged cleaned overlay SVG assets in `stronger_anatomy/assets/`
 
 ## Install
@@ -15,13 +15,13 @@ This repository provides:
 ### Minimal package (no Neo4j driver)
 
 ```bash
-pip install stronger-anatomy
+pip install anatomy-graphdb
 ```
 
 ### With Neo4j ingestion support
 
 ```bash
-pip install "stronger-anatomy[neo4j]"
+pip install "anatomy-graphdb[neo4j]"
 ```
 
 ### Local development
@@ -62,31 +62,31 @@ print(version, path)
 List available regions:
 
 ```bash
-poetry run stronger-anatomy --list-regions
+poetry run anatomy-graphdb --list-regions
 ```
 
 Validate a region:
 
 ```bash
-poetry run stronger-anatomy --region chest --validate-only
+poetry run anatomy-graphdb --region chest --validate-only
 ```
 
 Export CSV artifacts:
 
 ```bash
-poetry run stronger-anatomy --region all --output data/neo4j --validate
+poetry run anatomy-graphdb --region all --output data/neo4j --validate
 ```
 
 Export canonical anatomy catalog JSON:
 
 ```bash
-poetry run stronger-anatomy --export-catalog --region all --catalog-output data/catalog/anatomy_catalog.json
+poetry run anatomy-graphdb --export-catalog --region all --catalog-output data/catalog/anatomy_catalog.json
 ```
 
 Direct Bolt ingestion (requires `neo4j` extra):
 
 ```bash
-poetry run stronger-anatomy --region all --mode bolt --validate
+poetry run anatomy-graphdb --region all --mode bolt --validate
 ```
 
 ## Integration Pattern (Your Multi-Repo Setup)
@@ -94,7 +94,7 @@ poetry run stronger-anatomy --region all --mode bolt --validate
 Recommended layering:
 
 1. `stronger-domain-postgres`: relational exercise/workout domain.
-2. `stronger-anatomy` (this repo): anatomy graph domain + canonical overlay assets.
+2. `anatomy-graphdb` (this repo): anatomy graph domain + canonical overlay assets.
 3. `stronger-api`: composition layer that imports both domain packages.
 4. `stronger-frontend`: consumes API JSON + SVG asset URLs.
 
@@ -147,7 +147,7 @@ NEO4J_DATABASE=neo4j
 Then run:
 
 ```bash
-poetry run stronger-anatomy --region all --mode bolt --validate
+poetry run anatomy-graphdb --region all --mode bolt --validate
 ```
 
 ## Docker Graph Build
@@ -187,6 +187,6 @@ poetry run pytest
 
 ## Package Metadata
 
-- Package name: `stronger-anatomy`
+- Package name: `anatomy-graphdb`
 - Python: 3.12+
 - License: MIT

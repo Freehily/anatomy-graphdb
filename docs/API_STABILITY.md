@@ -21,7 +21,7 @@ This project exposes a stable public API for downstream packages and services.
 - `stronger_anatomy.asset_absolute_path`
 - `stronger_anatomy.export_catalog`
 - `stronger_anatomy.write_catalog_json`
-- CLI command `stronger-anatomy` and existing documented flags
+- CLI command `anatomy-graphdb` and existing documented flags
 
 ## Stability Rules
 
