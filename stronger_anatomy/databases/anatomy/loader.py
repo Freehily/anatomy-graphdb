@@ -91,9 +91,9 @@ class AnatomyLoader:
         self.global_root = self.root / "global"
         self._reserved_dirs = {"global", "body"}
         self.prefer_group_structure = prefer_group_structure
+        self._index = self._load_index()
         self._group_mapping = self._load_group_mapping() if prefer_group_structure else {}
         self._region_paths = self._build_region_paths(self._group_mapping)
-        self._index = self._load_index()
 
     def _load_index(self) -> Mapping[str, str]:
         index_path = self.root / "index.yaml"
@@ -103,7 +103,7 @@ class AnatomyLoader:
         return {str(section): str(filename) for section, filename in data.items()}
 
     def _load_group_mapping(self) -> Dict[str, str]:
-        # Prefer the unified muscle_groups.yaml file (slug -> category).
+        # Prefer the unified muscle_groups.yaml file (slug -> category when available).
         mapping_paths = [
             self.root / "body" / "muscle_groups.yaml",
             self.root / "body" / "muscle_group_folders.yaml",
@@ -122,8 +122,7 @@ class AnatomyLoader:
                 category = entry.get("category")
                 if slug and category:
                     mapping[str(slug)] = str(category)
-            if mapping:
-                break
+            # Keep scanning other mapping files in case they provide categories.
         return mapping
 
     def _build_region_paths(self, mapping: Mapping[str, str]) -> Dict[str, Path]:
@@ -132,6 +131,29 @@ class AnatomyLoader:
             candidate = self.root / category / slug
             if candidate.exists():
                 region_paths[slug] = candidate
+        if not region_paths:
+            region_paths = self._discover_region_paths()
+        return region_paths
+
+    def _is_region_dir(self, path: Path) -> bool:
+        return any((path / filename).exists() for filename in self._index.values())
+
+    def _discover_region_paths(self) -> Dict[str, Path]:
+        region_paths: Dict[str, Path] = {}
+        for entry in self.root.iterdir():
+            if not entry.is_dir():
+                continue
+            if entry.name in self._reserved_dirs:
+                continue
+            if self._is_region_dir(entry):
+                region_paths.setdefault(entry.name, entry)
+                continue
+            # Support nested category layout: config/<category>/<region>/<section>.yaml
+            for child in entry.iterdir():
+                if not child.is_dir():
+                    continue
+                if self._is_region_dir(child):
+                    region_paths.setdefault(child.name, child)
         return region_paths
 
     def available_regions(self) -> Sequence[str]:
@@ -145,8 +167,7 @@ class AnatomyLoader:
             name = entry.name
             if name in self._reserved_dirs:
                 continue
-            has_section_files = any((entry / filename).exists() for filename in self._index.values())
-            if has_section_files:
+            if self._is_region_dir(entry):
                 regions.append(name)
         return sorted(regions)
 
