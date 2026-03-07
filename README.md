@@ -145,7 +145,6 @@ Biceps brachii (front):
 Deltoid (front/rear):
 
 ![Deltoid Front SVG](svgs/muscles/deltoid/front.svg)
-![Deltoid Rear SVG](svgs/muscles/deltoid/rear.svg)
 
 ## Tests and CI
 

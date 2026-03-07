@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stronger-anatomy"
-version = "0.1.0"
+version = "1.0.0"
 description = "Canonical anatomy domain dataset and Neo4j graph builder for Stronger."
 license = "MIT"
 authors = ["Tom <tomrfreeman3@gmail.com>"]
