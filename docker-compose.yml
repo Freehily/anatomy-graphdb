@@ -1,0 +1,16 @@
+services:
+  neo4j:
+    image: ${NEO4J_IMAGE:-neo4j:5.25}
+    container_name: ${CONTAINER_NAME:-stronger-neo4j}
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: ${NEO4J_AUTH:-neo4j/stronger}
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_memory_pagecache_size: 256m
+    ports:
+      - "${HTTP_PORT:-7474}:7474"
+      - "${BOLT_PORT:-7687}:7687"
+    volumes:
+      - ./neo4j-data:/data
+      - ./neo4j-logs:/logs

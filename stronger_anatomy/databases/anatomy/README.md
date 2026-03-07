@@ -60,8 +60,11 @@ Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to co
      --relationships=data/neo4j/chest/rels_action_primary_head.csv
    ```
 
-   You can also use the repository helper (`scripts/import_neo4j.sh`) which wraps `neo4j-admin database import full`
-   via Docker Compose and feeds it all of the CSV artifacts for a given region.
+   For a simpler end-to-end local flow, use Docker + bolt ingestion via Make:
+   ```
+   make neo4j-refresh-docker REGION=all
+   ```
+   This starts Neo4j in Docker Compose (if needed), waits for readiness, and refreshes the graph.
 
 3. Start Neo4j and run sanity checks. Example Cypher:
    ```

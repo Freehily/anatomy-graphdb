@@ -15,13 +15,13 @@ This repository provides:
 ### Minimal package (no Neo4j driver)
 
 ```bash
-pip install "git+https://github.com/Freehily/stronger-domain-graphdb.git"
+pip install stronger-anatomy
 ```
 
 ### With Neo4j ingestion support
 
 ```bash
-pip install "git+https://github.com/Freehily/stronger-domain-graphdb.git#egg=stronger-anatomy[neo4j]"
+pip install "stronger-anatomy[neo4j]"
 ```
 
 ### Local development
@@ -150,13 +150,42 @@ Then run:
 poetry run stronger-anatomy --region all --mode bolt --validate
 ```
 
+## Docker Graph Build
+
+You can run Neo4j in Docker and build/populate the graph in one command:
+
+```bash
+make neo4j-refresh-docker REGION=all
+```
+
+Useful helpers:
+
+```bash
+make neo4j-up
+make neo4j-logs
+make neo4j-down
+```
+
+Override defaults when needed:
+
+```bash
+make neo4j-refresh-docker REGION=chest NEO4J_AUTH=neo4j/password HTTP_PORT=7475 BOLT_PORT=7688
+```
+
 ## Tests
 
 ```bash
 poetry run pytest
 ```
 
-## Release Notes
+## Public API and Versioning
+
+- Stable API surface: `docs/API_STABILITY.md`
+- Changelog: `CHANGELOG.md`
+- Release process: `docs/RELEASING.md`
+- Asset attribution policy: `docs/ASSET_ATTRIBUTION.md`
+
+## Package Metadata
 
 - Package name: `stronger-anatomy`
 - Python: 3.12+

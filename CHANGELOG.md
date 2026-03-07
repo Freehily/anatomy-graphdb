@@ -1,0 +1,24 @@
+# Changelog
+
+All notable changes to `stronger-anatomy` will be documented in this file.
+
+The format is inspired by Keep a Changelog and follows semantic versioning.
+
+## [Unreleased]
+
+### Added
+- Top-level public package exports in `stronger_anatomy/__init__.py`.
+- CI matrix for Python 3.12 and 3.13.
+- Packaging verification job (wheel + sdist install smoke tests).
+- Release workflow for tag-based PyPI publishing.
+- Validator coverage for orphan muscle heads.
+
+### Changed
+- Loader now merges duplicate IDs across multi-region loads instead of dropping later definitions.
+- Loader now includes `config/global/*` shared data for nested regions when `include_shared=True`.
+- Linked `latissimus_dorsi_head` to `latissimus_dorsi` in duplicated region files.
+- Added missing forearm muscles `abductor_pollicis_brevis` and `flexor_digiti_minimi_brevis`.
+- Scoped global forearm artery data to forearm regions and removed unresolved targets.
+
+### Fixed
+- `--region all` no longer loses relationship targets from duplicate region-scoped entities.

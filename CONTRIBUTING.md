@@ -36,6 +36,9 @@ poetry run pytest
    - summary of changes
    - affected regions/sections
    - validation/test output
+6. For release-impacting changes:
+   - update `CHANGELOG.md`
+   - note API changes against `docs/API_STABILITY.md`
 
 ## Data change guidance
 
@@ -60,3 +63,4 @@ When editing YAML in `config/`:
 - One logical change per PR where possible.
 - Include migration notes if IDs or schema fields change.
 - Do not commit secrets (`.env`, credentials, tokens).
+- For publish prep, follow `docs/RELEASING.md`.

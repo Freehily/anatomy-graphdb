@@ -80,6 +80,22 @@ def _collect_ids(items: Iterable[dict], key: str = "id") -> set[str]:
     return {item[key] for item in items if key in item}
 
 
+def _candidate_muscles_for_head(head_id: str, muscle_ids: set[str]) -> list[str]:
+    candidates: list[str] = []
+    if head_id in muscle_ids:
+        candidates.append(head_id)
+    if head_id.endswith("_head"):
+        base = head_id[: -len("_head")]
+        if base in muscle_ids and base not in candidates:
+            candidates.append(base)
+    parts = head_id.split("_")
+    for index in range(len(parts) - 1, 0, -1):
+        base = "_".join(parts[:index])
+        if base in muscle_ids and base not in candidates:
+            candidates.append(base)
+    return candidates
+
+
 def validate_region(region: AnatomyRegion) -> List[str]:
     """
     Re-implements the validation logic used by the bespoke scripts so it can run
@@ -154,6 +170,7 @@ def validate_region(region: AnatomyRegion) -> List[str]:
             )
 
     # Muscles -> insertions, heads, antagonists
+    heads_referenced_by_muscles: set[str] = set()
     for muscle in muscles:
         missing_insertions = [
             insertion
@@ -171,6 +188,7 @@ def validate_region(region: AnatomyRegion) -> List[str]:
             for head_id in muscle.get("heads", [])
             if head_id not in muscle_head_ids
         ]
+        heads_referenced_by_muscles.update(head_id for head_id in muscle.get("heads", []) if head_id in muscle_head_ids)
         if missing_heads:
             missing_list = ", ".join(missing_heads)
             errors.append(f"[muscles] muscle '{muscle['id']}' lists undefined head(s): {missing_list}")
@@ -224,6 +242,16 @@ def validate_region(region: AnatomyRegion) -> List[str]:
             errors.append(
                 f"[arteries] artery '{artery['id']}' supplies unknown muscle/muscle_head target(s): {missing_list}"
             )
+
+    orphan_heads = sorted(muscle_head_ids - heads_referenced_by_muscles)
+    for head_id in orphan_heads:
+        candidate_muscles = _candidate_muscles_for_head(head_id, muscle_ids)
+        if not candidate_muscles:
+            continue
+        candidate_list = ", ".join(candidate_muscles)
+        errors.append(
+            f"[muscle_heads] head '{head_id}' is not linked from expected muscle(s): {candidate_list}"
+        )
 
     return errors
 

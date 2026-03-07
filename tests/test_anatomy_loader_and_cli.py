@@ -1,5 +1,6 @@
 from stronger_anatomy.cli.anatomy import main
-from stronger_anatomy.databases.anatomy.loader import AnatomyLoader
+from stronger_anatomy.cli.anatomy import validate_region
+from stronger_anatomy.databases.anatomy.loader import AnatomyLoader, AnatomyRegion, SectionData
 
 
 def test_loader_discovers_nested_regions() -> None:
@@ -17,9 +18,9 @@ def test_loader_can_load_nested_region() -> None:
     assert region.require("bones").items
 
 
-def test_loader_includes_shared_data_for_nested_region() -> None:
+def test_loader_includes_shared_data_for_all_region_merge() -> None:
     loader = AnatomyLoader()
-    region = loader.load_region("chest")
+    region = loader.load_regions(loader.available_regions())
     artery_ids = {item["id"] for item in region.require("arteries").items}
     assert "abdominal_aorta" in artery_ids
 
@@ -46,3 +47,31 @@ def test_cli_validate_only_passes_for_chest(capsys) -> None:
     captured = capsys.readouterr()
     assert exit_code == 0
     assert "Validation passed." in captured.out
+
+
+def test_validation_fails_for_orphan_muscle_head() -> None:
+    region = AnatomyRegion(
+        region="test",
+        sections={
+            "attachment_points": SectionData(name="attachment_points", items=[{"id": "attach_1", "bone": "bone_1"}]),
+            "bones": SectionData(name="bones", items=[{"id": "bone_1", "attachments": ["attach_1"]}]),
+            "muscles": SectionData(name="muscles", items=[{"id": "muscle_1", "heads": [], "insertion": ["attach_1"]}]),
+            "muscle_heads": SectionData(
+                name="muscle_heads",
+                items=[
+                    {
+                        "id": "muscle_1_head",
+                        "origin": ["attach_1"],
+                        "innervation": ["nerve_1"],
+                        "arteries": ["artery_1"],
+                    }
+                ],
+            ),
+            "nerves": SectionData(name="nerves", items=[{"id": "nerve_1", "innervates": ["muscle_1_head"]}]),
+            "arteries": SectionData(name="arteries", items=[{"id": "artery_1", "supplies": ["muscle_1_head"]}]),
+            "actions": SectionData(name="actions", items=[{"id": "action_1", "primary_movers": ["muscle_1"]}]),
+        },
+    )
+
+    errors = validate_region(region)
+    assert any("head 'muscle_1_head' is not linked from expected muscle(s): muscle_1" in error for error in errors)

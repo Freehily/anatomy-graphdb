@@ -180,3 +180,5 @@ cython_debug/
 neo4j-data/
 
 neo4j-logs/
+
+.github/

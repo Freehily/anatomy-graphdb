@@ -209,6 +209,8 @@ class AnatomyLoader:
         sections: Dict[str, SectionData] = {}
         shared_dir = self.global_root
         use_shared = include_shared
+        if self._region_paths and region in self._region_paths:
+            use_shared = False
 
         for section, filename in self._index.items():
             region_path = region_dir / filename
@@ -240,6 +242,26 @@ class AnatomyLoader:
             raise AnatomyConfigError("No regions provided.")
         combined: Dict[str, Dict[str, dict]] = {}
         normalised_regions = []
+
+        if include_shared:
+            for section, filename in self._index.items():
+                shared_path = self.global_root / filename
+                if not shared_path.exists():
+                    continue
+                data = _load_yaml(shared_path)
+                shared_payload = self._filter_items_for_region(list(data.get(section, []) or []), "all")
+                if not shared_payload:
+                    continue
+                bucket = combined.setdefault(section, {})
+                for item in shared_payload:
+                    item_id = item.get("id")
+                    if not item_id:
+                        continue
+                    if item_id in bucket:
+                        bucket[item_id] = _merge_entity(bucket[item_id], item)
+                    else:
+                        bucket[item_id] = deepcopy(item)
+
         for region_name in regions:
             region_name = region_name.strip()
             if not region_name:
