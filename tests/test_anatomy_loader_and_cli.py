@@ -17,6 +17,23 @@ def test_loader_can_load_nested_region() -> None:
     assert region.require("bones").items
 
 
+def test_loader_includes_shared_data_for_nested_region() -> None:
+    loader = AnatomyLoader()
+    region = loader.load_region("chest")
+    artery_ids = {item["id"] for item in region.require("arteries").items}
+    assert "abdominal_aorta" in artery_ids
+
+
+def test_loader_merges_duplicate_ids_across_regions() -> None:
+    loader = AnatomyLoader()
+    region = loader.load_regions(["biceps", "shoulders"])
+
+    nerves_by_id = {item["id"]: item for item in region.require("nerves").items}
+    axillary_targets = set(nerves_by_id["axillary"]["innervates"])
+    assert "deltoid_middle" in axillary_targets
+    assert "teres_minor" in axillary_targets
+
+
 def test_cli_list_regions(capsys) -> None:
     exit_code = main(["--list-regions"])
     captured = capsys.readouterr()

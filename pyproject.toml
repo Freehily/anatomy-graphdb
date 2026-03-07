@@ -21,15 +21,16 @@ classifiers = [
 packages = [{include = "stronger_anatomy"}]
 include = [
   {path = "config/**/*.yaml", format = ["sdist", "wheel"]},
-  {path = "svgs/**", format = ["sdist", "wheel"]},
   {path = "stronger_anatomy/assets/**", format = ["sdist", "wheel"]},
 ]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 pyyaml = "^6.0.3"
-neo4j = "^6.0.2"
-pyaml = "^25.7.0"
+neo4j = {version = "^6.0.2", optional = true}
+
+[tool.poetry.extras]
+neo4j = ["neo4j"]
 
 
 [tool.poetry.group.dev.dependencies]

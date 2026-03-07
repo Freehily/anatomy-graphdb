@@ -47,8 +47,8 @@ arteries:
       - extensor_carpi_radialis_longus_head
       - extensor_carpi_radialis_brevis_head
       - abductor_pollicis_brevis_head
-      - opponens_pollicis_head
       - abductor_pollicis_longus_head
+    regions: [forearms]
 
   - id: ulnar_artery
     name: Ulnar Artery
@@ -58,14 +58,10 @@ arteries:
       - flexor_carpi_radialis_head
       - palmaris_longus_head
       - flexor_digitorum_profundus_medial
-      - interossei_dorsal
-      - interossei_palmar
-      - lumbrical_3_head
-      - lumbrical_4_head
       - adductor_pollicis
       - abductor_digiti_minimi_head
       - flexor_digiti_minimi_brevis_head
-      - opponens_digiti_minimi_head
+    regions: [forearms]
 
   - id: common_carotid_artery
     name: Common Carotid Artery

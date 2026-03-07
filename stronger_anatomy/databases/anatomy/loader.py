@@ -17,6 +17,7 @@ ingestion can all share the same parsing logic.
 
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Mapping, MutableMapping, Optional, Sequence
@@ -79,6 +80,35 @@ def _merge_items(primary: Iterable[dict], supplemental: Iterable[dict], key: str
         # Region-specific items override shared definitions with the same ID.
         by_id[item_id] = item
     return list(by_id.values())
+
+
+def _merge_list_unique(existing: list, incoming: list) -> list:
+    merged = list(existing)
+    for item in incoming:
+        if item not in merged:
+            merged.append(item)
+    return merged
+
+
+def _merge_entity(existing: dict, incoming: dict) -> dict:
+    """
+    Merge duplicate IDs from different regions while preserving deterministic order.
+
+    Scalar conflicts retain the first non-empty value. List fields are unioned.
+    """
+
+    merged = deepcopy(existing)
+    for key, value in incoming.items():
+        if key not in merged:
+            merged[key] = deepcopy(value)
+            continue
+
+        current = merged[key]
+        if isinstance(current, list) and isinstance(value, list):
+            merged[key] = _merge_list_unique(current, value)
+        elif current in (None, "", []):
+            merged[key] = deepcopy(value)
+    return merged
 
 
 class AnatomyLoader:
@@ -179,8 +209,6 @@ class AnatomyLoader:
         sections: Dict[str, SectionData] = {}
         shared_dir = self.global_root
         use_shared = include_shared
-        if self._region_paths and region in self._region_paths:
-            use_shared = False
 
         for section, filename in self._index.items():
             region_path = region_dir / filename
@@ -224,7 +252,10 @@ class AnatomyLoader:
                     item_id = item.get("id")
                     if not item_id:
                         continue
-                    bucket.setdefault(item_id, item)
+                    if item_id in bucket:
+                        bucket[item_id] = _merge_entity(bucket[item_id], item)
+                    else:
+                        bucket[item_id] = deepcopy(item)
         if not normalised_regions:
             raise AnatomyConfigError("No valid regions provided.")
         merged_sections = {

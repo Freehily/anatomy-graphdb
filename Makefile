@@ -15,7 +15,7 @@ IMPORT_DIR := $(DATA_ROOT)/$(REGION)
 DB_DIR := $(PROJECT_ROOT)/neo4j-data
 LOG_DIR := $(PROJECT_ROOT)/neo4j-logs
 
-.PHONY: neo4j-refresh
+.PHONY: neo4j-refresh export-catalog
 
 neo4j-refresh:
 	rm -rf $(DATA_ROOT)
@@ -26,3 +26,6 @@ neo4j-refresh:
 		--mode bolt \
 		--wipe-database \
 		--validate
+
+export-catalog:
+	$(ANATOMY_CLI) --export-catalog --region $(REGION) --catalog-output $(PROJECT_ROOT)/data/catalog/anatomy_catalog.json

@@ -103,7 +103,8 @@ muscles:
   name: Latissimus Dorsi
   group: Back Muscles
   order: Shoulder
-  heads: []
+  heads:
+  - latissimus_dorsi_head
   insertion:
   - intertubercular_sulcus
   actions:

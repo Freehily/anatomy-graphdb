@@ -9,6 +9,9 @@ muscles:
   - slug: abductor_pollicis_longus
     name: Abductor Pollicis Longus
     group_slug: forearms
+  - slug: abductor_pollicis_brevis
+    name: Abductor Pollicis Brevis
+    group_slug: forearms
   - slug: adductor_brevis
     name: Adductor Brevis
     group_slug: calves
@@ -113,6 +116,9 @@ muscles:
     group_slug: forearms
   - slug: flexor_digitorum_superficialis
     name: Flexor Digitorum Superficialis
+    group_slug: forearms
+  - slug: flexor_digiti_minimi_brevis
+    name: Flexor Digiti Minimi Brevis
     group_slug: forearms
   - slug: flexor_hallucis_longus
     name: Flexor Hallucis Longus

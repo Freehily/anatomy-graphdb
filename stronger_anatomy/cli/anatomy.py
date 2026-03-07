@@ -31,6 +31,7 @@ from stronger_anatomy.databases.anatomy.neo4j_artifacts import (
     build_node_payloads,
     build_relationship_payloads,
 )
+from stronger_anatomy.exports import export_catalog, write_catalog_json
 
 
 def load_env_file(path: Path | None = None) -> None:
@@ -380,6 +381,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="List discoverable regions and exit.",
     )
     parser.add_argument(
+        "--export-catalog",
+        action="store_true",
+        help="Export canonical anatomy catalog JSON and exit.",
+    )
+    parser.add_argument(
+        "--catalog-output",
+        type=Path,
+        default=Path("data/catalog/anatomy_catalog.json"),
+        help="Output path for --export-catalog JSON.",
+    )
+    parser.add_argument(
         "--neo4j-uri",
         default=os.environ.get("NEO4J_URI", "bolt://localhost:7687"),
         help="Neo4j Bolt URI (bolt mode only).",
@@ -423,6 +435,17 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     if args.list_regions:
         list_regions(loader)
+        return 0
+
+    if args.export_catalog:
+        region_arg = args.region.strip()
+        if region_arg.lower() == "all":
+            target_regions = loader.available_regions()
+        else:
+            target_regions = [value.strip() for value in region_arg.split(",") if value.strip()]
+        catalog = export_catalog(root=loader.root, regions=target_regions)
+        output = write_catalog_json(catalog, args.catalog_output)
+        print(f"Catalog export complete: {output.resolve()}")
         return 0
 
     region_arg = args.region.strip()

@@ -141,7 +141,8 @@ muscles:
   name: Latissimus Dorsi
   group: Back Muscles
   order: Shoulder
-  heads: []
+  heads:
+  - latissimus_dorsi_head
   insertion:
   - intertubercular_sulcus
   actions:
@@ -390,6 +391,30 @@ muscles:
   actions:
   - thumb_adduction
   antagonists: []
+- id: abductor_pollicis_brevis
+  name: Abductor Pollicis Brevis
+  group: Intrinsic Hand Muscles
+  order: Hand
+  heads:
+  - abductor_pollicis_brevis_head
+  insertion:
+  - lateral_side_proximal_phalanx_thumb
+  actions:
+  - thumb_abduction
+  antagonists:
+  - adductor_pollicis
+- id: flexor_digiti_minimi_brevis
+  name: Flexor Digiti Minimi Brevis
+  group: Intrinsic Hand Muscles
+  order: Hand
+  heads:
+  - flexor_digiti_minimi_brevis_head
+  insertion:
+  - base_of_5th_metacarpal
+  actions:
+  - finger_flexion
+  antagonists:
+  - extensor_digiti_minimi
 - id: flexor_pollicis_brevis
   name: Flexor Pollicis Brevis
   group: Intrinsic Hand Muscles

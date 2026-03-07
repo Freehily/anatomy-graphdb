@@ -1,24 +1,38 @@
-# Stronger Anatomy Domain GraphDB
+# Stronger Anatomy (`stronger-anatomy`)
 
-Canonical anatomy domain dataset and graph builder for Stronger.
+Canonical anatomy domain package for Stronger.
 
 This repository provides:
 
-- structured YAML anatomy data (`config/<category>/<muscle_group>`)
-- a Python package (`stronger_anatomy`) for loading/typing that data
-- a CLI (`stronger-anatomy`) for validation, CSV export, and direct Neo4j ingestion
-- normalized SVG references (`svgs/manifest.json`) keyed by anatomy IDs
-- packaged cleaned overlay SVGs + manifest (`stronger_anatomy/assets/overlay_manifest.json`) for API/frontend consumption
+- structured YAML anatomy data in `config/`
+- typed Python loaders/models in `stronger_anatomy`
+- canonical catalog exports for downstream domains (`stronger_anatomy.exports`)
+- a CLI (`stronger-anatomy`) for validation and Neo4j export/ingestion
+- packaged cleaned overlay SVG assets in `stronger_anatomy/assets/`
 
-## Package usage in other repos
+## Install
 
-### Install from git
+### Minimal package (no Neo4j driver)
 
 ```bash
-pip install "git+https://github.com/<org>/stronger-domain-graphdb.git"
+pip install "git+https://github.com/Freehily/stronger-domain-graphdb.git"
 ```
 
-### Import and load a region
+### With Neo4j ingestion support
+
+```bash
+pip install "git+https://github.com/Freehily/stronger-domain-graphdb.git#egg=stronger-anatomy[neo4j]"
+```
+
+### Local development
+
+```bash
+poetry install
+```
+
+## Standalone Usage
+
+### Load anatomy regions in Python
 
 ```python
 from stronger_anatomy.databases.anatomy.loader import AnatomyLoader
@@ -27,40 +41,92 @@ from stronger_anatomy.domain import build_anatomy_model
 loader = AnatomyLoader()
 region = loader.load_region("chest")
 model = build_anatomy_model(region)
-print(model.region, len(model.muscles))
+
+print(model.region)
+print(len(model.muscles))
 ```
 
-## Local development
+### Access packaged overlay assets
 
-```bash
-poetry install
+```python
+from stronger_anatomy.assets import load_overlay_manifest, asset_absolute_path
+
+version, assets = load_overlay_manifest()
+front_outline = assets["__base__"]["front"]
+path = asset_absolute_path(front_outline)
+print(version, path)
 ```
 
-### Discover available regions
+### CLI
+
+List available regions:
 
 ```bash
 poetry run stronger-anatomy --list-regions
 ```
 
-### Validate anatomy references
+Validate a region:
 
 ```bash
 poetry run stronger-anatomy --region chest --validate-only
-poetry run stronger-anatomy --region all --validate-only
 ```
 
-### Export Neo4j CSV artifacts
+Export CSV artifacts:
 
 ```bash
-poetry run stronger-anatomy \
-  --region chest \
-  --output data/neo4j \
-  --validate
+poetry run stronger-anatomy --region all --output data/neo4j --validate
 ```
 
-### Ingest directly into Neo4j via Bolt
+Export canonical anatomy catalog JSON:
 
-The CLI reads `.env` at repo root when present.
+```bash
+poetry run stronger-anatomy --export-catalog --region all --catalog-output data/catalog/anatomy_catalog.json
+```
+
+Direct Bolt ingestion (requires `neo4j` extra):
+
+```bash
+poetry run stronger-anatomy --region all --mode bolt --validate
+```
+
+## Integration Pattern (Your Multi-Repo Setup)
+
+Recommended layering:
+
+1. `stronger-domain-postgres`: relational exercise/workout domain.
+2. `stronger-anatomy` (this repo): anatomy graph domain + canonical overlay assets.
+3. `stronger-api`: composition layer that imports both domain packages.
+4. `stronger-frontend`: consumes API JSON + SVG asset URLs.
+
+In your current setup, `stronger-api` imports this package and serves:
+
+- anatomy graph data from YAML-derived models
+- overlay manifest and SVG files from `stronger_anatomy/assets`
+- catalog/version metadata for drift debugging
+
+`stronger-domain-postgres` can consume `--export-catalog` output (or import exports directly) to seed canonical `muscle_groups` and `muscles` without duplicating anatomy configs.
+
+The frontend should consume those API routes instead of maintaining duplicated anatomy SVG sources.
+
+## Asset Layout
+
+Canonical packaged assets:
+
+- Manifest: `stronger_anatomy/assets/overlay_manifest.json`
+- SVG files: `stronger_anatomy/assets/anatomy/*.svg`
+
+Legacy repo-only assets (not packaged into wheels):
+
+- `svgs/svg_front_muscles`
+- `svgs/svg_rear_muscles`
+- `svgs/muscles`
+- `svgs/manifest.json`
+
+Those `svgs/` folders are retained for historical/reference tooling only.
+
+## Neo4j Configuration
+
+When using bolt mode, configure environment variables:
 
 ```dotenv
 NEO4J_URI=bolt://localhost:7687
@@ -69,23 +135,7 @@ NEO4J_PASSWORD=password
 NEO4J_DATABASE=neo4j
 ```
 
-```bash
-poetry run stronger-anatomy \
-  --region all \
-  --mode bolt \
-  --wipe-database \
-  --validate
-```
-
-### Neo4j free tier (AuraDB)
-
-If you do not want to run Neo4j locally, you can use Neo4j AuraDB Free.
-
-- Product page: https://neo4j.com/cloud/aura/
-- Aura console: https://console.neo4j.io/
-- Aura docs: https://neo4j.com/docs/aura/
-
-After creating an Aura Free instance, copy connection details into `.env`:
+For AuraDB:
 
 ```dotenv
 NEO4J_URI=neo4j+s://<instance-id>.databases.neo4j.io
@@ -94,70 +144,20 @@ NEO4J_PASSWORD=<your-password>
 NEO4J_DATABASE=neo4j
 ```
 
-Then run the same ingestion command:
+Then run:
 
 ```bash
 poetry run stronger-anatomy --region all --mode bolt --validate
 ```
 
-### Make target
-
-```bash
-make neo4j-refresh REGION=all
-```
-
-This target runs the CLI in bolt mode with validation and optional wipe.
-
-## Screenshots
-
-Example query (biceps and connected structures):
-
-![Neo4j Example Query](docs/images/neo4j-example-query.png)
-
-Available node labels:
-
-![Neo4j Node Labels](docs/images/neo4j-node-example.png)
-
-Available relationship types:
-
-![Neo4j Relationship Types](docs/images/neo4j-relationships-example.png)
-
-## SVG assets
-
-- Raw source SVGs: `svgs/svg_front_muscles`, `svgs/svg_rear_muscles`
-- Normalized output: `svgs/muscles/<muscle_id>/<view>.svg`
-- Manifest: `svgs/manifest.json`
-- Packaged overlay manifest: `stronger_anatomy/assets/overlay_manifest.json`
-- Packaged overlay SVGs: `stronger_anatomy/assets/anatomy/*.svg`
-
-Regenerate normalized SVGs:
-
-```bash
-poetry run python scripts/normalise_svgs.py
-```
-
-### SVG previews
-
-Biceps brachii (front):
-
-![Biceps Brachii SVG](svgs/muscles/biceps_brachii/front.svg)
-
-Deltoid (front/rear):
-
-![Deltoid Front SVG](svgs/muscles/deltoid/front.svg)
-
-## Tests and CI
+## Tests
 
 ```bash
 poetry run pytest
 ```
 
-GitHub Actions CI runs tests on push and pull requests.
+## Release Notes
 
-## Publishing notes
-
-- License: MIT (`LICENSE`)
-- Keep `.env`, `data/`, `neo4j-data/`, and `neo4j-logs/` out of git
-- Verify rights for any third-party SVG assets before public release
-- Contribution guide: `CONTRIBUTING.md`
-- Security policy: `SECURITY.md`
+- Package name: `stronger-anatomy`
+- Python: 3.12+
+- License: MIT
