@@ -61,11 +61,11 @@ jobs:
         run: |
           python -m venv /tmp/wheel-venv
           /tmp/wheel-venv/bin/pip install dist/*.whl
-          /tmp/wheel-venv/bin/python -c "import stronger_anatomy; print(stronger_anatomy.__version__)"
+          /tmp/wheel-venv/bin/python -c "import anatomy_graphdb; print(anatomy_graphdb.__version__)"
           /tmp/wheel-venv/bin/anatomy-graphdb --list-regions
 
       - name: Verify sdist install
         run: |
           python -m venv /tmp/sdist-venv
           /tmp/sdist-venv/bin/pip install dist/*.tar.gz
-          /tmp/sdist-venv/bin/python -c "from stronger_anatomy import AnatomyLoader; print(len(AnatomyLoader().available_regions()))"
+          /tmp/sdist-venv/bin/python -c "from anatomy_graphdb import AnatomyLoader; print(len(AnatomyLoader().available_regions()))"

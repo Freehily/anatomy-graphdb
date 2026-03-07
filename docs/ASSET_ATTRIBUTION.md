@@ -1,6 +1,6 @@
 # Asset Attribution
 
-This package includes SVG anatomy assets under `stronger_anatomy/assets/anatomy/`.
+This package includes SVG anatomy assets under `anatomy_graphdb/assets/anatomy/`.
 
 ## Distribution Requirement
 

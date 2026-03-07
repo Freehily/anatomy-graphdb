@@ -7,7 +7,7 @@ Thanks for contributing to `stronger-domain-graphdb`.
 This repository is the canonical source for:
 
 - anatomy YAML data under `config/`
-- Python loaders/domain models under `stronger_anatomy/`
+- Python loaders/domain models under `anatomy_graphdb/`
 - Neo4j export/ingest tooling
 
 ## Local setup

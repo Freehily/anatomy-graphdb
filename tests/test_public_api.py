@@ -1,4 +1,4 @@
-import stronger_anatomy as sa
+import anatomy_graphdb as sa
 
 
 def test_public_api_exports_are_available() -> None:

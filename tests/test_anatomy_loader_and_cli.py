@@ -1,6 +1,6 @@
-from stronger_anatomy.cli.anatomy import main
-from stronger_anatomy.cli.anatomy import validate_region
-from stronger_anatomy.databases.anatomy.loader import AnatomyLoader, AnatomyRegion, SectionData
+from anatomy_graphdb.cli.anatomy import main
+from anatomy_graphdb.cli.anatomy import validate_region
+from anatomy_graphdb.databases.anatomy.loader import AnatomyLoader, AnatomyRegion, SectionData
 
 
 def test_loader_discovers_nested_regions() -> None:

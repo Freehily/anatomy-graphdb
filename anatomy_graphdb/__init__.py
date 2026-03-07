@@ -6,9 +6,9 @@ Keep this surface stable across minor releases.
 
 from importlib.metadata import PackageNotFoundError, version
 
-from stronger_anatomy.assets import OverlayAssetManifestError, asset_absolute_path, load_overlay_manifest
-from stronger_anatomy.databases.anatomy.loader import AnatomyConfigError, AnatomyLoader, AnatomyRegion
-from stronger_anatomy.domain import (
+from anatomy_graphdb.assets import OverlayAssetManifestError, asset_absolute_path, load_overlay_manifest
+from anatomy_graphdb.databases.anatomy.loader import AnatomyConfigError, AnatomyLoader, AnatomyRegion
+from anatomy_graphdb.domain import (
     Action,
     AnatomyModel,
     Artery,
@@ -19,7 +19,7 @@ from stronger_anatomy.domain import (
     Nerve,
     build_anatomy_model,
 )
-from stronger_anatomy.exports import export_catalog, write_catalog_json
+from anatomy_graphdb.exports import export_catalog, write_catalog_json
 
 try:
     __version__ = version("anatomy-graphdb")

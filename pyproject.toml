@@ -19,10 +19,10 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Medical Science Apps.",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-packages = [{include = "stronger_anatomy"}]
+packages = [{include = "anatomy_graphdb"}]
 include = [
   {path = "config/**/*.yaml", format = ["sdist", "wheel"]},
-  {path = "stronger_anatomy/assets/**", format = ["sdist", "wheel"]},
+  {path = "anatomy_graphdb/assets/**", format = ["sdist", "wheel"]},
 ]
 
 [tool.poetry.dependencies]
@@ -42,8 +42,8 @@ ipykernel = "^6.29.5"
 pytest = "^8.4.1"
 
 [tool.poetry.scripts]
-anatomy-graphdb = "stronger_anatomy.cli.anatomy:main"
-stronger-anatomy = "stronger_anatomy.cli.anatomy:main"
+anatomy-graphdb = "anatomy_graphdb.cli.anatomy:main"
+stronger-anatomy = "anatomy_graphdb.cli.anatomy:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

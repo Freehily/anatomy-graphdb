@@ -4,23 +4,23 @@ This project exposes a stable public API for downstream packages and services.
 
 ## Stable Surface (Minor-Version Compatible)
 
-- `stronger_anatomy.__version__`
-- `stronger_anatomy.AnatomyLoader`
-- `stronger_anatomy.AnatomyRegion`
-- `stronger_anatomy.AnatomyConfigError`
-- `stronger_anatomy.build_anatomy_model`
-- `stronger_anatomy.AnatomyModel`
-- `stronger_anatomy.Bone`
-- `stronger_anatomy.AttachmentPoint`
-- `stronger_anatomy.Muscle`
-- `stronger_anatomy.MuscleHead`
-- `stronger_anatomy.Nerve`
-- `stronger_anatomy.Artery`
-- `stronger_anatomy.Action`
-- `stronger_anatomy.load_overlay_manifest`
-- `stronger_anatomy.asset_absolute_path`
-- `stronger_anatomy.export_catalog`
-- `stronger_anatomy.write_catalog_json`
+- `anatomy_graphdb.__version__`
+- `anatomy_graphdb.AnatomyLoader`
+- `anatomy_graphdb.AnatomyRegion`
+- `anatomy_graphdb.AnatomyConfigError`
+- `anatomy_graphdb.build_anatomy_model`
+- `anatomy_graphdb.AnatomyModel`
+- `anatomy_graphdb.Bone`
+- `anatomy_graphdb.AttachmentPoint`
+- `anatomy_graphdb.Muscle`
+- `anatomy_graphdb.MuscleHead`
+- `anatomy_graphdb.Nerve`
+- `anatomy_graphdb.Artery`
+- `anatomy_graphdb.Action`
+- `anatomy_graphdb.load_overlay_manifest`
+- `anatomy_graphdb.asset_absolute_path`
+- `anatomy_graphdb.export_catalog`
+- `anatomy_graphdb.write_catalog_json`
 - CLI command `anatomy-graphdb` and existing documented flags
 
 ## Stability Rules
@@ -32,7 +32,7 @@ This project exposes a stable public API for downstream packages and services.
 
 ## Internal/Unstable
 
-- Modules or functions not exported through `stronger_anatomy/__init__.py`.
+- Modules or functions not exported through `anatomy_graphdb/__init__.py`.
 - Internal YAML layout details outside documented contract.
 - Neo4j artifact internal CSV column ordering unless explicitly documented.
 

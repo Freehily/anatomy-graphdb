@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from stronger_anatomy.assets import OverlayAssetManifestError, asset_absolute_path, load_overlay_manifest
+from anatomy_graphdb.assets import OverlayAssetManifestError, asset_absolute_path, load_overlay_manifest
 
 
 def test_overlay_manifest_loads_and_contains_base() -> None:

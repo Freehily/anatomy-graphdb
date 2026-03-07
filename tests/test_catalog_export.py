@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import json
 
-from stronger_anatomy.cli.anatomy import main
-from stronger_anatomy.exports import export_catalog
+from anatomy_graphdb.cli.anatomy import main
+from anatomy_graphdb.exports import export_catalog
 
 
 def test_export_catalog_contains_muscles_and_groups() -> None:

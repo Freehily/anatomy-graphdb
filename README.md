@@ -5,10 +5,10 @@ Canonical anatomy domain package for Stronger.
 This repository provides:
 
 - structured YAML anatomy data in `config/`
-- typed Python loaders/models in `stronger_anatomy`
-- canonical catalog exports for downstream domains (`stronger_anatomy.exports`)
+- typed Python loaders/models in `anatomy_graphdb`
+- canonical catalog exports for downstream domains (`anatomy_graphdb.exports`)
 - a CLI (`anatomy-graphdb`) for validation and Neo4j export/ingestion
-- packaged cleaned overlay SVG assets in `stronger_anatomy/assets/`
+- packaged cleaned overlay SVG assets in `anatomy_graphdb/assets/`
 
 ## Install
 
@@ -35,8 +35,8 @@ poetry install
 ### Load anatomy regions in Python
 
 ```python
-from stronger_anatomy.databases.anatomy.loader import AnatomyLoader
-from stronger_anatomy.domain import build_anatomy_model
+from anatomy_graphdb.databases.anatomy.loader import AnatomyLoader
+from anatomy_graphdb.domain import build_anatomy_model
 
 loader = AnatomyLoader()
 region = loader.load_region("chest")
@@ -49,7 +49,7 @@ print(len(model.muscles))
 ### Access packaged overlay assets
 
 ```python
-from stronger_anatomy.assets import load_overlay_manifest, asset_absolute_path
+from anatomy_graphdb.assets import load_overlay_manifest, asset_absolute_path
 
 version, assets = load_overlay_manifest()
 front_outline = assets["__base__"]["front"]
@@ -101,7 +101,7 @@ Recommended layering:
 In your current setup, `stronger-api` imports this package and serves:
 
 - anatomy graph data from YAML-derived models
-- overlay manifest and SVG files from `stronger_anatomy/assets`
+- overlay manifest and SVG files from `anatomy_graphdb/assets`
 - catalog/version metadata for drift debugging
 
 `stronger-domain-postgres` can consume `--export-catalog` output (or import exports directly) to seed canonical `muscle_groups` and `muscles` without duplicating anatomy configs.
@@ -112,8 +112,8 @@ The frontend should consume those API routes instead of maintaining duplicated a
 
 Canonical packaged assets:
 
-- Manifest: `stronger_anatomy/assets/overlay_manifest.json`
-- SVG files: `stronger_anatomy/assets/anatomy/*.svg`
+- Manifest: `anatomy_graphdb/assets/overlay_manifest.json`
+- SVG files: `anatomy_graphdb/assets/anatomy/*.svg`
 
 Legacy repo-only assets (not packaged into wheels):
 

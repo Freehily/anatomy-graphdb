@@ -18,12 +18,12 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence
 
-from stronger_anatomy.databases.anatomy.loader import (
+from anatomy_graphdb.databases.anatomy.loader import (
     AnatomyConfigError,
     AnatomyLoader,
     AnatomyRegion,
 )
-from stronger_anatomy.databases.anatomy.neo4j_artifacts import (
+from anatomy_graphdb.databases.anatomy.neo4j_artifacts import (
     CsvArtifact,
     NodePayload,
     RelationshipPayload,
@@ -31,7 +31,7 @@ from stronger_anatomy.databases.anatomy.neo4j_artifacts import (
     build_node_payloads,
     build_relationship_payloads,
 )
-from stronger_anatomy.exports import export_catalog, write_catalog_json
+from anatomy_graphdb.exports import export_catalog, write_catalog_json
 
 
 def load_env_file(path: Path | None = None) -> None:

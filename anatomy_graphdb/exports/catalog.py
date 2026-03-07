@@ -9,9 +9,9 @@ from typing import Any, Sequence
 
 import yaml
 
-from stronger_anatomy.assets import load_overlay_manifest
-from stronger_anatomy.databases.anatomy.loader import AnatomyLoader
-from stronger_anatomy.domain import build_anatomy_model
+from anatomy_graphdb.assets import load_overlay_manifest
+from anatomy_graphdb.databases.anatomy.loader import AnatomyLoader
+from anatomy_graphdb.domain import build_anatomy_model
 
 LEGACY_MUSCLE_SLUG_ALIASES: dict[str, str] = {
     "anterior_deltoid": "deltoid",

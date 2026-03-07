@@ -11,10 +11,11 @@ The format is inspired by Keep a Changelog and follows semantic versioning.
 - Install commands should now use `pip install anatomy-graphdb` (or `pip install "anatomy-graphdb[neo4j]"`).
 - CLI command is now `anatomy-graphdb`.
 - Backward-compatibility alias `stronger-anatomy` is still provided for transition.
-- Python import namespace remains `stronger_anatomy` (no import-path migration required).
+- Python import namespace changed from `stronger_anatomy` to `anatomy_graphdb`.
+- Update imports in downstream code (for example: `from anatomy_graphdb import AnatomyLoader`).
 
 ### Added
-- Top-level public package exports in `stronger_anatomy/__init__.py`.
+- Top-level public package exports in `anatomy_graphdb/__init__.py`.
 - CI matrix for Python 3.12 and 3.13.
 - Packaging verification job (wheel + sdist install smoke tests).
 - Release workflow for tag-based PyPI publishing.
