@@ -22,6 +22,7 @@ packages = [{include = "stronger_anatomy"}]
 include = [
   {path = "config/**/*.yaml", format = ["sdist", "wheel"]},
   {path = "svgs/**", format = ["sdist", "wheel"]},
+  {path = "stronger_anatomy/assets/**", format = ["sdist", "wheel"]},
 ]
 
 [tool.poetry.dependencies]

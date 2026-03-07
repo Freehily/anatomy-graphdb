@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "assets": {
+    "shoulders": {
+      "front": "anatomy/shoulders_front_clean.svg",
+      "back": "anatomy/shoulders_back_clean.svg"
+    },
+    "biceps": {
+      "front": "anatomy/biceps_front_clean.svg"
+    },
+    "obliques": {
+      "front": "anatomy/obliques_front_clean.svg",
+      "back": "anatomy/obliques_back_clean.svg"
+    },
+    "calves": {
+      "front": "anatomy/calves_front_clean.svg",
+      "back": "anatomy/calves_back_clean.svg"
+    },
+    "adductors": {
+      "front": "anatomy/adductors_front_clean.svg",
+      "back": "anatomy/adductors_back_clean.svg"
+    },
+    "hamstrings": {
+      "back": "anatomy/hamstrings_back_clean.svg"
+    },
+    "__base__": {
+      "front": "anatomy/front_outline.svg",
+      "back": "anatomy/back_outline.svg"
+    },
+    "rectus_abdominis": {
+      "front": "anatomy/rectus_abdominis_front_clean.svg"
+    },
+    "external_oblique": {
+      "front": "anatomy/external_oblique_front_clean.svg",
+      "back": "anatomy/external_oblique_back_clean.svg"
+    },
+    "internal_oblique": {
+      "front": "anatomy/internal_oblique_front_clean.svg",
+      "back": "anatomy/internal_oblique_back_clean.svg"
+    },
+    "latissimus_dorsi": {
+      "back": "anatomy/latissimus_dorsi_back_clean.svg"
+    },
+    "trapezius_upper": {
+      "back": "anatomy/trapezius_upper_back_clean.svg"
+    },
+    "trapezius_middle": {
+      "back": "anatomy/trapezius_middle_back_clean.svg"
+    },
+    "trapezius_lower": {
+      "back": "anatomy/trapezius_lower_back_clean.svg"
+    },
+    "rhomboid_major": {
+      "back": "anatomy/rhomboid_major_back_clean.svg"
+    },
+    "rhomboid_minor": {
+      "back": "anatomy/rhomboid_minor_back_clean.svg"
+    },
+    "serratus_anterior": {
+      "front": "anatomy/serratus_front_safe.svg"
+    },
+    "pectoralis_major": {
+      "front": "anatomy/pectoralis_major_front_safe.svg"
+    },
+    "triceps_brachii": {
+      "front": "anatomy/triceps_front_safe.svg",
+      "back": "anatomy/triceps_back_safe.svg"
+    },
+    "gluteus_maximus": {
+      "back": "anatomy/gluteus_maximus_back_clean.svg"
+    },
+    "gluteus_medius": {
+      "back": "anatomy/gluteus_medius_back_clean.svg"
+    },
+    "biceps_femoris": {
+      "back": "anatomy/biceps_femoris_back_clean.svg"
+    },
+    "semitendinosus": {
+      "back": "anatomy/semitendinosus_back_clean.svg"
+    },
+    "semimembranosus": {
+      "back": "anatomy/semimembranosus_back_clean.svg"
+    },
+    "rectus_femoris": {
+      "front": "anatomy/rectus_femoris_front_clean.svg",
+      "back": "anatomy/rectus_femoris_back_clean.svg"
+    },
+    "vastus_lateralis": {
+      "front": "anatomy/vastus_lateralis_front_clean.svg"
+    },
+    "vastus_medialis": {
+      "front": "anatomy/vastus_medialis_front_clean.svg"
+    },
+    "adductor_longus": {
+      "front": "anatomy/adductor_longus_front_clean.svg",
+      "back": "anatomy/adductor_longus_back_clean.svg"
+    },
+    "adductor_magnus": {
+      "back": "anatomy/adductor_magnus_back_clean.svg"
+    },
+    "adductor_brevis": {
+      "back": "anatomy/adductor_brevis_back_clean.svg"
+    },
+    "gracilis": {
+      "back": "anatomy/gracilis_back_clean.svg"
+    },
+    "gastrocnemius": {
+      "front": "anatomy/gastrocnemius_front_clean.svg",
+      "back": "anatomy/gastrocnemius_back_clean.svg"
+    },
+    "soleus": {
+      "front": "anatomy/soleus_front_clean.svg"
+    }
+  }
+}

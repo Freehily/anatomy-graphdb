@@ -8,6 +8,7 @@ This repository provides:
 - a Python package (`stronger_anatomy`) for loading/typing that data
 - a CLI (`stronger-anatomy`) for validation, CSV export, and direct Neo4j ingestion
 - normalized SVG references (`svgs/manifest.json`) keyed by anatomy IDs
+- packaged cleaned overlay SVGs + manifest (`stronger_anatomy/assets/overlay_manifest.json`) for API/frontend consumption
 
 ## Package usage in other repos
 
@@ -126,6 +127,8 @@ Available relationship types:
 - Raw source SVGs: `svgs/svg_front_muscles`, `svgs/svg_rear_muscles`
 - Normalized output: `svgs/muscles/<muscle_id>/<view>.svg`
 - Manifest: `svgs/manifest.json`
+- Packaged overlay manifest: `stronger_anatomy/assets/overlay_manifest.json`
+- Packaged overlay SVGs: `stronger_anatomy/assets/anatomy/*.svg`
 
 Regenerate normalized SVGs:
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 648">
+  <g fill="#ffffff">
+    <!-- Right pec -->
+    <ellipse cx="266" cy="195" rx="42" ry="32" />
+    <!-- Left pec -->
+    <ellipse cx="166" cy="195" rx="42" ry="32" />
+  </g>
+</svg>
