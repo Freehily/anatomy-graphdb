@@ -27,6 +27,7 @@ The format is inspired by Keep a Changelog and follows semantic versioning.
 - Linked `latissimus_dorsi_head` to `latissimus_dorsi` in duplicated region files.
 - Added missing forearm muscles `abductor_pollicis_brevis` and `flexor_digiti_minimi_brevis`.
 - Scoped global forearm artery data to forearm regions and removed unresolved targets.
+- Updated README file for PyPi build
 
 ### Fixed
 - `--region all` no longer loses relationship targets from duplicate region-scoped entities.
