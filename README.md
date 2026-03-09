@@ -15,7 +15,7 @@ It provides:
 - Load region-scoped or multi-region anatomy models in Python
 - Export canonical catalog JSON for downstream systems
 - Export Neo4j CSV artifacts or ingest directly via Bolt
-- Run a local Neo4j graph build using Docker Compose + Make
+- Refresh a Neo4j graph using Make against any running Neo4j instance
 
 ## Install
 
@@ -83,26 +83,18 @@ Direct Bolt ingestion (requires `neo4j` extra):
 poetry run anatomy-graphdb --region all --mode bolt --validate
 ```
 
-## Docker Neo4j Workflow
+## Neo4j Refresh Workflow
 
-One command end-to-end graph refresh into local Neo4j:
-
-```bash
-make neo4j-refresh-docker REGION=all
-```
-
-Useful helpers:
+Run an end-to-end graph refresh into a running Neo4j instance:
 
 ```bash
-make neo4j-up
-make neo4j-logs
-make neo4j-down
+make neo4j-refresh REGION=all NEO4J_URI=bolt://localhost:7687 NEO4J_AUTH=neo4j/password
 ```
 
 Override defaults if needed:
 
 ```bash
-make neo4j-refresh-docker REGION=chest NEO4J_AUTH=neo4j/password HTTP_PORT=7475 BOLT_PORT=7688
+make neo4j-refresh REGION=chest NEO4J_URI=bolt://localhost:7688 NEO4J_AUTH=neo4j/password
 ```
 
 ## Assets
@@ -112,12 +104,20 @@ Packaged assets:
 - manifest: `anatomy_graphdb/assets/overlay_manifest.json`
 - SVG files: `anatomy_graphdb/assets/anatomy/*.svg`
 
-Legacy/reference assets (not packaged):
+Source SVG layout (referenced by `config/body/muscles.yaml` overlays):
 
-- `svgs/svg_front_muscles`
-- `svgs/svg_rear_muscles`
-- `svgs/muscles`
-- `svgs/manifest.json`
+- `svgs/front/muscles/*.svg`
+- `svgs/rear/muscles/*.svg`
+- templates: `svgs/front/front_template.svg`, `svgs/rear/rear_template.svg`
+
+Frontend muscle overlay flow:
+
+```bash
+poetry run anatomy-graphdb --export-catalog --region all --catalog-output data/catalog/anatomy_catalog.json
+```
+
+Use `muscle_overlays` and `muscle_groups` from the catalog JSON so a selected group
+or muscle slug maps directly to one or more SVG overlay paths.
 
 ## Development
 

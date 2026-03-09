@@ -21,7 +21,7 @@ Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to co
 
    # Direct Bolt ingestion (requires `neo4j` extras)
    poetry run anatomy-graphdb --region chest --mode bolt \
-       --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
+       --neo4j-uri bolt://localhost:7687 --neo4j-username neo4j --neo4j-password password
    ```
 
    Output defaults to `data/neo4j/<region>` unless `--output` is provided.
@@ -60,17 +60,35 @@ Pass a comma-separated list (`--region chest,shoulders`) or `--region all` to co
      --relationships=data/neo4j/chest/rels_action_primary_head.csv
    ```
 
-   For a simpler end-to-end local flow, use Docker + bolt ingestion via Make:
+   For a simpler end-to-end flow against a running Neo4j instance, use Make:
    ```
-   make neo4j-refresh-docker REGION=all
+   make neo4j-refresh REGION=all NEO4J_URI=bolt://localhost:7687 NEO4J_AUTH=neo4j/password
    ```
-   This starts Neo4j in Docker Compose (if needed), waits for readiness, and refreshes the graph.
+   This validates anatomy data and refreshes the graph over Bolt.
 
 3. Start Neo4j and run sanity checks. Example Cypher:
    ```
    MATCH (m:Muscle {id: 'flexor_digitorum_profundus'})-[:INSERTS_AT]->(ap)
    RETURN m.name, ap.name;
    ```
+
+## Frontend Catalog Workflow
+
+Generate a frontend-friendly catalog JSON with group and overlay mappings:
+
+```
+poetry run anatomy-graphdb --export-catalog --region all \
+    --catalog-output data/catalog/anatomy_catalog.json
+```
+
+The JSON includes:
+
+- `muscle_groups`: displayable group names + stable slugs
+- `muscles`: canonical muscles with `group_slug`
+- `muscle_overlays`: slug -> list of `view`, optional `variant`, and SVG `path`
+
+This supports UI flows where selecting a group (for example "biceps") filters the
+muscles and renders their front/rear SVG overlays.
 
 ## Suggested Constraints
 

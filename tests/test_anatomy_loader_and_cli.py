@@ -1,5 +1,4 @@
-from anatomy_graphdb.cli.anatomy import main
-from anatomy_graphdb.cli.anatomy import validate_region
+from anatomy_graphdb.cli.anatomy import main, validate_region
 from anatomy_graphdb.databases.anatomy.loader import AnatomyLoader, AnatomyRegion, SectionData
 
 
@@ -89,6 +88,7 @@ def test_load_muscle_catalog_returns_list() -> None:
 
 def test_load_muscle_catalog_overlay_fields() -> None:
     from pathlib import Path
+
     loader = AnatomyLoader()
     catalog = loader.load_muscle_catalog()
     with_overlays = [m for m in catalog if m.get("overlays")]

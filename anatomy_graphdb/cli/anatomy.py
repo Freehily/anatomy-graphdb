@@ -317,7 +317,13 @@ def ingest_via_neo4j(
             batch=[{"id": item.id, "props": _sanitize_props(item.properties)} for item in batch],
         )
 
-    def _merge_relationships(tx, rel_type: str, start_label: str, end_label: str, batch: Sequence[RelationshipPayload]) -> None:
+    def _merge_relationships(
+        tx,
+        rel_type: str,
+        start_label: str,
+        end_label: str,
+        batch: Sequence[RelationshipPayload],
+    ) -> None:
         tx.run(
             f"""
             UNWIND $batch AS row
@@ -362,7 +368,13 @@ def ingest_via_neo4j(
             if not payloads:
                 continue
             for batch in _chunk(payloads, size=args.batch_size):
-                session.execute_write(_merge_relationships, rel_type, start_label, end_label, list(batch))
+                session.execute_write(
+                    _merge_relationships,
+                    rel_type,
+                    start_label,
+                    end_label,
+                    list(batch),
+                )
             print(f"Upserted {len(payloads)} {rel_type} relationship(s) ({start_label}->{end_label}).")
 
     driver.close()
@@ -492,14 +504,6 @@ def main(argv: Sequence[str] | None = None) -> int:
             region = loader.load_regions(target_regions)
     except AnatomyConfigError as exc:
         parser.error(str(exc))
-
-    muscle_labels: Dict[str, str] = {}
-    if "muscles" in region.sections:
-        for item in region.require("muscles").items:
-            muscle_labels[item["id"]] = "Muscle"
-    if "muscle_heads" in region.sections:
-        for item in region.require("muscle_heads").items:
-            muscle_labels[item["id"]] = "MuscleHead"
 
     should_validate = args.validate or args.validate_only
 
