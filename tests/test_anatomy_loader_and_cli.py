@@ -75,3 +75,38 @@ def test_validation_fails_for_orphan_muscle_head() -> None:
 
     errors = validate_region(region)
     assert any("head 'muscle_1_head' is not linked from expected muscle(s): muscle_1" in error for error in errors)
+
+
+def test_load_muscle_catalog_returns_list() -> None:
+    loader = AnatomyLoader()
+    catalog = loader.load_muscle_catalog()
+    assert isinstance(catalog, list)
+    assert len(catalog) > 100
+    slugs = {m["slug"] for m in catalog}
+    assert "pectoralis_major" in slugs
+    assert "adductor_longus" in slugs
+
+
+def test_load_muscle_catalog_overlay_fields() -> None:
+    from pathlib import Path
+    loader = AnatomyLoader()
+    catalog = loader.load_muscle_catalog()
+    with_overlays = [m for m in catalog if m.get("overlays")]
+    assert len(with_overlays) >= 40
+
+    project_root = Path(__file__).resolve().parents[1]
+    for muscle in with_overlays:
+        for overlay in muscle["overlays"]:
+            assert overlay["view"] in ("front", "rear")
+            assert "path" in overlay
+            svg_path = project_root / overlay["path"]
+            assert svg_path.exists(), f"Missing SVG: {overlay['path']} (muscle: {muscle['slug']})"
+
+
+def test_load_muscle_catalog_multi_overlay() -> None:
+    loader = AnatomyLoader()
+    catalog = loader.load_muscle_catalog()
+    trapezius = next(m for m in catalog if m["slug"] == "trapezius")
+    assert len(trapezius["overlays"]) == 3
+    views = {o["view"] for o in trapezius["overlays"]}
+    assert "front" in views and "rear" in views

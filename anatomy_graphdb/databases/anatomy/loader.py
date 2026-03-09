@@ -142,9 +142,15 @@ class AnatomyLoader:
         for path in mapping_paths:
             if not path.exists():
                 continue
-            data = _load_yaml(path)
-            key = "muscle_groups" if "muscle_groups" in data else "muscle_group_folders"
-            entries = data.get(key, {}).get("entries", [])
+            with path.open("r", encoding="utf-8") as fh:
+                raw = yaml.safe_load(fh) or {}
+            # Flat list format: [{"slug": ..., "name": ...}, ...]
+            # No category data available; fall back to directory discovery.
+            if isinstance(raw, list):
+                continue
+            # Legacy mapping format: {muscle_groups: {entries: [...]}}
+            key = "muscle_groups" if "muscle_groups" in raw else "muscle_group_folders"
+            entries = raw.get(key, {}).get("entries", [])
             if not isinstance(entries, list):
                 continue
             for entry in entries:
@@ -152,7 +158,6 @@ class AnatomyLoader:
                 category = entry.get("category")
                 if slug and category:
                     mapping[str(slug)] = str(category)
-            # Keep scanning other mapping files in case they provide categories.
         return mapping
 
     def _build_region_paths(self, mapping: Mapping[str, str]) -> Dict[str, Path]:
@@ -306,6 +311,21 @@ class AnatomyLoader:
                 cleaned.pop("exclude_regions", None)
                 filtered.append(cleaned)
         return filtered
+
+    def load_muscle_catalog(self) -> List[dict]:
+        """Return the full muscle catalog from config/body/muscles.yaml.
+
+        Each entry has at minimum ``slug``, ``name``, and ``group_slug`` keys.
+        Muscles with SVG overlays also have an ``overlays`` list, where each
+        item contains ``view``, ``variant``, and ``path`` keys.
+        """
+        path = self.root / "body" / "muscles.yaml"
+        if not path.exists():
+            raise AnatomyConfigError(f"Muscle catalog not found at {path}")
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or []
+        if not isinstance(data, list):
+            raise AnatomyConfigError(f"Expected list in {path}, found {type(data).__name__}")
+        return data
 
 
 def load_region(region: str, *, root: Optional[Path] = None, include_shared: bool = True) -> AnatomyRegion:

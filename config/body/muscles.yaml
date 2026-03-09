@@ -25,10 +25,18 @@
 - slug: adductor_longus
   name: Adductor Longus
   group_slug: adductors
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/adductor_longus.svg
 
 - slug: adductor_magnus
   name: Adductor Magnus
   group_slug: adductors
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/adductor_magnus.svg
 
 - slug: adductor_pollicis
   name: Adductor Pollicis
@@ -41,18 +49,37 @@
 - slug: biceps_brachii
   name: Biceps Brachii
   group_slug: biceps
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/biceps_brachii.svg
 
 - slug: biceps_femoris
   name: Biceps Femoris
   group_slug: hamstrings
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/biceps_femoris.svg
 
 - slug: brachialis
   name: Brachialis
   group_slug: biceps
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/brachialis.svg
 
 - slug: brachioradialis
   name: Brachioradialis
   group_slug: biceps
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/brachioradialis.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/brachioradialis.svg
 
 - slug: coracobrachialis
   name: Coracobrachialis
@@ -61,6 +88,13 @@
 - slug: deltoid
   name: Deltoid
   group_slug: shoulders
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/deltoid.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/deltoid.svg
 
 - slug: dorsiflexor_group
   name: Dorsiflexor Functional Group
@@ -85,6 +119,13 @@
 - slug: extensor_carpi_radialis_longus
   name: Extensor Carpi Radialis Longus
   group_slug: forearms
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/extensor_carpi_radialis_longus.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/extensor_carpi_radialis_longus.svg
 
 - slug: extensor_carpi_ulnaris
   name: Extensor Carpi Ulnaris
@@ -121,6 +162,13 @@
 - slug: external_oblique
   name: External Oblique
   group_slug: obliques
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/external_oblique.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/external_oblique.svg
 
 - slug: fibularis_brevis
   name: Fibularis Brevis
@@ -129,14 +177,32 @@
 - slug: fibularis_longus
   name: Fibularis Longus
   group_slug: calves
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/fibularis_longus.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/fibularis_longus.svg
 
 - slug: flexor_carpi_radialis
   name: Flexor Carpi Radialis
   group_slug: forearms
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/flexor_carpi_radialis.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/flexor_carpi_radialis.svg
 
 - slug: flexor_carpi_ulnaris
   name: Flexor Carpi Ulnaris
   group_slug: forearms
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/flexor_carpi_ulnaris.svg
 
 - slug: flexor_digitorum_brevis
   name: Flexor Digitorum Brevis
@@ -173,14 +239,42 @@
 - slug: gastrocnemius
   name: Gastrocnemius
   group_slug: calves
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/gastrocnemius.svg
+
+- slug: gastrocnemius_lateral_head
+  name: Gastrocnemius (Lateral Head)
+  group_slug: calves
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/gastrocnemius_lateral_head.svg
+
+- slug: gastrocnemius_medial_head
+  name: Gastrocnemius (Medial Head)
+  group_slug: calves
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/gastrocnemius_medial_head.svg
 
 - slug: gluteus_maximus
   name: Gluteus Maximus
   group_slug: glutes
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/gluteus_maximus.svg
 
 - slug: gluteus_medius
   name: Gluteus Medius
   group_slug: glutes
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/gluteus_medius.svg
 
 - slug: gluteus_minimus
   name: Gluteus Minimus
@@ -189,6 +283,10 @@
 - slug: gracilis
   name: Gracilis
   group_slug: adductors
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/gracilis.svg
 
 - slug: hamstring_group
   name: Hamstring Functional Group
@@ -206,6 +304,14 @@
   name: Iliotibial Band Muscles (Functional Group)
   group_slug: abductors
 
+- slug: infraspinatus
+  name: Infraspinatus
+  group_slug: shoulders
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/infraspinatus.svg
+
 - slug: internal_oblique
   name: Internal Oblique
   group_slug: obliques
@@ -213,6 +319,10 @@
 - slug: latissimus_dorsi
   name: Latissimus Dorsi
   group_slug: lats
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/latissimus_dorsi.svg
 
 - slug: levator_scapulae
   name: Levator Scapulae
@@ -230,6 +340,14 @@
   name: Multifidus
   group_slug: spinal_erectors
 
+- slug: omohyoid
+  name: Omohyoid
+  group_slug: shoulders
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/omohyoid.svg
+
 - slug: palmaris_longus
   name: Palmaris Longus
   group_slug: forearms
@@ -237,10 +355,18 @@
 - slug: pectineus
   name: Pectineus
   group_slug: adductors
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/pectineus.svg
 
 - slug: pectoralis_major
   name: Pectoralis Major
   group_slug: chest
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/pectoralis_major.svg
 
 - slug: piriformis
   name: Piriformis
@@ -269,14 +395,29 @@
 - slug: rectus_abdominis
   name: Rectus Abdominis
   group_slug: abs
+  overlays:
+    - view: front
+      variant: "full"
+      path: svgs/front/muscles/rectus_abdominis_full.svg
+    - view: front
+      variant: "lower"
+      path: svgs/front/muscles/rectus_abdominis_lower.svg
 
 - slug: rectus_femoris
   name: Rectus Femoris
   group_slug: quads
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/rectus_femoris.svg
 
 - slug: rhomboid_major
   name: Rhomboid Major
   group_slug: upper_back
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/rhomboid_major.svg
 
 - slug: rhomboid_minor
   name: Rhomboid Minor
@@ -289,6 +430,10 @@
 - slug: sartorius
   name: Sartorius
   group_slug: hip_flexors
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/sartorius.svg
 
 - slug: semimembranosus
   name: Semimembranosus
@@ -305,10 +450,21 @@
 - slug: semitendinosus
   name: Semitendinosus
   group_slug: hamstrings
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/semitendinosus.svg
 
 - slug: serratus_anterior
   name: Serratus Anterior
   group_slug: shoulders
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/serratus_anterior.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/serratus_anterior.svg
 
 - slug: serratus_posterior_inferior_back
   name: Serratus Posterior Inferior
@@ -317,6 +473,10 @@
 - slug: soleus
   name: Soleus
   group_slug: calves
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/soleus.svg
 
 - slug: splenius_capitis
   name: Splenius Capitis
@@ -326,6 +486,14 @@
   name: Splenius Cervicis
   group_slug: spinal_erectors
 
+- slug: sternocleidomastoid
+  name: Sternocleidomastoid
+  group_slug: shoulders
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/sternocleidomastoid.svg
+
 - slug: supinator
   name: Supinator
   group_slug: forearms
@@ -333,10 +501,21 @@
 - slug: tensor_fasciae_latae
   name: Tensor Fasciae Latae
   group_slug: abductors
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/tensor_fasciae_latae.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/tensor_fasciae_latae.svg
 
 - slug: teres_major
   name: Teres Major
   group_slug: shoulders
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/teres_major.svg
 
 - slug: tibialis_anterior
   name: Tibialis Anterior
@@ -346,6 +525,14 @@
   name: Tibialis Posterior
   group_slug: calves
 
+- slug: thoracolumbar_fascia_posterior_layer
+  name: Thoracolumbar Fascia (Posterior Layer)
+  group_slug: spinal_erectors
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/thoracolumbar_fascia_posterior_layer.svg
+
 - slug: transversus_abdominis
   name: Transversus Abdominis
   group_slug: abs
@@ -353,10 +540,47 @@
 - slug: trapezius
   name: Trapezius
   group_slug: upper_back
+  overlays:
+    - view: front
+      variant: "upper"
+      path: svgs/front/muscles/trapezius_upper.svg
+    - view: rear
+      variant: "lower"
+      path: svgs/rear/muscles/trapezius_lower.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/trapezius.svg
 
 - slug: triceps_brachii
   name: Triceps Brachii
   group_slug: triceps
+
+- slug: triceps_brachii_lateral
+  name: Triceps Brachii (Lateral Head)
+  group_slug: triceps
+  overlays:
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/triceps_brachii_lateral.svg
+
+- slug: triceps_brachii_long
+  name: Triceps Brachii (Long Head)
+  group_slug: triceps
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/triceps_brachii_long.svg
+    - view: rear
+      variant: null
+      path: svgs/rear/muscles/triceps_brachii_long.svg
+
+- slug: triceps_brachii_medial
+  name: Triceps Brachii (Medial Head)
+  group_slug: triceps
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/triceps_brachii_medial.svg
 
 - slug: vastus_intermedius
   name: Vastus Intermedius
@@ -365,7 +589,15 @@
 - slug: vastus_lateralis
   name: Vastus Lateralis
   group_slug: quads
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/vastus_lateralis.svg
 
 - slug: vastus_medialis
   name: Vastus Medialis
   group_slug: quads
+  overlays:
+    - view: front
+      variant: null
+      path: svgs/front/muscles/vastus_medialis.svg

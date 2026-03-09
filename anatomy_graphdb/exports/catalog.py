@@ -9,7 +9,6 @@ from typing import Any, Sequence
 
 import yaml
 
-from anatomy_graphdb.assets import load_overlay_manifest
 from anatomy_graphdb.databases.anatomy.loader import AnatomyLoader
 from anatomy_graphdb.domain import build_anatomy_model
 
@@ -51,8 +50,12 @@ def _group_entries(loader: AnatomyLoader, group_slugs: set[str]) -> list[dict[st
     if not path.exists():
         return [{"slug": slug, "name": slug.replace("_", " ").title()} for slug in sorted(group_slugs)]
 
-    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    entries = payload.get("muscle_groups", {}).get("entries", [])
+    payload = yaml.safe_load(path.read_text(encoding="utf-8")) or []
+    # Support flat list format: [{slug, name}, ...] or legacy mapping format.
+    if isinstance(payload, list):
+        entries = payload
+    else:
+        entries = payload.get("muscle_groups", {}).get("entries", [])
     rows: list[dict[str, str]] = []
     seen: set[str] = set()
     for item in entries:
@@ -70,17 +73,24 @@ def _group_entries(loader: AnatomyLoader, group_slugs: set[str]) -> list[dict[st
     return rows
 
 
-def export_catalog(*, root: Path | None = None, regions: Sequence[str] | None = None) -> dict[str, Any]:
+def export_catalog(
+    *, root: Path | None = None, regions: Sequence[str] | None = None
+) -> dict[str, Any]:
     """Export canonical anatomy catalog for downstream domain packages."""
     loader = AnatomyLoader(root=root)
     selected_regions = list(regions or loader.available_regions())
     region = loader.load_regions(selected_regions)
     model = build_anatomy_model(region)
 
+    # Build lookup from slug → catalog entry (group_slug + overlays).
+    muscle_catalog = loader.load_muscle_catalog()
+    catalog_by_slug = {m["slug"]: m for m in muscle_catalog}
+
     muscles: list[dict[str, Any]] = []
     group_slugs: set[str] = set()
     for muscle in model.muscles:
-        group_slug = _slugify(muscle.group or "")
+        cat = catalog_by_slug.get(muscle.id, {})
+        group_slug = cat.get("group_slug") or _slugify(muscle.group or "")
         if group_slug:
             group_slugs.add(group_slug)
         muscles.append(
@@ -96,7 +106,12 @@ def export_catalog(*, root: Path | None = None, regions: Sequence[str] | None = 
     muscles.sort(key=lambda item: item["slug"])
     groups = _group_entries(loader, group_slugs)
 
-    manifest_version, overlay_assets = load_overlay_manifest()
+    # Build per-muscle overlay map from the body catalog.
+    muscle_overlays: dict[str, list[dict]] = {
+        m["slug"]: m["overlays"]
+        for m in muscle_catalog
+        if m.get("overlays")
+    }
 
     return {
         "version": 1,
@@ -106,8 +121,7 @@ def export_catalog(*, root: Path | None = None, regions: Sequence[str] | None = 
         "muscle_groups": groups,
         "muscles": muscles,
         "muscle_slug_aliases": LEGACY_MUSCLE_SLUG_ALIASES,
-        "overlay_manifest_version": manifest_version,
-        "overlay_assets": overlay_assets,
+        "muscle_overlays": muscle_overlays,
     }
 
 

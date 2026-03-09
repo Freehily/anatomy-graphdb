@@ -11,7 +11,8 @@ def test_export_catalog_contains_muscles_and_groups() -> None:
     assert catalog["version"] == 1
     assert catalog["muscle_groups"]
     assert catalog["muscles"]
-    assert "overlay_assets" in catalog
+    assert "muscle_overlays" in catalog
+    assert catalog["muscle_overlays"]["pectoralis_major"][0]["view"] == "front"
     assert "muscle_slug_aliases" in catalog
     assert catalog["muscle_slug_aliases"]["anterior_deltoid"] == "deltoid"
     first = catalog["muscles"][0]
