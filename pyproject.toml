@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "anatomy-graphdb"
-version = "1.0.1"
+version = "1.2.0"
 description = "Canonical anatomy domain dataset and Neo4j graph builder."
 license = "MIT"
 authors = ["Tom <tomrfreeman3@gmail.com>"]
