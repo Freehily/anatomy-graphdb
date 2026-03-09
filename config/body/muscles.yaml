@@ -1,281 +1,371 @@
-muscles:
-  entries:
-  - slug: abductor_digiti_minimi
-    name: Abductor Digiti Minimi
-    group_slug: calves
-  - slug: abductor_hallucis
-    name: Abductor Hallucis
-    group_slug: calves
-  - slug: abductor_pollicis_longus
-    name: Abductor Pollicis Longus
-    group_slug: forearms
-  - slug: abductor_pollicis_brevis
-    name: Abductor Pollicis Brevis
-    group_slug: forearms
-  - slug: adductor_brevis
-    name: Adductor Brevis
-    group_slug: calves
-  - slug: adductor_group
-    name: Hip Adductor Functional Group
-    group_slug: calves
-  - slug: adductor_longus
-    name: Adductor Longus
-    group_slug: calves
-  - slug: adductor_magnus
-    name: Adductor Magnus
-    group_slug: calves
-  - slug: adductor_pollicis
-    name: Adductor Pollicis
-    group_slug: forearms
-  - slug: anconeus
-    name: Anconeus
-    group_slug: triceps
-  - slug: biceps_brachii
-    name: Biceps Brachii
-    group_slug: biceps
-  - slug: biceps_femoris
-    name: Biceps Femoris
-    group_slug: calves
-  - slug: brachialis
-    name: Brachialis
-    group_slug: biceps
-  - slug: brachioradialis
-    name: Brachioradialis
-    group_slug: biceps
-  - slug: coracobrachialis
-    name: Coracobrachialis
-    group_slug: biceps
-  - slug: deltoid
-    name: Deltoid
-    group_slug: shoulders
-  - slug: dorsiflexor_group
-    name: Dorsiflexor Functional Group
-    group_slug: calves
-  - slug: erector_spinae_iliocostalis
-    name: Iliocostalis
-    group_slug: lower_back
-  - slug: erector_spinae_longissimus
-    name: Longissimus
-    group_slug: lower_back
-  - slug: erector_spinae_spinalis
-    name: Spinalis
-    group_slug: lower_back
-  - slug: extensor_carpi_radialis_brevis
-    name: Extensor Carpi Radialis Brevis
-    group_slug: forearms
-  - slug: extensor_carpi_radialis_longus
-    name: Extensor Carpi Radialis Longus
-    group_slug: forearms
-  - slug: extensor_carpi_ulnaris
-    name: Extensor Carpi Ulnaris
-    group_slug: forearms
-  - slug: extensor_digiti_minimi
-    name: Extensor Digiti Minimi
-    group_slug: forearms
-  - slug: extensor_digitorum
-    name: Extensor Digitorum
-    group_slug: forearms
-  - slug: extensor_digitorum_longus
-    name: Extensor Digitorum Longus
-    group_slug: calves
-  - slug: extensor_hallucis_longus
-    name: Extensor Hallucis Longus
-    group_slug: calves
-  - slug: extensor_indicis
-    name: Extensor Indicis
-    group_slug: forearms
-  - slug: extensor_pollicis_brevis
-    name: Extensor Pollicis Brevis
-    group_slug: forearms
-  - slug: extensor_pollicis_longus
-    name: Extensor Pollicis Longus
-    group_slug: forearms
-  - slug: external_oblique
-    name: External Oblique
-    group_slug: abs
-  - slug: fibularis_brevis
-    name: Fibularis Brevis
-    group_slug: calves
-  - slug: fibularis_longus
-    name: Fibularis Longus
-    group_slug: calves
-  - slug: flexor_carpi_radialis
-    name: Flexor Carpi Radialis
-    group_slug: forearms
-  - slug: flexor_carpi_ulnaris
-    name: Flexor Carpi Ulnaris
-    group_slug: forearms
-  - slug: flexor_digitorum_brevis
-    name: Flexor Digitorum Brevis
-    group_slug: calves
-  - slug: flexor_digitorum_longus
-    name: Flexor Digitorum Longus
-    group_slug: calves
-  - slug: flexor_digitorum_profundus
-    name: Flexor Digitorum Profundus
-    group_slug: forearms
-  - slug: flexor_digitorum_superficialis
-    name: Flexor Digitorum Superficialis
-    group_slug: forearms
-  - slug: flexor_digiti_minimi_brevis
-    name: Flexor Digiti Minimi Brevis
-    group_slug: forearms
-  - slug: flexor_hallucis_longus
-    name: Flexor Hallucis Longus
-    group_slug: calves
-  - slug: flexor_pollicis_brevis
-    name: Flexor Pollicis Brevis
-    group_slug: forearms
-  - slug: flexor_pollicis_longus
-    name: Flexor Pollicis Longus
-    group_slug: forearms
-  - slug: gastrocnemius
-    name: Gastrocnemius
-    group_slug: calves
-  - slug: gluteus_maximus
-    name: Gluteus Maximus
-    group_slug: calves
-  - slug: gluteus_medius
-    name: Gluteus Medius
-    group_slug: calves
-  - slug: gluteus_minimus
-    name: Gluteus Minimus
-    group_slug: calves
-  - slug: gracilis
-    name: Gracilis
-    group_slug: calves
-  - slug: hamstring_group
-    name: Hamstring Functional Group
-    group_slug: calves
-  - slug: hip_flexor_group
-    name: Hip Flexor Functional Group
-    group_slug: calves
-  - slug: hip_medial_rotators
-    name: Hip Medial Rotators
-    group_slug: calves
-  - slug: iliotibial_band_muscles
-    name: Iliotibial Band Muscles (Functional Group)
-    group_slug: calves
-  - slug: internal_oblique
-    name: Internal Oblique
-    group_slug: abs
-  - slug: latissimus_dorsi
-    name: Latissimus Dorsi
-    group_slug: lats
-  - slug: levator_scapulae
-    name: Levator Scapulae
-    group_slug: lower_back
-  - slug: lumbrical_1
-    name: Lumbrical 1
-    group_slug: calves
-  - slug: lumbricals_2_4
-    name: Lumbricals 2-4
-    group_slug: calves
-  - slug: multifidus
-    name: Multifidus
-    group_slug: lower_back
-  - slug: palmaris_longus
-    name: Palmaris Longus
-    group_slug: forearms
-  - slug: pectineus
-    name: Pectineus
-    group_slug: calves
-  - slug: pectoralis_major
-    name: Pectoralis Major
-    group_slug: lats
-  - slug: piriformis
-    name: Piriformis
-    group_slug: calves
-  - slug: plantaris
-    name: Plantaris
-    group_slug: calves
-  - slug: pronator_quadratus
-    name: Pronator Quadratus
-    group_slug: forearms
-  - slug: pronator_teres
-    name: Pronator Teres
-    group_slug: biceps
-  - slug: quadratus_plantae
-    name: Quadratus Plantae
-    group_slug: calves
-  - slug: quadriceps_group
-    name: Quadriceps Functional Group
-    group_slug: calves
-  - slug: rectus_abdominis
-    name: Rectus Abdominis
-    group_slug: abs
-  - slug: rectus_femoris
-    name: Rectus Femoris
-    group_slug: calves
-  - slug: rhomboid_major
-    name: Rhomboid Major
-    group_slug: lower_back
-  - slug: rhomboid_minor
-    name: Rhomboid Minor
-    group_slug: lower_back
-  - slug: rotator_cuff
-    name: Rotator Cuff Group
-    group_slug: shoulders
-  - slug: sartorius
-    name: Sartorius
-    group_slug: calves
-  - slug: semimembranosus
-    name: Semimembranosus
-    group_slug: calves
-  - slug: semispinalis_capitis
-    name: Semispinalis Capitis
-    group_slug: lower_back
-  - slug: semispinalis_cervicis
-    name: Semispinalis Cervicis
-    group_slug: lower_back
-  - slug: semitendinosus
-    name: Semitendinosus
-    group_slug: calves
-  - slug: serratus_anterior
-    name: Serratus Anterior
-    group_slug: shoulders
-  - slug: serratus_posterior_inferior_back
-    name: Serratus Posterior Inferior
-    group_slug: lower_back
-  - slug: soleus
-    name: Soleus
-    group_slug: calves
-  - slug: splenius_capitis
-    name: Splenius Capitis
-    group_slug: lower_back
-  - slug: splenius_cervicis
-    name: Splenius Cervicis
-    group_slug: lower_back
-  - slug: supinator
-    name: Supinator
-    group_slug: biceps
-  - slug: tensor_fasciae_latae
-    name: Tensor Fasciae Latae
-    group_slug: calves
-  - slug: teres_major
-    name: Teres Major
-    group_slug: shoulders
-  - slug: tibialis_anterior
-    name: Tibialis Anterior
-    group_slug: calves
-  - slug: tibialis_posterior
-    name: Tibialis Posterior
-    group_slug: calves
-  - slug: transversus_abdominis
-    name: Transversus Abdominis
-    group_slug: abs
-  - slug: trapezius
-    name: Trapezius
-    group_slug: lower_back
-  - slug: triceps_brachii
-    name: Triceps Brachii
-    group_slug: biceps
-  - slug: vastus_intermedius
-    name: Vastus Intermedius
-    group_slug: calves
-  - slug: vastus_lateralis
-    name: Vastus Lateralis
-    group_slug: calves
-  - slug: vastus_medialis
-    name: Vastus Medialis
-    group_slug: calves
+- slug: abductor_digiti_minimi
+  name: Abductor Digiti Minimi
+  group_slug: calves
+
+- slug: abductor_hallucis
+  name: Abductor Hallucis
+  group_slug: calves
+
+- slug: abductor_pollicis_longus
+  name: Abductor Pollicis Longus
+  group_slug: forearms
+
+- slug: abductor_pollicis_brevis
+  name: Abductor Pollicis Brevis
+  group_slug: forearms
+
+- slug: adductor_brevis
+  name: Adductor Brevis
+  group_slug: adductors
+
+- slug: adductor_group
+  name: Hip Adductor Functional Group
+  group_slug: adductors
+
+- slug: adductor_longus
+  name: Adductor Longus
+  group_slug: adductors
+
+- slug: adductor_magnus
+  name: Adductor Magnus
+  group_slug: adductors
+
+- slug: adductor_pollicis
+  name: Adductor Pollicis
+  group_slug: forearms
+
+- slug: anconeus
+  name: Anconeus
+  group_slug: triceps
+
+- slug: biceps_brachii
+  name: Biceps Brachii
+  group_slug: biceps
+
+- slug: biceps_femoris
+  name: Biceps Femoris
+  group_slug: hamstrings
+
+- slug: brachialis
+  name: Brachialis
+  group_slug: biceps
+
+- slug: brachioradialis
+  name: Brachioradialis
+  group_slug: biceps
+
+- slug: coracobrachialis
+  name: Coracobrachialis
+  group_slug: biceps
+
+- slug: deltoid
+  name: Deltoid
+  group_slug: shoulders
+
+- slug: dorsiflexor_group
+  name: Dorsiflexor Functional Group
+  group_slug: calves
+
+- slug: erector_spinae_iliocostalis
+  name: Iliocostalis
+  group_slug: spinal_erectors
+
+- slug: erector_spinae_longissimus
+  name: Longissimus
+  group_slug: spinal_erectors
+
+- slug: erector_spinae_spinalis
+  name: Spinalis
+  group_slug: spinal_erectors
+
+- slug: extensor_carpi_radialis_brevis
+  name: Extensor Carpi Radialis Brevis
+  group_slug: forearms
+
+- slug: extensor_carpi_radialis_longus
+  name: Extensor Carpi Radialis Longus
+  group_slug: forearms
+
+- slug: extensor_carpi_ulnaris
+  name: Extensor Carpi Ulnaris
+  group_slug: forearms
+
+- slug: extensor_digiti_minimi
+  name: Extensor Digiti Minimi
+  group_slug: forearms
+
+- slug: extensor_digitorum
+  name: Extensor Digitorum
+  group_slug: forearms
+
+- slug: extensor_digitorum_longus
+  name: Extensor Digitorum Longus
+  group_slug: calves
+
+- slug: extensor_hallucis_longus
+  name: Extensor Hallucis Longus
+  group_slug: calves
+
+- slug: extensor_indicis
+  name: Extensor Indicis
+  group_slug: forearms
+
+- slug: extensor_pollicis_brevis
+  name: Extensor Pollicis Brevis
+  group_slug: forearms
+
+- slug: extensor_pollicis_longus
+  name: Extensor Pollicis Longus
+  group_slug: forearms
+
+- slug: external_oblique
+  name: External Oblique
+  group_slug: obliques
+
+- slug: fibularis_brevis
+  name: Fibularis Brevis
+  group_slug: calves
+
+- slug: fibularis_longus
+  name: Fibularis Longus
+  group_slug: calves
+
+- slug: flexor_carpi_radialis
+  name: Flexor Carpi Radialis
+  group_slug: forearms
+
+- slug: flexor_carpi_ulnaris
+  name: Flexor Carpi Ulnaris
+  group_slug: forearms
+
+- slug: flexor_digitorum_brevis
+  name: Flexor Digitorum Brevis
+  group_slug: calves
+
+- slug: flexor_digitorum_longus
+  name: Flexor Digitorum Longus
+  group_slug: calves
+
+- slug: flexor_digitorum_profundus
+  name: Flexor Digitorum Profundus
+  group_slug: forearms
+
+- slug: flexor_digitorum_superficialis
+  name: Flexor Digitorum Superficialis
+  group_slug: forearms
+
+- slug: flexor_digiti_minimi_brevis
+  name: Flexor Digiti Minimi Brevis
+  group_slug: forearms
+
+- slug: flexor_hallucis_longus
+  name: Flexor Hallucis Longus
+  group_slug: calves
+
+- slug: flexor_pollicis_brevis
+  name: Flexor Pollicis Brevis
+  group_slug: forearms
+
+- slug: flexor_pollicis_longus
+  name: Flexor Pollicis Longus
+  group_slug: forearms
+
+- slug: gastrocnemius
+  name: Gastrocnemius
+  group_slug: calves
+
+- slug: gluteus_maximus
+  name: Gluteus Maximus
+  group_slug: glutes
+
+- slug: gluteus_medius
+  name: Gluteus Medius
+  group_slug: glutes
+
+- slug: gluteus_minimus
+  name: Gluteus Minimus
+  group_slug: glutes
+
+- slug: gracilis
+  name: Gracilis
+  group_slug: adductors
+
+- slug: hamstring_group
+  name: Hamstring Functional Group
+  group_slug: hamstrings
+
+- slug: hip_flexor_group
+  name: Hip Flexor Functional Group
+  group_slug: hip_flexors
+
+- slug: hip_medial_rotators
+  name: Hip Medial Rotators
+  group_slug: adductors
+
+- slug: iliotibial_band_muscles
+  name: Iliotibial Band Muscles (Functional Group)
+  group_slug: abductors
+
+- slug: internal_oblique
+  name: Internal Oblique
+  group_slug: obliques
+
+- slug: latissimus_dorsi
+  name: Latissimus Dorsi
+  group_slug: lats
+
+- slug: levator_scapulae
+  name: Levator Scapulae
+  group_slug: upper_back
+
+- slug: lumbrical_1
+  name: Lumbrical 1
+  group_slug: calves
+
+- slug: lumbricals_2_4
+  name: Lumbricals 2-4
+  group_slug: calves
+
+- slug: multifidus
+  name: Multifidus
+  group_slug: spinal_erectors
+
+- slug: palmaris_longus
+  name: Palmaris Longus
+  group_slug: forearms
+
+- slug: pectineus
+  name: Pectineus
+  group_slug: adductors
+
+- slug: pectoralis_major
+  name: Pectoralis Major
+  group_slug: chest
+
+- slug: piriformis
+  name: Piriformis
+  group_slug: glutes
+
+- slug: plantaris
+  name: Plantaris
+  group_slug: calves
+
+- slug: pronator_quadratus
+  name: Pronator Quadratus
+  group_slug: forearms
+
+- slug: pronator_teres
+  name: Pronator Teres
+  group_slug: forearms
+
+- slug: quadratus_plantae
+  name: Quadratus Plantae
+  group_slug: calves
+
+- slug: quadriceps_group
+  name: Quadriceps Functional Group
+  group_slug: quads
+
+- slug: rectus_abdominis
+  name: Rectus Abdominis
+  group_slug: abs
+
+- slug: rectus_femoris
+  name: Rectus Femoris
+  group_slug: quads
+
+- slug: rhomboid_major
+  name: Rhomboid Major
+  group_slug: upper_back
+
+- slug: rhomboid_minor
+  name: Rhomboid Minor
+  group_slug: upper_back
+
+- slug: rotator_cuff
+  name: Rotator Cuff Group
+  group_slug: shoulders
+
+- slug: sartorius
+  name: Sartorius
+  group_slug: hip_flexors
+
+- slug: semimembranosus
+  name: Semimembranosus
+  group_slug: hamstrings
+
+- slug: semispinalis_capitis
+  name: Semispinalis Capitis
+  group_slug: spinal_erectors
+
+- slug: semispinalis_cervicis
+  name: Semispinalis Cervicis
+  group_slug: spinal_erectors
+
+- slug: semitendinosus
+  name: Semitendinosus
+  group_slug: hamstrings
+
+- slug: serratus_anterior
+  name: Serratus Anterior
+  group_slug: shoulders
+
+- slug: serratus_posterior_inferior_back
+  name: Serratus Posterior Inferior
+  group_slug: spinal_erectors
+
+- slug: soleus
+  name: Soleus
+  group_slug: calves
+
+- slug: splenius_capitis
+  name: Splenius Capitis
+  group_slug: spinal_erectors
+
+- slug: splenius_cervicis
+  name: Splenius Cervicis
+  group_slug: spinal_erectors
+
+- slug: supinator
+  name: Supinator
+  group_slug: forearms
+
+- slug: tensor_fasciae_latae
+  name: Tensor Fasciae Latae
+  group_slug: abductors
+
+- slug: teres_major
+  name: Teres Major
+  group_slug: shoulders
+
+- slug: tibialis_anterior
+  name: Tibialis Anterior
+  group_slug: calves
+
+- slug: tibialis_posterior
+  name: Tibialis Posterior
+  group_slug: calves
+
+- slug: transversus_abdominis
+  name: Transversus Abdominis
+  group_slug: abs
+
+- slug: trapezius
+  name: Trapezius
+  group_slug: upper_back
+
+- slug: triceps_brachii
+  name: Triceps Brachii
+  group_slug: triceps
+
+- slug: vastus_intermedius
+  name: Vastus Intermedius
+  group_slug: quads
+
+- slug: vastus_lateralis
+  name: Vastus Lateralis
+  group_slug: quads
+
+- slug: vastus_medialis
+  name: Vastus Medialis
+  group_slug: quads

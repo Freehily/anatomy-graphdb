@@ -4,7 +4,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Adductor Longus and Pectineus.svg",
-      "path": "svgs/muscles/adductor_longus/front.svg"
+      "path": "svgs/front/muscles/adductor_longus.svg"
     }
   ],
   "pectineus": [
@@ -12,7 +12,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Adductor Longus and Pectineus.svg",
-      "path": "svgs/muscles/pectineus/front.svg"
+      "path": "svgs/front/muscles/pectineus.svg"
     }
   ],
   "biceps_brachii": [
@@ -20,7 +20,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Biceps brachii.svg",
-      "path": "svgs/muscles/biceps_brachii/front.svg"
+      "path": "svgs/front/muscles/biceps_brachii.svg"
     }
   ],
   "brachialis": [
@@ -28,7 +28,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Brachialis.svg",
-      "path": "svgs/muscles/brachialis/front.svg"
+      "path": "svgs/front/muscles/brachialis.svg"
     }
   ],
   "brachioradialis": [
@@ -36,13 +36,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Brachioradialis.svg",
-      "path": "svgs/muscles/brachioradialis/front.svg"
+      "path": "svgs/front/muscles/brachioradialis.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Brachioradialis.svg",
-      "path": "svgs/muscles/brachioradialis/rear.svg"
+      "path": "svgs/rear/muscles/brachioradialis.svg"
     }
   ],
   "deltoid": [
@@ -50,13 +50,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Deltoids.svg",
-      "path": "svgs/muscles/deltoid/front.svg"
+      "path": "svgs/front/muscles/deltoid.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Deltoids.svg",
-      "path": "svgs/muscles/deltoid/rear.svg"
+      "path": "svgs/rear/muscles/deltoid.svg"
     }
   ],
   "extensor_carpi_radialis_longus": [
@@ -64,13 +64,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Extensor  carpi radialis.svg",
-      "path": "svgs/muscles/extensor_carpi_radialis_longus/front.svg"
+      "path": "svgs/front/muscles/extensor_carpi_radialis_longus.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Extensor carpi radialis.svg",
-      "path": "svgs/muscles/extensor_carpi_radialis_longus/rear.svg"
+      "path": "svgs/rear/muscles/extensor_carpi_radialis_longus.svg"
     }
   ],
   "external_oblique": [
@@ -78,13 +78,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/External obliques.svg",
-      "path": "svgs/muscles/external_oblique/front.svg"
+      "path": "svgs/front/muscles/external_oblique.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/External obliques.svg",
-      "path": "svgs/muscles/external_oblique/rear.svg"
+      "path": "svgs/rear/muscles/external_oblique.svg"
     }
   ],
   "flexor_carpi_radialis": [
@@ -92,13 +92,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Flexor carpi radialis.svg",
-      "path": "svgs/muscles/flexor_carpi_radialis/front.svg"
+      "path": "svgs/front/muscles/flexor_carpi_radialis.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Flexor carpi radialis.svg",
-      "path": "svgs/muscles/flexor_carpi_radialis/rear.svg"
+      "path": "svgs/rear/muscles/flexor_carpi_radialis.svg"
     }
   ],
   "gastrocnemius": [
@@ -106,7 +106,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Gastrocnemius (calf).svg",
-      "path": "svgs/muscles/gastrocnemius/front.svg"
+      "path": "svgs/front/muscles/gastrocnemius.svg"
     }
   ],
   "omohyoid": [
@@ -114,7 +114,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Omohyoid.svg",
-      "path": "svgs/muscles/omohyoid/front.svg"
+      "path": "svgs/front/muscles/omohyoid.svg"
     }
   ],
   "pectoralis_major": [
@@ -122,7 +122,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Pectoralis Major.svg",
-      "path": "svgs/muscles/pectoralis_major/front.svg"
+      "path": "svgs/front/muscles/pectoralis_major.svg"
     }
   ],
   "fibularis_longus": [
@@ -130,13 +130,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Peroneus longus.svg",
-      "path": "svgs/muscles/fibularis_longus/front.svg"
+      "path": "svgs/front/muscles/fibularis_longus.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Peroneus longus.svg",
-      "path": "svgs/muscles/fibularis_longus/rear.svg"
+      "path": "svgs/rear/muscles/fibularis_longus.svg"
     }
   ],
   "rectus_abdominis": [
@@ -144,13 +144,13 @@
       "view": "front",
       "variant": "full",
       "source": "svg_front_muscles/Rectus Abdominus.svg",
-      "path": "svgs/muscles/rectus_abdominis/front_full.svg"
+      "path": "svgs/front/muscles/rectus_abdominis_full.svg"
     },
     {
       "view": "front",
       "variant": "lower",
       "source": "svg_front_muscles/Rectus Abdominus_lower.svg",
-      "path": "svgs/muscles/rectus_abdominis/front_lower.svg"
+      "path": "svgs/front/muscles/rectus_abdominis_lower.svg"
     }
   ],
   "rectus_femoris": [
@@ -158,7 +158,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Rectus femoris.svg",
-      "path": "svgs/muscles/rectus_femoris/front.svg"
+      "path": "svgs/front/muscles/rectus_femoris.svg"
     }
   ],
   "sartorius": [
@@ -166,7 +166,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Sartorius.svg",
-      "path": "svgs/muscles/sartorius/front.svg"
+      "path": "svgs/front/muscles/sartorius.svg"
     }
   ],
   "serratus_anterior": [
@@ -174,13 +174,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Serratus Anterior.svg",
-      "path": "svgs/muscles/serratus_anterior/front.svg"
+      "path": "svgs/front/muscles/serratus_anterior.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Serratus Anterior.svg",
-      "path": "svgs/muscles/serratus_anterior/rear.svg"
+      "path": "svgs/rear/muscles/serratus_anterior.svg"
     }
   ],
   "soleus": [
@@ -188,7 +188,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Soleus.svg",
-      "path": "svgs/muscles/soleus/front.svg"
+      "path": "svgs/front/muscles/soleus.svg"
     }
   ],
   "sternocleidomastoid": [
@@ -196,7 +196,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Sternocleidomastoid.svg",
-      "path": "svgs/muscles/sternocleidomastoid/front.svg"
+      "path": "svgs/front/muscles/sternocleidomastoid.svg"
     }
   ],
   "tensor_fasciae_latae": [
@@ -204,13 +204,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Tensor fasciae latae.svg",
-      "path": "svgs/muscles/tensor_fasciae_latae/front.svg"
+      "path": "svgs/front/muscles/tensor_fasciae_latae.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Tensor fascie latae.svg",
-      "path": "svgs/muscles/tensor_fasciae_latae/rear.svg"
+      "path": "svgs/rear/muscles/tensor_fasciae_latae.svg"
     }
   ],
   "trapezius": [
@@ -218,19 +218,19 @@
       "view": "front",
       "variant": "upper",
       "source": "svg_front_muscles/Trapezius.svg",
-      "path": "svgs/muscles/trapezius/front_upper.svg"
+      "path": "svgs/front/muscles/trapezius_upper.svg"
     },
     {
       "view": "rear",
       "variant": "lower",
       "source": "svg_rear_muscles/Lower Trapezius.svg",
-      "path": "svgs/muscles/trapezius/rear_lower.svg"
+      "path": "svgs/rear/muscles/trapezius_lower.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Trapezius.svg",
-      "path": "svgs/muscles/trapezius/rear.svg"
+      "path": "svgs/rear/muscles/trapezius.svg"
     }
   ],
   "triceps_brachii_long": [
@@ -238,13 +238,13 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Triceps brachii, long head.svg",
-      "path": "svgs/muscles/triceps_brachii_long/front.svg"
+      "path": "svgs/front/muscles/triceps_brachii_long.svg"
     },
     {
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Triceps Brachii ( long head, lateral head ).svg",
-      "path": "svgs/muscles/triceps_brachii_long/rear.svg"
+      "path": "svgs/rear/muscles/triceps_brachii_long.svg"
     }
   ],
   "triceps_brachii_medial": [
@@ -252,7 +252,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Triceps brachii, medial head.svg",
-      "path": "svgs/muscles/triceps_brachii_medial/front.svg"
+      "path": "svgs/front/muscles/triceps_brachii_medial.svg"
     }
   ],
   "vastus_lateralis": [
@@ -260,7 +260,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Vastus Lateralis.svg",
-      "path": "svgs/muscles/vastus_lateralis/front.svg"
+      "path": "svgs/front/muscles/vastus_lateralis.svg"
     }
   ],
   "vastus_medialis": [
@@ -268,7 +268,7 @@
       "view": "front",
       "variant": null,
       "source": "svg_front_muscles/Vastus Medialis.svg",
-      "path": "svgs/muscles/vastus_medialis/front.svg"
+      "path": "svgs/front/muscles/vastus_medialis.svg"
     }
   ],
   "adductor_magnus": [
@@ -276,7 +276,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Adductor magnus.svg",
-      "path": "svgs/muscles/adductor_magnus/rear.svg"
+      "path": "svgs/rear/muscles/adductor_magnus.svg"
     }
   ],
   "biceps_femoris": [
@@ -284,7 +284,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Biceps fermoris.svg",
-      "path": "svgs/muscles/biceps_femoris/rear.svg"
+      "path": "svgs/rear/muscles/biceps_femoris.svg"
     }
   ],
   "flexor_carpi_ulnaris": [
@@ -292,7 +292,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Flexor carpi ulnaris.svg",
-      "path": "svgs/muscles/flexor_carpi_ulnaris/rear.svg"
+      "path": "svgs/rear/muscles/flexor_carpi_ulnaris.svg"
     }
   ],
   "gastrocnemius_lateral_head": [
@@ -300,7 +300,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Gastrocnemius, lateral head.svg",
-      "path": "svgs/muscles/gastrocnemius_lateral_head/rear.svg"
+      "path": "svgs/rear/muscles/gastrocnemius_lateral_head.svg"
     }
   ],
   "gastrocnemius_medial_head": [
@@ -308,7 +308,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Gastrocnemius, medial head.svg",
-      "path": "svgs/muscles/gastrocnemius_medial_head/rear.svg"
+      "path": "svgs/rear/muscles/gastrocnemius_medial_head.svg"
     }
   ],
   "gluteus_maximus": [
@@ -316,7 +316,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Gluteus maximus.svg",
-      "path": "svgs/muscles/gluteus_maximus/rear.svg"
+      "path": "svgs/rear/muscles/gluteus_maximus.svg"
     }
   ],
   "gluteus_medius": [
@@ -324,7 +324,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Gluteus medius.svg",
-      "path": "svgs/muscles/gluteus_medius/rear.svg"
+      "path": "svgs/rear/muscles/gluteus_medius.svg"
     }
   ],
   "gracilis": [
@@ -332,7 +332,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Gracilis.svg",
-      "path": "svgs/muscles/gracilis/rear.svg"
+      "path": "svgs/rear/muscles/gracilis.svg"
     }
   ],
   "infraspinatus": [
@@ -340,7 +340,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Infraspinatus.svg",
-      "path": "svgs/muscles/infraspinatus/rear.svg"
+      "path": "svgs/rear/muscles/infraspinatus.svg"
     }
   ],
   "latissimus_dorsi": [
@@ -348,7 +348,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Lattisimus dorsi.svg",
-      "path": "svgs/muscles/latissimus_dorsi/rear.svg"
+      "path": "svgs/rear/muscles/latissimus_dorsi.svg"
     }
   ],
   "rhomboid_major": [
@@ -356,7 +356,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Rhomboid major.svg",
-      "path": "svgs/muscles/rhomboid_major/rear.svg"
+      "path": "svgs/rear/muscles/rhomboid_major.svg"
     }
   ],
   "semitendinosus": [
@@ -364,7 +364,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Semitendinosus.svg",
-      "path": "svgs/muscles/semitendinosus/rear.svg"
+      "path": "svgs/rear/muscles/semitendinosus.svg"
     }
   ],
   "teres_major": [
@@ -372,7 +372,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Teres major.svg",
-      "path": "svgs/muscles/teres_major/rear.svg"
+      "path": "svgs/rear/muscles/teres_major.svg"
     }
   ],
   "thoracolumbar_fascia_posterior_layer": [
@@ -380,7 +380,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Thoracolumbar fascia.svg",
-      "path": "svgs/muscles/thoracolumbar_fascia_posterior_layer/rear.svg"
+      "path": "svgs/rear/muscles/thoracolumbar_fascia_posterior_layer.svg"
     }
   ],
   "triceps_brachii_lateral": [
@@ -388,7 +388,7 @@
       "view": "rear",
       "variant": null,
       "source": "svg_rear_muscles/Triceps Brachii ( long head, lateral head ).svg",
-      "path": "svgs/muscles/triceps_brachii_lateral/rear.svg"
+      "path": "svgs/rear/muscles/triceps_brachii_lateral.svg"
     }
   ]
 }

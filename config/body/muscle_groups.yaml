@@ -1,30 +1,50 @@
-muscle_groups:
-  entries:
-    - slug: abs
-      name: Abs
-    - slug: obliques
-      name: Obliques
-    - slug: biceps
-      name: Biceps
-    - slug: forearms
-      name: Forearms
-    - slug: triceps
-      name: Triceps
-    - slug: calves
-      name: Calves
-    - slug: glutes
-      name: Glutes
-    - slug: hamstrings
-      name: Hamstrings
-    - slug: lower_back
-      name: Lower Back
-    - slug: quads
-      name: Quads
-    - slug: chest
-      name: Chest
-    - slug: lats
-      name: Lats
-    - slug: shoulders
-      name: Shoulders
-    - slug: upper_back
-      name: Upper Back
+- slug: chest
+  name: Chest
+
+- slug: upper_back
+  name: Upper Back
+
+- slug: lats
+  name: Lats
+
+- slug: shoulders
+  name: Shoulders
+
+- slug: biceps
+  name: Biceps
+
+- slug: triceps
+  name: Triceps
+
+- slug: forearms
+  name: Forearms
+
+- slug: abs
+  name: Abs
+
+- slug: obliques
+  name: Obliques
+
+- slug: spinal_erectors
+  name: Spinal Erectors
+
+- slug: quads
+  name: Quads
+
+- slug: hamstrings
+  name: Hamstrings
+
+- slug: glutes
+  name: Glutes
+
+- slug: adductors
+  name: Adductors
+
+- slug: abductors
+  name: Abductors
+
+- slug: hip_flexors
+  name: Hip Flexors
+
+- slug: calves
+  name: Calves
